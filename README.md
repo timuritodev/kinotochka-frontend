@@ -1,1 +1,1 @@
-# Frontend
+# Frontend репозиторий проекта Movie recommendations
