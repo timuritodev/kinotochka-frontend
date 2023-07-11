@@ -5,5 +5,10 @@
 	"semi": true,
 	"trailingComma": "es5",
 	"singleQuote": true,
-	"endOfLine": "lf"
+	"endOfLine": "lf",
+	"bracketSpacing": true,
+	"jsxSingleQuote": false,
+	"arrowParens": "always",
+	"proseWrap": "never",
+	"htmlWhitespaceSensitivity": "strict"
 }
