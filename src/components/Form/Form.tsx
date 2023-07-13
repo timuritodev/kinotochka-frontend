@@ -1,11 +1,12 @@
 import { FC, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import { useAppDispatch } from '../../hooks/redux';
-import GenresSlider from '../GenresSlider/GenresSlider';
+import Slider, { SliderTypes } from '../Slider/Slider';
 import Input, { InputTypes } from '../Input/Input';
 
 import './Form.css';
 import { signInUser, signUpUser } from 'src/services/redux/slices/user/user';
+import { GENRES } from 'src/utils/constants';
 
 export enum FormTypes {
 	signIn = 'signIn',
@@ -37,7 +38,7 @@ const Form: FC<IForm> = ({ formType, step, setStep }) => {
 				<Input inputType={InputTypes.repeatPassword}></Input>
 			</>
 		) : formType === 'signUp' && step === 2 ? (
-			<GenresSlider />
+			<Slider contentType={SliderTypes.genresBlock} content={GENRES} />
 		) : formType === 'recoverPassword' && step === 1 ? (
 			<Input inputType={InputTypes.email}></Input>
 		) : formType === 'recoverPassword' && step === 2 ? (
