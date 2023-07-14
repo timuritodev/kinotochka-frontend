@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Auth from './components/Auth/Auth';
 import { FormTypes } from './components/Form/Form';
+import { FlanksTypes } from './types/Flanks.types';
 import { Layout } from './components/Layout/Layout';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import FlanksPage from './pages/FlanksPage/FlanksPage';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './services/redux/store';
@@ -31,6 +33,22 @@ const Root: FC = () => {
 						element={<Auth formName={FormTypes.recoverPassword} />}
 					/>
 					<Route path="*" element={<ErrorPage />} />
+					<Route
+						path="/rated-films"
+						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
+					/>
+					<Route
+						path="/will-see"
+						element={<FlanksPage formName={FlanksTypes.willSee} />}
+					/>
+					<Route
+						path="/favorites"
+						element={<FlanksPage formName={FlanksTypes.favorites} />}
+					/>
+					<Route
+						path="/collections"
+						element={<FlanksPage formName={FlanksTypes.collections} />}
+					/>
 				</Route>
 			</Routes>
 		</div>

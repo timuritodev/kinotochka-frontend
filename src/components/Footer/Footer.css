@@ -1,6 +1,25 @@
 .footer {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	height: 178px;
+	background-color: #2b2f33;
+}
+
+.footer__desc {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22.59px;
+	text-align: center;
+	color: #fff;
+	margin-left: 120px;
+}
+
+.footer__scroll {
+	text-decoration: none;
+	margin-right: 120px;
+}
+
+.footer__scroll:hover {
+	opacity: 0.6;
 }
