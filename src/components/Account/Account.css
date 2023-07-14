@@ -1,0 +1,22 @@
+.account {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 120px 0 88px;
+}
+
+.account__login-text {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 40px;
+	color: #9ca3af;
+	text-decoration: none;
+}
+
+.account__login-text:hover {
+	opacity: 0.6;
+}
+
+.account__profile-icon:hover {
+	opacity: 0.6;
+}
