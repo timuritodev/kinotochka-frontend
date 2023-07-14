@@ -14,10 +14,12 @@ import {
 
 import { exampleReducer } from './slices/example/example';
 import { userReducer } from './slices/user/user';
+import { filmSlice, filmsReducer } from './slices/films/films';
 
 const rootReducer = combineReducers({
 	example: exampleReducer,
 	user: userReducer,
+	films: filmsReducer,
 });
 
 const persistConfig = {

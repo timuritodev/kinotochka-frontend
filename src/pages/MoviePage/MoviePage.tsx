@@ -1,3 +1,4 @@
+import React from 'react';
 import './MoviePage.css';
 // import pic from "../../images/123.jpg";
 // import icon from "../../images/Icon.svg";

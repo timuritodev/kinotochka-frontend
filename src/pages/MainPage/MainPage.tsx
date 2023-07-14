@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './MainPage.css';
+import React from 'react';
 
 export default function MainPage() {
 	return (
