@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import './Checkbox.css';
+import './GenreCheckbox.css';
 
 interface ICheckbox {
 	text: string;
@@ -12,15 +12,15 @@ const Checkbox: FC<ICheckbox> = ({ text, id }) => {
 	};
 
 	return (
-		<label className="checkbox">
+		<label className="genre-checkbox">
 			<input
-				className="checkbox__input"
+				className="genre-checkbox__input"
 				type="checkbox"
 				checked={checked}
 				onChange={handleChange}
 				id={id}
 			/>
-			<span className="checkbox__appearance">{text}</span>
+			<span className="genre-checkbox__appearance">{text}</span>
 		</label>
 	);
 };
