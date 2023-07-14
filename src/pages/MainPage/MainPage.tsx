@@ -11,5 +11,4 @@ export default function MainPage() {
 			<Link to="/sign-up">Зарегистрироваться</Link>
 		</main>
 	);
-	
 }
