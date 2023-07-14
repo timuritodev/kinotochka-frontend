@@ -2,7 +2,7 @@ import { FC } from 'react';
 import './Header.css';
 import logo from '../../images/logo.svg';
 import search from '../../images/search.svg';
-import Account from '../Account/Account'
+import Account from '../Account/Account';
 
 const Header: FC = () => {
 	return (
@@ -28,8 +28,8 @@ const Header: FC = () => {
 					/>
 				</button>
 			</form>
-			<Account 
-			// isLoggedIn={true} 
+			<Account
+			// isLoggedIn={true}
 			/>
 		</header>
 	);

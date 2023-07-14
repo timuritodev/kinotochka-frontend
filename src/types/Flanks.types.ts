@@ -2,9 +2,9 @@ export enum FlanksTypes {
 	ratedFilms = 'ratedFilms',
 	willSee = 'willSee',
 	favorites = 'favorites',
-    collections = 'collections'
+	collections = 'collections',
 }
 
 export interface IFlanks {
-    formName: FlanksTypes
+	formName: FlanksTypes;
 }
