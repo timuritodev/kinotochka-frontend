@@ -1,0 +1,19 @@
+.rated {
+	display: flex;
+	color: white;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 12px;
+	margin-top: 15px;
+}
+
+.rated_row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 20px;
+}
+
+.rated_img {
+	margin-right: 5px;
+}

@@ -6,6 +6,8 @@ export interface IFilms {
 	imageUrl: string;
 	movieCardUrl: string;
 	index: number;
+	year: number;
+	genres: string[]
 }
 
 interface IRating {
