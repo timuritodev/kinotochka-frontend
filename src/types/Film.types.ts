@@ -7,7 +7,7 @@ export interface IFilms {
 	movieCardUrl: string;
 	index: number;
 	year: number;
-	genres: string[]
+	genres: string[];
 }
 
 interface IRating {
@@ -19,4 +19,10 @@ export interface IFilmsState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
 	films: Array<IFilms>;
+}
+
+export interface ISelectionState {
+	status: 'idle' | 'success' | 'loading' | 'failed';
+	error: string | undefined;
+	films: Array<Array<IFilms>>;
 }
