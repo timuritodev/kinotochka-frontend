@@ -22,7 +22,9 @@ const initialState: IFilmsState = {
 			movieCardUrl: '',
 			index: 0,
 			year: 0,
-			genres: [''],
+			genres: [
+				''
+			]
 		},
 	],
 };

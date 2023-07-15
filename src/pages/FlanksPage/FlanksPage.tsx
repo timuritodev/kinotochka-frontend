@@ -20,10 +20,10 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		formName === 'ratedFilms'
 			? 'Оцененные фильмы'
 			: formName === 'willSee'
-			? 'Буду смотреть'
-			: formName === 'favorites'
-			? 'Избранные'
-			: 'Подборки';
+				? 'Буду смотреть'
+				: formName === 'favorites'
+					? 'Избранные'
+					: 'Подборки';
 
 	return (
 		<section className="flank">
