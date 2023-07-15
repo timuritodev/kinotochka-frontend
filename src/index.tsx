@@ -13,6 +13,7 @@ import { store, persistor } from './services/redux/store';
 
 import './index.css';
 import MainPage from './pages/MainPage/MainPage';
+import MoviePage from './pages/MoviePage/MoviePage';
 
 const Root: FC = () => {
 	return (
@@ -48,6 +49,10 @@ const Root: FC = () => {
 					<Route
 						path="/collections"
 						element={<FlanksPage formName={FlanksTypes.collections} />}
+					/>
+					<Route
+						path="/movie-page"
+						element={<MoviePage />}
 					/>
 				</Route>
 			</Routes>
