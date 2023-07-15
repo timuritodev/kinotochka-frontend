@@ -38,6 +38,7 @@ const Header: FC = () => {
 			<Link to='/will-see'>Буду смотреть</Link>
 			<Link to='/favorites'>Избранные</Link>
 			<Link to='/collections'>Подборки</Link>
+			<Link to='/movie-page'>Страница фильма</Link>
 		</header>
 	);
 };
