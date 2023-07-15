@@ -4,7 +4,7 @@
 	align-items: center;
 	height: 118px;
 	gap: 30px;
-	background-color: #2b2f33;
+	background-color: transparent;
 }
 
 .header__logo {

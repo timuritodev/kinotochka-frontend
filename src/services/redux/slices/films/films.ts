@@ -21,6 +21,10 @@ const initialState: IFilmsState = {
 			imageUrl: '',
 			movieCardUrl: '',
 			index: 0,
+			year: 0,
+			genres: [
+				''
+			]
 		},
 	],
 };
@@ -45,3 +49,5 @@ export const filmSlice = createSlice({
 });
 
 export const filmsReducer = filmSlice.reducer;
+
+// export const selectFilms = (state: { films: IFilmsState }) => state.films.films;
