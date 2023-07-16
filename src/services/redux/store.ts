@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 	example: exampleReducer,
 	user: userReducer,
 	films: filmsReducer,
-	selection: selectionsReducer
+	selection: selectionsReducer,
 });
 
 const persistConfig = {

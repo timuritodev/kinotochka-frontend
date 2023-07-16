@@ -2,9 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getSelections } from './selectionsAPI';
 import { ISelectionState } from 'src/types/Film.types';
 
-export const getSelectionsApi = createAsyncThunk('@@selections/films', async () => {
-	return getSelections();
-});
+export const getSelectionsApi = createAsyncThunk(
+	'@@selections/films',
+	async () => {
+		return getSelections();
+	}
+);
 
 const initialState: ISelectionState = {
 	status: 'idle',
@@ -14,24 +17,27 @@ const initialState: ISelectionState = {
 			id: 0,
 			title: '',
 			description: '',
-			movie: [{
-				id: '',
-				title: '',
-				rating: {
-					kinopoisk: 0,
-					imdb: 0,
+			movie: [
+				{
+					id: '',
+					title: '',
+					rating: {
+						kinopoisk: 0,
+						imdb: 0,
+					},
+					shortDescription: '',
+					imageUrl: '',
+					movieCardUrl: '',
+					index: 0,
+					year: 0,
+					genres: ['', '', '', ''],
+					is_favorite: false,
+					must_see: false,
+					is_viewed: false,
 				},
-				shortDescription: '',
-				imageUrl: '',
-				movieCardUrl: '',
-				index: 0,
-				year: 0,
-				genres: ['', '', '', ''],
-				is_favorite: false,
-				must_see: false,
-				is_viewed: false
-			}]
-		}]
+			],
+		},
+	],
 };
 
 export const selectionSlice = createSlice({

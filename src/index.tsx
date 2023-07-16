@@ -50,10 +50,7 @@ const Root: FC = () => {
 						path="/collections"
 						element={<FlanksPage formName={FlanksTypes.collections} />}
 					/>
-					<Route
-						path="/movie-page"
-						element={<MoviePage />}
-					/>
+					<Route path="/movie-page" element={<MoviePage />} />
 				</Route>
 			</Routes>
 		</div>

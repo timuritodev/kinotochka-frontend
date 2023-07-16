@@ -1,138 +1,138 @@
 .moviepage {
-    max-width: 1440px;
-    margin: auto;
+	max-width: 1440px;
+	margin: auto;
 }
 
 .movie-block {
-    display: flex;
-    gap: 27px;
+	display: flex;
+	gap: 27px;
 }
 
 .movie-block__img {
-    width: 542.791px;
-    height: 317.904px;
+	width: 542.791px;
+	height: 317.904px;
 }
 
 .movie-block__text {
-    max-width: 380px;
+	max-width: 380px;
 }
 
 .movie-block__text_title {
-    color: #111827;
-    font-size: 36px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 30px;
+	color: #111827;
+	font-size: 36px;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
 }
 
 .movie-block__text_year {
-    color: #111827;
-    font-size: 15px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 18px;
-    margin: 10px 0 10px 0;
+	color: #111827;
+	font-size: 15px;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 18px;
+	margin: 10px 0 10px 0;
 }
 
 .movie-block__text_subtitle {
-    color: #111827;
-    font-size: 14px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 18px;
+	color: #111827;
+	font-size: 14px;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
 }
 
 /* .movie-block__rating__container {
 }  */
 
 .movie-block__rating__container_plus {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
 }
 
 .movie-block__rating {
-    display: flex;
-    flex-direction: col;
-    gap: 5px;
+	display: flex;
+	flex-direction: col;
+	gap: 5px;
 }
 
 .movie-block__rating__text__container {
-    text-align: end;
+	text-align: end;
 }
 
 .movie-block__rating__text {
-    padding: 10px 20px 10px 0;
-    color: #0B8710;
-    font-size: 20px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 20px;
+	padding: 10px 20px 10px 0;
+	color: #0b8710;
+	font-size: 20px;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 20px;
 }
 
 .movie-block__rating__subtext {
-    color: #4C4B4B;
-    font-size: 12px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 12px;
+	color: #4c4b4b;
+	font-size: 12px;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 12px;
 }
 
 .moviepage__button__container {
-    margin: 21px 0 0 0;
-    display: flex;
-    gap: 30px;
+	margin: 21px 0 0 0;
+	display: flex;
+	gap: 30px;
 }
 
 .moviepage__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 202px;
-    height: 44px;
-    border-radius: 6px;
-    background: #C4C4C4;
-    border: none;
-    cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 202px;
+	height: 44px;
+	border-radius: 6px;
+	background: #c4c4c4;
+	border: none;
+	cursor: pointer;
 }
 
 .moviepage__button__text {
-    margin: 0;
-    padding: 0;
-    color: #111827;
-    font-size: 14px;
-    font-family: DM Sans;
-    font-style: normal;
-    font-weight: 700;
-    text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	color: #111827;
+	font-size: 14px;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 
 .moviepage__button_img {
-    padding: 0 10px 0 0;
+	padding: 0 10px 0 0;
 }
 
 .moviepage__button_favourite {
-    background-color: white;
-    border: none;
-    text-align: center;
-    cursor: pointer;
+	background-color: white;
+	border: none;
+	text-align: center;
+	cursor: pointer;
 }
 
 .moviepage__button_seen {
-    background-color: white;
-    border: none;
-    text-align: center;
-    cursor: pointer;
+	background-color: white;
+	border: none;
+	text-align: center;
+	cursor: pointer;
 }
 
 .moviepage__button_later {
-    background-color: white;
-    border: none;
-    text-align: center;
-    cursor: pointer;
+	background-color: white;
+	border: none;
+	text-align: center;
+	cursor: pointer;
 }

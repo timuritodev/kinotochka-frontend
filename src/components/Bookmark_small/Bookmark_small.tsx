@@ -1,4 +1,4 @@
-import './Bookmark_small.css'
+import './Bookmark_small.css';
 import { useState } from 'react';
 import img_default from '../../images/btn_bookmark_default.svg';
 import img_hover from '../../images/btn_bookmark_hover.svg';

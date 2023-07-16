@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Header: FC = () => {
 	return (
 		<header className="header" id="header">
-			<Link to ='/'>
+			<Link to="/">
 				<img className="header__logo" alt="лого" src={logo} />
 			</Link>
 			<form className="header__search">
@@ -18,27 +18,27 @@ const Header: FC = () => {
 					name="name"
 					type="text"
 					placeholder="Какой фильм вы хотите найти?"
-				// value={values.name || ''}
-				// onChange={handleChange}
-				// disabled={isLoading}
+					// value={values.name || ''}
+					// onChange={handleChange}
+					// disabled={isLoading}
 				/>
 				<button className="header__search-button" type="submit">
 					<img
 						className="header__search-button_search"
 						src={search}
 						alt="Кнопка поиска"
-					// disabled={!isValid}
+						// disabled={!isValid}
 					/>
 				</button>
 			</form>
 			<Account
 			// isLoggedIn={true}
 			/>
-			<Link to='/rated-films'>Оцененные фильмы</Link>
-			<Link to='/will-see'>Буду смотреть</Link>
-			<Link to='/favorites'>Избранные</Link>
-			<Link to='/collections'>Подборки</Link>
-			<Link to='/movie-page'>Страница фильма</Link>
+			<Link to="/rated-films">Оцененные фильмы</Link>
+			<Link to="/will-see">Буду смотреть</Link>
+			<Link to="/favorites">Избранные</Link>
+			<Link to="/collections">Подборки</Link>
+			<Link to="/movie-page">Страница фильма</Link>
 		</header>
 	);
 };

@@ -9,7 +9,6 @@ import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
-
 	const dispatch = useAppDispatch();
 	const selected = useAppSelector((state) => state.selection.selections);
 	const favorites = useAppSelector((state) => state.films.favoriteFilms);
@@ -25,30 +24,28 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		formName === 'ratedFilms'
 			? ratedFilms
 			: formName === 'willSee'
-				? willSee
-				: formName === 'favorites'
-					? favorites
-					: [];
+			? willSee
+			: formName === 'favorites'
+			? favorites
+			: [];
 
 	const title =
 		formName === 'ratedFilms'
 			? 'Оцененные фильмы'
 			: formName === 'willSee'
-				? 'Буду смотреть'
-				: formName === 'favorites'
-					? 'Избранные'
-					: 'Подборки';
+			? 'Буду смотреть'
+			: formName === 'favorites'
+			? 'Избранные'
+			: 'Подборки';
 
 	return (
 		<section className="flank">
 			<h1 className="flank_title">{title}</h1>
 			<section className="flank_container">
 				{formName === 'collections' ? (
-					<SelectionCard selected={selected}/>
+					<SelectionCard selected={selected} />
 				) : (
-					togglefavorites.map((film) => (
-						<FilmCard film={film} />
-					))
+					togglefavorites.map((film) => <FilmCard film={film} />)
 				)}
 			</section>
 		</section>
