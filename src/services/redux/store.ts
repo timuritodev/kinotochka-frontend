@@ -16,12 +16,14 @@ import { exampleReducer } from './slices/example/example';
 import { userReducer } from './slices/user/user';
 import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
+import { ratingReducer } from './slices/rating/rating';
 
 const rootReducer = combineReducers({
 	example: exampleReducer,
 	user: userReducer,
 	films: filmsReducer,
 	selection: selectionsReducer,
+	rating: ratingReducer,
 });
 
 const persistConfig = {
