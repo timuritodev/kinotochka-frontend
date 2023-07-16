@@ -2,9 +2,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { IRatingState } from 'src/types/Rating.types';
 import { getRating } from './ratingApi';
 
-export const getMoviesRating = createAsyncThunk('@@favorites/favorites', async () => {
-	return getRating();
-});
+export const getMoviesRating = createAsyncThunk(
+	'@@favorites/favorites',
+	async () => {
+		return getRating();
+	}
+);
 
 const initialState: IRatingState = {
 	status: 'idle',
@@ -17,7 +20,7 @@ const initialState: IRatingState = {
 		is_viewed: false,
 		must_see: false,
 		is_favorite: false,
-	}
+	},
 };
 
 export const ratingSlice = createSlice({
