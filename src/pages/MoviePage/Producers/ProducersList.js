@@ -1,6 +1,4 @@
-/* eslint react/prop-types: 0 */
-
-import "../Actors/ActorsList.css";
+import "../../pages/MoviePage/Actors/ActorsList.css";
 import Actors from "../Actors/Actors";
 
 function ProducersList({producers}) {

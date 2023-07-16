@@ -1,5 +1,3 @@
-/* eslint react/prop-types: 0 */
-
 import "./Actors.css";
 
 function Actors({ name, picture }) {
