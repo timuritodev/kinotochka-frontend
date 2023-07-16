@@ -41,7 +41,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Драмма', 'Превосходство'],
 			is_favorite: true,
 			must_see: false,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '107',
@@ -60,7 +60,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Драмма', 'Превосходство'],
 			is_favorite: true,
 			must_see: false,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '108',
@@ -79,7 +79,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Драмма', 'Превосходство'],
 			is_favorite: true,
 			must_see: false,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '102',
@@ -98,7 +98,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Сюреализм'],
 			is_favorite: true,
 			must_see: false,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '109',
@@ -117,7 +117,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Сюреализм'],
 			is_favorite: true,
 			must_see: false,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '110',
@@ -136,7 +136,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Сюреализм'],
 			is_favorite: true,
 			must_see: false,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '103',
@@ -153,7 +153,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Комедия', 'Драмма'],
 			is_favorite: true,
 			must_see: true,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '111',
@@ -170,7 +170,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Комедия', 'Драмма'],
 			is_favorite: true,
 			must_see: true,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '112',
@@ -187,7 +187,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Комедия', 'Драмма'],
 			is_favorite: true,
 			must_see: true,
-			is_viewed: false
+			is_viewed: false,
 		},
 		{
 			id: '104',
@@ -205,7 +205,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Эротика'],
 			is_favorite: false,
 			must_see: true,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '113',
@@ -223,7 +223,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Эротика'],
 			is_favorite: false,
 			must_see: true,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '114',
@@ -241,7 +241,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Эротика'],
 			is_favorite: false,
 			must_see: true,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '105',
@@ -259,7 +259,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Исторический', 'Драмма'],
 			is_favorite: false,
 			must_see: false,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '115',
@@ -277,7 +277,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Исторический', 'Драмма'],
 			is_favorite: false,
 			must_see: false,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '116',
@@ -295,7 +295,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Исторический', 'Драмма'],
 			is_favorite: false,
 			must_see: false,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '106',
@@ -312,7 +312,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
 			is_favorite: false,
 			must_see: false,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '117',
@@ -329,7 +329,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
 			is_favorite: false,
 			must_see: false,
-			is_viewed: true
+			is_viewed: true,
 		},
 		{
 			id: '118',
@@ -346,7 +346,7 @@ export const getFilms = (): Array<IFilms> => {
 			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
 			is_favorite: false,
 			must_see: false,
-			is_viewed: true
+			is_viewed: true,
 		},
 	];
 
