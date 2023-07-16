@@ -1,5 +1,3 @@
-/* eslint react/prop-types: 0 */
-
 import Actors from "./Actors";
 import "./ActorsList.css";
 
