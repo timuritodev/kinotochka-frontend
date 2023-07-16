@@ -39,6 +39,47 @@ export const getFilms = (): Array<IFilms> => {
 			index: 1,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			is_favorite: true,
+			must_see: false,
+			is_viewed: false
+		},
+		{
+			id: '107',
+			title: 'Абра кадабра',
+			rating: {
+				kinopoisk: 7.1,
+				imdb: 7.1,
+			},
+			shortDescription:
+				'Афганистан, март 2018 года. Во время спецоперации по поиску оружия талибов отряд сержанта армии США Джона Кинли попадает в засаду. В живых остаются...',
+			imageUrl:
+				'https://in-rating.ru/space/wp-content/uploads/2023/03/Les-trois-mousquetaires-DArtagnan-9-1200.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/101',
+			index: 1,
+			year: 2023,
+			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			is_favorite: true,
+			must_see: false,
+			is_viewed: false
+		},
+		{
+			id: '108',
+			title: 'Абра кадабра',
+			rating: {
+				kinopoisk: 7.1,
+				imdb: 7.1,
+			},
+			shortDescription:
+				'Афганистан, март 2018 года. Во время спецоперации по поиску оружия талибов отряд сержанта армии США Джона Кинли попадает в засаду. В живых остаются...',
+			imageUrl:
+				'https://in-rating.ru/space/wp-content/uploads/2023/03/Les-trois-mousquetaires-DArtagnan-9-1200.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/101',
+			index: 1,
+			year: 2023,
+			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			is_favorite: true,
+			must_see: false,
+			is_viewed: false
 		},
 		{
 			id: '102',
@@ -55,6 +96,47 @@ export const getFilms = (): Array<IFilms> => {
 			index: 2,
 			year: 2023,
 			genres: ['Хоррор', 'Сюреализм'],
+			is_favorite: true,
+			must_see: false,
+			is_viewed: false
+		},
+		{
+			id: '109',
+			title: 'Переводчик',
+			rating: {
+				kinopoisk: 7.2,
+				imdb: 7.2,
+			},
+			shortDescription:
+				'Во время спецоперации по поиску оружия талибов отряд сержанта армии США Джона Кинли попадает в засаду. В живых остаются...',
+			imageUrl:
+				'https://avatars.mds.yandex.net/get-znatoki/1548967/2a0000016cc241be5ba3b55cc281e4c2fa14/w480',
+			movieCardUrl: 'https://kinotochka.ru/movie/102',
+			index: 2,
+			year: 2023,
+			genres: ['Хоррор', 'Сюреализм'],
+			is_favorite: true,
+			must_see: false,
+			is_viewed: false
+		},
+		{
+			id: '110',
+			title: 'Переводчик',
+			rating: {
+				kinopoisk: 7.2,
+				imdb: 7.2,
+			},
+			shortDescription:
+				'Во время спецоперации по поиску оружия талибов отряд сержанта армии США Джона Кинли попадает в засаду. В живых остаются...',
+			imageUrl:
+				'https://avatars.mds.yandex.net/get-znatoki/1548967/2a0000016cc241be5ba3b55cc281e4c2fa14/w480',
+			movieCardUrl: 'https://kinotochka.ru/movie/102',
+			index: 2,
+			year: 2023,
+			genres: ['Хоррор', 'Сюреализм'],
+			is_favorite: true,
+			must_see: false,
+			is_viewed: false
 		},
 		{
 			id: '103',
@@ -69,6 +151,43 @@ export const getFilms = (): Array<IFilms> => {
 			index: 3,
 			year: 2023,
 			genres: ['Комедия', 'Драмма'],
+			is_favorite: true,
+			must_see: true,
+			is_viewed: false
+		},
+		{
+			id: '111',
+			title: 'Синичка',
+			rating: {
+				kinopoisk: 7.3,
+				imdb: 7.3,
+			},
+			shortDescription: 'В живых остаются...',
+			imageUrl: 'https://s.ekabu.ru/localStorage/post/86/0e/04/68/860e0468.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/103',
+			index: 3,
+			year: 2023,
+			genres: ['Комедия', 'Драмма'],
+			is_favorite: true,
+			must_see: true,
+			is_viewed: false
+		},
+		{
+			id: '112',
+			title: 'Синичка',
+			rating: {
+				kinopoisk: 7.3,
+				imdb: 7.3,
+			},
+			shortDescription: 'В живых остаются...',
+			imageUrl: 'https://s.ekabu.ru/localStorage/post/86/0e/04/68/860e0468.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/103',
+			index: 3,
+			year: 2023,
+			genres: ['Комедия', 'Драмма'],
+			is_favorite: true,
+			must_see: true,
+			is_viewed: false
 		},
 		{
 			id: '104',
@@ -84,6 +203,45 @@ export const getFilms = (): Array<IFilms> => {
 			index: 4,
 			year: 2023,
 			genres: ['Хоррор', 'Эротика'],
+			is_favorite: false,
+			must_see: true,
+			is_viewed: true
+		},
+		{
+			id: '113',
+			title: 'Пролетая над гнездом кукушки',
+			rating: {
+				kinopoisk: 7.4,
+				imdb: 7.4,
+			},
+			shortDescription: 'март 2018 года. тся...',
+			imageUrl:
+				'https://i0.wp.com/www.henneth-annun.ru/wp-content/uploads/2014/07/Hobbit_3_Horizontal_Teaser.jpg?ssl=1',
+			movieCardUrl: 'https://kinotochka.ru/movie/104',
+			index: 4,
+			year: 2023,
+			genres: ['Хоррор', 'Эротика'],
+			is_favorite: false,
+			must_see: true,
+			is_viewed: true
+		},
+		{
+			id: '114',
+			title: 'Пролетая над гнездом кукушки',
+			rating: {
+				kinopoisk: 7.4,
+				imdb: 7.4,
+			},
+			shortDescription: 'март 2018 года. тся...',
+			imageUrl:
+				'https://i0.wp.com/www.henneth-annun.ru/wp-content/uploads/2014/07/Hobbit_3_Horizontal_Teaser.jpg?ssl=1',
+			movieCardUrl: 'https://kinotochka.ru/movie/104',
+			index: 4,
+			year: 2023,
+			genres: ['Хоррор', 'Эротика'],
+			is_favorite: false,
+			must_see: true,
+			is_viewed: true
 		},
 		{
 			id: '105',
@@ -99,6 +257,45 @@ export const getFilms = (): Array<IFilms> => {
 			index: 5,
 			year: 2023,
 			genres: ['Исторический', 'Драмма'],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true
+		},
+		{
+			id: '115',
+			title: 'Конь',
+			rating: {
+				kinopoisk: 7.5,
+				imdb: 7.5,
+			},
+			shortDescription: 'отряд сержанта армии США...',
+			imageUrl:
+				'https://media.kg-portal.ru/movies/c/captainamerica2/posters/captainamerica2_32.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/105',
+			index: 5,
+			year: 2023,
+			genres: ['Исторический', 'Драмма'],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true
+		},
+		{
+			id: '116',
+			title: 'Конь',
+			rating: {
+				kinopoisk: 7.5,
+				imdb: 7.5,
+			},
+			shortDescription: 'отряд сержанта армии США...',
+			imageUrl:
+				'https://media.kg-portal.ru/movies/c/captainamerica2/posters/captainamerica2_32.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/105',
+			index: 5,
+			year: 2023,
+			genres: ['Исторический', 'Драмма'],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true
 		},
 		{
 			id: '106',
@@ -113,6 +310,43 @@ export const getFilms = (): Array<IFilms> => {
 			index: 6,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true
+		},
+		{
+			id: '117',
+			title: 'Вечное сияние чистого разума',
+			rating: {
+				kinopoisk: 7.6,
+				imdb: 7.6,
+			},
+			shortDescription: 'спецоперации по поиску оружия талибов...',
+			imageUrl: 'https://hkcinema.ru/foto/271ba85f.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/106',
+			index: 6,
+			year: 2023,
+			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true
+		},
+		{
+			id: '118',
+			title: 'Вечное сияние чистого разума',
+			rating: {
+				kinopoisk: 7.6,
+				imdb: 7.6,
+			},
+			shortDescription: 'спецоперации по поиску оружия талибов...',
+			imageUrl: 'https://hkcinema.ru/foto/271ba85f.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/106',
+			index: 6,
+			year: 2023,
+			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true
 		},
 	];
 

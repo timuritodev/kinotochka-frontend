@@ -8,6 +8,17 @@ export interface IFilms {
 	index: number;
 	year: number;
 	genres: string[];
+	is_viewed: boolean
+	must_see?: boolean
+	is_favorite?: boolean
+}
+
+export interface ISelect {
+	id: number
+	title: string
+	description: string
+	movie: IFilms[]
+
 }
 
 interface IRating {
@@ -19,10 +30,13 @@ export interface IFilmsState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
 	films: Array<IFilms>;
+	favoriteFilms: Array<IFilms>
+	mustSeeFilms: Array<IFilms>
+	viewedFilms: Array<IFilms>
 }
 
 export interface ISelectionState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	films: Array<Array<IFilms>>;
+	selections: ISelect[];
 }

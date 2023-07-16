@@ -9,24 +9,29 @@ export const getSelectionsApi = createAsyncThunk('@@selections/films', async () 
 const initialState: ISelectionState = {
 	status: 'idle',
 	error: '',
-	films: [
-        [
+	selections: [
 		{
-			id: '',
+			id: 0,
 			title: '',
-			rating: {
-				kinopoisk: 0,
-				imdb: 0,
-			},
-			shortDescription: '',
-			imageUrl: '',
-			movieCardUrl: '',
-			index: 0,
-			year: 0,
-			genres: [''],
-		},
-    ],
-	],
+			description: '',
+			movie: [{
+				id: '',
+				title: '',
+				rating: {
+					kinopoisk: 0,
+					imdb: 0,
+				},
+				shortDescription: '',
+				imageUrl: '',
+				movieCardUrl: '',
+				index: 0,
+				year: 0,
+				genres: ['', '', '', ''],
+				is_favorite: false,
+				must_see: false,
+				is_viewed: false
+			}]
+		}]
 };
 
 export const selectionSlice = createSlice({
@@ -40,7 +45,7 @@ export const selectionSlice = createSlice({
 			})
 			.addCase(getSelectionsApi.fulfilled, (state, action) => {
 				state.status = 'success';
-				state.films = action.payload;
+				state.selections = action.payload;
 			})
 			.addCase(getSelectionsApi.rejected, (state) => {
 				state.status = 'failed';
