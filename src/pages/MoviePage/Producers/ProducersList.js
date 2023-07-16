@@ -1,4 +1,4 @@
-import '../Actors/ActorsList.css';
+import '../../pages/MoviePage/Actors/ActorsList.css';
 import Actors from '../Actors/Actors';
 
 function ProducersList({ producers }) {
