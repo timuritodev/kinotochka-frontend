@@ -1,0 +1,20 @@
+.moviepage__button_favourite {
+	background-color: white;
+	border: none;
+	text-align: center;
+	cursor: pointer;
+}
+
+.moviepage__button_seen {
+	background-color: white;
+	border: none;
+	text-align: center;
+	cursor: pointer;
+}
+
+.moviepage__button_later {
+	background-color: white;
+	border: none;
+	text-align: center;
+	cursor: pointer;
+}

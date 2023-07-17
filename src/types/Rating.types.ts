@@ -13,3 +13,13 @@ export interface IRatingState {
 	error: string | undefined;
 	movie_rating: IRating;
 }
+
+export enum ButtonTypes {
+	seen = 'seen',
+	willSee = 'willSee',
+	favorites = 'favorites',
+}
+
+export interface IButton {
+	buttonName: ButtonTypes;
+}
