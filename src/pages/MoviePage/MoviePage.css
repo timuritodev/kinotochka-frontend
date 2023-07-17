@@ -1,6 +1,16 @@
 .moviepage {
 	max-width: 1440px;
-	margin: auto;
+	height: auto;
+	margin: 0 auto;
+}
+
+.moviepage__container {
+	max-width: 1110px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 50px 165px 0;
+	padding-bottom: 83px;
+	gap: 53px 28px;
 }
 
 .movie-block {

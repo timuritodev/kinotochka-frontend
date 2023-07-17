@@ -6,8 +6,6 @@ import { IButton } from 'src/types/Rating.types';
 import { FC } from 'react';
 
 const MovieButton: FC<IButton> = ({ buttonName }) => {
-
-    console.log(buttonName)
     
     const dispatch = useAppDispatch();
 
@@ -21,31 +19,22 @@ const MovieButton: FC<IButton> = ({ buttonName }) => {
 		console.log('movies_rating - is_favourite: true');
 	}
 
-    // const title =
-    // buttonName === "favorite"
-    //     ? 'Оцененные фильмы'
-    //     : buttonName === 'willSee'
-    //     ? 'Буду смотреть'
-    //     : buttonName === 'seen'
-    //     ? 'Просмотрено'
-    //     : 'Уже просмотрел';
+    let buttonText = ''
 
-    // const buttonText = ''
-
-    // if (buttonName === 'favorite') {
-    //     buttonText = rating.is_favorite === true ? 'Добавлено' : 'Добавить';
-    // } else if (buttonName === 'seen') {
-    //     buttonText = rating.is_viewed === true ? 'Просмотрено' : 'Уже просмотрел';
-    // } else {
-        // buttonText = rating.must_see === true ? 'Посмотрю' : 'Уже смотрел';
-    // }
+    if (buttonName === 'favorites') {
+        buttonText = rating.is_favorite === true ? '1 - Добавлено' : '1 -Добавить';
+    } else if (buttonName === 'seen') {
+        buttonText = rating.is_viewed === true ? '2 -Просмотрено' : '2 -Уже просмотрел';
+    } else if (buttonName === 'willSee'){
+        buttonText = rating.must_see === true ? '3 -Посмотрю' : '3 -Уже смотрел';
+    }
     return (
         <>
             <button
                 className="moviepage__button_favourite"
                 onClick={handleAddToFavourite}
             >
-                {rating.is_favorite === true ? 'Добавлено' : 'Добавить'}
+                {buttonText}
             </button>
         </>
     );
