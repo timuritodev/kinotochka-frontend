@@ -6,6 +6,14 @@ export const getFilmsApi = createAsyncThunk('@@films/films', async () => {
 	return getFilms();
 });
 
+const idFor = ({id, favorite}: { id: string, favorite: boolean }) => {
+	return ({id, favorite});
+}
+
+export const updateFavorite = createAsyncThunk('@@films/updateFavorite', async ({id, favorite}: { id: string, favorite: boolean }) => {
+    return idFor({id, favorite});
+});
+
 const initialState: IFilmsState = {
 	status: 'idle',
 	error: '',
@@ -93,9 +101,6 @@ export const filmSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getFilmsApi.pending, (state) => {
-				state.status = 'loading';
-			})
 			.addCase(getFilmsApi.fulfilled, (state, action) => {
 				state.status = 'success';
 				state.films = action.payload;
@@ -103,9 +108,11 @@ export const filmSlice = createSlice({
 				state.mustSeeFilms = action.payload.filter((film) => film.must_see);
 				state.viewedFilms = action.payload.filter((film) => film.is_viewed);
 			})
-			.addCase(getFilmsApi.rejected, (state) => {
-				state.status = 'failed';
-			});
+			.addCase(updateFavorite.fulfilled, (state, action) => {
+                state.status = 'success';
+                const { id, favorite } = action.payload;
+                state.films = state.films.map((film) => film.id === id ? { ...film, is_favorite: favorite } : film);
+            })
 	},
 });
 

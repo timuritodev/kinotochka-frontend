@@ -8,9 +8,9 @@ export interface IFilms {
 	index: number;
 	year: number;
 	genres: string[];
-	is_viewed: boolean;
+	is_favorite: boolean;
+	is_viewed?: boolean;
 	must_see?: boolean;
-	is_favorite?: boolean;
 }
 
 export interface ISelect {

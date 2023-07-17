@@ -1,33 +1,28 @@
 import './Bookmark_small.css';
-import { useState } from 'react';
 import img_default from '../../images/btn_bookmark_default.svg';
-import img_hover from '../../images/btn_bookmark_hover.svg';
 import img_pressed from '../../images/btn_bookmark_pressed.svg';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { updateFavorite } from 'src/services/redux/slices/films/films';
 
-export const BookmarkSmall = () => {
-	const [imgSrc, setImgSrc] = useState(img_default);
+export const BookmarkSmall = ({ id }: { id: string }) => {
 
-	const handleHover = () => {
-		setImgSrc(img_hover);
+	const dispatch = useAppDispatch();
+	const filmFav = useAppSelector(state => state.films.films.find(film => film.id === id)?.is_favorite);
+
+	const handleClick = () => {
+		dispatch(updateFavorite({ favorite: !filmFav, id }));
 	};
 
-	const handlePress = () => {
-		setImgSrc(img_pressed);
-	};
-
-	const handleRelease = () => {
-		setImgSrc(img_default);
-	};
 
 	return (
 		<section>
 			<img
-				src={imgSrc}
-				alt=""
-				onMouseOver={handleHover}
-				onMouseDown={handlePress}
-				onMouseUp={handleRelease}
-				onMouseLeave={handleRelease}
+				className='bookmark'
+				src={filmFav
+					? img_pressed
+					: img_default}
+				alt="favorite"
+				onClick={handleClick}
 			/>
 		</section>
 	);
