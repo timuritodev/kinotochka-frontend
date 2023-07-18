@@ -15,16 +15,17 @@
 
 .movie-block {
 	display: flex;
-	gap: 27px;
+	gap: 33px;
 }
 
 .movie-block__img {
-	width: 542.791px;
-	height: 317.904px;
+	width: 255px;
+	height: 350px;
+	border-radius: 10px;
+	object-fit: cover;
 }
 
 .movie-block__text {
-	max-width: 380px;
 	color: #fff;
 }
 
@@ -34,6 +35,7 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: 30px;
+	margin: 0;
 }
 
 .movie-block__text_year {
@@ -58,7 +60,14 @@
 } */
 
 .moviepage__button__container {
-	margin: 21px 0 0 0;
 	display: flex;
-	gap: 30px;
+    flex-direction: column;
+    margin: 0 0 0 100px;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.moviepage__button__container {
+
 }

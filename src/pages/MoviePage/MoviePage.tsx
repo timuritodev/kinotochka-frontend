@@ -2,12 +2,13 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useEffect } from 'react';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';
-import ProducersList from '../../components/Producers/ProducersList';
+// import ProducersList from '../../components/Producers/ProducersList';
 import { RatedElement } from 'src/components/RatedElement/RatedElement';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import MovieButton from 'src/components/MovieButton/MovieButton';
 import { ButtonTypes } from 'src/types/Rating.types';
 import TrailerButton from 'src/components/TrailerButton/TrailerButton';
+import RatingElement from 'src/components/RatingElement/RatingElement';
 
 function MoviePage() {
     const dispatch = useAppDispatch();
@@ -25,24 +26,28 @@ function MoviePage() {
                     <img className="movie-block__img" alt="" src={films.imageUrl} />
                     <div className="movie-block__text">
                         <h2 className="movie-block__text_title">{films.title}</h2>
-                        <p className="movie-block__text_year">{films.year}</p>
-                        <p className="movie-block__text_subtitle">{films.shortDescription}</p>
+                        <RatedElement imdb={films.rating.imdb} kinopoisk={films.rating.kinopoisk} />
+                        <ActorsList />
+
+                        {/* <p className="movie-block__text_year">{films.year}</p> */}
+                        {/* <p className="movie-block__text_subtitle">{films.shortDescription}</p> */}
                     </div>
-                    <div className="movie-block__rating">
-                        <RatedElement
-                            imdb={films.rating.imdb}
-                            kinopoisk={films.rating.kinopoisk}
-                        />
+                    <div className="moviepage__button__container">
+                        <div className='moviepage__button__container_plus'>
+                            <MovieButton buttonName={ButtonTypes.favorites} />
+                            <MovieButton buttonName={ButtonTypes.willSee} />
+                        </div>
+                        <RatingElement />
                     </div>
                 </div>
-                <div className="moviepage__button__container">
+
+                {/* <div className="moviepage__button__container">
                     <TrailerButton />
                     <MovieButton buttonName={ButtonTypes.favorites} />
-                    <MovieButton buttonName={ButtonTypes.willSee} />
-                    <MovieButton buttonName={ButtonTypes.seen} />
-                </div>
-                <ActorsList />
-                <ProducersList />
+
+                </div> */}
+
+                {/* <ProducersList /> */}
             </div>
         </section>
     );

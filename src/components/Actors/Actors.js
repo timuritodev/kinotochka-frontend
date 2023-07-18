@@ -1,10 +1,9 @@
 import './Actors.css';
 
-function Actors({ name, picture }) {
+function Actors({ name }) {
 	return (
 		<section className="actor">
-			<img className="actor__img" alt="" src={picture} />
-			<p className="actor__text">{name}</p>
+			<p className="actor__text">{name},</p>
 		</section>
 	);
 }

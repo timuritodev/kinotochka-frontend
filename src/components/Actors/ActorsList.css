@@ -1,17 +1,16 @@
 .actorslist {
-	margin: 40px 0 0 0;
-	width: 100%;
+	margin: 147px 0 0 0;
+	max-width: 469px;
 }
 
 .actorslist__container {
 	display: flex;
-	flex-direction: row;
-	gap: 30px;
+	flex-wrap: wrap;
 }
 
 .actorslist__title {
 	margin: 0 0 30px 0;
-	color: #111827;
+	color: #fff;
 	font-size: 20px;
 	font-family: DM Sans;
 	font-style: normal;
