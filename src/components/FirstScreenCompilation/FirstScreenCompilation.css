@@ -1,11 +1,15 @@
 .first-screen-compilation {
 	width: 1440px;
-	height: 600px;
+	height: 810px;
 	margin: auto;
 	padding: 115px 165px 109px;
 	box-sizing: border-box;
 	background-image: url('../../images/The_Covenant.png');
 	background-size: cover;
+	background-position: center;
+	position: relative;
+	top: -100px;
+	z-index: -1;
 }
 
 .movie {
