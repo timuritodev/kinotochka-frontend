@@ -46,18 +46,62 @@
 	line-height: 18px;
 	margin: 10px 0 10px 0;
 }
-
-.movie-block__text_subtitle {
-	font-size: 14px;
-	font-family: DM Sans;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 18px;
+.moviepage-description {
+	display: flex;
+	flex-direction: row;
 }
 
-/* .movie-block__rating {
+.moviepage-description__container {
+	max-width: 769px;
+}
+.moviepage-description__title {
+	margin: 0 0 20px 0;
+	padding: 0;
+	color: var(--white, #FFF);
+	font-size: 18px;
+	font-family: Arial;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
 
-} */
+.moviepage-description__subtitle {
+	margin: 0;
+	padding: 0;
+	color: var(--white, #FFF);
+	font-size: 16px;
+	font-family: Mullish;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.moviepage-description__about__container {
+	display: flex;
+	flex-direction: row;
+}
+
+.moviepage-description__about__text_add {
+	margin: 0;
+	padding: 0;
+	color: var(--neutral-500, #9CA3AF);
+	font-size: 16px;
+	font-family: Mullish;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.moviepage-description__about__text {
+	margin: 0;
+	padding: 0;
+	color: var(--white, #FFF);
+	font-size: 16px;
+	font-family: Mullish;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
 
 .moviepage__button__container {
 	display: flex;

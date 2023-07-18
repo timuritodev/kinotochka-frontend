@@ -9,48 +9,48 @@ import MovieButton from 'src/components/MovieButton/MovieButton';
 import { ButtonTypes } from 'src/types/Rating.types';
 import TrailerButton from 'src/components/TrailerButton/TrailerButton';
 import RatingElement from 'src/components/RatingElement/RatingElement';
+import BackgroundImage from 'src/components/BackgroundImage/BackgroundImage';
+import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 
 function MoviePage() {
-    const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch();
 
-    const films = useAppSelector((state) => state.films.films[5]);
+	const films = useAppSelector((state) => state.films.films[5]);
 
-    useEffect(() => {
-        dispatch(getFilmsApi());
-    }, []);
+	useEffect(() => {
+		dispatch(getFilmsApi());
+	}, []);
 
-    return (
-        <section className="moviepage">
-            <div className='moviepage__container'>
-                <div className="movie-block">
-                    <img className="movie-block__img" alt="" src={films.imageUrl} />
-                    <div className="movie-block__text">
-                        <h2 className="movie-block__text_title">{films.title}</h2>
-                        <RatedElement imdb={films.rating.imdb} kinopoisk={films.rating.kinopoisk} />
-                        <ActorsList />
-
-                        {/* <p className="movie-block__text_year">{films.year}</p> */}
-                        {/* <p className="movie-block__text_subtitle">{films.shortDescription}</p> */}
-                    </div>
-                    <div className="moviepage__button__container">
-                        <div className='moviepage__button__container_plus'>
-                            <MovieButton buttonName={ButtonTypes.favorites} />
-                            <MovieButton buttonName={ButtonTypes.willSee} />
-                        </div>
-                        <RatingElement />
-                    </div>
-                </div>
-
-                {/* <div className="moviepage__button__container">
+	return (
+		<section className="moviepage">
+			<BackgroundImage imageUrl={films.imageUrl} />
+			<div className='moviepage__container'>
+				<div className="movie-block">
+					<img className="movie-block__img" alt="" src={films.imageUrl} />
+					<div className="movie-block__text">
+						<h2 className="movie-block__text_title">{films.title}</h2>
+						<RatedElement imdb={films.rating.imdb} kinopoisk={films.rating.kinopoisk} />
+						<ActorsList />
+					</div>
+					<div className="moviepage__button__container">
+						<div className='moviepage__button__container_plus'>
+							<MovieButton buttonName={ButtonTypes.favorites} />
+							<MovieButton buttonName={ButtonTypes.willSee} />
+						</div>
+						<RatingElement />
+					</div>
+				</div>
+				<FilmAbout />
+				{/* <div className="moviepage__button__container">
                     <TrailerButton />
                     <MovieButton buttonName={ButtonTypes.favorites} />
 
                 </div> */}
 
-                {/* <ProducersList /> */}
-            </div>
-        </section>
-    );
+				{/* <ProducersList /> */}
+			</div>
+		</section>
+	);
 }
 
 export default MoviePage;

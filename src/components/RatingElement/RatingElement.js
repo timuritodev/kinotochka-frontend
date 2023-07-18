@@ -3,8 +3,8 @@ import './RatingElement.css';
 
 function RatingElement() {
     return (
-        <div className=''>
-            <p className=''>Ваша оценка</p>
+        <div className='rating-element'>
+            <p className='rating-element__text'>Ваша оценка</p>
         </div>
     );
 }

@@ -23,3 +23,7 @@ export enum ButtonTypes {
 export interface IButton {
 	buttonName: ButtonTypes;
 }
+
+export interface IImage {
+	imageUrl: string;
+}
