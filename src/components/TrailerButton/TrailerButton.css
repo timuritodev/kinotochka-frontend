@@ -1,0 +1,26 @@
+.moviepage__button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 202px;
+	height: 44px;
+	border-radius: 6px;
+	background: #c4c4c4;
+	border: none;
+	cursor: pointer;
+}
+
+.moviepage__button__text {
+	margin: 0;
+	padding: 0;
+	color: #111827;
+	font-size: 14px;
+	font-family: DM Sans;
+	font-style: normal;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.moviepage__button_img {
+	padding: 0 10px 0 0;
+}

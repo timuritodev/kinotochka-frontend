@@ -39,6 +39,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 1,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: false,
 			is_viewed: false,
@@ -58,6 +79,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 1,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: false,
 			is_viewed: false,
@@ -77,6 +119,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 1,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: false,
 			is_viewed: false,
@@ -96,6 +159,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 2,
 			year: 2023,
 			genres: ['Хоррор', 'Сюреализм'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: false,
 			is_viewed: false,
@@ -115,6 +199,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 2,
 			year: 2023,
 			genres: ['Хоррор', 'Сюреализм'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: false,
 			is_viewed: false,
@@ -134,6 +239,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 2,
 			year: 2023,
 			genres: ['Хоррор', 'Сюреализм'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: false,
 			is_viewed: false,
@@ -151,6 +277,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 3,
 			year: 2023,
 			genres: ['Комедия', 'Драмма'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: true,
 			is_viewed: false,
@@ -168,6 +315,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 3,
 			year: 2023,
 			genres: ['Комедия', 'Драмма'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: true,
 			is_viewed: false,
@@ -185,13 +353,34 @@ export const getFilms = (): Array<IFilms> => {
 			index: 3,
 			year: 2023,
 			genres: ['Комедия', 'Драмма'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: true,
 			must_see: true,
 			is_viewed: false,
 		},
 		{
 			id: '104',
-			title: 'Пролетая над гнездом кукушки',
+			title: 'Favorit',
 			rating: {
 				kinopoisk: 7.4,
 				imdb: 7.4,
@@ -203,6 +392,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 4,
 			year: 2023,
 			genres: ['Хоррор', 'Эротика'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: false,
 			must_see: true,
 			is_viewed: true,
@@ -221,7 +431,28 @@ export const getFilms = (): Array<IFilms> => {
 			index: 4,
 			year: 2023,
 			genres: ['Хоррор', 'Эротика'],
-			is_favorite: false,
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
+			is_favorite: true,
 			must_see: true,
 			is_viewed: true,
 		},
@@ -239,6 +470,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 4,
 			year: 2023,
 			genres: ['Хоррор', 'Эротика'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: false,
 			must_see: true,
 			is_viewed: true,
@@ -257,6 +509,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 5,
 			year: 2023,
 			genres: ['Исторический', 'Драмма'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,
@@ -275,7 +548,28 @@ export const getFilms = (): Array<IFilms> => {
 			index: 5,
 			year: 2023,
 			genres: ['Исторический', 'Драмма'],
-			is_favorite: false,
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
+			is_favorite: true,
 			must_see: false,
 			is_viewed: true,
 		},
@@ -293,6 +587,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 5,
 			year: 2023,
 			genres: ['Исторический', 'Драмма'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,
@@ -310,6 +625,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 6,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,
@@ -327,7 +663,28 @@ export const getFilms = (): Array<IFilms> => {
 			index: 6,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
-			is_favorite: false,
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
+			is_favorite: true,
 			must_see: false,
 			is_viewed: true,
 		},
@@ -344,6 +701,27 @@ export const getFilms = (): Array<IFilms> => {
 			index: 6,
 			year: 2023,
 			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			country: ['Россия', 'США'],
+			director: [{
+				first_name: 'Алексей',
+				last_name: 'Балабанов'
+			},{
+				first_name: 'Квентин',
+				last_name: 'Тарантино'
+			},{
+				first_name: 'Quentin',
+				last_name: 'Tarantino'
+			}],
+			actor: [{
+				first_name: 'Сергей',
+				last_name: 'Бодров'
+			},{
+				first_name: 'Tom',
+				last_name: 'Cruise'
+			},{
+				first_name: 'Джефф',
+				last_name: 'Бриджес'
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,

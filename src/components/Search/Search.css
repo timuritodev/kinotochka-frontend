@@ -1,0 +1,13 @@
+.search {
+	width: 525px;
+	height: 340px;
+	border-radius: 5px;
+	background-color: #fff;
+	position: absolute;
+	top: 55px;
+	display: none;
+}
+
+.search_open {
+	display: block;
+}

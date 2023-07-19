@@ -6,6 +6,20 @@ export const getFilmsApi = createAsyncThunk('@@films/films', async () => {
 	return getFilms();
 });
 
+export const updateFavorite = createAsyncThunk(
+	'@@films/updateFavorite',
+	async ({ id, favorite }: { id: string; favorite: boolean }) => {
+		return ({ id, favorite });
+	}
+);
+
+export const updateWatch = createAsyncThunk(
+	'@@films/updateWatch',
+	async ({ id, watch }: { id: string; watch: boolean }) => {
+		return ({ id, watch });
+	}
+);
+
 const initialState: IFilmsState = {
 	status: 'idle',
 	error: '',
@@ -23,6 +37,15 @@ const initialState: IFilmsState = {
 			index: 0,
 			year: 0,
 			genres: [''],
+			country: [''],
+			director: [{
+				first_name: '',
+				last_name: ''
+			}],
+			actor: [{
+				first_name: '',
+				last_name: ''
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,
@@ -42,6 +65,15 @@ const initialState: IFilmsState = {
 			index: 0,
 			year: 0,
 			genres: [''],
+			country: [''],
+			director: [{
+				first_name: '',
+				last_name: ''
+			}],
+			actor: [{
+				first_name: '',
+				last_name: ''
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,
@@ -61,6 +93,15 @@ const initialState: IFilmsState = {
 			index: 0,
 			year: 0,
 			genres: [''],
+			country: [''],
+			director: [{
+				first_name: '',
+				last_name: ''
+			}],
+			actor: [{
+				first_name: '',
+				last_name: ''
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,
@@ -80,6 +121,15 @@ const initialState: IFilmsState = {
 			index: 0,
 			year: 0,
 			genres: [''],
+			country: [''],
+			director: [{
+				first_name: '',
+				last_name: ''
+			}],
+			actor: [{
+				first_name: '',
+				last_name: ''
+			}],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,
@@ -93,9 +143,6 @@ export const filmSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getFilmsApi.pending, (state) => {
-				state.status = 'loading';
-			})
 			.addCase(getFilmsApi.fulfilled, (state, action) => {
 				state.status = 'success';
 				state.films = action.payload;
@@ -103,8 +150,25 @@ export const filmSlice = createSlice({
 				state.mustSeeFilms = action.payload.filter((film) => film.must_see);
 				state.viewedFilms = action.payload.filter((film) => film.is_viewed);
 			})
-			.addCase(getFilmsApi.rejected, (state) => {
-				state.status = 'failed';
+			.addCase(updateFavorite.fulfilled, (state, action) => {
+				state.status = 'success';
+				const { id, favorite } = action.payload;
+				state.films = state.films.map((film) =>
+					film.id === id ? { ...film, is_favorite: favorite } : film
+				);
+				state.favoriteFilms = state.films.filter((film) => film.is_favorite);
+				state.mustSeeFilms = state.films.filter((film) => film.must_see);
+				state.viewedFilms = state.films.filter((film) => film.is_viewed);
+			})
+			.addCase(updateWatch.fulfilled, (state, action) => {
+				state.status = 'success';
+				const { id, watch } = action.payload;
+				state.films = state.films.map((film) =>
+					film.id === id ? { ...film, must_see: watch } : film
+				);
+				state.favoriteFilms = state.films.filter((film) => film.is_favorite);
+				state.mustSeeFilms = state.films.filter((film) => film.must_see);
+				state.viewedFilms = state.films.filter((film) => film.is_viewed);
 			});
 	},
 });

@@ -1,34 +1,35 @@
 import './Bookmark_small.css';
-import { useState } from 'react';
-import img_default from '../../images/btn_bookmark_default.svg';
-import img_hover from '../../images/btn_bookmark_hover.svg';
-import img_pressed from '../../images/btn_bookmark_pressed.svg';
+import { BtnBookmark } from '../Bottun_bookmark/Btn_bookmark';
+import { IBookmarkTypes } from 'src/types/Bookmark.types';
 
-export const BookmarkSmall = () => {
-	const [imgSrc, setImgSrc] = useState(img_default);
-
-	const handleHover = () => {
-		setImgSrc(img_hover);
-	};
-
-	const handlePress = () => {
-		setImgSrc(img_pressed);
-	};
-
-	const handleRelease = () => {
-		setImgSrc(img_default);
-	};
+export const BookmarkSmall = ({ id }: { id: string }) => {
 
 	return (
 		<section>
-			<img
-				src={imgSrc}
-				alt=""
-				onMouseOver={handleHover}
-				onMouseDown={handlePress}
-				onMouseUp={handleRelease}
-				onMouseLeave={handleRelease}
-			/>
+			<BtnBookmark nameTypes={IBookmarkTypes.favorite} id={id} />
+			<BtnBookmark nameTypes={IBookmarkTypes.willSee} id={id} />
+			{/* <div
+				className='bookmark_favorite'
+				onClick={handleClickFavorite}
+			>
+				<div className='bookmark_fon' />
+				<img
+					className='bookmark_img'
+					src={filmFav ? img_bookmark_pressed : img_bookmark_default}
+					alt="favorite"
+				/>
+			</div>
+			<div
+				className='bookmark_favorite'
+				onClick={handleClickWatch}
+			>
+				<div className='bookmark_fon' />
+				<img
+					className='bookmark_img'
+					src={filmWatch ? img_watch_pressed : img_watch_default}
+					alt="favorite"
+				/>
+			</div> */}
 		</section>
 	);
 };
