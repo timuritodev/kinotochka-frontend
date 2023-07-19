@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './Header.css';
 import logo from '../../images/logo.svg';
 import adjustments from '../../images/adjustments.svg';
 import search from '../../images/search.svg';
 import Account from '../Account/Account';
-import Search from '../Search/Search';
+// import Search from '../Search/Search';
 import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
@@ -27,8 +27,6 @@ const Header: FC = () => {
 		setValues({ ...values, [name]: value });
 		return { values };
 	};
-
-
 
 	return (
 		<header className="header" id="header">
