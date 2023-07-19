@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Header.css';
 import logo from '../../images/logo.svg';
 import adjustments from '../../images/adjustments.svg';
 import search from '../../images/search.svg';
 import Account from '../Account/Account';
-// import Search from '../Search/Search';
+import Search from '../Search/Search';
 import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
@@ -19,14 +19,25 @@ const Header: FC = () => {
 		setIsOpen(false);
 	};
 
-	const [values, setValues] = useState({});
+	const [values, setValues] = useState('');
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const target = event.target;
-		const name = target.name;
 		const value = target.value;
-		setValues({ ...values, [name]: value });
-		return { values };
+		setValues(value);
 	};
+
+	const [isOpenSearch, setIsOpenSearch] = useState(false);
+
+	useEffect(() => {
+		if (values.length > 0) {
+			console.log(values);
+			setIsOpenSearch(true);
+		}
+		if (values.length < 1) {
+			console.log(values);
+			setIsOpenSearch(false);
+		}
+	}, [values]);
 
 	return (
 		<header className="header" id="header">
@@ -78,9 +89,7 @@ const Header: FC = () => {
 						/>
 					</button>
 				</form>
-				{/* <Search
-				isOpenSearch={isOpenSearch}
-				/> */}
+				<Search isOpenSearch={isOpenSearch} />
 			</div>
 			<Account
 			// isLoggedIn={true}
