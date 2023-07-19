@@ -52,7 +52,7 @@ const Root: FC = () => {
 						element={<FlanksPage formName={FlanksTypes.collections} />}
 					/>
 					<Route path="/movie-page" element={<MoviePage />} />
-					<Route path="/search-result" element={<SearchResultPage/>} />
+					<Route path="/search-result" element={<SearchResultPage />} />
 				</Route>
 			</Routes>
 		</div>

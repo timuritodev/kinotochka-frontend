@@ -2,19 +2,20 @@ import Actors from './Actors';
 import './ActorsList.css';
 
 function ActorsList() {
-    
-    const director = [{
-        id: 1,
-        name: "Ричи Гай",
-    },
-    {
-        id: 2,
-        name: "Кристофер Нолан",
-    },
-    {
-        id: 3,
-        name: "Гай",
-    }]
+	const director = [
+		{
+			id: 1,
+			name: 'Ричи Гай',
+		},
+		{
+			id: 2,
+			name: 'Кристофер Нолан',
+		},
+		{
+			id: 3,
+			name: 'Гай',
+		},
+	];
 
 	return (
 		<section className="actorslist">

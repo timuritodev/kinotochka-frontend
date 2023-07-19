@@ -3,7 +3,6 @@ import { BtnBookmark } from '../Bottun_bookmark/Btn_bookmark';
 import { IBookmarkTypes } from 'src/types/Bookmark.types';
 
 export const BookmarkSmall = ({ id }: { id: string }) => {
-
 	return (
 		<section>
 			<BtnBookmark nameTypes={IBookmarkTypes.favorite} id={id} />
