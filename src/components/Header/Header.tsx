@@ -39,6 +39,7 @@ const Header: FC = () => {
 			<Link to="/favorites">Избранные</Link>
 			<Link to="/collections">Подборки</Link>
 			<Link to="/movie-page">Страница фильма</Link>
+			<Link to="/search-result">страница результатов поиска</Link>
 		</header>
 	);
 };
