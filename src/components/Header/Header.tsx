@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Header.css';
 import logo from '../../images/logo.svg';
 import adjustments from '../../images/adjustments.svg';
 import search from '../../images/search.svg';
 import Account from '../Account/Account';
+import Search from '../Search/Search';
 import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
@@ -17,6 +18,18 @@ const Header: FC = () => {
 	const setNavClose = () => {
 		setIsOpen(false);
 	};
+
+	const [values, setValues] = useState({});
+	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const target = event.target;
+		const name = target.name;
+		const value = target.value;
+		setValues({ ...values, [name]: value });
+		return { values };
+	};
+
+
+
 	return (
 		<header className="header" id="header">
 			<img
@@ -42,29 +55,35 @@ const Header: FC = () => {
 					</Link>
 				</ul>
 			</nav>
-			<form className="header__search">
-				<input
-					className="header__search-input"
-					id="name"
-					name="name"
-					type="text"
-					placeholder="Какой фильм вы хотите найти?"
-				/>
-				<button className="header__search-button">
-					<img
-						className="header__search-button_search"
-						src={adjustments}
-						alt="Кнопка расширенного поиска"
+			<div className="header__container">
+				<form className="header__search">
+					<input
+						className="header__search-input"
+						id="name"
+						name="name"
+						type="text"
+						placeholder="Какой фильм вы хотите найти?"
+						onChange={handleChange}
 					/>
-				</button>
-				<button className="header__search-button">
-					<img
-						className="header__search-button_search"
-						src={search}
-						alt="Кнопка поиска"
-					/>
-				</button>
-			</form>
+					<button className="header__search-button">
+						<img
+							className="header__search-button_search"
+							src={adjustments}
+							alt="Кнопка расширенного поиска"
+						/>
+					</button>
+					<button className="header__search-button">
+						<img
+							className="header__search-button_search"
+							src={search}
+							alt="Кнопка поиска"
+						/>
+					</button>
+				</form>
+				{/* <Search
+				isOpenSearch={isOpenSearch}
+				/> */}
+			</div>
 			<Account
 			// isLoggedIn={true}
 			/>

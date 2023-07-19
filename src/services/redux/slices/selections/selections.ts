@@ -32,14 +32,18 @@ const initialState: ISelectionState = {
 					year: 0,
 					genres: [''],
 					country: [''],
-					director: [{
-						first_name: '',
-						last_name: ''
-					}],
-					actor: [{
-						first_name: '',
-						last_name: ''
-					}],
+					director: [
+						{
+							first_name: '',
+							last_name: '',
+						},
+					],
+					actor: [
+						{
+							first_name: '',
+							last_name: '',
+						},
+					],
 					is_favorite: false,
 					must_see: false,
 					is_viewed: false,

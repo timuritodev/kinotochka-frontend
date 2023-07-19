@@ -8,8 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 
 export default function MainPage() {
-
- const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(getFilmsApi());
