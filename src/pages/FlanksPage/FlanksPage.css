@@ -2,6 +2,7 @@
 	background-color: #0c0c0c;
 	max-width: 1440px;
 	height: auto;
+	margin: 0 auto;
 }
 
 .flank_title {
@@ -9,7 +10,7 @@
 	font-size: 35px;
 	font-weight: 700;
 	line-height: 43.4px;
-	margin: 0px auto 0 165px;
+	margin: 0 165px;
 	padding-top: 20px;
 }
 
@@ -17,7 +18,7 @@
 	max-width: 1110px;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 50px auto 0;
+	margin: 50px 165px 0;
 	padding-bottom: 83px;
 	gap: 53px 28px;
 }

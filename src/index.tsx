@@ -14,6 +14,7 @@ import { store, persistor } from './services/redux/store';
 import './index.css';
 import MainPage from './pages/MainPage/MainPage';
 import MoviePage from './pages/MoviePage/MoviePage';
+import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
 
 const Root: FC = () => {
 	return (
@@ -51,6 +52,7 @@ const Root: FC = () => {
 						element={<FlanksPage formName={FlanksTypes.collections} />}
 					/>
 					<Route path="/movie-page" element={<MoviePage />} />
+					<Route path="/search-result" element={<SearchResultPage/>} />
 				</Route>
 			</Routes>
 		</div>
