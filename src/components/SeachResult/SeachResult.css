@@ -1,5 +1,6 @@
 .search {
 	display: inline-flex;
+	max-height: 213px;
 }
 
 .search_img-container {
@@ -15,7 +16,9 @@
 
 .search_profile {
 	width: 350px;
+	height: 213px;
 	color: white;
+	position: relative;
 }
 
 .search_title {
@@ -33,4 +36,12 @@
 	line-height: 18px;
 	margin: 0;
 	margin-bottom: 10px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.rated {
+	position: absolute;
+	bottom: 0;
 }

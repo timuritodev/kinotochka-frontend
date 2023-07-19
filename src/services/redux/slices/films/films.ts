@@ -9,14 +9,14 @@ export const getFilmsApi = createAsyncThunk('@@films/films', async () => {
 export const updateFavorite = createAsyncThunk(
 	'@@films/updateFavorite',
 	async ({ id, favorite }: { id: string; favorite: boolean }) => {
-		return ({ id, favorite });
+		return { id, favorite };
 	}
 );
 
 export const updateWatch = createAsyncThunk(
 	'@@films/updateWatch',
 	async ({ id, watch }: { id: string; watch: boolean }) => {
-		return ({ id, watch });
+		return { id, watch };
 	}
 );
 
@@ -38,14 +38,18 @@ const initialState: IFilmsState = {
 			year: 0,
 			genres: [''],
 			country: [''],
-			director: [{
-				first_name: '',
-				last_name: ''
-			}],
-			actor: [{
-				first_name: '',
-				last_name: ''
-			}],
+			director: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
+			actor: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,
@@ -66,14 +70,18 @@ const initialState: IFilmsState = {
 			year: 0,
 			genres: [''],
 			country: [''],
-			director: [{
-				first_name: '',
-				last_name: ''
-			}],
-			actor: [{
-				first_name: '',
-				last_name: ''
-			}],
+			director: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
+			actor: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,
@@ -94,14 +102,18 @@ const initialState: IFilmsState = {
 			year: 0,
 			genres: [''],
 			country: [''],
-			director: [{
-				first_name: '',
-				last_name: ''
-			}],
-			actor: [{
-				first_name: '',
-				last_name: ''
-			}],
+			director: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
+			actor: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,
@@ -122,14 +134,18 @@ const initialState: IFilmsState = {
 			year: 0,
 			genres: [''],
 			country: [''],
-			director: [{
-				first_name: '',
-				last_name: ''
-			}],
-			actor: [{
-				first_name: '',
-				last_name: ''
-			}],
+			director: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
+			actor: [
+				{
+					first_name: '',
+					last_name: '',
+				},
+			],
 			is_favorite: false,
 			must_see: false,
 			is_viewed: false,

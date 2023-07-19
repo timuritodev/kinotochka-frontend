@@ -1,12 +1,13 @@
 .search-page_container {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 30px;
+	gap: 40px 30px;
 }
 
 .search-result {
-	margin: 0 auto;
+	margin: 0 auto 0;
 	color: white;
+	max-width: 1440px;
 }
 
 .search-result_title {
@@ -18,5 +19,6 @@
 }
 
 .search-page_container {
+	max-width: 1110px;
 	margin: 20px 165px 0;
 }
