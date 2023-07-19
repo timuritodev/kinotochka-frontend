@@ -2,7 +2,6 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useEffect } from 'react';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';
-// import ProducersList from '../../components/Producers/ProducersList';
 import { RatedElement } from 'src/components/RatedElement/RatedElement';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import MovieButton from 'src/components/MovieButton/MovieButton';
@@ -15,41 +14,38 @@ import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 function MoviePage() {
 	const dispatch = useAppDispatch();
 
-	const films = useAppSelector((state) => state.films.films[5]);
+	const films = useAppSelector((state) => state.films.films[2]);
 
 	useEffect(() => {
 		dispatch(getFilmsApi());
 	}, []);
 
 	return (
-		<section className="moviepage">
+		<>
 			<BackgroundImage imageUrl={films.imageUrl} />
-			<div className='moviepage__container'>
-				<div className="movie-block">
-					<img className="movie-block__img" alt="" src={films.imageUrl} />
-					<div className="movie-block__text">
-						<h2 className="movie-block__text_title">{films.title}</h2>
-						<RatedElement imdb={films.rating.imdb} kinopoisk={films.rating.kinopoisk} />
-						<ActorsList />
-					</div>
-					<div className="moviepage__button__container">
-						<div className='moviepage__button__container_plus'>
-							<MovieButton buttonName={ButtonTypes.favorites} />
-							<MovieButton buttonName={ButtonTypes.willSee} />
+			<section className="moviepage">
+				<div className='moviepage__container'>
+					<div className="movie-block">
+						<img className="movie-block__img" alt="" src={films.imageUrl} />
+						<div className="movie-block__text">
+							<h2 className="movie-block__text_title">{films.title}</h2>
+							<RatedElement imdb={films.rating.imdb} kinopoisk={films.rating.kinopoisk} />
+							<ActorsList />
 						</div>
-						<RatingElement />
+						<div className="moviepage__button__container">
+							<div className='moviepage__button__container_plus'>
+								<MovieButton buttonName={ButtonTypes.favorites} />
+								<MovieButton buttonName={ButtonTypes.willSee} />
+							</div>
+							<RatingElement />
+						</div>
 					</div>
+					<FilmAbout />
+					<h2 className=''>Трейлер</h2>
+					<TrailerButton imageUrl={films.imageUrl} />
 				</div>
-				<FilmAbout />
-				{/* <div className="moviepage__button__container">
-                    <TrailerButton />
-                    <MovieButton buttonName={ButtonTypes.favorites} />
-
-                </div> */}
-
-				{/* <ProducersList /> */}
-			</div>
-		</section>
+			</section>
+		</>
 	);
 }
 
