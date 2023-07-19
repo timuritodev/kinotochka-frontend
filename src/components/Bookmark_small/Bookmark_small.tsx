@@ -1,29 +1,35 @@
 import './Bookmark_small.css';
-import img_default from '../../images/btn_bookmark_default.svg';
-import img_pressed from '../../images/btn_bookmark_pressed.svg';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { updateFavorite } from 'src/services/redux/slices/films/films';
+import { BtnBookmark } from '../Bottun_bookmark/Btn_bookmark';
+import { IBookmarkTypes } from 'src/types/Bookmark.types';
 
 export const BookmarkSmall = ({ id }: { id: string }) => {
 
-	const dispatch = useAppDispatch();
-	const filmFav = useAppSelector(state => state.films.films.find(film => film.id === id)?.is_favorite);
-
-	const handleClick = () => {
-		dispatch(updateFavorite({ favorite: !filmFav, id }));
-	};
-
-
 	return (
 		<section>
-			<img
-				className='bookmark'
-				src={filmFav
-					? img_pressed
-					: img_default}
-				alt="favorite"
-				onClick={handleClick}
-			/>
+			<BtnBookmark nameTypes={IBookmarkTypes.favorite} id={id} />
+			<BtnBookmark nameTypes={IBookmarkTypes.willSee} id={id} />
+			{/* <div
+				className='bookmark_favorite'
+				onClick={handleClickFavorite}
+			>
+				<div className='bookmark_fon' />
+				<img
+					className='bookmark_img'
+					src={filmFav ? img_bookmark_pressed : img_bookmark_default}
+					alt="favorite"
+				/>
+			</div>
+			<div
+				className='bookmark_favorite'
+				onClick={handleClickWatch}
+			>
+				<div className='bookmark_fon' />
+				<img
+					className='bookmark_img'
+					src={filmWatch ? img_watch_pressed : img_watch_default}
+					alt="favorite"
+				/>
+			</div> */}
 		</section>
 	);
 };
