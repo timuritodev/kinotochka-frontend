@@ -9,11 +9,19 @@
 }
 
 .actorslist__title {
-	margin: 0 0 30px 0;
-	color: #fff;
-	font-size: 20px;
-	font-family: DM Sans;
+	color: var(--white, #FFF);
+	font-family: Unbounded;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 18px;
+	line-height: normal;
+}
+
+.actorslist__text {
+	color: var(--white, #FFF);
+	font-family: Mullish;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
 }

@@ -31,19 +31,19 @@ const FilmAbout: FC = () => {
 						</div>
 						<div className='moviepage-description__about__container'>
 							<p className="moviepage-description__about__text_add">Страна</p>
-							<p className='moviepage-description__about__text'>Какая-то</p>
+							<p className='moviepage-description__about__text'>{films.country}</p>
 						</div>
 						<div className='moviepage-description__about__container'>
 							<p className="moviepage-description__about__text_add">Режиссер</p>
-							<p className='moviepage-description__about__text'>Какой-то</p>
+							<p className='moviepage-description__about__text'>-</p>
 						</div>
 						<div className='moviepage-description__about__container'>
 							<p className="moviepage-description__about__text_add">Категория</p>
-							<p className='moviepage-description__about__text'>Интересная</p>
+							<p className='moviepage-description__about__text'>-</p>
 						</div>
 						<div className='moviepage-description__about__container'>
 							<p className="moviepage-description__about__text_add">Возраст</p>
-							<p className='moviepage-description__about__text'>Взрослый</p>
+							<p className='moviepage-description__about__text'>-</p>
 						</div>
 					</div>
 				</div>

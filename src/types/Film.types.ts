@@ -21,7 +21,7 @@ interface IDirector {
 	last_name: string
 }
 
-interface IActor {
+export interface IActor {
 	first_name: string
 	last_name: string
 }

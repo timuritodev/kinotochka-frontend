@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useEffect } from 'react';
 import './MoviePage.css';
@@ -11,7 +12,7 @@ import RatingElement from 'src/components/RatingElement/RatingElement';
 import BackgroundImage from 'src/components/BackgroundImage/BackgroundImage';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 
-function MoviePage() {
+const MoviePage: FC = () => {
 	const dispatch = useAppDispatch();
 
 	const films = useAppSelector((state) => state.films.films[2]);
@@ -30,7 +31,7 @@ function MoviePage() {
 						<div className="movie-block__text">
 							<h2 className="movie-block__text_title">{films.title}</h2>
 							<RatedElement imdb={films.rating.imdb} kinopoisk={films.rating.kinopoisk} />
-							<ActorsList />
+							<ActorsList actors={films.actor}/>
 						</div>
 						<div className="moviepage__button__container">
 							<div className='moviepage__button__container_plus'>
@@ -41,7 +42,7 @@ function MoviePage() {
 						</div>
 					</div>
 					<FilmAbout />
-					<h2 className=''>Трейлер</h2>
+					{/* <h2 className=''>Трейлер</h2> */}
 					<TrailerButton imageUrl={films.imageUrl} />
 				</div>
 			</section>

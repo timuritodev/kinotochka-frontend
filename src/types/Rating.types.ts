@@ -1,3 +1,5 @@
+import { IActor } from "./Film.types";
+
 export interface IRating {
 	id: number;
 	user: number;
@@ -26,4 +28,8 @@ export interface IButton {
 
 export interface IImage {
 	imageUrl: string;
+}
+
+export interface ActorsListProps {
+  actors: IActor[];
 }
