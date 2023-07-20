@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch } from '../../hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesRating } from 'src/services/redux/slices/rating/rating';
 import './MovieButton.css';
@@ -8,7 +8,7 @@ import { FC } from 'react';
 const MovieButton: FC<IButton> = ({ buttonName }) => {
 	const dispatch = useAppDispatch();
 
-	const rating = useAppSelector((state) => state.rating.movie_rating);
+    // const rating = useAppSelector((state) => state.rating.movie_rating);
 
 	useEffect(() => {
 		dispatch(getMoviesRating());
@@ -18,26 +18,24 @@ const MovieButton: FC<IButton> = ({ buttonName }) => {
 		console.log('movies_rating - is_favourite: true');
 	}
 
-	let buttonText = '';
+    // let buttonText = ''
 
-	if (buttonName === 'favorites') {
-		buttonText = rating.is_favorite === true ? '1 - Добавлено' : '1 -Добавить';
-	} else if (buttonName === 'seen') {
-		buttonText =
-			rating.is_viewed === true ? '2 -Просмотрено' : '2 -Уже просмотрел';
-	} else if (buttonName === 'willSee') {
-		buttonText = rating.must_see === true ? '3 -Посмотрю' : '3 -Уже смотрел';
-	}
-	return (
-		<>
-			<button
-				className="moviepage__button_favourite"
-				onClick={handleAddToFavourite}
-			>
-				{buttonText}
-			</button>
-		</>
-	);
-};
+    // if (buttonName === 'favorites') {
+    //     buttonText = rating.is_favorite === true ? '1 - Добавлено' : '1 -Добавить';
+    // } else if (buttonName === 'seen') {
+    //     buttonText = rating.is_viewed === true ? '2 -Просмотрено' : '2 -Уже просмотрел';
+    // } else if (buttonName === 'willSee'){
+    //     buttonText = rating.must_see === true ? '3 -Посмотрю' : '3 -Уже смотрел';
+    // }
+
+    return (
+        <>
+            <button
+                className={`moviepage-button ${buttonName === 'favorites' ? "moviepage__button_favourite" : "moviepage__button_seen"}`}
+                onClick={handleAddToFavourite}
+            />
+        </>
+    );
+}
 
 export default MovieButton;

@@ -1,20 +1,28 @@
 .actorslist {
-	margin: 40px 0 0 0;
-	width: 100%;
+	max-width: 469px;
 }
 
 .actorslist__container {
 	display: flex;
-	flex-direction: row;
-	gap: 30px;
+	flex-wrap: wrap;
 }
 
 .actorslist__title {
-	margin: 0 0 30px 0;
-	color: #111827;
-	font-size: 20px;
-	font-family: DM Sans;
+	color: var(--white, #FFF);
+	font-family: Unbounded;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 700;
-	line-height: 18px;
+	line-height: normal;
+	margin: 0 0 20px 0;
+}
+
+.actorslist__text {
+	color: var(--white, #FFF);
+	font-family: Mullish;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	margin: 0;
 }

@@ -1,15 +1,21 @@
-.moviepage__button_favourite {
-	background-color: white;
-	border: none;
-	text-align: center;
+.moviepage-button {
+    border: none;
 	cursor: pointer;
+    min-width: 45px;
+    height: 45px;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    border-radius: 6px;
+}
+
+.moviepage__button_favourite {
+    background-image: url(../../images/Bookmark.svg);
+    margin: 0 20px 0 0;
 }
 
 .moviepage__button_seen {
-	background-color: white;
-	border: none;
-	text-align: center;
-	cursor: pointer;
+    background-image: url(../../images/black_eye.svg);
 }
 
 .moviepage__button_later {
