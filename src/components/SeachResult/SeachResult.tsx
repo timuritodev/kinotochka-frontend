@@ -10,7 +10,9 @@ export const SeachResult = ({ film }: { film: IFilms }) => {
 			</div>
 			<div className="search_profile">
 				<h1 className="search_title">{film.title}</h1>
-				<h3 className="search_h3">{`${film.genres.join(', ')} • ${film.year}`}</h3>
+				<h3 className="search_h3">{`${film.genres.join(', ')} • ${
+					film.year
+				}`}</h3>
 				<h3 className="search_h3">{film.country.join(', ')}</h3>
 				<h3 className="search_h3">{`Режисер: ${film.director
 					.map((dir) => dir.first_name + ' ' + dir.last_name)
