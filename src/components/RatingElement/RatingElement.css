@@ -18,7 +18,6 @@
     background-image: url(../../images/star_nonclick.svg);
     background-size: cover;
     cursor: pointer;
-    margin-right: 5px;
   }
   
   .star__button__filled {

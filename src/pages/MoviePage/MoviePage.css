@@ -25,6 +25,12 @@
 	object-fit: cover;
 }
 
+.movie-block__text {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .movie-block__text_title {
 	color: var(--white, #FFF);
 	font-size: 48px;
@@ -38,7 +44,7 @@
 .moviepage__button__container {
 	display: flex;
 	flex-direction: column;
-	margin: 0 0 0 100px;
+	margin: 0 0 0 195px;
 	gap: 30px;
 	justify-content: space-between;
 	align-items: flex-end;

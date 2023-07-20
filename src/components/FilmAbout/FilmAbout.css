@@ -29,10 +29,14 @@
     line-height: 24px;
 }
 
+.moviepage-description__about {
+    margin: 0 0 0 97px;
+}
 .moviepage-description__about__container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 255px;
 }
 
 .moviepage-description__about__text_add {
