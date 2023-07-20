@@ -1,7 +1,7 @@
 .auth {
 	width: 100%;
-	background-color: #2b2f33;
-	color: #2b2f33;
+	background-color: #0c0c0c;
+	color: #0c0c0c;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -77,13 +77,14 @@
 	padding: 0 0 0 4px;
 	color: #4285f4;
 	transition: opacity 0.2s;
+	text-decoration: none;
 }
 
 .auth__link:hover {
 	opacity: 0.7;
 }
 
-.auth__forgot-link {
+.auth__recover-link {
 	display: block;
 	margin: 25px auto 15px;
 	padding: 0;
