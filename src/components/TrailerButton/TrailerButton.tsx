@@ -9,9 +9,9 @@ const TrailerButton: FC<IImage> = ({ imageUrl }) => {
 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-    const switchPopupTrailer = () => {
-        setIsPopupOpen(!isPopupOpen);
-    };
+	const switchPopupTrailer = () => {
+		setIsPopupOpen(!isPopupOpen);
+	};
 
     return (
         <div className='trailer'>

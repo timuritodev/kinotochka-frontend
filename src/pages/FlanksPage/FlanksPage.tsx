@@ -16,24 +16,23 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const willSee = useAppSelector((state) => state.films.mustSeeFilms);
 	const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
 	const [toggleFavorites, setToggleFavorites] = useState<IFilms[]>([]);
-	
+
 	useEffect(() => {
 		dispatch(getFilmsApi());
 		dispatch(getSelectionsApi());
 	}, []);
-	
-	
+
 	useEffect(() => {
 		if (formName === 'ratedFilms') {
-		  setToggleFavorites(ratedFilms);
+			setToggleFavorites(ratedFilms);
 		} else if (formName === 'willSee') {
-		  setToggleFavorites(willSee);
+			setToggleFavorites(willSee);
 		} else if (formName === 'favorites') {
-		  setToggleFavorites(favorites);
+			setToggleFavorites(favorites);
 		} else {
-		  setToggleFavorites([]);
+			setToggleFavorites([]);
 		}
-	  }, [ratedFilms, willSee, favorites, formName]);
+	}, [ratedFilms, willSee, favorites, formName]);
 
 	const title =
 		formName === 'ratedFilms'

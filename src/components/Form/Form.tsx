@@ -1,100 +1,113 @@
-import { FC, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router';
-import { useAppDispatch } from '../../hooks/redux';
-import Slider, { SliderTypes } from '../Slider/Slider';
-import Input, { InputTypes } from '../Input/Input';
+import { FC, ReactNode, useEffect, useState } from 'react';
 
-import './Form.css';
-import { signInUser, signUpUser } from 'src/services/redux/slices/user/user';
+import Slider from '../Slider/Slider';
+import Input from '../Input/Input';
+import Button from '../Button/Button';
+
+import { IForm } from 'src/types/Form.types';
+import { InputTypes } from 'src/types/Input.types';
+import { ButtonTypes } from 'src/types/Button.types';
+import { SliderTypes } from 'src/types/Slider.types';
+
 import { GENRES } from 'src/utils/constants';
 
-export enum FormTypes {
-	signIn = 'signIn',
-	signUp = 'signUp',
-	recoverPassword = 'recoverPassword',
-}
-
-interface IForm {
-	formType: FormTypes;
-	step: number;
-	setStep: React.Dispatch<React.SetStateAction<number>>;
-}
+import './Form.css';
 
 const Form: FC<IForm> = ({ formType, step, setStep }) => {
-	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
-	const location = useLocation();
-	const currentPath = location.pathname;
+	// const [error, setError] = useState(true);
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		setStep(1);
-	}, [currentPath]);
+		if (setStep) {
+			setStep(1);
+		}
+	}, []);
 
-	const formInputs =
-		formType === 'signUp' && step === 1 ? (
-			<>
-				<Input inputType={InputTypes.email}></Input>
-				<Input inputType={InputTypes.password}></Input>
-				<Input inputType={InputTypes.repeatPassword}></Input>
-			</>
-		) : formType === 'signUp' && step === 2 ? (
-			<Slider contentType={SliderTypes.genresBlock} content={GENRES} />
-		) : formType === 'recoverPassword' && step === 1 ? (
-			<Input inputType={InputTypes.email}></Input>
-		) : formType === 'recoverPassword' && step === 2 ? (
-			<Input inputType={InputTypes.enteredPassword}></Input>
-		) : (
-			<>
-				<Input inputType={InputTypes.email}></Input>
-				<Input inputType={InputTypes.password}></Input>
-			</>
-		);
+	const getFormInputs = (): ReactNode => {
+		if (formType === 'signIn') {
+			return (
+				<>
+					<Input inputType={InputTypes.email} />
+					<Input inputType={InputTypes.password} />
+				</>
+			);
+		}
+		if (formType === 'signUp') {
+			return step === 1 ? (
+				<>
+					<Input inputType={InputTypes.email} />
+					<Input inputType={InputTypes.password} />
+					<Input inputType={InputTypes.repeatPassword} />
+				</>
+			) : step === 2 ? (
+				<Slider contentType={SliderTypes.genresBlock} content={GENRES} />
+			) : (
+				<Input inputType={InputTypes.enteredEmail} />
+			);
+		}
+		if (formType === 'recoverPassword') {
+			return step === 1 ? (
+				<Input inputType={InputTypes.email} />
+			) : (
+				<Input inputType={InputTypes.enteredEmail} />
+			);
+		}
+		if (formType === 'resetPassword') {
+			return step === 1 ? (
+				<>
+					<Input inputType={InputTypes.password} />
+					<Input inputType={InputTypes.repeatPassword} />
+				</>
+			) : null;
+		}
+	};
 
-	const buttonText: string =
-		formType === 'recoverPassword' && step === 1
-			? 'Восстановить'
-			: formType === 'recoverPassword' && step === 2
-			? 'Перейти на Главную'
-			: 'Продолжить';
+	const getButtonType = (): ButtonTypes => {
+		if (
+			formType === 'signIn' ||
+			(formType === 'signUp' && step === 2) ||
+			(formType === 'recoverPassword' && step === 1) ||
+			(formType === 'resetPassword' && step === 1)
+		) {
+			return formType as unknown as ButtonTypes;
+		}
+		if (
+			(formType === 'signUp' && step === 3) ||
+			(formType === 'recoverPassword' && step === 2)
+		) {
+			return ButtonTypes.navigateToMain;
+		} else {
+			return ButtonTypes.continue;
+		}
+	};
+
+	console.log(step);
 
 	return (
 		<form
 			className="form"
+			style={
+				(formType === 'recoverPassword' && step === 2) ||
+				(formType === 'signUp' && step === 3)
+					? { padding: '20px 0 0' }
+					: formType === 'resetPassword' && step === 2
+					? { padding: '0' }
+					: undefined
+			}
 			name={formType}
 			autoComplete="off"
 			noValidate
 			// onSubmit={() => console.log('submitted')}
 		>
-			<div className="form__inputs">{formInputs}</div>
-			<button
-				className="form__button"
-				// disabled
-				type="button"
-				onClick={() => {
-					if (formType !== 'signIn' && step === 1) {
-						setStep(step + 1);
-					}
-					if (formType === 'signIn') {
-						dispatch(signInUser({ email: '123@mail.ru' }));
-						navigate('/');
-					}
-					if (formType !== 'signIn' && step === 2) {
-						navigate('/');
-					}
-					if (formType === 'signUp' && step === 2) {
-						dispatch(
-							signUpUser({
-								email: '123@mail.ru',
-								preferences: ['q', 'q', 'q'],
-							})
-						).then(() => navigate('/'));
-					} else {
-						console.log('submitted');
-					}
-				}}
-			>
-				{buttonText}
-			</button>
+			<div className={`form__inputs form__inputs_type_${formType}`}>
+				{getFormInputs()}
+			</div>
+			{error ? (
+				<p className="form__error form__error_type_login">
+					Неверный логин или пароль.
+				</p>
+			) : null}
+			<Button buttonType={getButtonType()} step={step} setStep={setStep} />
 		</form>
 	);
 };

@@ -1,17 +1,7 @@
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC } from 'react';
+
+import { ISliderController } from 'src/types/SliderController.types';
 import './sliderController.css';
-
-export enum SliderControllerTypes {
-	left = 'left',
-	right = 'right',
-}
-
-interface ISliderController {
-	direction: SliderControllerTypes;
-	canScrollLeft?: boolean;
-	canScrollRight?: boolean;
-	handleScroll: any;
-}
 
 const SliderController: FC<ISliderController> = ({
 	direction,

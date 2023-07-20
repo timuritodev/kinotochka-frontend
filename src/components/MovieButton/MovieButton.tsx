@@ -1,21 +1,20 @@
 import { useAppDispatch } from '../../hooks/redux';
 import { useEffect } from 'react';
 import { getMoviesRating } from 'src/services/redux/slices/rating/rating';
-import "./MovieButton.css";
+import './MovieButton.css';
 import { IButton } from 'src/types/Rating.types';
 import { FC } from 'react';
 
 const MovieButton: FC<IButton> = ({ buttonName }) => {
-    
-    const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch();
 
     // const rating = useAppSelector((state) => state.rating.movie_rating);
 
-    useEffect(() => {
-        dispatch(getMoviesRating());
-    }, []);
+	useEffect(() => {
+		dispatch(getMoviesRating());
+	}, []);
 
-    function handleAddToFavourite() {
+	function handleAddToFavourite() {
 		console.log('movies_rating - is_favourite: true');
 	}
 
