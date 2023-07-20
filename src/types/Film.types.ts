@@ -8,9 +8,22 @@ export interface IFilms {
 	index: number;
 	year: number;
 	genres: string[];
-	is_viewed: boolean;
+	country: string[];
+	director: IDirector[];
+	actor: IActor[];
+	is_favorite: boolean;
+	is_viewed?: boolean;
 	must_see?: boolean;
-	is_favorite?: boolean;
+}
+
+interface IDirector {
+	first_name: string;
+	last_name: string;
+}
+
+interface IActor {
+	first_name: string;
+	last_name: string;
 }
 
 export interface ISelect {

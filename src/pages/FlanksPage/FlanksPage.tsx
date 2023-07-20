@@ -1,5 +1,5 @@
 import './FlanksPage.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -7,6 +7,7 @@ import { getSelectionsApi } from '../../services/redux/slices/selections/selecti
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
+import { IFilms } from 'src/types/Film.types';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
@@ -14,20 +15,24 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const favorites = useAppSelector((state) => state.films.favoriteFilms);
 	const willSee = useAppSelector((state) => state.films.mustSeeFilms);
 	const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
+	const [toggleFavorites, setToggleFavorites] = useState<IFilms[]>([]);
 
 	useEffect(() => {
 		dispatch(getFilmsApi());
 		dispatch(getSelectionsApi());
 	}, []);
 
-	const togglefavorites =
-		formName === 'ratedFilms'
-			? ratedFilms
-			: formName === 'willSee'
-			? willSee
-			: formName === 'favorites'
-			? favorites
-			: [];
+	useEffect(() => {
+		if (formName === 'ratedFilms') {
+			setToggleFavorites(ratedFilms);
+		} else if (formName === 'willSee') {
+			setToggleFavorites(willSee);
+		} else if (formName === 'favorites') {
+			setToggleFavorites(favorites);
+		} else {
+			setToggleFavorites([]);
+		}
+	}, [ratedFilms, willSee, favorites, formName]);
 
 	const title =
 		formName === 'ratedFilms'
@@ -45,7 +50,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 				{formName === 'collections' ? (
 					<SelectionCard selected={selected} />
 				) : (
-					togglefavorites.map((film) => <FilmCard film={film} />)
+					toggleFavorites.map((film) => <FilmCard film={film} />)
 				)}
 			</section>
 		</section>

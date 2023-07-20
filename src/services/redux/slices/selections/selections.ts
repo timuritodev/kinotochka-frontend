@@ -30,7 +30,20 @@ const initialState: ISelectionState = {
 					movieCardUrl: '',
 					index: 0,
 					year: 0,
-					genres: ['', '', '', ''],
+					genres: [''],
+					country: [''],
+					director: [
+						{
+							first_name: '',
+							last_name: '',
+						},
+					],
+					actor: [
+						{
+							first_name: '',
+							last_name: '',
+						},
+					],
 					is_favorite: false,
 					must_see: false,
 					is_viewed: false,

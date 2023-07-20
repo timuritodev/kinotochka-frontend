@@ -19,6 +19,8 @@ import RecoverPasswordPage from './pages/auth/RecoverPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
+import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
+
 
 const Root: FC = () => {
 	return (
@@ -48,7 +50,8 @@ const Root: FC = () => {
 						element={<FlanksPage formName={FlanksTypes.collections} />}
 					/>
 					<Route path="/movie-page" element={<MoviePage />} />
-					<Route path="*" element={<ErrorPage />} />
+					<Route path="/search-result" element={<SearchResultPage />} />
+          <Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
 		</div>
