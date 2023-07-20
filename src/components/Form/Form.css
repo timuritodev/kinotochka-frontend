@@ -9,32 +9,22 @@
 	gap: 20px;
 }
 
-.form__button {
-	width: 100%;
-	font-size: 20px;
-	line-height: 26px;
-	font-weight: 700;
-	padding: 15px 0;
-	background-color: #fc3;
-	color: #2b2f33;
-	outline: none;
-	border: none;
-	border-radius: 10px;
-	margin: 30px 0 0;
-	cursor: pointer;
-	transition: opacity 0.2s;
+.form__inputs_type_signIn {
+	gap: 30px;
 }
 
-.form__button:hover {
-	opacity: 0.8;
+.form__error {
+	color: #ea4335;
 }
 
-.form__button:disabled {
-	color: #fff;
-	background-color: #9ca3af;
-	cursor: not-allowed;
-}
-
-.form__button:disabled:hover {
-	opacity: 1;
+.form__error_type_login {
+	display: block;
+	padding: 20px 0 0 24px;
+	margin: 0;
+	font-size: 16px;
+	font-weight: 500;
+	background-image: url(../../images/authError.svg);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	background-size: 16px 18px;
 }

@@ -1,20 +1,14 @@
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useAppSelector } from 'src/hooks/redux';
+import { selectUser } from 'src/services/redux/slices/user/user';
+
+import { IInput } from '../../types/Input.types';
 
 import './Input.css';
 
-export enum InputTypes {
-	email = 'email',
-	password = 'password',
-	repeatPassword = 'repeatPassword',
-	enteredPassword = 'enteredPassword',
-}
-
-interface IInput {
-	inputType: InputTypes;
-}
-
-const Input: FC<IInput> = ({ inputType }) => {
+const Input: FC<IInput> = ({ inputType, color = 'white' }) => {
+	const { email } = useAppSelector(selectUser);
 	const location = useLocation();
 	const currentPath = location.pathname;
 
@@ -38,9 +32,7 @@ const Input: FC<IInput> = ({ inputType }) => {
 			: null;
 
 	const inputTextType =
-		inputType === 'password' &&
-		isPasswordHidden === false &&
-		currentPath === '/sign-in'
+		inputType === 'password' && isPasswordHidden === false
 			? 'text'
 			: inputType === 'repeatPassword'
 			? 'password'
@@ -48,24 +40,25 @@ const Input: FC<IInput> = ({ inputType }) => {
 
 	return (
 		<div className="input__container">
-			{inputType !== 'enteredPassword' ? (
+			{inputType !== 'enteredEmail' ? (
 				<label className="input__label" htmlFor={inputType}>
 					{labelText}
 				</label>
 			) : null}
 			<input
-				className={`input__field ${
-					inputType === 'enteredPassword' ? 'input__field_disabled' : null
+				className={`input__field input__field_color_${color}${
+					inputType === 'enteredEmail' ? ' input__field_disabled' : ''
 				}`}
 				style={
-					inputType === 'enteredPassword'
+					inputType === 'enteredEmail'
 						? { border: 'none', padding: '0' }
 						: undefined
 				}
 				type={inputTextType}
 				name={inputType}
 				id={inputType}
-				readOnly={inputType === 'enteredPassword' ? true : false}
+				value={inputType === 'enteredEmail' ? email : undefined}
+				readOnly={inputType === 'enteredEmail' ? true : false}
 				minLength={
 					inputType === 'password' || inputType === 'repeatPassword'
 						? 8
@@ -77,7 +70,7 @@ const Input: FC<IInput> = ({ inputType }) => {
 					Минимум 8 символов (заглавные и строчные латинские буквы и цифры)
 				</span>
 			) : null}
-			{inputType === 'password' && currentPath === '/sign-in' ? (
+			{inputType === 'password' ? (
 				<button
 					className="input__button"
 					type="button"

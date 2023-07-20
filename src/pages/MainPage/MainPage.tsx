@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './MainPage.css';
 import FirstScreenCompilation from '../../components/FirstScreenCompilation/FirstScreenCompilation';
-import Slider, { SliderTypes } from 'src/components/Slider/Slider';
+import Slider from 'src/components/Slider/Slider';
 import { GENRES } from 'src/utils/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
+import { SliderTypes } from '../../types/Slider.types';
 
 export default function MainPage() {
 	const dispatch = useAppDispatch();

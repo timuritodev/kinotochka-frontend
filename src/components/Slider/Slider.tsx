@@ -1,22 +1,14 @@
 import { FC, useEffect, useRef, useState } from 'react';
-import './Slider.css';
+
 import Checkbox from '../GenreCheckbox/GenreCheckbox';
+import SliderController from '../SliderController/SliderController';
+
+import { ISlider } from '../../types/Slider.types';
+import { SliderControllerTypes } from '../../types/SliderController.types';
+
 import { GENRES } from 'src/utils/constants';
-import SliderController, {
-	SliderControllerTypes,
-} from '../sliderController/sliderController';
 
-export enum SliderTypes {
-	genresBlock = 'genresBlock',
-	genresRow = 'genresRow',
-	moviesSmallCards = 'moviesSmallCards',
-	moviesBigCards = 'moviesBigCards',
-}
-
-interface ISlider {
-	contentType: SliderTypes;
-	content: string[];
-}
+import './Slider.css';
 
 const Slider: FC<ISlider> = ({ contentType, content }) => {
 	const [liIndex, setLiIndex] = useState<number>(0);

@@ -1,7 +1,7 @@
 import './FirstScreenCompilation.css';
 import { Link } from 'react-router-dom';
 import { RatedElement } from '../RatedElement/RatedElement';
-import { IFilms } from 'src/types/Film.types';
+import { IFilms } from '../../types/Film.types';
 
 export default function FirstScreenCompilation({ film }: { film: IFilms }) {
 	return (
