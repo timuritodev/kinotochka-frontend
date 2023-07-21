@@ -27,7 +27,7 @@ const FilmAbout: FC = () => {
 						</div>
 						<div className='moviepage-description__about__container'>
 							<p className="moviepage-description__about__text_add">Жанр</p>
-							<p className='moviepage-description__about__text'>{films.genres}</p>
+							<p className='moviepage-description__about__text'>{films.genres.join(", ")}</p>
 						</div>
 						<div className='moviepage-description__about__container'>
 							<p className="moviepage-description__about__text_add">Страна</p>

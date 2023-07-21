@@ -33,3 +33,7 @@ export interface IImage {
 export interface ActorsListProps {
   actors: IActor[];
 }
+export interface PopupTrailerProps {
+  isPopupOpen: boolean;
+  switchPopupTrailer: () => void;
+}
