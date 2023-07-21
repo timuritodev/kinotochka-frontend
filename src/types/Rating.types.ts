@@ -45,3 +45,7 @@ export enum SlickSliderTypes {
 	specialforyou = 'specialforyou',
 	similar = 'similar',
 }
+
+export interface ISlider {
+	type: SlickSliderTypes;
+}

@@ -28,7 +28,19 @@ export default function MainPage() {
 			<br />
 			{/* <Slider contentType={SliderTypes.genresRow} content={GENRES} /> */}
 			<div className='main-page_slick-slider'>
-				{/* <SlickSlider type={SlickSliderTypes.oscar} /> */}
+				<SlickSlider type={SlickSliderTypes.oscar} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.specialforyou} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.blackwhite} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.news} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.similar} />
 			</div>
 		</main>
 	);
