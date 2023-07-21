@@ -20,6 +20,7 @@ import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
+import { WindowResize } from './components/WindowResize/WindowResize';
 
 
 const Root: FC = () => {
@@ -54,6 +55,7 @@ const Root: FC = () => {
           <Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
+			<WindowResize />
 		</div>
 	);
 };

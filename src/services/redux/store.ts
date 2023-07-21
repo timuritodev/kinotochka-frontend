@@ -17,6 +17,7 @@ import { userReducer } from './slices/user/user';
 import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
 import { ratingReducer } from './slices/rating/rating';
+import { windowResizeReducer } from './slices/window_resize/window_resize';
 
 const rootReducer = combineReducers({
 	example: exampleReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
 	films: filmsReducer,
 	selection: selectionsReducer,
 	rating: ratingReducer,
+	windowResize: windowResizeReducer
 });
 
 const persistConfig = {
