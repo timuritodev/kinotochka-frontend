@@ -28,7 +28,7 @@ export default function MainPage() {
 			<br />
 			{/* <Slider contentType={SliderTypes.genresRow} content={GENRES} /> */}
 			<div className='main-page_slick-slider'>
-				{/* <SlickSlider type={SlickSliderTypes.oscar} /> */}
+				<SlickSlider type={SlickSliderTypes.specialforyou} />
 			</div>
 		</main>
 	);

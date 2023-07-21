@@ -17,50 +17,53 @@ import { getFilmsApi } from '../../services/redux/slices/films/films';
 export const SlickSlider = ({ type }: { type: string }) => {
     const dispatch = useAppDispatch();
 
-    const selected = useAppSelector((state) => state.selection.selections);
     const favorites = useAppSelector((state) => state.films.favoriteFilms);
     const willSee = useAppSelector((state) => state.films.mustSeeFilms);
     const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
-    const [data, setData] = useState<IFilms[]>([]);
     const films = useAppSelector((state) => state.films.films)
 
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 3,
-        arrows: true,
-    };
+    const [data, setData] = useState<Array<IFilms>>([]);
+
+    const settings = type === 'specialforyou' || type === 'news' || type === 'similar'
+        ? {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            arrows: true,
+        }
+        : {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 5,
+            slidesToScroll: 4,
+            arrows: true,
+        };
+
+
     useEffect(() => {
         dispatch(getFilmsApi());
     }, []);
 
     useEffect(() => {
         if (type === 'specialforyou') {
-            setData(films)
+            setData(willSee)
         } else if (type === 'news') {
             setData(films)
         } else if (type === 'similar') {
-            setData(films)
+            setData(ratedFilms)
         } else if (type === 'oscars') {
-            setData(films)
+            setData(favorites)
         } else {
             setData(films)
         }
-    }, [films]);
-
-    // console.log(films, 'films')
-    // console.log(data, 'data')
-    console.log(typeof data)
-    console.log(typeof films)
-
+    }, [type, willSee, films, ratedFilms, favorites]);
 
     return (
         <Slider {...settings} className='slick-slider'>
-            {data.map((item) => (
-                <FilmCardSmall film={item} />
-            ))}
+            {data.map((film) => <FilmCardSmall film={film} />)}
         </Slider>
     );
 };

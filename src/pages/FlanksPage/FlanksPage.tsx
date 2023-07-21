@@ -1,5 +1,5 @@
 import './FlanksPage.css';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
