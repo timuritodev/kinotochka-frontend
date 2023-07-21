@@ -20,7 +20,7 @@ import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
-
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 
 const Root: FC = () => {
 	return (
@@ -33,6 +33,7 @@ const Root: FC = () => {
 					<Route path="/recover-password" element={<RecoverPasswordPage />} />
 					<Route path="/reset-password" element={<ResetPasswordPage />} />
 					<Route path="/confirm-email" element={<ConfirmEmailPage />} />
+					<Route path="/profile" element={<ProfilePage />} />
 					<Route
 						path="/rated-films"
 						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
@@ -51,7 +52,7 @@ const Root: FC = () => {
 					/>
 					<Route path="/movie-page" element={<MoviePage />} />
 					<Route path="/search-result" element={<SearchResultPage />} />
-          <Route path="*" element={<ErrorPage />} />
+					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
 		</div>

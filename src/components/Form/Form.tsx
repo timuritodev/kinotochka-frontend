@@ -5,7 +5,7 @@ import Input from '../Input/Input';
 import Button from '../Button/Button';
 
 import { IForm } from 'src/types/Form.types';
-import { InputTypes } from 'src/types/Input.types';
+import { InputColors, InputTypes } from 'src/types/Input.types';
 import { ButtonTypes } from 'src/types/Button.types';
 import { SliderTypes } from 'src/types/Slider.types';
 
@@ -59,6 +59,14 @@ const Form: FC<IForm> = ({ formType, step, setStep }) => {
 					<Input inputType={InputTypes.repeatPassword} />
 				</>
 			) : null;
+		}
+		if (formType === 'profile') {
+			return (
+				<>
+					<Input inputType={InputTypes.email} color={InputColors.black} />
+					<Input inputType={InputTypes.password} color={InputColors.black} />
+				</>
+			);
 		}
 	};
 

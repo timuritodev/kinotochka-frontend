@@ -41,7 +41,12 @@ const Input: FC<IInput> = ({ inputType, color = 'white' }) => {
 	return (
 		<div className="input__container">
 			{inputType !== 'enteredEmail' ? (
-				<label className="input__label" htmlFor={inputType}>
+				<label
+					className={`input__label input__label_color_${
+						color !== 'white' ? 'white' : 'black'
+					}`}
+					htmlFor={inputType}
+				>
 					{labelText}
 				</label>
 			) : null}
@@ -70,7 +75,7 @@ const Input: FC<IInput> = ({ inputType, color = 'white' }) => {
 					Минимум 8 символов (заглавные и строчные латинские буквы и цифры)
 				</span>
 			) : null}
-			{inputType === 'password' ? (
+			{inputType === 'password' && currentPath !== '/profile' ? (
 				<button
 					className="input__button"
 					type="button"

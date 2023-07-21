@@ -9,6 +9,10 @@
 	line-height: 18px;
 }
 
+.input__label_color_white {
+	color: #ffffff;
+}
+
 .input__field {
 	font-size: 16px;
 	line-height: 18px;

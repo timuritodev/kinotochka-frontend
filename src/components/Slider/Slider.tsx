@@ -1,7 +1,7 @@
 import { FC, useEffect, useRef, useState } from 'react';
 
 import Checkbox from '../GenreCheckbox/GenreCheckbox';
-import SliderController from '../sliderController/sliderController';
+import SliderController from '../SliderController/SliderController';
 
 import { ISlider } from '../../types/Slider.types';
 import { SliderControllerTypes } from '../../types/SliderController.types';

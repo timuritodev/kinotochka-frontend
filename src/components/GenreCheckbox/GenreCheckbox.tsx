@@ -5,6 +5,7 @@ interface ICheckbox {
 	text: string;
 	id?: string;
 }
+
 const Checkbox: FC<ICheckbox> = ({ text, id }) => {
 	const [checked, setChecked] = useState(false);
 	const handleChange = () => {

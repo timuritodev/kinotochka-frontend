@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';
 import ProducersList from '../../components/Producers/ProducersList';
-import { RatedElement } from 'src/components/RatedElement/RatedElement';
+import { RatedElement } from '../../components/RatedElement/RatedElement';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
-import MovieButton from 'src/components/MovieButton/MovieButton';
-import { ButtonTypes } from 'src/types/Rating.types';
-import TrailerButton from 'src/components/TrailerButton/TrailerButton';
+import MovieButton from '../../components/MovieButton/MovieButton';
+import { ButtonTypes } from '../../types/Rating.types';
+import TrailerButton from '../../components/TrailerButton/TrailerButton';
 
 function MoviePage() {
 	const dispatch = useAppDispatch();
