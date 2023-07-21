@@ -6,12 +6,13 @@ import ActorsList from '../../components/Actors/ActorsList';
 import { RatedElement } from 'src/components/RatedElement/RatedElement';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import MovieButton from 'src/components/MovieButton/MovieButton';
-import { ButtonTypes } from 'src/types/Rating.types';
+import { ButtonTypes, SlickSliderTypes } from 'src/types/Rating.types';
 import TrailerButton from 'src/components/TrailerButton/TrailerButton';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import BackgroundImage from 'src/components/BackgroundImage/BackgroundImage';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 import { FilmCardSmall } from 'src/components/FilmCard180/FilmCardSmall';
+import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 
 const MoviePage: FC = () => {
     const dispatch = useAppDispatch();
@@ -49,9 +50,7 @@ const MoviePage: FC = () => {
                     <TrailerButton imageUrl={films.imageUrl} />
                     <h2 className='moviepage-cards__title'>Похожие фильмы</h2>
                     <div className='moviepage-cards__container'>
-                        {film.map((item) => (
-                            <FilmCardSmall film={item} />
-                        ))}
+                        <SlickSlider type={SlickSliderTypes.specialforyou} />
                     </div>
                 </div>
             </section>

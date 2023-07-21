@@ -7,6 +7,8 @@ import { GENRES } from 'src/utils/constants';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { SliderTypes } from '../../types/Slider.types';
+import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
+import { SlickSliderTypes } from 'src/types/Rating.types';
 
 export default function MainPage() {
 	const dispatch = useAppDispatch();
@@ -24,7 +26,10 @@ export default function MainPage() {
 			<Link to="/sign-in">Войти</Link>
 			<Link to="/sign-up">Зарегистрироваться</Link>
 			<br />
-			<Slider contentType={SliderTypes.genresRow} content={GENRES} />
+			{/* <Slider contentType={SliderTypes.genresRow} content={GENRES} /> */}
+			<div className='main-page_slick-slider'>
+				{/* <SlickSlider type={SlickSliderTypes.oscar} /> */}
+			</div>
 		</main>
 	);
 }
