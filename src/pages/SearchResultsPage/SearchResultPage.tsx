@@ -11,16 +11,15 @@ export const SearchResultPage = () => {
 	const [pageMore, setPageMore] = useState(page);
 
 	useEffect(() => {
-		if (films.length > (page)) {
-			setIsMoreButton(true)
+		if (films.length > page) {
+			setIsMoreButton(true);
 		} else {
-			setIsMoreButton(false)
+			setIsMoreButton(false);
 		}
 	}, [films, page]);
 
 	const handleMoreButtonClick = () => {
-		setPageMore((prev) => prev + (page));
-
+		setPageMore((prev) => prev + page);
 	};
 
 	return (
@@ -32,7 +31,7 @@ export const SearchResultPage = () => {
 					<SeachResult film={film} />
 				))}
 			</div>
-			<div className='flank_btn'>
+			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>
 		</section>

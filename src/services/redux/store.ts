@@ -25,7 +25,7 @@ const rootReducer = combineReducers({
 	films: filmsReducer,
 	selection: selectionsReducer,
 	rating: ratingReducer,
-	windowResize: windowResizeReducer
+	windowResize: windowResizeReducer,
 });
 
 const persistConfig = {

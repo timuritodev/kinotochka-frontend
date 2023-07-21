@@ -1,4 +1,4 @@
-import { IActor } from "./Film.types";
+import { IActor } from './Film.types';
 
 export interface IRating {
 	id: number;
@@ -31,5 +31,5 @@ export interface IImage {
 }
 
 export interface ActorsListProps {
-  actors: IActor[];
+	actors: IActor[];
 }

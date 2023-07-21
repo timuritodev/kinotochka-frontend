@@ -22,8 +22,8 @@ interface IDirector {
 }
 
 export interface IActor {
-	first_name: string
-	last_name: string
+	first_name: string;
+	last_name: string;
 }
 
 export interface ISelect {

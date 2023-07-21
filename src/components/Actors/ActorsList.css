@@ -8,7 +8,7 @@
 }
 
 .actorslist__title {
-	color: var(--white, #FFF);
+	color: var(--white, #fff);
 	font-family: Unbounded;
 	font-size: 18px;
 	font-style: normal;
@@ -18,7 +18,7 @@
 }
 
 .actorslist__text {
-	color: var(--white, #FFF);
+	color: var(--white, #fff);
 	font-family: Mullish;
 	font-size: 16px;
 	font-style: normal;
