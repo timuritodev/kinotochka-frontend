@@ -728,7 +728,7 @@ export const getFilms = (): Array<IFilms> => {
 					last_name: 'Бриджес',
 				},
 			],
-			is_favorite: false,
+			is_favorite: true,
 			must_see: false,
 			is_viewed: true,
 		},

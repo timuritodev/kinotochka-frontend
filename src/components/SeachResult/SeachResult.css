@@ -40,8 +40,3 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-
-.rated {
-	position: absolute;
-	bottom: 0;
-}
