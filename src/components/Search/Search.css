@@ -1,4 +1,4 @@
-.searchAll {
+.searchGeneral {
 	width: 525px;
 	height: 340px;
 	border-radius: 5px;
@@ -6,8 +6,9 @@
 	position: absolute;
 	top: 55px;
 	display: none;
+	z-index: 5;
 }
 
-.search_open {
+.searchGeneral_open {
 	display: block;
 }

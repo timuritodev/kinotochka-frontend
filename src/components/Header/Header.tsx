@@ -30,11 +30,9 @@ const Header: FC = () => {
 
 	useEffect(() => {
 		if (values.length > 0) {
-			console.log(values);
 			setIsOpenSearch(true);
 		}
 		if (values.length < 1) {
-			console.log(values);
 			setIsOpenSearch(false);
 		}
 	}, [values]);

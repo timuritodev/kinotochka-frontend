@@ -5,7 +5,7 @@ import './Search.css';
 
 const Search = ({ isOpenSearch }: { isOpenSearch: boolean }) => {
 	return (
-		<section className={`searchAll ${isOpenSearch && 'search_open'}`}></section>
+		<section className={`searchGeneral ${isOpenSearch && 'searchGeneral_open'}`}></section>
 	);
 };
 
