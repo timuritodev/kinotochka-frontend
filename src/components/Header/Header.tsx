@@ -20,6 +20,7 @@ const Header: FC = () => {
 	};
 
 	const [values, setValues] = useState('');
+
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const target = event.target;
 		const value = target.value;
@@ -36,6 +37,10 @@ const Header: FC = () => {
 			setIsOpenSearch(false);
 		}
 	}, [values]);
+
+	const setSearchClose = () => {
+		setIsOpenSearch(false);
+	};
 
 	return (
 		<header className="header" id="header">
@@ -71,6 +76,7 @@ const Header: FC = () => {
 						type="text"
 						placeholder="Какой фильм вы хотите найти?"
 						onChange={handleChange}
+						onBlur={setSearchClose}
 					/>
 					<button className="header__search-button">
 						<img
@@ -79,15 +85,17 @@ const Header: FC = () => {
 							alt="Кнопка расширенного поиска"
 						/>
 					</button>
-					<button className="header__search-button">
+					<Link to="/search-result" className="header__search-button" >
 						<img
 							className="header__search-button_search"
 							src={search}
 							alt="Кнопка поиска"
 						/>
-					</button>
+					</Link>
 				</form>
-				<Search isOpenSearch={isOpenSearch} />
+				<Search isOpenSearch={isOpenSearch} 
+				values={values}
+				 />
 			</div>
 			<Account
 			// isLoggedIn={true}

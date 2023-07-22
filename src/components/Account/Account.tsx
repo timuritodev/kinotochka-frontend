@@ -2,6 +2,8 @@ import { FC } from 'react';
 import { useState } from 'react';
 import './Account.css';
 import { Link } from 'react-router-dom';
+import { useAppSelector } from 'src/hooks/redux';
+import { selectUser } from 'src/services/redux/slices/user/user';
 
 const Account: FC = (isLoggedIn) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +15,8 @@ const Account: FC = (isLoggedIn) => {
 	const setProfileClose = () => {
 		setIsOpen(false);
 	};
+
+	const { email } = useAppSelector(selectUser);
 
 	return (
 		<section className="account">
@@ -33,8 +37,8 @@ const Account: FC = (isLoggedIn) => {
 						onMouseOut={setProfileClose}
 					>
 						<ul className="account__list" onMouseOver={setProfileOpen}>
-							<p className="account__content-nik">Никнейм</p>
-							<p className="account__content-email">mail@google.com</p>
+							<p className="account__content-nik">{email}</p>
+							<p className="account__content-email">{email}</p>
 							<Link to="/movie-page" className="account__content-link">
 								Страница фильма
 							</Link>
