@@ -9,7 +9,7 @@ import { FC } from 'react';
 import { ISlider } from 'src/types/Rating.types';
 import { FilmCardSmall } from '../FilmCard180/FilmCardSmall';
 import CheckboxMain from '../CheckboxMain/CheckboxMain';
-import { useAppSelector } from 'src/hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 
 export const SlickSliderGenres = ({ content }: { content: string[] }) => {
 	const films = useAppSelector((state) => state.films.films);

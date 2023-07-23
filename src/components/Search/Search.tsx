@@ -1,5 +1,5 @@
 import './Search.css';
-import { useAppSelector } from 'src/hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { IFilms } from 'src/types/Film.types';
 import { RatedElement } from '../RatedElement/RatedElement';
 import { useState, useEffect } from 'react';

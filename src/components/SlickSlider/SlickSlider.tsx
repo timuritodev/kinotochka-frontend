@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import { useEffect, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useAppSelector, useAppDispatch } from 'src/hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { FilmCard } from '../FilmCardWidth255/FilmCard';
 import CustomPrevArrow from '../../images/ArrowPrev.svg';
 import CustomNextArrow from '../../images/ArrowNext.svg';
