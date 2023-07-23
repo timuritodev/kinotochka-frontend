@@ -34,17 +34,11 @@ export const getFilms = (): Array<IFilms> => {
 			shortDescription:
 				'Афганистан, март 2018 года. Во время спецоперации по поиску оружия талибов отряд сержанта армии США Джона Кинли попадает в засаду. В живых остаются...',
 			imageUrl:
-				'https://in-rating.ru/space/wp-content/uploads/2023/03/Les-trois-mousquetaires-DArtagnan-9-1200.jpg',
+				'https://fs.kinomania.ru/image/file/film_wallpaper/a/3c/a3cdf7cabc49ea4612b126ae2a30ecbf.1440.900.jpeg',
 			movieCardUrl: 'https://kinotochka.ru/movie/101',
 			index: 1,
 			year: 2023,
-			genres: [
-				'Комедия',
-				'Мультфильм',
-				'Триллер',
-				'Приключение',
-				'Семейные',
-			],
+			genres: ['Комедия', 'Мультфильм', 'Триллер', 'Приключение', 'Семейные'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -92,13 +86,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/101',
 			index: 1,
 			year: 2023,
-			genres: [
-				'Боевик',
-				'Мелодрама',
-				'Приключение',
-				'Семейные',
-				'Аниме',
-			],
+			genres: ['Боевик', 'Мелодрама', 'Приключение', 'Семейные', 'Аниме'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -146,13 +134,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/101',
 			index: 1,
 			year: 2023,
-			genres: [
-				'Ужасы',
-				'Мультфильм',
-				'Триллер',
-				'Мелодрама',
-				'Спорт',
-			],
+			genres: ['Ужасы', 'Мультфильм', 'Триллер', 'Мелодрама', 'Спорт'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -200,13 +182,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/102',
 			index: 2,
 			year: 2023,
-			genres: [
-				'Комедия',
-				'Ужасы',
-				'Приключение',
-				'Спорт',
-				'Аниме',
-			],
+			genres: ['Комедия', 'Ужасы', 'Приключение', 'Спорт', 'Аниме'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -254,13 +230,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/102',
 			index: 2,
 			year: 2023,
-			genres: [
-				'Мелодрама',
-				'Приключение',
-				'Семейные',
-				'Спорт',
-				'Аниме',
-			],
+			genres: ['Мелодрама', 'Приключение', 'Семейные', 'Спорт', 'Аниме'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -308,13 +278,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/102',
 			index: 2,
 			year: 2023,
-			genres: [
-				'Комедия',
-				'Ужасы',
-				'Мультфильм',
-				'Фантастика',
-				'Триллер',
-			],
+			genres: ['Комедия', 'Ужасы', 'Мультфильм', 'Фантастика', 'Триллер'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -413,13 +377,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/103',
 			index: 3,
 			year: 2023,
-			genres: [
-				'Ужасы',
-				'Фантастика',
-				'Боевик',
-				'Приключение',
-				'Спорт',
-			],
+			genres: ['Ужасы', 'Фантастика', 'Боевик', 'Приключение', 'Спорт'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -465,13 +423,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/103',
 			index: 3,
 			year: 2023,
-			genres: [
-				'Комедия',
-				'Ужасы',
-				'Семейные',
-				'Спорт',
-				'Аниме',
-			],
+			genres: ['Комедия', 'Ужасы', 'Семейные', 'Спорт', 'Аниме'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -518,13 +470,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/104',
 			index: 4,
 			year: 2023,
-			genres: [
-				'Фантастика',
-				'Триллер',
-				'Боевик',
-				'Мелодрама',
-				'Приключение',
-			],
+			genres: ['Фантастика', 'Триллер', 'Боевик', 'Мелодрама', 'Приключение'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -685,13 +631,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/105',
 			index: 5,
 			year: 2023,
-			genres: [
-				'Боевик',
-				'Мелодрама',
-				'Приключение',
-				'Семейные',
-				'Спорт',
-			],
+			genres: ['Боевик', 'Мелодрама', 'Приключение', 'Семейные', 'Спорт'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -900,12 +840,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/106',
 			index: 6,
 			year: 2023,
-			genres: [
-				'Комедия',
-				'Ужасы',
-				'Мультфильм',
-				'Аниме',
-			],
+			genres: ['Комедия', 'Ужасы', 'Мультфильм', 'Аниме'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -951,13 +886,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/106',
 			index: 6,
 			year: 2023,
-			genres: [
-				'Мелодрама',
-				'Приключение',
-				'Семейные',
-				'Спорт',
-				'Аниме',
-			],
+			genres: ['Мелодрама', 'Приключение', 'Семейные', 'Спорт', 'Аниме'],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -990,7 +919,8 @@ export const getFilms = (): Array<IFilms> => {
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,
-		},{
+		},
+		{
 			id: '119',
 			title: 'Вечное сияние чистого разума',
 			rating: {
@@ -1044,7 +974,8 @@ export const getFilms = (): Array<IFilms> => {
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,
-		},{
+		},
+		{
 			id: '120',
 			title: 'Вечное сияние чистого разума',
 			rating: {
@@ -1097,7 +1028,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,
-		}
+		},
 	];
 
 	return mymovie;

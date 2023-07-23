@@ -35,15 +35,14 @@ export const SlickSliderGenres = ({ content }: { content: string[] }) => {
 	const filteredFilms =
 		selectedGenres.length > 0
 			? films.filter((film) => {
-				return selectedGenres.some((genre) => film.genres.includes(genre));
-			})
+					return selectedGenres.some((genre) => film.genres.includes(genre));
+			  })
 			: films;
 
 	return (
 		<div>
-
-			<div className='slick-slider-genres_container'>
-				<h1 className='slick-slider_title'>Фильмы по жанрам</h1>
+			<div className="slick-slider-genres_container">
+				<h1 className="slick-slider_title">Фильмы по жанрам</h1>
 				<Slider {...settings} className="slick-slider">
 					{content.map((item) => (
 						<li key={content.indexOf(item)} className="main-page_color-white">
