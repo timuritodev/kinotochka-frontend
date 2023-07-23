@@ -10,26 +10,26 @@ import CustomPrevArrow from "../../images/ArrowPrev.svg";
 import CustomNextArrow from "../../images/ArrowNext.svg";
 import { FC } from 'react';
 import { IFilms } from 'src/types/Film.types';
-import { SlickSliderTypes } from 'src/types/Rating.types';
+import { ISlider } from 'src/types/Rating.types';
 import { FilmCardSmall } from '../FilmCard180/FilmCardSmall';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 
-export const SlickSlider = ({ type }: { type: string }) => {
+export const SlickSlider: FC<ISlider> = ({ type }) => {
     const dispatch = useAppDispatch();
+    const films = useAppSelector((state) => state.films.films)
 
     const favorites = useAppSelector((state) => state.films.favoriteFilms);
     const willSee = useAppSelector((state) => state.films.mustSeeFilms);
     const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
-    const films = useAppSelector((state) => state.films.films)
-
-    const [data, setData] = useState<Array<IFilms>>([]);
+    // const [data, setData] = useState<IFilms[]>([]);
+    const [data, setData] = useState<IFilms[]>(films);
 
     const settings = type === 'specialforyou' || type === 'news' || type === 'similar'
         ? {
             dots: false,
             infinite: true,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 5,
             slidesToScroll: 3,
             arrows: true,
         }
@@ -37,7 +37,7 @@ export const SlickSlider = ({ type }: { type: string }) => {
             dots: false,
             infinite: true,
             speed: 500,
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 4,
             arrows: true,
         };
@@ -53,17 +53,25 @@ export const SlickSlider = ({ type }: { type: string }) => {
         } else if (type === 'news') {
             setData(films)
         } else if (type === 'similar') {
-            setData(ratedFilms)
-        } else if (type === 'oscars') {
+            setData(films)
+        } else if (type === 'oscar') {
             setData(favorites)
         } else {
             setData(films)
         }
-    }, [type, willSee, films, ratedFilms, favorites]);
+    }, []);
 
     return (
         <Slider {...settings} className='slick-slider'>
-            {data.map((film) => <FilmCardSmall film={film} />)}
+            {type === 'oscar' || type === 'blackwhite' ? (
+                data.map((item) => (
+                    <FilmCard film={item} />
+                ))
+            ) :
+                data.map((item) => (
+                    <FilmCardSmall film={item} />
+                ))
+            }
         </Slider>
-    );
-};
+    )
+}

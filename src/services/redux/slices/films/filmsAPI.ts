@@ -698,7 +698,7 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/105',
 			index: 5,
 			year: 2023,
-			genres: ['Исторический', 'Драмма'],
+			genres: ['Исторический', 'Драмма', 'комедии'],
 			country: ['Россия', 'США'],
 			director: [
 				{

@@ -44,4 +44,9 @@ export enum SlickSliderTypes {
 	blackwhite = 'blackwhite',
 	specialforyou = 'specialforyou',
 	similar = 'similar',
+	genres = 'genres'
+}
+
+export interface ISlider {
+	type: SlickSliderTypes;
 }

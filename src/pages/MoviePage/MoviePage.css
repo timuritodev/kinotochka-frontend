@@ -50,7 +50,7 @@
 }
 
 .moviepage-cards__title {
-	color: var(--white, #FFF);
+	color: var(--white, #fff);
 	font-family: Unbounded;
 	font-size: 35px;
 	font-style: normal;
@@ -62,6 +62,5 @@
 .moviepage-cards__container {
 	display: flex;
 	/* flex-wrap: wrap; */
-	overflow: hidden;
 	gap: 20px;
 }

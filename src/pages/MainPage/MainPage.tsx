@@ -9,6 +9,7 @@ import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { SliderTypes } from '../../types/Slider.types';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from 'src/types/Rating.types';
+import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderGenres';
 
 export default function MainPage() {
 	const dispatch = useAppDispatch();
@@ -28,7 +29,22 @@ export default function MainPage() {
 			<br />
 			{/* <Slider contentType={SliderTypes.genresRow} content={GENRES} /> */}
 			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.oscar} />
+			</div>
+			<div className='main-page_slick-slider'>
 				<SlickSlider type={SlickSliderTypes.specialforyou} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.blackwhite} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.news} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSlider type={SlickSliderTypes.similar} />
+			</div>
+			<div className='main-page_slick-slider'>
+				<SlickSliderGenres content={GENRES} />
 			</div>
 		</main>
 	);
