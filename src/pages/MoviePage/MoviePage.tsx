@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { useEffect } from 'react';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';

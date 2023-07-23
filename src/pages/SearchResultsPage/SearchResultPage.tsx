@@ -1,5 +1,5 @@
 import './SearchResultPage.css';
-import { useAppSelector } from 'src/hooks/redux';
+import { useAppSelector } from 'src/services/typeHooks';
 import { SeachResult } from 'src/components/SeachResult/SeachResult';
 
 export const SearchResultPage = () => {

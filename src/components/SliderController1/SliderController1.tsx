@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { ISliderController } from '../../types/SliderController.types';
-import './SliderController.css';
+import './SliderController1.css';
 
 const SliderController: FC<ISliderController> = ({
 	direction,

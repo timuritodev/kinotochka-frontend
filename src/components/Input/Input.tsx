@@ -1,18 +1,24 @@
 import { FC, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useAppSelector } from 'src/hooks/redux';
-import { selectUser } from 'src/services/redux/slices/user/user';
 
 import { IInput } from '../../types/Input.types';
 
 import './Input.css';
 
-const Input: FC<IInput> = ({ inputType, color = 'white' }) => {
-	const { email } = useAppSelector(selectUser);
+const Input: FC<IInput> = ({
+	inputType,
+	labelText,
+	value,
+	color = 'white',
+	readOnly = false,
+	showPasswordButton = false,
+}) => {
 	const location = useLocation();
 	const currentPath = location.pathname;
 
 	const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+
+	const [error, setError] = useState(false);
 
 	useEffect(() => {
 		setIsPasswordHidden(true);
@@ -21,15 +27,6 @@ const Input: FC<IInput> = ({ inputType, color = 'white' }) => {
 	function togglePassword() {
 		setIsPasswordHidden(!isPasswordHidden);
 	}
-
-	const labelText: string | null =
-		inputType === 'email'
-			? 'Электронная почта'
-			: inputType === 'password'
-			? 'Пароль'
-			: inputType === 'repeatPassword'
-			? 'Повторите пароль'
-			: null;
 
 	const inputTextType =
 		inputType === 'password' && isPasswordHidden === false
@@ -40,42 +37,32 @@ const Input: FC<IInput> = ({ inputType, color = 'white' }) => {
 
 	return (
 		<div className="input__container">
-			{inputType !== 'enteredEmail' ? (
-				<label
-					className={`input__label input__label_color_${
-						color !== 'white' ? 'white' : 'black'
-					}`}
-					htmlFor={inputType}
-				>
-					{labelText}
-				</label>
-			) : null}
+			<div className="input__hints">
+				{labelText ? (
+					<label
+						className={`input__label input__label_color_${
+							color !== 'white' ? 'white' : 'black'
+						}`}
+						htmlFor={inputType}
+					>
+						{labelText}
+					</label>
+				) : null}
+				{error ? (
+					<span className="input__error">
+						Только кириллица или латинские буквы
+					</span>
+				) : null}
+			</div>
 			<input
-				className={`input__field input__field_color_${color}${
-					inputType === 'enteredEmail' ? ' input__field_disabled' : ''
-				}`}
-				style={
-					inputType === 'enteredEmail'
-						? { border: 'none', padding: '0' }
-						: undefined
-				}
+				className={`input__field input__field_color_${color}`}
 				type={inputTextType}
 				name={inputType}
 				id={inputType}
-				value={inputType === 'enteredEmail' ? email : undefined}
-				readOnly={inputType === 'enteredEmail' ? true : false}
-				minLength={
-					inputType === 'password' || inputType === 'repeatPassword'
-						? 8
-						: undefined
-				}
+				readOnly={readOnly}
+				value={readOnly && value ? value : undefined}
 			/>
-			{inputType === 'password' && currentPath === '/sign-up' ? (
-				<span className="input__span">
-					Минимум 8 символов (заглавные и строчные латинские буквы и цифры)
-				</span>
-			) : null}
-			{inputType === 'password' && currentPath !== '/profile' ? (
+			{showPasswordButton ? (
 				<button
 					className="input__button"
 					type="button"

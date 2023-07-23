@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { useEffect } from 'react';
 import { getMoviesRating } from 'src/services/redux/slices/rating/rating';
 import './MovieButton.css';
