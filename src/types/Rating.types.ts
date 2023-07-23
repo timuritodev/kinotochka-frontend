@@ -34,8 +34,8 @@ export interface ActorsListProps {
 	actors: IActor[];
 }
 export interface PopupTrailerProps {
-  isPopupOpen: boolean;
-  switchPopupTrailer: () => void;
+	isPopupOpen: boolean;
+	switchPopupTrailer: () => void;
 }
 
 export enum SlickSliderTypes {
@@ -44,6 +44,7 @@ export enum SlickSliderTypes {
 	blackwhite = 'blackwhite',
 	specialforyou = 'specialforyou',
 	similar = 'similar',
+	genres = 'genres',
 }
 
 export interface ISlider {

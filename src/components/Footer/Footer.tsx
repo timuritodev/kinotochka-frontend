@@ -3,16 +3,22 @@ import './Footer.css';
 import scroll from '../../images/scroll.svg';
 
 const Footer: FC = () => {
+	const buttonUp = (event: React.MouseEvent<HTMLButtonElement>) => {
+		event.preventDefault();
+		console.log('click');
+		window.scrollBy(0, -window.innerHeight);
+	};
+
 	return (
 		<footer className="footer">
 			<h4 className="footer__desc">© 2023 КиноТочка. Все права защищены.</h4>
-			<a href="#header" className="footer__scroll">
+			<button onClick={buttonUp} className="footer__scroll">
 				<img
 					className="footer__scroll-button"
 					alt="скролл вверх"
 					src={scroll}
 				/>
-			</a>
+			</button>
 		</footer>
 	);
 };

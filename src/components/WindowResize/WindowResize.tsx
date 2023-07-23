@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import {
 	getPage,
 	getScreenWidth,
@@ -35,6 +35,5 @@ export const WindowResize = () => {
 		}
 	}, [sizeWindow]);
 
-	console.log(sizeWindow);
 	return <></>;
 };

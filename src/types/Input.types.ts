@@ -3,6 +3,8 @@ export enum InputTypes {
 	password = 'password',
 	repeatPassword = 'repeatPassword',
 	enteredEmail = 'enteredEmail',
+	text = 'text',
+	date = 'date',
 }
 
 export enum InputColors {
@@ -13,5 +15,9 @@ export enum InputColors {
 
 export interface IInput {
 	inputType: InputTypes;
+	readOnly?: boolean;
+	value?: string;
+	labelText?: string;
+	showPasswordButton?: boolean;
 	color?: InputColors;
 }

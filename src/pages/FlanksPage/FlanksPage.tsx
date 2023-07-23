@@ -1,10 +1,10 @@
 import './FlanksPage.css';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { getSelectionsApi } from '../../services/redux/slices/selections/selections';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { IFilms } from 'src/types/Film.types';

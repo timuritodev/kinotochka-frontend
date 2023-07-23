@@ -3,7 +3,7 @@ import img_bookmark_default from '../../images/btn_bookmark_default.svg';
 import img_bookmark_pressed from '../../images/btn_bookmark_pressed.svg';
 import img_watch_default from '../../images/btn_watch_default.svg';
 import img_watch_pressed from '../../images/btn_watch_pressed.svg';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import {
 	updateFavorite,
 	updateWatch,

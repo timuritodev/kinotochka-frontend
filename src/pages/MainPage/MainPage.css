@@ -10,4 +10,7 @@
 .main-page_slick-slider {
 	display: flex;
 	justify-content: center;
+	margin-bottom: 50px;
+	max-width: 1440px;
+	margin: 0 auto;
 }
