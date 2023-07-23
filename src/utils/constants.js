@@ -23,6 +23,20 @@ const GENRES = [
 	'аниме',
 ];
 
+const GENRESv2 = [
+	'Комедия',
+	'Ужасы',
+	'Мультфильм',
+	'Фантастика',
+	'Триллер',
+	'Боевик',
+	'Мелодрама',
+	'Приключение',
+	'Семейные',
+	'Спорт',
+	'Аниме',
+];
+
 const VALIDATION = {
 	email: {
 		pattern: '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,8}(.[a-z{2,8}])?',
@@ -44,5 +58,6 @@ const VALIDATION = {
 
 module.exports = {
 	GENRES,
+	GENRESv2,
 	VALIDATION,
 };

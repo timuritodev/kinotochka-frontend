@@ -38,7 +38,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/101',
 			index: 1,
 			year: 2023,
-			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			genres: [
+				'Комедия',
+				'Мультфильм',
+				'Триллер',
+				'Приключение',
+				'Семейные',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -86,7 +92,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/101',
 			index: 1,
 			year: 2023,
-			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			genres: [
+				'Боевик',
+				'Мелодрама',
+				'Приключение',
+				'Семейные',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -134,7 +146,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/101',
 			index: 1,
 			year: 2023,
-			genres: ['Хоррор', 'Драмма', 'Превосходство'],
+			genres: [
+				'Ужасы',
+				'Мультфильм',
+				'Триллер',
+				'Мелодрама',
+				'Спорт',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -182,7 +200,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/102',
 			index: 2,
 			year: 2023,
-			genres: ['Хоррор', 'Сюреализм'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Приключение',
+				'Спорт',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -230,7 +254,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/102',
 			index: 2,
 			year: 2023,
-			genres: ['Хоррор', 'Сюреализм'],
+			genres: [
+				'Мелодрама',
+				'Приключение',
+				'Семейные',
+				'Спорт',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -278,7 +308,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/102',
 			index: 2,
 			year: 2023,
-			genres: ['Хоррор', 'Сюреализм'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Мультфильм',
+				'Фантастика',
+				'Триллер',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -324,7 +360,14 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/103',
 			index: 3,
 			year: 2023,
-			genres: ['Комедия', 'Драмма'],
+			genres: [
+				'Комедия',
+				'Мультфильм',
+				'Триллер',
+				'Мелодрама',
+				'Семейные',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -370,7 +413,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/103',
 			index: 3,
 			year: 2023,
-			genres: ['Комедия', 'Драмма'],
+			genres: [
+				'Ужасы',
+				'Фантастика',
+				'Боевик',
+				'Приключение',
+				'Спорт',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -416,7 +465,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/103',
 			index: 3,
 			year: 2023,
-			genres: ['Комедия', 'Драмма'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Семейные',
+				'Спорт',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -463,7 +518,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/104',
 			index: 4,
 			year: 2023,
-			genres: ['Хоррор', 'Эротика'],
+			genres: [
+				'Фантастика',
+				'Триллер',
+				'Боевик',
+				'Мелодрама',
+				'Приключение',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -510,7 +571,15 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/104',
 			index: 4,
 			year: 2023,
-			genres: ['Хоррор', 'Эротика'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Триллер',
+				'Боевик',
+				'Мелодрама',
+				'Приключение',
+				'Семейные',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -557,7 +626,19 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/104',
 			index: 4,
 			year: 2023,
-			genres: ['Хоррор', 'Эротика'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Мультфильм',
+				'Фантастика',
+				'Триллер',
+				'Боевик',
+				'Мелодрама',
+				'Приключение',
+				'Семейные',
+				'Спорт',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -604,7 +685,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/105',
 			index: 5,
 			year: 2023,
-			genres: ['Исторический', 'Драмма'],
+			genres: [
+				'Боевик',
+				'Мелодрама',
+				'Приключение',
+				'Семейные',
+				'Спорт',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -651,7 +738,15 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/105',
 			index: 5,
 			year: 2023,
-			genres: ['Исторический', 'Драмма'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Мультфильм',
+				'Фантастика',
+				'Мелодрама',
+				'Приключение',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -698,7 +793,15 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/105',
 			index: 5,
 			year: 2023,
-			genres: ['Исторический', 'Драмма', 'комедии'],
+			genres: [
+				'Комедия',
+				'Боевик',
+				'Мелодрама',
+				'Приключение',
+				'Семейные',
+				'Спорт',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -744,7 +847,14 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/106',
 			index: 6,
 			year: 2023,
-			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Мультфильм',
+				'Фантастика',
+				'Триллер',
+				'Боевик',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -790,7 +900,12 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/106',
 			index: 6,
 			year: 2023,
-			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Мультфильм',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -836,7 +951,13 @@ export const getFilms = (): Array<IFilms> => {
 			movieCardUrl: 'https://kinotochka.ru/movie/106',
 			index: 6,
 			year: 2023,
-			genres: ['Хоррор', 'Драмма', 'Вымысел', 'Ясновидинее'],
+			genres: [
+				'Мелодрама',
+				'Приключение',
+				'Семейные',
+				'Спорт',
+				'Аниме',
+			],
 			country: ['Россия', 'США'],
 			director: [
 				{
@@ -869,7 +990,114 @@ export const getFilms = (): Array<IFilms> => {
 			is_favorite: false,
 			must_see: false,
 			is_viewed: true,
-		},
+		},{
+			id: '119',
+			title: 'Вечное сияние чистого разума',
+			rating: {
+				kinopoisk: 7.6,
+				imdb: 7.6,
+			},
+			shortDescription: 'спецоперации по поиску оружия талибов...',
+			imageUrl: 'https://hkcinema.ru/foto/271ba85f.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/106',
+			index: 6,
+			year: 2023,
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Мультфильм',
+				'Фантастика',
+				'Триллер',
+				'Семейные',
+				'Спорт',
+				'Аниме',
+			],
+			country: ['Россия', 'США'],
+			director: [
+				{
+					first_name: 'Алексей',
+					last_name: 'Балабанов',
+				},
+				{
+					first_name: 'Квентин',
+					last_name: 'Тарантино',
+				},
+				{
+					first_name: 'Quentin',
+					last_name: 'Tarantino',
+				},
+			],
+			actor: [
+				{
+					first_name: 'Сергей',
+					last_name: 'Бодров',
+				},
+				{
+					first_name: 'Tom',
+					last_name: 'Cruise',
+				},
+				{
+					first_name: 'Джефф',
+					last_name: 'Бриджес',
+				},
+			],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true,
+		},{
+			id: '120',
+			title: 'Вечное сияние чистого разума',
+			rating: {
+				kinopoisk: 7.6,
+				imdb: 7.6,
+			},
+			shortDescription: 'спецоперации по поиску оружия талибов...',
+			imageUrl: 'https://hkcinema.ru/foto/271ba85f.jpg',
+			movieCardUrl: 'https://kinotochka.ru/movie/106',
+			index: 6,
+			year: 2023,
+			genres: [
+				'Комедия',
+				'Ужасы',
+				'Мультфильм',
+				'Фантастика',
+				'Триллер',
+				'Боевик',
+				'Мелодрама',
+			],
+			country: ['Россия', 'США'],
+			director: [
+				{
+					first_name: 'Алексей',
+					last_name: 'Балабанов',
+				},
+				{
+					first_name: 'Квентин',
+					last_name: 'Тарантино',
+				},
+				{
+					first_name: 'Quentin',
+					last_name: 'Tarantino',
+				},
+			],
+			actor: [
+				{
+					first_name: 'Сергей',
+					last_name: 'Бодров',
+				},
+				{
+					first_name: 'Tom',
+					last_name: 'Cruise',
+				},
+				{
+					first_name: 'Джефф',
+					last_name: 'Бриджес',
+				},
+			],
+			is_favorite: false,
+			must_see: false,
+			is_viewed: true,
+		}
 	];
 
 	return mymovie;
