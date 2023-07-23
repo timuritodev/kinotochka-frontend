@@ -9,6 +9,7 @@
 	margin: 0 auto;
 	position: relative;
 	margin-bottom: -118px;
+	z-index: 1;
 }
 
 .header__logo {

@@ -2,34 +2,30 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { useEffect } from 'react';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';
-import ProducersList from '../../components/Producers/ProducersList';
 import { RatedElement } from '../../components/RatedElement/RatedElement';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import MovieButton from '../../components/MovieButton/MovieButton';
 import { ButtonTypes } from '../../types/Rating.types';
 import TrailerButton from '../../components/TrailerButton/TrailerButton';
 import { FC } from 'react';
-import BackgroundImage from 'src/components/BackgroundImage/BackgroundImage';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
-import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from '../../types/Rating.types';
 
 const MoviePage: FC = () => {
 	const dispatch = useAppDispatch();
 
-	const films = useAppSelector((state) => state.films.films[2]);
-	const film = useAppSelector((state) => state.films.films);
+	const films = useAppSelector((state) => state.films.films[5]);
+	const films2 = useAppSelector((state) => state.films.films[0]);
 
 	useEffect(() => {
 		dispatch(getFilmsApi());
 	}, []);
 
 	return (
-		<>
-			<BackgroundImage imageUrl={films.imageUrl} />
 			<section className="moviepage">
+				<img className="background-image" alt="" src={films2.imageUrl} />
 				<div className="moviepage__container">
 					<div className="movie-block">
 						<img className="movie-block__img" alt="" src={films.imageUrl} />
@@ -53,13 +49,11 @@ const MoviePage: FC = () => {
 					</div>
 					<FilmAbout />
 					<TrailerButton imageUrl={films.imageUrl} />
-					<h2 className="moviepage-cards__title">Похожие фильмы</h2>
 					<div className="moviepage-cards__container">
-						<SlickSlider type={SlickSliderTypes.specialforyou} />
+						<SlickSlider type={SlickSliderTypes.similar} />
 					</div>
 				</div>
 			</section>
-		</>
 	);
 };
 
