@@ -32,7 +32,10 @@
 
 .moviepage-description__about {
 	margin: 0 0 0 97px;
+	position: relative;
+	top: 0;
 }
+
 .moviepage-description__about__container {
 	display: flex;
 	flex-direction: row;
@@ -60,4 +63,6 @@
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
+	white-space: pre-line;
+	text-align: end;
 }
