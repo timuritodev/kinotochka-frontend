@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	height: 178px;
+	height: 118px;
 	background-color: #4b556333;
 	max-width: 1440px;
 	margin: 0 auto;
@@ -18,10 +18,16 @@
 }
 
 .footer__scroll {
-	text-decoration: none;
 	margin-right: 120px;
+	background: transparent;
+	border: 0;
 }
 
 .footer__scroll:hover {
 	opacity: 0.6;
+	cursor: pointer;
+}
+
+.footer__scroll-button {
+	width: 125px;
 }

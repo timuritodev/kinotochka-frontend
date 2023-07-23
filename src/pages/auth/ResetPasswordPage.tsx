@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import Form from '../../components/Form/Form';
 import Button from 'src/components/Button/Button';
-
-import { FormTypes } from '../../types/Form.types';
-import { ButtonTypes } from '../../types/Button.types';
+import Input from 'src/components/Input/Input';
+import { InputTypes } from 'src/types/Input.types';
+import { useNavigate } from 'react-router-dom';
 
 import './Auth.css';
 
 const ResetPasswordPage = () => {
+	const navigate = useNavigate();
 	const [step, setStep] = useState(1);
 
 	useEffect(() => {
@@ -27,14 +27,30 @@ const ResetPasswordPage = () => {
 				<h1 className="auth__title">Восстановить пароль</h1>
 				<p className="auth__hint">{formHint}</p>
 				{step === 1 ? (
-					<Form
-						formType={FormTypes.resetPassword}
-						step={step}
-						setStep={setStep}
-					/>
-				) : (
-					<Button buttonType={ButtonTypes.navigateToSignIn} />
-				)}
+					<form className="auth__form">
+						<Input
+							inputType={InputTypes.password}
+							labelText="Новый пароль"
+							showPasswordButton={true}
+						/>
+						<Input
+							inputType={InputTypes.repeatPassword}
+							labelText="Повторите новый пароль"
+						/>
+						<Button
+							buttonText={'Продолжить'}
+							handleButtonClick={() => setStep(step + 1)}
+						/>
+					</form>
+				) : step === 2 ? (
+					<>
+						<p className="auth__email">Пароль успешно изменен</p>
+						<Button
+							buttonText={'Войти'}
+							handleButtonClick={() => navigate('/sign-in')}
+						/>
+					</>
+				) : null}
 			</div>
 		</main>
 	);

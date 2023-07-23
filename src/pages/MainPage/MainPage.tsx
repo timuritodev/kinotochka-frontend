@@ -4,7 +4,7 @@ import './MainPage.css';
 import FirstScreenCompilation from '../../components/FirstScreenCompilation/FirstScreenCompilation';
 import Slider from 'src/components/Slider/Slider';
 import { GENRES } from 'src/utils/constants';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { SliderTypes } from '../../types/Slider.types';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';

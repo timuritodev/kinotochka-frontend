@@ -4,12 +4,30 @@
 	position: relative;
 }
 
+.input__hints {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .input__label {
 	font-size: 16px;
 	line-height: 18px;
 }
 
+.input__label_color_white {
+	color: #ffffff;
+}
+
+.input__error {
+	color: #ea4335;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 12px;
+}
+
 .input__field {
+	box-sizing: border-box;
 	font-size: 16px;
 	line-height: 18px;
 	padding: 10px 15px;
@@ -17,13 +35,18 @@
 	border: 0.5px solid #9ca3af;
 }
 
+.input__field:focus {
+	outline: none;
+	border: 0.5px solid #0c0c0c;
+}
+
+.input__field:read-only:focus {
+	outline: none;
+}
+
 .input__field:invalid {
 	color: #ea4335;
 	border: 0.5px solid #ea4335;
-}
-
-.input__field_disabled:focus {
-	outline: none;
 }
 
 .input__field_color_black {
@@ -32,20 +55,14 @@
 	border: 0.5px solid #9ca3af;
 }
 
-.input__field_color_black:invalid {
-	color: #9ca3af;
+.input__field_color_black:focus {
+	outline: none;
 	border: 0.5px solid #9ca3af;
 }
 
-.input__field_color_grey {
-	background-color: #9ca3af;
-	color: #6b7280;
-	border: 0.5px solid #6b7280;
-}
-
-.input__field_color_grey:invalid {
-	color: #6b7280;
-	border: 0.5px solid #6b7280;
+.input__field_color_black:invalid {
+	color: #9ca3af;
+	border: 0.5px solid #9ca3af;
 }
 
 .input__span {
