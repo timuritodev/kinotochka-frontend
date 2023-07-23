@@ -15,47 +15,50 @@ import { FilmCardSmall } from 'src/components/FilmCard180/FilmCardSmall';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 
 const MoviePage: FC = () => {
-    const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch();
 
-    const films = useAppSelector((state) => state.films.films[2]);
-    const film = useAppSelector(((state) => state.films.films))
+	const films = useAppSelector((state) => state.films.films[2]);
+	const film = useAppSelector((state) => state.films.films);
 
-    useEffect(() => {
-        dispatch(getFilmsApi());
-    }, []);
+	useEffect(() => {
+		dispatch(getFilmsApi());
+	}, []);
 
-    return (
-        <>
-            <BackgroundImage imageUrl={films.imageUrl} />
-            <section className="moviepage">
-                <div className='moviepage__container'>
-                    <div className="movie-block">
-                        <img className="movie-block__img" alt="" src={films.imageUrl} />
-                        <div className="movie-block__text">
-                            <div>
-                                <h2 className="movie-block__text_title">{films.title}</h2>
-                                <RatedElement imdb={films.rating.imdb} kinopoisk={films.rating.kinopoisk} />
-                            </div>
-                            <ActorsList actors={films.actor} />
-                        </div>
-                        <div className="moviepage__button__container">
-                            <div className='moviepage__button__container_plus'>
-                                <MovieButton buttonName={ButtonTypes.favorites} />
-                                <MovieButton buttonName={ButtonTypes.willSee} />
-                            </div>
-                            <RatingElement />
-                        </div>
-                    </div>
-                    <FilmAbout />
-                    <TrailerButton imageUrl={films.imageUrl} />
-                    <h2 className='moviepage-cards__title'>Похожие фильмы</h2>
-                    <div className='moviepage-cards__container'>
-                        <SlickSlider type={SlickSliderTypes.specialforyou} />
-                    </div>
-                </div>
-            </section>
-        </>
-    );
-}
+	return (
+		<>
+			<BackgroundImage imageUrl={films.imageUrl} />
+			<section className="moviepage">
+				<div className="moviepage__container">
+					<div className="movie-block">
+						<img className="movie-block__img" alt="" src={films.imageUrl} />
+						<div className="movie-block__text">
+							<div>
+								<h2 className="movie-block__text_title">{films.title}</h2>
+								<RatedElement
+									imdb={films.rating.imdb}
+									kinopoisk={films.rating.kinopoisk}
+								/>
+							</div>
+							<ActorsList actors={films.actor} />
+						</div>
+						<div className="moviepage__button__container">
+							<div className="moviepage__button__container_plus">
+								<MovieButton buttonName={ButtonTypes.favorites} />
+								<MovieButton buttonName={ButtonTypes.willSee} />
+							</div>
+							<RatingElement />
+						</div>
+					</div>
+					<FilmAbout />
+					<TrailerButton imageUrl={films.imageUrl} />
+					<h2 className="moviepage-cards__title">Похожие фильмы</h2>
+					<div className="moviepage-cards__container">
+						<SlickSlider type={SlickSliderTypes.specialforyou} />
+					</div>
+				</div>
+			</section>
+		</>
+	);
+};
 
 export default MoviePage;

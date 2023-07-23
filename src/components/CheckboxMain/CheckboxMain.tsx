@@ -1,7 +1,15 @@
 import { FC, useState } from 'react';
 import './CheckboxMain.css';
 
-const CheckboxMain = ({ text, id, onChange }: {text: string, id?: string, onChange: (text: string) => void}) => {
+const CheckboxMain = ({
+	text,
+	id,
+	onChange,
+}: {
+	text: string;
+	id?: string;
+	onChange: (text: string) => void;
+}) => {
 	const [checked, setChecked] = useState(false);
 
 	const handleChange = () => {
