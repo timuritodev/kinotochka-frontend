@@ -1,6 +1,11 @@
+import { FC } from 'react';
 import './PopupTrailer.css';
+import { PopupTrailerProps } from 'src/types/Rating.types';
 
-function PopupTrailer({ isPopupOpen, switchPopupTrailer }) {
+const PopupTrailer: FC<PopupTrailerProps> = ({
+	isPopupOpen,
+	switchPopupTrailer,
+}) => {
 	return (
 		<div className={`popupTrailer ${isPopupOpen ? 'popupTrailer_opened' : ''}`}>
 			<iframe
@@ -18,6 +23,6 @@ function PopupTrailer({ isPopupOpen, switchPopupTrailer }) {
 			/>
 		</div>
 	);
-}
+};
 
 export default PopupTrailer;

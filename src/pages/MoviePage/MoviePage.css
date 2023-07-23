@@ -9,8 +9,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	margin: 50px 165px 0;
-	padding-bottom: 83px;
-	gap: 53px 28px;
+	padding-bottom: 150px;
 }
 
 .movie-block {
@@ -32,7 +31,7 @@
 }
 
 .movie-block__text_title {
-	color: var(--white, #FFF);
+	color: var(--white, #fff);
 	font-size: 48px;
 	font-family: Oswald;
 	font-style: normal;
@@ -48,4 +47,20 @@
 	gap: 30px;
 	justify-content: space-between;
 	align-items: flex-end;
+}
+
+.moviepage-cards__title {
+	color: var(--white, #fff);
+	font-family: Unbounded;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin: 130px 0 45px 0;
+}
+
+.moviepage-cards__container {
+	display: flex;
+	/* flex-wrap: wrap; */
+	gap: 20px;
 }

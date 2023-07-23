@@ -1,5 +1,5 @@
 import './FlanksPage.css';
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -22,13 +22,13 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const [pageMore, setPageMore] = useState(page);
 
 	const title =
-	formName === 'ratedFilms'
-		? 'Оцененные фильмы'
-		: formName === 'willSee'
+		formName === 'ratedFilms'
+			? 'Оцененные фильмы'
+			: formName === 'willSee'
 			? 'Буду смотреть'
 			: formName === 'favorites'
-				? 'Избранные'
-				: 'Подборки';
+			? 'Избранные'
+			: 'Подборки';
 
 	useEffect(() => {
 		dispatch(getFilmsApi());
@@ -49,15 +49,14 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 
 	useEffect(() => {
 		if (toggleFavorites.length > page) {
-			setIsMoreButton(true)
+			setIsMoreButton(true);
 		} else {
-			setIsMoreButton(false)
+			setIsMoreButton(false);
 		}
 	}, [toggleFavorites, page]);
 
 	const handleMoreButtonClick = () => {
 		setPageMore((prev) => prev + page);
-		
 	};
 
 	return (
@@ -67,10 +66,12 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 				{formName === 'collections' ? (
 					<SelectionCard selected={selected} />
 				) : (
-					toggleFavorites.slice(0, pageMore).map((film) => <FilmCard film={film} />)
+					toggleFavorites
+						.slice(0, pageMore)
+						.map((film) => <FilmCard film={film} />)
 				)}
 			</div>
-			<div className='flank_btn'>
+			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>
 		</section>

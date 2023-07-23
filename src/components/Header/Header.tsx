@@ -85,7 +85,7 @@ const Header: FC = () => {
 							alt="Кнопка расширенного поиска"
 						/>
 					</button>
-					<Link to="/search-result" className="header__search-button" >
+					<Link to="/search-result" className="header__search-button">
 						<img
 							className="header__search-button_search"
 							src={search}
@@ -93,9 +93,7 @@ const Header: FC = () => {
 						/>
 					</Link>
 				</form>
-				<Search isOpenSearch={isOpenSearch} 
-				values={values}
-				 />
+				<Search isOpenSearch={isOpenSearch} values={values} />
 			</div>
 			<Account
 			// isLoggedIn={true}

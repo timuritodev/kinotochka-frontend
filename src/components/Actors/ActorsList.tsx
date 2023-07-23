@@ -4,7 +4,6 @@ import { FC } from 'react';
 import { ActorsListProps } from 'src/types/Rating.types';
 
 const ActorsList: FC<ActorsListProps> = ({ actors }) => {
-
 	return (
 		<section className="actorslist">
 			<h1 className="actorslist__title">Актеры</h1>
@@ -19,6 +18,6 @@ const ActorsList: FC<ActorsListProps> = ({ actors }) => {
 			</div>
 		</section>
 	);
-}
+};
 
 export default ActorsList;

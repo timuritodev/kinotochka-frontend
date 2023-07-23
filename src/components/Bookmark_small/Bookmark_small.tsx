@@ -1,5 +1,5 @@
 import './Bookmark_small.css';
-import { BtnBookmark } from '../Bottun_bookmark/Btn_bookmark';
+import { BtnBookmark } from '../Button_bookmark/Btn_bookmark';
 import { IBookmarkTypes } from 'src/types/Bookmark.types';
 
 export const BookmarkSmall = ({ id }: { id: string }) => {
