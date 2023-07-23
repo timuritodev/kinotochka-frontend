@@ -35,7 +35,7 @@
 }
 
 .account__profile-icon {
-	z-index: 3;
+	z-index: 6;
 	margin: 0;
 }
 
@@ -50,7 +50,7 @@
 .account__content {
 	position: absolute;
 	display: none;
-	z-index: 2;
+	z-index: 5;
 	width: 270px;
 	height: 370px;
 	background-color: #141414;
@@ -77,6 +77,9 @@
 	line-height: 25px;
 	color: #fff;
 	margin: 0;
+	width: 155px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .account__content-email {
@@ -84,7 +87,10 @@
 	font-weight: 500;
 	line-height: 12px;
 	color: #6b7280;
-	margin: 0 0 54px 0;
+	margin: 5px 0 50px 0;
+	width: 155px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .account__content-link {

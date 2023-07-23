@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './services/redux/store';
@@ -21,6 +21,7 @@ import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
+import { WindowResize } from './components/WindowResize/WindowResize';
 
 const Root: FC = () => {
 	return (
@@ -55,6 +56,7 @@ const Root: FC = () => {
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
+			<WindowResize />
 		</div>
 	);
 };
@@ -67,9 +69,9 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<PersistGate loading={<div>Loading...</div>} persistor={persistor}>
-				<BrowserRouter>
+				<HashRouter>
 					<Root />
-				</BrowserRouter>
+				</HashRouter>
 			</PersistGate>
 		</Provider>
 	</React.StrictMode>

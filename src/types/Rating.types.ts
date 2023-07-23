@@ -1,3 +1,5 @@
+import { IActor } from "./Film.types";
+
 export interface IRating {
 	id: number;
 	user: number;
@@ -22,4 +24,12 @@ export enum ButtonTypes {
 
 export interface IButton {
 	buttonName: ButtonTypes;
+}
+
+export interface IImage {
+	imageUrl: string;
+}
+
+export interface ActorsListProps {
+  actors: IActor[];
 }

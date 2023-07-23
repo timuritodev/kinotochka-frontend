@@ -12,7 +12,7 @@
 
 .header__logo {
 	margin: 0 77px 0 120px;
-	z-index: 3;
+	z-index: 6;
 	position: relative;
 }
 
@@ -28,7 +28,7 @@
 	align-items: center;
 	min-width: 521px;
 	height: 40px;
-	border: 2px solid #9ca3af;
+	border: 2px solid #fff;
 	border-radius: 6px;
 }
 
@@ -38,11 +38,15 @@
 	font-weight: 500;
 	font-size: 16px;
 	line-height: 20.08px;
-	color: #9ca3af;
+	color: #fff;
 	max-width: 750px;
 	width: 100%;
 	margin: 0 15px 0;
 	outline: none;
+}
+
+.header__search-input::placeholder {
+	color: #fff;
 }
 
 .header__search-button {
@@ -62,7 +66,7 @@
 .header__content {
 	position: absolute;
 	display: none;
-	z-index: 2;
+	z-index: 5;
 	width: 256px;
 	height: 260px;
 	background-color: #141414;
