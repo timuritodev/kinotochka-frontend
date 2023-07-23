@@ -1,5 +1,5 @@
 import './SearchResultPage.css';
-import { useAppSelector } from 'src/hooks/redux';
+import { useAppSelector } from 'src/services/typeHooks';
 import { SeachResult } from 'src/components/SeachResult/SeachResult';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { useState, useEffect } from 'react';

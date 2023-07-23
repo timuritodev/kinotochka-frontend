@@ -1,16 +1,13 @@
-import { FC } from 'react';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { useEffect } from 'react';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';
-import { RatedElement } from 'src/components/RatedElement/RatedElement';
+import ProducersList from '../../components/Producers/ProducersList';
+import { RatedElement } from '../../components/RatedElement/RatedElement';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
-import MovieButton from 'src/components/MovieButton/MovieButton';
-import { ButtonTypes } from 'src/types/Rating.types';
-import TrailerButton from 'src/components/TrailerButton/TrailerButton';
-import RatingElement from 'src/components/RatingElement/RatingElement';
-import BackgroundImage from 'src/components/BackgroundImage/BackgroundImage';
-import FilmAbout from 'src/components/FilmAbout/FilmAbout';
+import MovieButton from '../../components/MovieButton/MovieButton';
+import { ButtonTypes } from '../../types/Rating.types';
+import TrailerButton from '../../components/TrailerButton/TrailerButton';
 
 const MoviePage: FC = () => {
     const dispatch = useAppDispatch();

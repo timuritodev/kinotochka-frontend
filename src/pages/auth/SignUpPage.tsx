@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
-import Form from '../../components/Form/Form';
-import { FormTypes } from '../../types/Form.types';
+import { Link, useNavigate } from 'react-router-dom';
 
 import './Auth.css';
+import Input from 'src/components/Input/Input';
+import { InputTypes } from 'src/types/Input.types';
+import Button from '../../components/Button/Button';
+import Slider from 'src/components/Slider/Slider';
+import { GENRES } from 'src/utils/constants';
+import { SliderTypes } from 'src/types/Slider.types';
+import { useAppSelector } from 'src/services/typeHooks';
+import { selectUser } from 'src/services/redux/slices/user/user';
 
 const SignUpPage = () => {
+	const navigate = useNavigate();
+
+	const { email } = useAppSelector(selectUser);
 	const [step, setStep] = useState(1);
 
-	useEffect(() => {
-		setStep(1);
-	}, []);
+	// useEffect(() => {
+	// 	setStep(1);
+	// }, []);
 
 	const formHint =
 		step === 1
@@ -50,7 +58,50 @@ const SignUpPage = () => {
 					</Link>
 				</p>
 				{step !== 1 ? <p className="auth__hint">{formHint}</p> : null}
-				<Form formType={FormTypes.signUp} step={step} setStep={setStep} />
+				{step === 1 ? (
+					<form className="auth__form auth__form_type_sign-up">
+						<Input
+							inputType={InputTypes.email}
+							labelText={'Электронная почта'}
+						/>
+						<div>
+							<Input
+								inputType={InputTypes.password}
+								labelText={'Пароль'}
+								showPasswordButton={true}
+							/>
+							<span className="input__span">
+								Минимум 8 символов (заглавные и строчные латинские буквы и
+								цифры)
+							</span>
+						</div>
+						<Input
+							inputType={InputTypes.repeatPassword}
+							labelText={'Повторите пароль'}
+						/>
+						<Button
+							buttonText={'Продолжить'}
+							handleButtonClick={() => setStep(step + 1)}
+						/>
+					</form>
+				) : step === 2 ? (
+					<form className="auth__form auth__form_type_sign-up">
+						<Slider contentType={SliderTypes.genresBlock} content={GENRES} />
+						<Button
+							buttonText={'Продолжить'}
+							handleButtonClick={() => setStep(step + 1)}
+						/>
+					</form>
+				) : null}
+				{step === 3 ? (
+					<>
+						<p className="auth__email">{email}</p>
+						<Button
+							buttonText={'Перейти на Главную'}
+							handleButtonClick={() => navigate('/')}
+						/>
+					</>
+				) : null}
 			</div>
 		</main>
 	);

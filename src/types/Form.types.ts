@@ -3,6 +3,7 @@ export enum FormTypes {
 	signUp = 'signUp',
 	recoverPassword = 'recoverPassword',
 	resetPassword = 'resetPassword',
+	profile = 'profile',
 }
 
 export interface IForm {

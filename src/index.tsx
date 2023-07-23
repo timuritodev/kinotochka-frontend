@@ -20,6 +20,7 @@ import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { WindowResize } from './components/WindowResize/WindowResize';
 
 const Root: FC = () => {
@@ -33,6 +34,7 @@ const Root: FC = () => {
 					<Route path="/recover-password" element={<RecoverPasswordPage />} />
 					<Route path="/reset-password" element={<ResetPasswordPage />} />
 					<Route path="/confirm-email" element={<ConfirmEmailPage />} />
+					<Route path="/profile" element={<ProfilePage />} />
 					<Route
 						path="/rated-films"
 						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
