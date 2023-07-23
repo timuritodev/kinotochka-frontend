@@ -14,3 +14,10 @@
 .main-page_color-white {
 	color: white;
 }
+
+.slick-next {
+}
+
+.slick-prev {
+	margin-right: 25px;
+}
