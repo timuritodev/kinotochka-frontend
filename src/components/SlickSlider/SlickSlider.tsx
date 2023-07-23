@@ -6,13 +6,12 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useAppSelector, useAppDispatch } from 'src/hooks/redux';
 import { FilmCard } from '../FilmCardWidth255/FilmCard';
-import CustomPrevArrow from "../../images/ArrowPrev.svg";
-import CustomNextArrow from "../../images/ArrowNext.svg";
 import { FC } from 'react';
 import { IFilms } from 'src/types/Film.types';
 import { ISlider } from 'src/types/Rating.types';
-import { FilmCardSmall } from '../FilmCard180/FilmCardSmall';
+import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
+import { FilmCardLarge } from '../FilmCardLarge/FilmCardLarge';
 
 export const SlickSlider: FC<ISlider> = ({ type }) => {
     const dispatch = useAppDispatch();
@@ -25,23 +24,23 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
     // const [data, setData] = useState<IFilms[]>([]);
     const [data, setData] = useState<IFilms[]>(films);
 
-    const settings = type === 'specialforyou' || type === 'news' || type === 'similar'
-    ? {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 3,
-        arrows: true,
-    }
-    : {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        arrows: true,
-    };
+    const settings = type === 'news' || type === 'similar'
+        ? {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 5,
+            slidesToScroll: 3,
+            arrows: true,
+        }
+        : {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            arrows: true,
+        };
 
 
     useEffect(() => {
@@ -62,11 +61,6 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
         }
     }, []);
 
-    console.log(films, 'films')
-    console.log(data, 'data')
-    // console.log(typeof data)
-    // console.log(typeof films)
-
     return (
         <Slider {...settings} className='slick-slider'>
             {type === 'oscar' || type === 'blackwhite' ? (
@@ -75,7 +69,8 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
                 ))
             ) :
                 data.map((item) => (
-                    <FilmCardSmall film={item} />
+                    // <FilmCardSmall film={item} />
+                    <FilmCardLarge film={item} />
                 ))
             }
         </Slider>

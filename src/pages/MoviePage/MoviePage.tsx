@@ -11,7 +11,7 @@ import TrailerButton from 'src/components/TrailerButton/TrailerButton';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import BackgroundImage from 'src/components/BackgroundImage/BackgroundImage';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
-import { FilmCardSmall } from 'src/components/FilmCard180/FilmCardSmall';
+import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 
 const MoviePage: FC = () => {

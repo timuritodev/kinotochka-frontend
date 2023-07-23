@@ -3,6 +3,7 @@
 	background-position: center;
 	position: absolute;
 	z-index: -2;
+    object-fit: cover;
 	width: 100%;
 	height: 500px;
 	opacity: 0.6000000238418579;
