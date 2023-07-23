@@ -1,3 +1,8 @@
+.slick-slider-genres_container {
+	max-width: 1110px;
+	margin: 0 165px 45px;
+}
+
 .slick-next:before {
 	content: url('../../images/ArrowNext.svg');
 }
