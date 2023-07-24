@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './MainPage.css';
 import FirstScreenCompilation from '../../components/FirstScreenCompilation/FirstScreenCompilation';
 import Slider from 'src/components/Slider/Slider';
@@ -10,8 +10,11 @@ import { SliderTypes } from '../../types/Slider.types';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from 'src/types/Rating.types';
 import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderGenres';
+import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
 
 export default function MainPage() {
+	const [isLoggedIn, setIsLoggedIn] = useState(true);
+
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -28,7 +31,9 @@ export default function MainPage() {
 			</div>
 			<div className="main-page_slick-slider">
 				<div className='main-page_slick-slider_specialforyou'>
-					<SlickSlider type={SlickSliderTypes.specialforyou} />
+					{isLoggedIn === true
+						? <SlickSlider type={SlickSliderTypes.specialforyou} />
+						: <SpecialForYou />}
 				</div>
 			</div>
 			<div className="main-page_slick-slider">
