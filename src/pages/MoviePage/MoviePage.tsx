@@ -12,6 +12,7 @@ import RatingElement from 'src/components/RatingElement/RatingElement';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from '../../types/Rating.types';
+import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 
 const MoviePage: FC = () => {
 	const dispatch = useAppDispatch();
@@ -24,36 +25,41 @@ const MoviePage: FC = () => {
 	}, []);
 
 	return (
-			<section className="moviepage">
-				<img className="background-image" alt="" src={films2.imageUrl} />
-				<div className="moviepage__container">
-					<div className="movie-block">
-						<img className="movie-block__img" alt="" src={films.imageUrl} />
-						<div className="movie-block__text">
-							<div>
-								<h2 className="movie-block__text_title">{films.title}</h2>
-								<RatedElement
-									imdb={films.rating.imdb}
-									kinopoisk={films.rating.kinopoisk}
-								/>
-							</div>
-							<ActorsList actors={films.actor} />
+		<section className="moviepage">
+			<img className="background-image" alt="" src={films2.imageUrl} />
+			<div className="moviepage__container">
+				<div className="movie-block">
+					<img className="movie-block__img" alt="" src={films.imageUrl} />
+					<div className="movie-block__text">
+						<div>
+							<h2 className="movie-block__text_title">{films.title}</h2>
+							<RatedElement
+								imdb={films.rating.imdb}
+								kinopoisk={films.rating.kinopoisk}
+							/>
 						</div>
-						<div className="moviepage__button__container">
-							<div className="moviepage__button__container_plus">
-								<MovieButton buttonName={ButtonTypes.favorites} />
-								<MovieButton buttonName={ButtonTypes.willSee} />
-							</div>
-							<RatingElement />
-						</div>
+						<ActorsList actors={films.actor} />
 					</div>
-					<FilmAbout />
-					<TrailerButton imageUrl={films.imageUrl} />
-					<div className="moviepage-cards__container">
-						<SlickSlider type={SlickSliderTypes.similar} />
+					<div className="moviepage__button__container">
+						<div className="moviepage__button__container_plus">
+							<MovieButton buttonName={ButtonTypes.favorites} />
+							<MovieButton buttonName={ButtonTypes.willSee} />
+						</div>
+						<RatingElement />
 					</div>
 				</div>
-			</section>
+				<div className='description__container'>
+					<div>
+						<FilmDescription />
+						<TrailerButton imageUrl={films.imageUrl} />
+					</div>
+					<FilmAbout />
+				</div>
+				<div className="moviepage-cards__container">
+					<SlickSlider type={SlickSliderTypes.similar} />
+				</div>
+			</div>
+		</section>
 	);
 };
 

@@ -7,7 +7,6 @@ import { FilmCard } from '../FilmCardWidth255/FilmCard';
 import { IFilms } from 'src/types/Film.types';
 import { FC } from 'react';
 import { ISlider } from 'src/types/Rating.types';
-import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 import CheckboxMain from '../CheckboxMain/CheckboxMain';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 

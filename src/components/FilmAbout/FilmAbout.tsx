@@ -15,12 +15,6 @@ const FilmAbout: FC = () => {
 
 	return (
 		<div className="moviepage-description">
-			<div className="moviepage-description__container">
-				<h2 className="moviepage-description__title">Описание</h2>
-				<p className="moviepage-description__subtitle">
-					{films.shortDescription}
-				</p>
-			</div>
 			<div className="moviepage-description__about">
 				<h2 className="moviepage-description__title">О фильме</h2>
 				<div className="moviepage-description__about__container">

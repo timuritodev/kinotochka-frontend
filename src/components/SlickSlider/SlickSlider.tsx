@@ -8,9 +8,10 @@ import { FilmCard } from '../FilmCardWidth255/FilmCard';
 import { FC } from 'react';
 import { IFilms } from 'src/types/Film.types';
 import { ISlider } from 'src/types/Rating.types';
-import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
+
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { FilmCardLarge } from '../FilmCardLarge/FilmCardLarge';
+import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 
 export const SlickSlider: FC<ISlider> = ({ type }) => {
     const dispatch = useAppDispatch();
