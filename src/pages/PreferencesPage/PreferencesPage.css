@@ -1,0 +1,16 @@
+.preferencespage {
+	max-width: 1440px;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.preferencespage__container {
+	max-width: 1110px;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 62px 165px 0;
+	padding-bottom: 150px;
+}
