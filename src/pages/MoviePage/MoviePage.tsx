@@ -48,7 +48,7 @@ const MoviePage: FC = () => {
 						<RatingElement />
 					</div>
 				</div>
-				<div className='description__container'>
+				<div className="description__container">
 					<div>
 						<FilmDescription />
 						<TrailerButton imageUrl={films.imageUrl} />

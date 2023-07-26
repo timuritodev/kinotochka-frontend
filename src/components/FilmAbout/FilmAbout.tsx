@@ -31,14 +31,17 @@ const FilmAbout: FC = () => {
 				<br />
 				<div className="moviepage-description__about__container">
 					<p className="moviepage-description__about__text_add">Страна</p>
-					<p className="moviepage-description__about__text">{films.country.join('\n')}</p>
+					<p className="moviepage-description__about__text">
+						{films.country.join('\n')}
+					</p>
 				</div>
 				<br />
 				<div className="moviepage-description__about__container">
 					<p className="moviepage-description__about__text_add">Режиссер</p>
-					<p className="moviepage-description__about__text">{`${films.director
-						.map((dir) => dir.first_name + ' ' + dir.last_name)
-						.join('\n')}`}
+					<p className="moviepage-description__about__text">
+						{`${films.director
+							.map((dir) => dir.first_name + ' ' + dir.last_name)
+							.join('\n')}`}
 					</p>
 				</div>
 				<br />

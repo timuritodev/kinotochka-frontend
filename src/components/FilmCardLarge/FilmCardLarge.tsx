@@ -9,9 +9,9 @@ export const FilmCardLarge = ({ film }: { film: IFilms }) => {
 			<img className="specailforyou_card-img" src={film.imageUrl} alt="" />
 			<div className="bookmark-large">{<BookmarkSmall id={film.id} />}</div>
 			<h4 className="specailforyou_card-title">{film.title}</h4>
-			<p className="specailforyou_card-subtitle">{`${film.genres.join(', ')} • ${
-				film.year
-			}`}</p>
+			<p className="specailforyou_card-subtitle">{`${film.genres.join(
+				', '
+			)} • ${film.year}`}</p>
 			<RatedElement imdb={film.rating.imdb} kinopoisk={film.rating.kinopoisk} />
 		</section>
 	);

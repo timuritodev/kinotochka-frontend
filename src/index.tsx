@@ -40,10 +40,7 @@ const Root: FC = () => {
 						path="/rated-films"
 						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
 					/>
-                    <Route
-						path="/preferences"
-						element={<PreferencesPage />}
-					/>
+					<Route path="/preferences" element={<PreferencesPage />} />
 					<Route
 						path="/will-see"
 						element={<FlanksPage formName={FlanksTypes.willSee} />}

@@ -11,7 +11,7 @@ const ActorsList: FC<ActorsListProps> = ({ actors }) => {
 				<p className="actorslist__text">
 					{actors
 						.map((item) => item.first_name + ' ' + item.last_name)
-						.join(", ")}
+						.join(', ')}
 				</p>
 			</div>
 		</section>
