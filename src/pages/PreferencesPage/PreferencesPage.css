@@ -14,3 +14,14 @@
 	margin: 62px 165px 0;
 	padding-bottom: 150px;
 }
+
+.preferencespage__list {
+	color: white;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(160px, 1fr));
+	background-color: rgb(20, 20, 48);
+	grid-gap: 30px;
+	justify-items: center;
+	align-items: center;
+}
