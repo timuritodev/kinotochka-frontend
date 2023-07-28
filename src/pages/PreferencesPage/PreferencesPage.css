@@ -3,25 +3,36 @@
 	height: auto;
 	margin: 0 auto;
 	position: relative;
-	display: flex;
-	justify-content: center;
 }
 
 .preferencespage__container {
+	padding: 0;
 	max-width: 1110px;
-	display: flex;
-	flex-wrap: wrap;
-	margin: 62px 165px 0;
-	padding-bottom: 150px;
-}
-
-.preferencespage__list {
-	color: white;
+	gap: 30px;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
 	grid-template-rows: repeat(auto-fill, minmax(160px, 1fr));
-	background-color: rgb(20, 20, 48);
-	grid-gap: 30px;
-	justify-items: center;
+	margin: 0 auto;
+}
+
+.preferencespage__list {
+	display: flex;
 	align-items: center;
+	justify-content: center;
+	background-color: white;
+	width: 160px;
+	height: 160px;
+	border-radius: 50%;
+}
+
+.title {
+	max-width: 1110px;
+	color: white;
+	margin: 68px auto 85px auto;
+}
+
+.subtitle {
+	max-width: 1110px;
+	color: white;
+	margin: 0 auto 50px auto;
 }
