@@ -7,20 +7,67 @@
 	background-repeat: no-repeat;
 	box-sizing: border-box;
 	border-radius: 6px;
+	position: relative;
+}
+
+.moviepage-button::after {
+	content: var(--tooltip-content, "");
+	position: absolute;
+	top: -55px;
+	left: 70px;
+	transform: translateX(-50%);
+	background-color: black;
+	color: var(--tooltip-text-color, var(--white, #FFF));
+	font-size: 16px;
+	font-family: Mullish;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	padding: 10px 20px;
+	border-radius: 5px;
+	white-space: nowrap;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.moviepage-button:hover::after {
+	opacity: 1;
+	visibility: visible;
+}
+
+.moviepage-button::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent black transparent;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.moviepage-button:hover::before {
+	opacity: 1;
+	visibility: visible;
+}
+
+.moviepage-button:hover {
+	background-color: var(--neutral-400, #D1D5DB);
 }
 
 .moviepage__button_favourite {
 	background-image: url(../../images/Bookmark.svg);
 	margin: 0 20px 0 0;
+	--tooltip-content: "В избранное";
+	--tooltip-text-color: var(--white, #FFF);
 }
 
 .moviepage__button_seen {
 	background-image: url(../../images/black_eye.svg);
+	--tooltip-content: "Буду смотреть";
+	--tooltip-text-color: var(--white, #FFF);
 }
 
-.moviepage__button_later {
-	background-color: white;
-	border: none;
-	text-align: center;
-	cursor: pointer;
-}
+

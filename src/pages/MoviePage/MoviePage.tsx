@@ -42,8 +42,8 @@ const MoviePage: FC = () => {
 					</div>
 					<div className="moviepage__button__container">
 						<div className="moviepage__button__container_plus">
-							<MovieButton buttonName={ButtonTypes.favorites} />
-							<MovieButton buttonName={ButtonTypes.willSee} />
+							<MovieButton buttonName={ButtonTypes.favorites} id={films.id} />
+							<MovieButton buttonName={ButtonTypes.willSee} id={films.id} />
 						</div>
 						<RatingElement />
 					</div>
