@@ -16,7 +16,7 @@
 }
 
 .save-button:hover {
-	background-color: #c90;
+	opacity: 0.3;
 }
 
 .save-button:disabled {
