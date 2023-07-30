@@ -38,9 +38,14 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 				? eye_clicked
 				: eye
 
+	const addCss =
+		buttonName === 'favorites'
+			? 'moviepage__button_favourite'
+			: 'moviepage__button_seen'
+
 	return (
 		<section
-			className="moviepage-button__container"
+			className={`moviepage-button__container ${addCss}`}
 			onClick={
 				buttonName === 'favorites' ? handleClickFavorite : handleClickWatch
 			}

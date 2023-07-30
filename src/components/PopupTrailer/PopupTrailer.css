@@ -7,8 +7,10 @@
 	left: 0;
 	align-items: center;
 	justify-content: center;
-	background: rgba(0 0 0 / 34%);
+	background: rgba(0, 0, 0, 0.6);
 	visibility: hidden;
+	z-index: 2;
+	border-radius: 15px; 
 }
 
 .popupTrailer_opened {
@@ -17,11 +19,13 @@
 }
 
 .popupTrailer__close {
-	width: 40px;
-	height: 40px;
-	/* background-image: url(../../../images/close-button.svg); */
-	background-color: rgba(0 0 0 / 34%);
-	/* background-color: none; */
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 165px;
+	left: 1190px;
+	background-image: url(../../images/cross.svg);
+	background-color: transparent;
 	background-size: cover;
 	align-self: flex-start;
 	padding: 0;
