@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import './SaveButton.css';
+import PopupSaveButton from '../PopupSaveButton/PopupSaveButton';
 
 export interface IButton {
 	buttonText: string;
@@ -8,14 +9,17 @@ export interface IButton {
 }
 const SaveButton: FC<IButton> = ({ buttonText, handleButtonClick }) => {
 	return (
-		<button
-			className="save-button"
+	<section>
+        
+        <button
+			className= "save-button"
 			// disabled
 			type="button"
 			onClick={handleButtonClick}
 		>
 			{buttonText}
 		</button>
+        </section>
 	);
 };
 

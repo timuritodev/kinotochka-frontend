@@ -70,6 +70,13 @@
 	cursor: pointer;
 }
 
+.preferencespage__overlay {
+	background: #d1d5db;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+}
+
 .title {
 	max-width: 1110px;
 	color: white;
