@@ -42,6 +42,11 @@
 	height: 323px;
 	background-color: white;
 	border-radius: 30px;
+	position: fixed;
+	top: 344px;
+	left: 396px;
+	right: 0;
+	bottom: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
