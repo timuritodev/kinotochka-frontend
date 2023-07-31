@@ -19,7 +19,7 @@ const PreferencesPage: FC = () => {
 	};
 
 	return (
-		<section className="preferencespage" >
+		<section className="preferencespage">
 			<h2 className="title">Мои предпочтения</h2>
 			<h3 className="subtitle">Избранные жанры</h3>
 			<ul className="preferencespage__container">
@@ -29,10 +29,15 @@ const PreferencesPage: FC = () => {
 					</li>
 				))}
 			</ul>
-			<PopupSaveButton handleButtonClick={handleSaveButtonClick} isPopupOpen={SaveButtonPopupOpen} />
-			<SaveButton buttonText="Сохранить" handleButtonClick={handleSaveButtonClick}  />
+			<PopupSaveButton
+				handleButtonClick={handleSaveButtonClick}
+				isPopupOpen={SaveButtonPopupOpen}
+			/>
+			<SaveButton
+				buttonText="Сохранить"
+				handleButtonClick={handleSaveButtonClick}
+			/>
 		</section>
-		
 	);
 };
 
