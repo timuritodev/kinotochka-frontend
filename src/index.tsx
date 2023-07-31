@@ -17,6 +17,7 @@ import FlanksPage from './pages/FlanksPage/FlanksPage';
 import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
 import RecoverPasswordPage from './pages/auth/RecoverPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
+import PreferencesPage from './pages/PreferencesPage/PreferencesPage';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
@@ -39,6 +40,7 @@ const Root: FC = () => {
 						path="/rated-films"
 						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
 					/>
+					<Route path="/preferences" element={<PreferencesPage />} />
 					<Route
 						path="/will-see"
 						element={<FlanksPage formName={FlanksTypes.willSee} />}

@@ -30,10 +30,12 @@ export default function MainPage() {
 				<SlickSlider type={SlickSliderTypes.news} />
 			</div>
 			<div className="main-page_slick-slider">
-				<div className='main-page_slick-slider_specialforyou'>
-					{isLoggedIn === true
-						? <SlickSlider type={SlickSliderTypes.specialforyou} />
-						: <SpecialForYou />}
+				<div className="main-page_slick-slider_specialforyou">
+					{isLoggedIn === true ? (
+						<SlickSlider type={SlickSliderTypes.specialforyou} />
+					) : (
+						<SpecialForYou />
+					)}
 				</div>
 			</div>
 			<div className="main-page_slick-slider">
