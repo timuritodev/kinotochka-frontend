@@ -1,44 +1,58 @@
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { useEffect } from 'react';
-import { getMoviesRating } from 'src/services/redux/slices/rating/rating';
 import './MovieButton.css';
 import { IButton } from 'src/types/Rating.types';
 import { FC } from 'react';
+import {
+	updateFavorite,
+	updateWatch,
+} from 'src/services/redux/slices/films/films';
+import eye from "../../images/black_eye.svg"
+import eye_clicked from '../../images/eye_clicked.svg'
+import bookmark from '../../images/Bookmark.svg'
+import bookmark_clicked from '../../images/bookmark_clicked.svg'
 
-const MovieButton: FC<IButton> = ({ buttonName }) => {
+const MovieButton: FC<IButton> = ({ buttonName, id }) => {
+
 	const dispatch = useAppDispatch();
+	const filmFav = useAppSelector(
+		(state) => state.films.films.find((film) => film.id === id)?.is_favorite
+	);
+	const filmWatch = useAppSelector(
+		(state) => state.films.films.find((film) => film.id === id)?.must_see
+	);
 
-	// const rating = useAppSelector((state) => state.rating.movie_rating);
+	const handleClickFavorite = () => {
+		dispatch(updateFavorite({ favorite: !filmFav, id }));
+	};
 
-	useEffect(() => {
-		dispatch(getMoviesRating());
-	}, []);
+	const handleClickWatch = () => {
+		dispatch(updateWatch({ watch: !filmWatch, id }));
+	};
 
-	function handleAddToFavourite() {
-		console.log('movies_rating - is_favourite: true');
-	}
+	const typesImg =
+		buttonName === 'favorites'
+			? filmFav
+				? bookmark
+				: bookmark_clicked
+			: filmWatch
+				? eye_clicked
+				: eye
 
-	// let buttonText = ''
-
-	// if (buttonName === 'favorites') {
-	//     buttonText = rating.is_favorite === true ? '1 - Добавлено' : '1 -Добавить';
-	// } else if (buttonName === 'seen') {
-	//     buttonText = rating.is_viewed === true ? '2 -Просмотрено' : '2 -Уже просмотрел';
-	// } else if (buttonName === 'willSee'){
-	//     buttonText = rating.must_see === true ? '3 -Посмотрю' : '3 -Уже смотрел';
-	// }
+	const addCss =
+		buttonName === 'favorites'
+			? 'moviepage__button_favourite'
+			: 'moviepage__button_seen'
 
 	return (
-		<>
-			<button
-				className={`moviepage-button ${
-					buttonName === 'favorites'
-						? 'moviepage__button_favourite'
-						: 'moviepage__button_seen'
-				}`}
-				onClick={handleAddToFavourite}
-			/>
-		</>
+		<section
+			className={`moviepage-button__container ${addCss}`}
+			onClick={
+				buttonName === 'favorites' ? handleClickFavorite : handleClickWatch
+			}
+		>
+			<div className="moviepage-button" />
+			<img className="moviepage-button__img" src={typesImg} alt="icon" />
+		</section>
 	);
 };
 
