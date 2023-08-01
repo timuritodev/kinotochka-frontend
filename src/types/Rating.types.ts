@@ -24,7 +24,7 @@ export enum ButtonTypes {
 
 export interface IButton {
 	buttonName: ButtonTypes;
-	id: string,
+	id: string;
 }
 
 export interface IImage {
