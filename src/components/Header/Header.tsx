@@ -65,9 +65,7 @@ const Header: FC = () => {
 					<Link to="/will-see" className="header__content-link">
 						Фильмы по жанрам
 					</Link>
-					<Link to="/preferences" className="header__content-link">
-						Предпочтения
-					</Link>
+					
 				</ul>
 			</nav>
 			<div className="header__container">

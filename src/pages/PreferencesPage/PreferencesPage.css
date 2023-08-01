@@ -54,7 +54,6 @@
 	clip-path: inset(0 0 0 0);
 	appearance: none;
 	border-radius: 50%;
-	/* transition: color 0.3s; */
 }
 
 .preferencespage-checkbox__input[type='checkbox']:checked

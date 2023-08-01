@@ -1,7 +1,5 @@
 import { FC } from 'react';
-
 import './SaveButton.css';
-import PopupSaveButton from '../PopupSaveButton/PopupSaveButton';
 
 export interface IButton {
 	buttonText: string;
