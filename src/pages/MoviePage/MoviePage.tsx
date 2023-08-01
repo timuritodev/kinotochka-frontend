@@ -36,6 +36,7 @@ const MoviePage: FC = () => {
 							<RatedElement
 								imdb={films.rating.imdb}
 								kinopoisk={films.rating.kinopoisk}
+								isSearch={false}
 							/>
 						</div>
 						<ActorsList actors={films.actor} />

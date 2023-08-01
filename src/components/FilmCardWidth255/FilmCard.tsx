@@ -12,7 +12,7 @@ export const FilmCard = ({ film }: { film: IFilms }) => {
 			<p className="flanks_card-subtitle">{`${film.genres.join(', ')} • ${
 				film.year
 			}`}</p>
-			<RatedElement imdb={film.rating.imdb} kinopoisk={film.rating.kinopoisk} />
+			<RatedElement imdb={film.rating.imdb} kinopoisk={film.rating.kinopoisk} isSearch={false}/>
 		</section>
 	);
 };

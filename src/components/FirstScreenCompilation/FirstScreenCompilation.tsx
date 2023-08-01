@@ -12,6 +12,7 @@ export default function FirstScreenCompilation({ film }: { film: IFilms }) {
 				<RatedElement
 					imdb={film.rating.imdb}
 					kinopoisk={film.rating.kinopoisk}
+					isSearch={false}
 				/>
 				<p className="movie__description">{film.shortDescription}</p>
 				<div className="button-wraper">
