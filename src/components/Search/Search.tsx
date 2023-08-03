@@ -37,7 +37,7 @@ const Search = ({
 		>
 			<div className="searchGeneral__films" id="searchGeneral__films">
 				{!isFilteredFilms ? (
-					filteredFilms.map((film: IFilms) => (
+					filteredFilms.slice(0,5).map((film: IFilms) => (
 						<a href={film.movieCardUrl} className="searchGeneral__film">
 							<img
 								className="searchGeneral__film-poster"

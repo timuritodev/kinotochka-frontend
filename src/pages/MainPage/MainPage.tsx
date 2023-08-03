@@ -45,6 +45,9 @@ export default function MainPage() {
 				<SlickSlider type={SlickSliderTypes.blackwhite} />
 			</div>
 			<div className="main-page_slick-slider">
+				<SlickSlider type={SlickSliderTypes.newyear} />
+			</div>
+			<div className="main-page_slick-slider">
 				<SlickSliderGenres content={GENRESv2} />
 			</div>
 		</main>

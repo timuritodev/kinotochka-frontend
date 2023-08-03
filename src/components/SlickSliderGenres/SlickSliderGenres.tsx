@@ -1,5 +1,5 @@
 import './SlickSliderGenres.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,10 +9,14 @@ import { FC } from 'react';
 import { ISlider } from 'src/types/Rating.types';
 import CheckboxMain from '../CheckboxMain/CheckboxMain';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
+import { MoreButton } from '../MoreBtn/MoreButton';
 
 export const SlickSliderGenres = ({ content }: { content: string[] }) => {
 	const films = useAppSelector((state) => state.films.films);
+	const page = useAppSelector((state) => state.windowResize.page);
 	const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+	const [pageMore, setPageMore] = useState(page);
+	const [isMoreButton, setIsMoreButton] = useState(false);
 
 	const settings = {
 		dots: false,
@@ -31,12 +35,25 @@ export const SlickSliderGenres = ({ content }: { content: string[] }) => {
 		}
 	};
 
+	
 	const filteredFilms =
-		selectedGenres.length > 0
-			? films.filter((film) => {
-					return selectedGenres.some((genre) => film.genres.includes(genre));
-			  })
-			: films;
+	selectedGenres.length > 0
+	? films.filter((film) => {
+		return selectedGenres.some((genre) => film.genres.includes(genre));
+	})
+	: films;
+	
+	useEffect(() => {
+		if (filteredFilms.length > page) {
+			setIsMoreButton(true);
+		} else {
+			setIsMoreButton(false);
+		}
+	}, [filteredFilms, page]);
+
+	const handleMoreButtonClick = () => {
+		setPageMore((prev) => prev + page);
+	};
 
 	return (
 		<div>
@@ -51,9 +68,12 @@ export const SlickSliderGenres = ({ content }: { content: string[] }) => {
 				</Slider>
 			</div>
 			<div className="flank_container">
-				{filteredFilms.map((film) => (
+				{filteredFilms.slice(0, pageMore).map((film) => (
 					<FilmCard key={film.id} film={film} />
 				))}
+			</div>
+			<div className="flank_btn">
+				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>
 		</div>
 	);

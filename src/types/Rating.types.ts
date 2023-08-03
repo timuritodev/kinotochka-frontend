@@ -46,6 +46,7 @@ export enum SlickSliderTypes {
 	specialforyou = 'specialforyou',
 	similar = 'similar',
 	genres = 'genres',
+	newyear = 'newyear'
 }
 
 export interface ISlider {

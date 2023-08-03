@@ -68,7 +68,9 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			? 'Оскар 2023'
 			: type === 'similar'
 			? 'Похожие'
-			: 'Черно-белое кино';
+			: type === 'blackwhite'
+			? 'Черно-белое кино'
+			: 'Новогоднее кино'
 
 	const asdw =
 		type === 'specialforyou'
@@ -79,7 +81,7 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 		<div className="slick-slider_container">
 			<h1 className="slick-slider_title">{title}</h1>
 			<Slider {...settings} className="slick-slider">
-				{type === 'oscar' || type === 'blackwhite'
+				{type === 'oscar' || type === 'blackwhite' || type === 'newyear'
 					? data.map((item) => <FilmCard film={item} />)
 					: asdw}
 			</Slider>
