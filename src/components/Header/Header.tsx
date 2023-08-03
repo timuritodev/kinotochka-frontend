@@ -6,20 +6,20 @@ import adjustments from '../../images/adjustments.svg';
 import search from '../../images/search.svg';
 import Account from '../Account/Account';
 import Search from '../Search/Search';
-import ExtendedSearch from '../ExtendedSearch/ExtendedSearch'
+import ExtendedSearch from '../ExtendedSearch/ExtendedSearch';
 import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isOpenExtended, setIsOpenExtended] = useState(false);
 
-	const handleOpenExtended =() => {
+	const handleOpenExtended = () => {
 		if (isOpenExtended === true) {
-			setIsOpenExtended(false)
+			setIsOpenExtended(false);
 		} else {
-			setIsOpenExtended(true)
+			setIsOpenExtended(true);
 		}
-	}
+	};
 
 	const setNavOpen = () => {
 		setIsOpen(true);
@@ -69,13 +69,12 @@ const Header: FC = () => {
 					<Link to="/" className="header__content-link">
 						Главная
 					</Link>
-					<Link to="/favorites" className="header__content-link">
-						Наши подборки
+					<Link to="/collections" className="header__content-link">
+						Все подборки
 					</Link>
 					<Link to="/will-see" className="header__content-link">
 						Фильмы по жанрам
 					</Link>
-					
 				</ul>
 			</nav>
 			<div className="header__container">

@@ -23,11 +23,11 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 
 	const title =
 		formName === 'ratedFilms'
-			? 'Оцененные фильмы'
+			? 'Оцененное'
 			: formName === 'willSee'
 			? 'Буду смотреть'
 			: formName === 'favorites'
-			? 'Избранные'
+			? 'Избранное'
 			: 'Подборки';
 
 	useEffect(() => {

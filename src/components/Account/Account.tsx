@@ -28,7 +28,7 @@ const Account: FC = (isLoggedIn) => {
 				<>
 					<p className="account__profile-icon" onMouseOver={setProfileOpen}>
 						<Link to="/profile" className="account__profile-link">
-							<p className="account__profile-word">W</p>
+							<p className="account__profile-word">{email[0]}</p>
 						</Link>
 					</p>
 					<nav
@@ -39,12 +39,12 @@ const Account: FC = (isLoggedIn) => {
 						<ul className="account__list" onMouseOver={setProfileOpen}>
 							<p className="account__content-nik">{email}</p>
 							<p className="account__content-email">{email}</p>
-							<Link to="/sign-in" className="account__content-link">
+							{/* <Link to="/sign-in" className="account__content-link">
 								Авторизация
 							</Link>
 							<Link to="/movie-page" className="account__content-link">
 								Страница фильма
-							</Link>
+							</Link> */}
 							<Link to="/favorites" className="account__content-link">
 								Избранное
 							</Link>
@@ -57,7 +57,7 @@ const Account: FC = (isLoggedIn) => {
 							<Link to="/collections" className="account__content-link">
 								Подборки
 							</Link>
-							<Link to="/logout" className="account__content-link">
+							<Link to="/" className="account__content-link">
 								Выйти
 							</Link>
 						</ul>
