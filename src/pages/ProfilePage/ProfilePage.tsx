@@ -76,6 +76,9 @@ const ProfilePage = () => {
 				</div>
 				<div className="profile__buttons">
 					<Button buttonText={'Сохранить'} handleButtonClick={undefined} />
+					<Link to="/preferences" className="profile__preferences-button">
+						Мои предпочтения
+					</Link>
 					<button className="profile__delete-button">Удалить профиль</button>
 				</div>
 			</div>

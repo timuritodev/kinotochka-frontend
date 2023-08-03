@@ -154,3 +154,18 @@
 	background-repeat: no-repeat;
 	background-position: left;
 }
+
+.profile__preferences-button {
+	width: 540px;
+	font-size: 20px;
+	line-height: 26px;
+	font-weight: 700;
+	padding: 15px 0;
+	text-align: center;
+	background-color: #9ca3af;
+	color: white;
+	border-radius: 10px;
+	cursor: pointer;
+	margin: 0 auto;
+	text-decoration: none;
+}
