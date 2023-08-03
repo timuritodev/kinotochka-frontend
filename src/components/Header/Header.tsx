@@ -6,10 +6,20 @@ import adjustments from '../../images/adjustments.svg';
 import search from '../../images/search.svg';
 import Account from '../Account/Account';
 import Search from '../Search/Search';
+import ExtendedSearch from '../ExtendedSearch/ExtendedSearch'
 import { Link } from 'react-router-dom';
 
 const Header: FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	const [isOpenExtended, setIsOpenExtended] = useState(false);
+
+	const handleOpenExtended =() => {
+		if (isOpenExtended === true) {
+			setIsOpenExtended(false)
+		} else {
+			setIsOpenExtended(true)
+		}
+	}
 
 	const setNavOpen = () => {
 		setIsOpen(true);
@@ -86,6 +96,7 @@ const Header: FC = () => {
 							className="header__search-button_search"
 							src={adjustments}
 							alt="Кнопка расширенного поиска"
+							onClick={handleOpenExtended}
 						/>
 					</button>
 					<Link to="/search-result" className="header__search-button">
@@ -97,6 +108,7 @@ const Header: FC = () => {
 					</Link>
 				</form>
 				<Search isOpenSearch={isOpenSearch} values={values} />
+				<ExtendedSearch isOpenExtended={isOpenExtended} />
 			</div>
 			<Account
 			// isLoggedIn={true}

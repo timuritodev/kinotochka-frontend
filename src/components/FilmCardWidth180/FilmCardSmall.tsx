@@ -12,7 +12,7 @@ export const FilmCardSmall = ({ film }: { film: IFilms }) => {
 			<p className="moviepage_card-subtitle">{`${film.genres.join(', ')} • ${
 				film.year
 			}`}</p>
-			<RatedElement imdb={film.rating.imdb} kinopoisk={film.rating.kinopoisk} />
+			<RatedElement imdb={film.rating.imdb} kinopoisk={film.rating.kinopoisk} isSearch={false}/>
 		</section>
 	);
 };

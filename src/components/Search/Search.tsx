@@ -1,5 +1,5 @@
 import './Search.css';
-import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
+import { useAppSelector } from '../../services/typeHooks';
 import { IFilms } from 'src/types/Film.types';
 import { RatedElement } from '../RatedElement/RatedElement';
 import { useState, useEffect } from 'react';
@@ -50,18 +50,19 @@ const Search = ({
 										<RatedElement
 											imdb={film.rating.imdb}
 											kinopoisk={film.rating.kinopoisk}
+											isSearch={true}
 										/>
 									</p>
 									<p className="searchGeneral__film-country">
 										{film.country.join(', ')}
 									</p>
-									<p className="searchGeneral__film-year">{film.year}</p>
+									<p className="searchGeneral__film-year"> • {film.year}</p>
 								</div>
 							</article>
 						</a>
 					))
 				) : (
-					<p className="searchGeneral__film-none">Фильмы не найдены</p>
+					<p className="searchGeneral__film-none">По вашему запросу ничего не найдено</p>
 				)}
 			</div>
 		</section>

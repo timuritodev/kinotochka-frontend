@@ -23,6 +23,7 @@ export const SeachResult = ({ film }: { film: IFilms }) => {
 				<RatedElement
 					imdb={film.rating.imdb}
 					kinopoisk={film.rating.kinopoisk}
+					isSearch={false}
 				/>
 			</div>
 		</section>

@@ -7,6 +7,13 @@
 	margin-top: 15px;
 }
 
+.rated_search {
+	color: #2b2f33;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 18px;
+}
+
 .rated_row {
 	display: flex;
 	align-items: center;
