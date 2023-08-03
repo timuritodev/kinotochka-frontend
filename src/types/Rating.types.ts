@@ -24,7 +24,7 @@ export enum ButtonTypes {
 
 export interface IButton {
 	buttonName: ButtonTypes;
-	id: string,
+	id: string;
 }
 
 export interface IImage {
@@ -46,7 +46,7 @@ export enum SlickSliderTypes {
 	specialforyou = 'specialforyou',
 	similar = 'similar',
 	genres = 'genres',
-	newyear = 'newyear'
+	newyear = 'newyear',
 }
 
 export interface ISlider {

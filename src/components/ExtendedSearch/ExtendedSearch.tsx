@@ -44,7 +44,7 @@ const ExtendedSearch = ({ isOpenExtended }: { isOpenExtended: boolean }) => {
 				<option>США</option>
 			</select>
 			<div className="searchExtended__row">
-				<p className='searchExtended__row-title'>Год</p>
+				<p className="searchExtended__row-title">Год</p>
 				<select id="director" name="director" className="searchExtended__form">
 					<option value="" disabled selected>
 						c --
@@ -52,7 +52,7 @@ const ExtendedSearch = ({ isOpenExtended }: { isOpenExtended: boolean }) => {
 					<option>1990</option>
 					<option>1991</option>
 				</select>
-                <select id="director" name="director" className="searchExtended__form">
+				<select id="director" name="director" className="searchExtended__form">
 					<option value="" disabled selected>
 						по --
 					</option>
@@ -60,24 +60,24 @@ const ExtendedSearch = ({ isOpenExtended }: { isOpenExtended: boolean }) => {
 					<option>2023</option>
 				</select>
 			</div>
-            <div className="searchExtended__row">
-				<p className='searchExtended__row-title'>Рейтинг IMDB</p>
+			<div className="searchExtended__row">
+				<p className="searchExtended__row-title">Рейтинг IMDB</p>
 				<select id="director" name="director" className="searchExtended__form">
 					<option value="" disabled selected>
-                    c --
+						c --
 					</option>
 					<option>7.0</option>
 					<option>8.0</option>
 				</select>
-                <select id="director" name="director" className="searchExtended__form">
+				<select id="director" name="director" className="searchExtended__form">
 					<option value="" disabled selected>
-                    по --
+						по --
 					</option>
 					<option>9.0</option>
 					<option>10.0</option>
 				</select>
 			</div>
-            <button className='searchExtended__submit'>Найти</button>
+			<button className="searchExtended__submit">Найти</button>
 		</section>
 	);
 };

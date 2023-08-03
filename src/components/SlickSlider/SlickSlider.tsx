@@ -70,7 +70,7 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			? 'Похожие'
 			: type === 'blackwhite'
 			? 'Черно-белое кино'
-			: 'Новогоднее кино'
+			: 'Новогоднее кино';
 
 	const asdw =
 		type === 'specialforyou'

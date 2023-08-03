@@ -35,14 +35,13 @@ export const SlickSliderGenres = ({ content }: { content: string[] }) => {
 		}
 	};
 
-	
 	const filteredFilms =
-	selectedGenres.length > 0
-	? films.filter((film) => {
-		return selectedGenres.some((genre) => film.genres.includes(genre));
-	})
-	: films;
-	
+		selectedGenres.length > 0
+			? films.filter((film) => {
+					return selectedGenres.some((genre) => film.genres.includes(genre));
+			  })
+			: films;
+
 	useEffect(() => {
 		if (filteredFilms.length > page) {
 			setIsMoreButton(true);

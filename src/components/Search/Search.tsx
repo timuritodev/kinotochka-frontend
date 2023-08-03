@@ -37,7 +37,7 @@ const Search = ({
 		>
 			<div className="searchGeneral__films" id="searchGeneral__films">
 				{!isFilteredFilms ? (
-					filteredFilms.slice(0,5).map((film: IFilms) => (
+					filteredFilms.slice(0, 5).map((film: IFilms) => (
 						<a href={film.movieCardUrl} className="searchGeneral__film">
 							<img
 								className="searchGeneral__film-poster"
@@ -62,7 +62,9 @@ const Search = ({
 						</a>
 					))
 				) : (
-					<p className="searchGeneral__film-none">По вашему запросу ничего не найдено</p>
+					<p className="searchGeneral__film-none">
+						По вашему запросу ничего не найдено
+					</p>
 				)}
 			</div>
 		</section>

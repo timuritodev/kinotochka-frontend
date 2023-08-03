@@ -11,13 +11,13 @@
 }
 
 .moviepage-button__container::after {
-	content: var(--tooltip-content, "");
+	content: var(--tooltip-content, '');
 	position: absolute;
 	top: -55px;
 	left: 70px;
 	transform: translateX(-50%);
 	background-color: black;
-	color: var(--tooltip-text-color, var(--white, #FFF));
+	color: var(--tooltip-text-color, var(--white, #fff));
 	font-size: 16px;
 	font-family: Mullish;
 	font-style: normal;
@@ -36,7 +36,7 @@
 }
 
 .moviepage-button__container::before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: -10px;
 	left: 50%;
@@ -54,13 +54,13 @@
 }
 
 .moviepage__button_favourite {
-	--tooltip-content: "В избранное";
-	--tooltip-text-color: var(--white, #FFF);
+	--tooltip-content: 'В избранное';
+	--tooltip-text-color: var(--white, #fff);
 }
 
 .moviepage__button_seen {
-	--tooltip-content: "Буду смотреть";
-	--tooltip-text-color: var(--white, #FFF);
+	--tooltip-content: 'Буду смотреть';
+	--tooltip-text-color: var(--white, #fff);
 }
 
 .moviepage-button__container {
@@ -72,13 +72,12 @@
 	width: 45px;
 	height: 45px;
 	border-radius: 5px;
-	background-color: #E5E7EB;
+	background-color: #e5e7eb;
 	cursor: pointer;
 }
 
 .moviepage-button:hover {
-	background-color: #D1D5DB;
-
+	background-color: #d1d5db;
 }
 
 .moviepage-button__img {

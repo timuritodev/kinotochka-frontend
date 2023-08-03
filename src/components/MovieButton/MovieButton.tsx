@@ -6,13 +6,12 @@ import {
 	updateFavorite,
 	updateWatch,
 } from 'src/services/redux/slices/films/films';
-import eye from "../../images/black_eye.svg"
-import eye_clicked from '../../images/eye_clicked.svg'
-import bookmark from '../../images/Bookmark.svg'
-import bookmark_clicked from '../../images/bookmark_clicked.svg'
+import eye from '../../images/black_eye.svg';
+import eye_clicked from '../../images/eye_clicked.svg';
+import bookmark from '../../images/Bookmark.svg';
+import bookmark_clicked from '../../images/bookmark_clicked.svg';
 
 const MovieButton: FC<IButton> = ({ buttonName, id }) => {
-
 	const dispatch = useAppDispatch();
 	const filmFav = useAppSelector(
 		(state) => state.films.films.find((film) => film.id === id)?.is_favorite
@@ -35,13 +34,13 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 				? bookmark
 				: bookmark_clicked
 			: filmWatch
-				? eye_clicked
-				: eye
+			? eye_clicked
+			: eye;
 
 	const addCss =
 		buttonName === 'favorites'
 			? 'moviepage__button_favourite'
-			: 'moviepage__button_seen'
+			: 'moviepage__button_seen';
 
 	return (
 		<section
