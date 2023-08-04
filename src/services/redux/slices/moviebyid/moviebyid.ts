@@ -48,7 +48,7 @@ const initialState: IMoviebyidState = {
         description: '',
         is_favorite: false,
         is_need_see: false,
-        trailer_link: "https://www.youtube.com/watch?v=n0PhbTNNB7k",
+        trailer_link: "",
         user_rate: 0
     },
 };
@@ -66,6 +66,4 @@ export const moviebyidSlice = createSlice({
     },
 });
 
-export const filmReducer = moviebyidSlice.reducer;
-
-// export const selectFilms = (state: { films: IFilmsState }) => state.films.films;
+export const moviebyidReducer = moviebyidSlice.reducer;

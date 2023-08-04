@@ -1,4 +1,4 @@
-import { IMoviebyid } from 'src/types/Moviebyid.types';
+import { IMovieCard } from 'src/types/MovieCard.types';
 
 const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
 
@@ -19,6 +19,6 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getMoviebyid = (): Promise<IMoviebyid> => {
-	return fetchData(`${API_URL}/v1/movies/20`);
+export const getMovieCards = (): Promise<Array<IMovieCard>> => {
+	return fetchData(`${API_URL}/v1/movies/newest`);
 };

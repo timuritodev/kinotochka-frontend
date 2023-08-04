@@ -20,7 +20,7 @@ export interface IMoviebyid {
     user_rate: number;
 }
 
-interface IGenres {
+export interface IGenres {
     id: number,
     slug: string,
     title: string,
@@ -38,7 +38,7 @@ interface ICategories {
     title: string,
 }
 
-interface IRating {
+export interface IRating {
     rate_imdb: number;
     rate_kinopoisk: number;
 }
