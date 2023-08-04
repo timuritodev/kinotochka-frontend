@@ -18,9 +18,10 @@ const MoviePage: FC = () => {
 	const dispatch = useAppDispatch();
 
 	const film = useAppSelector((state) => state.film.film);
+	const filmid = useAppSelector((state) => state.filmid)
 
 	useEffect(() => {
-		dispatch(getMoviebyidApi());
+		dispatch(getMoviebyidApi(filmid.id));
 	}, []);
 
 	return (

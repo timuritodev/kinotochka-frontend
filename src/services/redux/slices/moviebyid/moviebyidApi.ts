@@ -19,6 +19,10 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getMoviebyid = (): Promise<IMoviebyid> => {
-	return fetchData(`${API_URL}/v1/movies/20`);
+// export const getMoviebyid = (): Promise<IMoviebyid> => {
+// 	return fetchData(`${API_URL}/v1/movies/20`);
+// };
+
+export const getMoviebyid = (filmId: number): Promise<IMoviebyid> => { // Принимаем filmId
+	return fetchData(`${API_URL}/v1/movies/${filmId}`); // Используем переданный filmId в URL
 };

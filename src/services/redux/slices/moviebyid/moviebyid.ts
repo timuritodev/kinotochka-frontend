@@ -2,8 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getMoviebyid } from './moviebyidApi';
 import { IMoviebyidState } from 'src/types/Moviebyid.types';
 
-export const getMoviebyidApi = createAsyncThunk('@@movie/movie', async () => {
-    return getMoviebyid();
+// export const getMoviebyidApi = createAsyncThunk('@@movie/movie', async () => {
+//     return getMoviebyid();
+// });
+
+export const getMoviebyidApi = createAsyncThunk('@@movie/movie', async (filmId: number) => {
+    return getMoviebyid(filmId);
 });
 
 const initialState: IMoviebyidState = {
