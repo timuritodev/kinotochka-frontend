@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getMoviebyid } from './moviebyidApi';
 import { IMoviebyidState } from 'src/types/Moviebyid.types';
 
-export const getMoviebyidApi = createAsyncThunk('@@film/film', async () => {
+export const getMoviebyidApi = createAsyncThunk('@@movie/movie', async () => {
     return getMoviebyid();
 });
 
@@ -53,8 +53,8 @@ const initialState: IMoviebyidState = {
     },
 };
 
-export const filmSlice = createSlice({
-    name: '@@films',
+export const moviebyidSlice = createSlice({
+    name: '@@movie',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -66,6 +66,6 @@ export const filmSlice = createSlice({
     },
 });
 
-export const filmReducer = filmSlice.reducer;
+export const filmReducer = moviebyidSlice.reducer;
 
 // export const selectFilms = (state: { films: IFilmsState }) => state.films.films;
