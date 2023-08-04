@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFilmsMoviePage } from './one_filmApi';
-import { IFilmsOneState } from 'src/types/OneFilm.types';
+import { getMoviebyid } from './moviebyidApi';
+import { IMoviebyidState } from 'src/types/Moviebyid.types';
 
-export const getFilmsApiMoviePage = createAsyncThunk('@@film/film', async () => {
-    return getFilmsMoviePage();
+export const getMoviebyidApi = createAsyncThunk('@@film/film', async () => {
+    return getMoviebyid();
 });
 
-const initialState: IFilmsOneState = {
+const initialState: IMoviebyidState = {
     status: 'idle',
     error: '',
     film:
@@ -59,7 +59,7 @@ export const filmSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getFilmsApiMoviePage.fulfilled, (state, action) => {
+            .addCase(getMoviebyidApi.fulfilled, (state, action) => {
                 state.status = 'success';
                 state.film = action.payload;
             })

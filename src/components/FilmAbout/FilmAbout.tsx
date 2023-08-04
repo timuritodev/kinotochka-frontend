@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { useEffect } from 'react';
 import './FilmAbout.css';
 import { FC } from 'react';
-import { getFilmsApiMoviePage } from 'src/services/redux/slices/one_film/one_film';
+import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
 
 
 const FilmAbout: FC = () => {
@@ -11,7 +11,7 @@ const FilmAbout: FC = () => {
 	const film = useAppSelector((state) => state.film.film);
 
 	useEffect(() => {
-		dispatch(getFilmsApiMoviePage());
+		dispatch(getMoviebyidApi());
 	}, []);
 
 	return (

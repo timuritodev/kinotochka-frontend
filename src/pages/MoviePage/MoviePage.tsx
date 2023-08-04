@@ -12,7 +12,7 @@ import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from '../../types/Rating.types';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
-import { getFilmsApiMoviePage } from 'src/services/redux/slices/one_film/one_film';
+import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
 
 const MoviePage: FC = () => {
 	const dispatch = useAppDispatch();
@@ -20,10 +20,8 @@ const MoviePage: FC = () => {
 	const film = useAppSelector((state) => state.film.film);
 
 	useEffect(() => {
-		dispatch(getFilmsApiMoviePage());
+		dispatch(getMoviebyidApi());
 	}, []);
-
-	console.log(film)
 
 	return (
 		<section className="moviepage">

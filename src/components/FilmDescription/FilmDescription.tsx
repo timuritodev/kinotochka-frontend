@@ -1,6 +1,6 @@
 import './FilmDescription.css';
 import { FC } from 'react'
-import { IDescription } from 'src/types/OneFilm.types';
+import { IDescription } from 'src/types/Moviebyid.types';
 
 const FilmDescription: FC<IDescription> = ({ description }) => {
 	return (

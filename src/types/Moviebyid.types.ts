@@ -1,4 +1,4 @@
-export interface IFilmsOne {
+export interface IMoviebyid {
     id: string;
     title: string;
     original_title: string,
@@ -43,10 +43,10 @@ interface IRating {
     rate_kinopoisk: number;
 }
 
-export interface IFilmsOneState {
+export interface IMoviebyidState {
     status: 'idle' | 'success' | 'loading' | 'failed';
     error: string | undefined;
-    film: IFilmsOne;
+    film: IMoviebyid;
 }
 
 export interface IDescription {

@@ -18,7 +18,7 @@ import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
 import { ratingReducer } from './slices/rating/rating';
 import { windowResizeReducer } from './slices/window_resize/window_resize';
-import { filmReducer } from './slices/one_film/one_film';
+import { filmReducer } from './slices/moviebyid/moviebyid';
 
 const rootReducer = combineReducers({
 	example: exampleReducer,
