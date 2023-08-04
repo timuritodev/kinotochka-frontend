@@ -10,7 +10,7 @@ const ActorsList: FC<ActorsListProps> = ({ actors }) => {
 			<div className="actorslist__container">
 				<p className="actorslist__text">
 					{actors
-						.map((item) => item.first_name + ' ' + item.last_name)
+						.map((item) => item)
 						.join(', ')}
 				</p>
 			</div>
