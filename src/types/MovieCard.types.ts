@@ -1,7 +1,7 @@
 import { IRating } from "./Moviebyid.types"
 
 export interface IMovieCard {
-    id: string,
+    id: number,
     title: string,
     v_picture?: string,
     h_picture?: string,

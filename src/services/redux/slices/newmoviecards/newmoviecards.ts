@@ -11,7 +11,7 @@ const initialState: IMovieCardState = {
     error: '',
     movies: [
         {
-            id: '',
+            id: 0,
             title: '',
             v_picture: '',
             h_picture: '',

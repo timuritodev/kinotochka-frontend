@@ -15,7 +15,7 @@ const initialState: IMoviebyidState = {
     error: '',
     film:
     {
-        id: '',
+        id: 0,
         title: '',
         original_title: '',
         v_picture: '',
