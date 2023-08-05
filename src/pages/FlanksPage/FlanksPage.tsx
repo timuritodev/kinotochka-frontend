@@ -46,9 +46,8 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		} else {
 			setToggleFavorites([]);
 		}
-	// }, [ratedFilms, willSee, favorites, formName]);
-}, [favorites, formName]);
-
+		// }, [ratedFilms, willSee, favorites, formName]);
+	}, [favorites, formName]);
 
 	useEffect(() => {
 		if (toggleFavorites.length > page) {

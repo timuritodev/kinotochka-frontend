@@ -18,7 +18,7 @@ const MoviePage: FC = () => {
 	const dispatch = useAppDispatch();
 
 	const film = useAppSelector((state) => state.film.film);
-	const filmid = useAppSelector((state) => state.filmid)
+	const filmid = useAppSelector((state) => state.filmid);
 
 	useEffect(() => {
 		dispatch(getMoviebyidApi(filmid.id));
@@ -52,13 +52,13 @@ const MoviePage: FC = () => {
 				<div className="description__container">
 					<div>
 						<FilmDescription description={film.description} />
-						{film.trailer_link !== '-'
-							?
-							(<TrailerButton imageUrl={film.h_picture} />)
-							:
-							''}
+						{film.trailer_link !== '-' ? (
+							<TrailerButton imageUrl={film.h_picture} />
+						) : (
+							''
+						)}
 					</div>
-					<FilmAbout film={film}/>
+					<FilmAbout film={film} />
 				</div>
 				<div className="moviepage-cards__container">
 					<SlickSlider type={SlickSliderTypes.similar} />

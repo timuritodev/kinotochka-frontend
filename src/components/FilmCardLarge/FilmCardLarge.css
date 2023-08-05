@@ -1,6 +1,7 @@
 .specailforyou_card {
 	position: relative;
 	padding: 0 0 0 10px;
+	cursor: pointer;
 }
 
 .specailforyou_card-img {

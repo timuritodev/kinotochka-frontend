@@ -26,7 +26,7 @@ const rootReducer = combineReducers({
 	example: exampleReducer,
 	user: userReducer,
 	films: filmsReducer,
-	film:  moviebyidReducer,
+	film: moviebyidReducer,
 	filmid: filmidReducer,
 	moviecards: moviecardsReducer,
 	selection: selectionsReducer,

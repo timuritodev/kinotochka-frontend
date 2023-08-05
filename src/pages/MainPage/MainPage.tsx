@@ -25,13 +25,13 @@ export default function MainPage() {
 
 	function countDown(num: any) {
 		if (num === 0) {
-		return;
+			return;
 		}
 		console.log(num);
-		countDown (num - 1);
-		}
-		
-		countDown (5);
+		countDown(num - 1);
+	}
+
+	countDown(5);
 
 	return (
 		<main className="main-page" id="main-page">

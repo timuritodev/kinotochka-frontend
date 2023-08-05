@@ -1,24 +1,24 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface FilmIdState {
-  id: number
+	id: number;
 }
 
 const initialState: FilmIdState = {
-  id: 0,
+	id: 0,
 };
 
 const filmIdSlice = createSlice({
-  name: 'filmId',
-  initialState,
-  reducers: {
-    setFilmId: (state, action: PayloadAction<number>) => {
-      state.id = action.payload;
-    },
-    clearFilmId: (state) => {
-      state.id = 0;
-    },
-  },
+	name: 'filmId',
+	initialState,
+	reducers: {
+		setFilmId: (state, action: PayloadAction<number>) => {
+			state.id = action.payload;
+		},
+		clearFilmId: (state) => {
+			state.id = 0;
+		},
+	},
 });
 
 export const { setFilmId, clearFilmId } = filmIdSlice.actions;

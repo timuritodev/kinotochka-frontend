@@ -7,9 +7,8 @@ const PopupTrailer: FC<PopupTrailerProps> = ({
 	isPopupOpen,
 	switchPopupTrailer,
 }) => {
-	
 	const link = useAppSelector((state) => state.film.film.trailer_link);
-	
+
 	return (
 		<div className={`popupTrailer ${isPopupOpen ? 'popupTrailer_opened' : ''}`}>
 			<iframe
