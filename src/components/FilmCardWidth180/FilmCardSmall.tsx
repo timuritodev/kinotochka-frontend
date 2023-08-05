@@ -2,25 +2,18 @@ import './FilmCardSmall.css';
 import { RatedElement } from 'src/components/RatedElement/RatedElement';
 import { BookmarkSmall } from 'src/components/Bookmark_small/Bookmark_small';
 import { IMovieCard } from 'src/types/MovieCard.types';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setFilmId } from 'src/services/redux/slices/filmid/filmid';
+import { useNavigate } from 'react-router-dom';
+import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+import { useAppDispatch } from '../../services/typeHooks';
 
 export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const location = useLocation();
+	const dispatch = useAppDispatch();
 
 	const handleImgClick = () => {
-		if (location.pathname === '/movie-page') {
-			window.location.reload();
-			dispatch(setFilmId(film.id));
-			window.scrollTo(0, 0);
-		} else {
-			navigate('/movie-page');
-			dispatch(setFilmId(film.id));
-			window.scrollTo(0, 0);
-		}
+		dispatch(getMoviebyidApi({ filmId: film.id }));
+		navigate('/movie-page');
+		window.scrollTo(0, 0);
 	};
 
 	return (
@@ -33,9 +26,8 @@ export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 			/>
 			<div className="bookmark-small">{<BookmarkSmall id={film.id} />}</div>
 			<h4 className="moviepage_card-title">{film.title}</h4>
-			<p className="moviepage_card-subtitle">{`${film.genres.join(', ')} • ${
-				film.year
-			}`}</p>
+			<p className="moviepage_card-subtitle">{`${film.genres.join(', ')} • ${film.year
+				}`}</p>
 			<RatedElement
 				imdb={film.rating.rate_imdb}
 				kinopoisk={film.rating.rate_kinopoisk}
