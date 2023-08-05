@@ -12,7 +12,7 @@ export const getMoviebyidApi = createAsyncThunk(
 const initialState: IMoviebyidState = {
     status: 'idle',
     error: '',
-    film: {
+    movie: {
         id: 0,
         title: '',
         original_title: '',
@@ -65,7 +65,7 @@ export const moviebyidSlice = createSlice({
             })
             .addCase(getMoviebyidApi.fulfilled, (state, action) => {
                 state.status = 'success';
-                state.film = action.payload;
+                state.movie = action.payload;
             });
 
 },

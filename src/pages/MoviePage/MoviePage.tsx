@@ -14,46 +14,46 @@ import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 import Preloader from 'src/components/Preloader/Preloader';
 
 const MoviePage: FC = () => {
-	const film = useAppSelector((state) => state.film.film);
-	const loading = useAppSelector((state) => state.film.status)
-	console.log(film)
+	const movie = useAppSelector((state) => state.movie.movie);
+	const loading = useAppSelector((state) => state.movie.status)
+	console.log(movie)
 	return (
 		<>
 			{loading === 'loading' ? <Preloader /> :
 				<section className="moviepage">
-					<img className="background-image" alt="" src={film.h_picture} />
+					<img className="background-image" alt="" src={movie.h_picture} />
 					<div className="moviepage__container">
 						<div className="movie-block">
-							<img className="movie-block__img" alt="" src={film.v_picture} />
+							<img className="movie-block__img" alt="" src={movie.v_picture} />
 							<div className="movie-block__text">
 								<div>
-									<h2 className="movie-block__text_title">{film.title}</h2>
+									<h2 className="movie-block__text_title">{movie.title}</h2>
 									<RatedElement
-										imdb={film.rating.rate_imdb}
-										kinopoisk={film.rating.rate_kinopoisk}
+										imdb={movie.rating.rate_imdb}
+										kinopoisk={movie.rating.rate_kinopoisk}
 										isSearch={false}
 									/>
 								</div>
-								<ActorsList actors={film.actors} />
+								<ActorsList actors={movie.actors} />
 							</div>
 							<div className="moviepage__button__container">
 								<div className="moviepage__button__container_plus">
-									<MovieButton buttonName={ButtonTypes.favorites} id={film.id} />
-									<MovieButton buttonName={ButtonTypes.willSee} id={film.id} />
+									<MovieButton buttonName={ButtonTypes.favorites} id={movie.id} />
+									<MovieButton buttonName={ButtonTypes.willSee} id={movie.id} />
 								</div>
 								<RatingElement />
 							</div>
 						</div>
 						<div className="description__container">
 							<div>
-								<FilmDescription description={film.description} />
-								{film.trailer_link !== '-' ? (
-									<TrailerButton imageUrl={film.h_picture} />
+								<FilmDescription description={movie.description} />
+								{movie.trailer_link !== '-' ? (
+									<TrailerButton imageUrl={movie.h_picture} />
 								) : (
 									''
 								)}
 							</div>
-							<FilmAbout film={film} />
+							<FilmAbout movie={movie} />
 						</div>
 						<div className="moviepage-cards__container">
 							<SlickSlider type={SlickSliderTypes.similar} />
