@@ -14,7 +14,7 @@ export const BtnBookmark = ({
 	id,
 }: {
 	nameTypes: string;
-	id: string;
+	id: number;
 }) => {
 	const dispatch = useAppDispatch();
 	const filmFav = useAppSelector(

@@ -6,21 +6,22 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { FilmCard } from '../FilmCardWidth255/FilmCard';
 import { FC } from 'react';
-import { IFilms } from 'src/types/Film.types';
 import { ISlider } from 'src/types/Rating.types';
-
-import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { FilmCardLarge } from '../FilmCardLarge/FilmCardLarge';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
+import { getMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
+import { IMovieCard } from 'src/types/MovieCard.types';
 
 export const SlickSlider: FC<ISlider> = ({ type }) => {
 	const dispatch = useAppDispatch();
-	const films = useAppSelector((state) => state.films.films);
+	const films = useAppSelector((state) => state.moviecards.movies);
+	const [data, setData] = useState<IMovieCard[]>(films);
 
-	const favorites = useAppSelector((state) => state.films.favoriteFilms);
-	const willSee = useAppSelector((state) => state.films.mustSeeFilms);
-	const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
-	const [data, setData] = useState<IFilms[]>(films);
+	// const favorites = useAppSelector((state) => state.films.favoriteFilms);
+	// const willSee = useAppSelector((state) => state.films.mustSeeFilms);
+	// const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
+
+	const newmovies = useAppSelector((state) => state.moviecards.movies);
 
 	const settings =
 		type === 'news' || type === 'similar'
@@ -42,18 +43,18 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			  };
 
 	useEffect(() => {
-		dispatch(getFilmsApi());
+		dispatch(getMovieCardsApi());
 	}, []);
 
 	useEffect(() => {
 		if (type === 'specialforyou') {
-			setData(willSee);
+			setData(newmovies);
 		} else if (type === 'news') {
 			setData(films);
 		} else if (type === 'similar') {
-			setData(films);
+			setData(newmovies);
 		} else if (type === 'oscar') {
-			setData(favorites);
+			setData(newmovies);
 		} else {
 			setData(films);
 		}

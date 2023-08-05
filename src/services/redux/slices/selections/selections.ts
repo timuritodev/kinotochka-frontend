@@ -19,7 +19,7 @@ const initialState: ISelectionState = {
 			description: '',
 			movie: [
 				{
-					id: '',
+					id: 0,
 					title: '',
 					rating: {
 						kinopoisk: 0,

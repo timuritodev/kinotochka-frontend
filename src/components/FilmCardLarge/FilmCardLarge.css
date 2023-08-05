@@ -1,6 +1,7 @@
 .specailforyou_card {
 	position: relative;
 	padding: 0 0 0 10px;
+	cursor: pointer;
 }
 
 .specailforyou_card-img {
@@ -13,8 +14,8 @@
 
 .bookmark-large {
 	position: absolute;
-	top: 15px;
-	right: -65px;
+	top: 20px;
+	right: 20px;
 }
 
 .specailforyou_card-title {

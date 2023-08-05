@@ -1,5 +1,3 @@
-import { IActor } from './Film.types';
-
 export interface IRating {
 	id: number;
 	user: number;
@@ -24,7 +22,7 @@ export enum ButtonTypes {
 
 export interface IButton {
 	buttonName: ButtonTypes;
-	id: string;
+	id: number;
 }
 
 export interface IImage {
@@ -32,7 +30,7 @@ export interface IImage {
 }
 
 export interface ActorsListProps {
-	actors: IActor[];
+	actors: string[];
 }
 export interface PopupTrailerProps {
 	isPopupOpen: boolean;

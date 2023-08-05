@@ -1,3 +1,4 @@
+import { useAppSelector } from '../../services/typeHooks';
 import { FC } from 'react';
 import './PopupTrailer.css';
 import { PopupTrailerProps } from 'src/types/Rating.types';
@@ -6,12 +7,14 @@ const PopupTrailer: FC<PopupTrailerProps> = ({
 	isPopupOpen,
 	switchPopupTrailer,
 }) => {
+	const link = useAppSelector((state) => state.film.film.trailer_link);
+
 	return (
 		<div className={`popupTrailer ${isPopupOpen ? 'popupTrailer_opened' : ''}`}>
 			<iframe
 				width="720"
 				height="480"
-				src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+				src={link}
 				title="YouTube video player"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				allowFullScreen

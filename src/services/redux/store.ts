@@ -18,11 +18,17 @@ import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
 import { ratingReducer } from './slices/rating/rating';
 import { windowResizeReducer } from './slices/window_resize/window_resize';
+import { moviebyidReducer } from './slices/moviebyid/moviebyid';
+import { moviecardsReducer } from './slices/newmoviecards/newmoviecards';
+import { filmidReducer } from './slices/filmid/filmid';
 
 const rootReducer = combineReducers({
 	example: exampleReducer,
 	user: userReducer,
 	films: filmsReducer,
+	film: moviebyidReducer,
+	filmid: filmidReducer,
+	moviecards: moviecardsReducer,
 	selection: selectionsReducer,
 	rating: ratingReducer,
 	windowResize: windowResizeReducer,
