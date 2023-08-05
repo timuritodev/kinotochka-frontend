@@ -1,27 +1,15 @@
-import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { useEffect } from 'react';
 import './FilmAbout.css';
 import { FC } from 'react';
-import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+import { IFilmabout } from 'src/types/Moviebyid.types';
 
-
-const FilmAbout: FC = () => {
-	const dispatch = useAppDispatch();
-
-	const film = useAppSelector((state) => state.film.film);
-	const filmid = useAppSelector((state) => state.filmid)
-
-	useEffect(() => {
-		dispatch(getMoviebyidApi(filmid.id));
-	}, []);
-
+const FilmAbout: FC<IFilmabout> = ({ film }) => {
 	return (
 		<div className="moviepage-description">
 			<div className="moviepage-description__about">
 				<h2 className="moviepage-description__title">О фильме</h2>
 				<div className="moviepage-description__about__container">
 					<p className="moviepage-description__about__text_add">Год</p>
-					<p className="moviepage-description__about__text">{film.premiere_date}</p>
+					<p className="moviepage-description__about__text">{film.premiere_date.substring(0, 4)}</p>
 				</div>
 				<br />
 				<div className="moviepage-description__about__container">

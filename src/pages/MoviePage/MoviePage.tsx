@@ -58,7 +58,7 @@ const MoviePage: FC = () => {
 							:
 							''}
 					</div>
-					<FilmAbout />
+					<FilmAbout film={film}/>
 				</div>
 				<div className="moviepage-cards__container">
 					<SlickSlider type={SlickSliderTypes.similar} />

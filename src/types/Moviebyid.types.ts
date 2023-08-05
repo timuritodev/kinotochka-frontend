@@ -49,6 +49,10 @@ export interface IMoviebyidState {
     film: IMoviebyid;
 }
 
+export interface IFilmabout {
+    film: IMoviebyid;
+}
+
 export interface IDescription {
     description: string,
 }

@@ -5,7 +5,6 @@ import { IMovieCard } from 'src/types/MovieCard.types';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setFilmId } from 'src/services/redux/slices/filmid/filmid';
-import { useEffect } from 'react';
 
 export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 	const navigate = useNavigate();
@@ -16,15 +15,13 @@ export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 		if (location.pathname === '/movie-page') {
 			window.location.reload();
 			dispatch(setFilmId(film.id));
+			window.scrollTo(0, 0);
 		} else {
 			navigate('/movie-page');
 			dispatch(setFilmId(film.id));
+			window.scrollTo(0, 0);
 		}
 	};
-
-	useEffect(() => {
-		window.scrollTo(0, 0); 
-	}, [location.pathname]);
 
 	return (
 		<section key={film.id} className="moviepage_card">
