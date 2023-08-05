@@ -2,18 +2,29 @@ import './FilmCard.css';
 import { RatedElement } from 'src/components/RatedElement/RatedElement';
 import { BookmarkSmall } from 'src/components/Bookmark_small/Bookmark_small';
 import { IMovieCard } from 'src/types/MovieCard.types';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'; 
 import { setFilmId } from 'src/services/redux/slices/filmid/filmid';
 
 export const FilmCard = ({ film }: { film: IMovieCard }) => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch(); 
+	const location = useLocation();
 
 	const handleImgClick = () => {
-		navigate('/movie-page');
-		dispatch(setFilmId(film.id))
+		if (location.pathname === '/movie-page') {
+			window.location.reload();
+			dispatch(setFilmId(film.id));
+		} else {
+			navigate('/movie-page');
+			dispatch(setFilmId(film.id));
+		}
 	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0); // Прокручиваем страницу вверх при каждом рендере
+	}, [location.pathname]);
 
 	return (
 		<section key={film.id} className="flanks_card">

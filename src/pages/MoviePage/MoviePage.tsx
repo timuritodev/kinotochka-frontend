@@ -26,10 +26,10 @@ const MoviePage: FC = () => {
 
 	return (
 		<section className="moviepage">
-			<img className="background-image" alt="" src={film.v_picture} />
+			<img className="background-image" alt="" src={film.h_picture} />
 			<div className="moviepage__container">
 				<div className="movie-block">
-					<img className="movie-block__img" alt="" src={film.h_picture} />
+					<img className="movie-block__img" alt="" src={film.v_picture} />
 					<div className="movie-block__text">
 						<div>
 							<h2 className="movie-block__text_title">{film.title}</h2>
@@ -52,7 +52,11 @@ const MoviePage: FC = () => {
 				<div className="description__container">
 					<div>
 						<FilmDescription description={film.description} />
-						<TrailerButton imageUrl={film.v_picture} />
+						{film.trailer_link !== '-'
+							?
+							(<TrailerButton imageUrl={film.h_picture} />)
+							:
+							''}
 					</div>
 					<FilmAbout />
 				</div>
