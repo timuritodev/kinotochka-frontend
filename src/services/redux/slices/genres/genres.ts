@@ -3,7 +3,6 @@ import { getGenres } from './genresAPI';
 import { IGenresState } from 'src/types/Genres.types';
 
 export const getGenresApi = createAsyncThunk('@@genres/genres', async () => {
-	console.log(2);
 	return getGenres();
 });
 

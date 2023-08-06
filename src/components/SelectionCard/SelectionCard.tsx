@@ -2,7 +2,6 @@ import './SelectionCard.css';
 import { ISelect } from 'src/types/Film.types';
 
 export const SelectionCard = ({ selected }: { selected: ISelect[] }) => {
-	console.log(selected);
 	return (
 		<section className="selections">
 			{selected.map((item) => (

@@ -2,44 +2,39 @@ import './AllGenresPage.css';
 import { useEffect, useState } from 'react';
 import { getGenresApi } from '../../services/redux/slices/genres/genres';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import CheckboxMain from '../../components/CheckboxMain/CheckboxMain';
-//import { GENRES } from '../../utils/constants';
-import SaveButton from '../../components/SaveButton/SaveButton';
-import PopupSaveButton from 'src/components/PopupSaveButton/PopupSaveButton';
 import { IGenres } from 'src/types/Genres.types';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import OneGenrePage from '../OneGenrePage/OneGenrePage';
 
 const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
+	const navigate = useNavigate();
 	const [checked, setChecked] = useState(false);
-	const [SaveButtonPopupOpen, setSaveButtonPopupOpen] = useState(false);
+	const [GenreLinkClick, setGenreLinkClick] = useState(false);
 	const dispatch = useAppDispatch();
 	const genre = useAppSelector((state) => state.genres.genres);
-
-	const handleChange = () => {
-		setChecked(!checked);
-	};
 
 	useEffect(() => {
 		dispatch(getGenresApi());
 	}, []);
 
-	const handleSaveButtonClick = () => {
-		setSaveButtonPopupOpen(!SaveButtonPopupOpen);
+	const handleGenreClick = (item) => {
+		navigate("/onegenre");
 	};
-
 	return (
 		<section className="allgenrespage">
 			<h2 className="title">Все жанры</h2>
 			<ul className="allgenrespage__container">
 				{genre.map((item) => (
 					<li className="allgenrespage__list">
-						<a className="allgenrespage__link" href="#">
+						<button  className="allgenrespage__link"  onClick={handleGenreClick(item.title)}>
 							<img
 								className="allgenrespage__img"
 								alt={item.slug}
 								src={item.picture}
 							></img>
 							<p className="allgenrespage__title">{item.title}</p>
-						</a>
+						</button>
+
 					</li>
 				))}
 			</ul>
