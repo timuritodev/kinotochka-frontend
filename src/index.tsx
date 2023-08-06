@@ -18,7 +18,7 @@ import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
 import RecoverPasswordPage from './pages/auth/RecoverPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import PreferencesPage from './pages/PreferencesPage/PreferencesPage';
-import  AllGenresPage   from './pages/AllGenresPage/AllGenresPage';
+import AllGenresPage from './pages/AllGenresPage/AllGenresPage';
 //import { GenresTypes } from './types/Genres.types';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';

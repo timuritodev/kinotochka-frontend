@@ -8,10 +8,11 @@
 .allgenrespage__container {
 	padding: 0;
 	max-width: 1110px;
+	max-height: 1110px;
 	gap: 30px;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-	grid-template-rows: repeat(auto-fill, minmax(160px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(198px, 1fr));
+	grid-template-rows: repeat(auto-fill, minmax(198px, 1fr));
 	margin: 0 auto 100px;
 }
 
@@ -19,17 +20,54 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: white;
-	width: 160px;
-	height: 160px;
-	border-radius: 50%;
 	line-height: 23px;
 	font-size: 18px;
+	border: 3px solid white;
+	border-radius: 100px;
+	width: 198px;
+	height: 198px;
+	box-sizing: border-box;
+	flex-direction: column;
+}
+
+.allgenrespage__link {
+	background-color: black;
+	display: block;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.allgenrespage__link:hover {
+	opacity: 0.7;
+	border: 3px solid gray;
+}
+
+.allgenrespage__link {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	line-height: 23px;
+	font-size: 18px;
+	border: 3px solid white;
+	border-radius: 100px;
+	width: 198px;
+	height: 198px;
+	box-sizing: border-box;
+	flex-direction: column;
+	text-decoration: none;
+}
+
+.allgenrespage__title {
+	font-size: 20px;
+	line-height: 25px;
+	width: 500;
+	color: white;
 }
 
 .allgenrespage-checkbox__appearance {
-	width: 160px;
-	height: 160px;
+	width: 198px;
+	height: 198px;
 	border: 1px solid #2b2f33;
 	border-radius: 80px;
 	display: flex;
@@ -47,8 +85,8 @@
 
 .allgenrespage-checkbox__input[type='checkbox'] {
 	position: absolute;
-	width: 160px;
-	height: 160px;
+	width: 198px;
+	height: 198px;
 	overflow: hidden;
 	outline: none;
 	clip-path: inset(0 0 0 0);

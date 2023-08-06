@@ -8,11 +8,11 @@ import SaveButton from '../../components/SaveButton/SaveButton';
 import PopupSaveButton from 'src/components/PopupSaveButton/PopupSaveButton';
 import { IGenres } from 'src/types/Genres.types';
 
-const AllGenresPage= ({ genres }: { genres: IGenres[] }) => {
-	
+const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 	const [checked, setChecked] = useState(false);
 	const [SaveButtonPopupOpen, setSaveButtonPopupOpen] = useState(false);
 	const dispatch = useAppDispatch();
+	const genre = useAppSelector((state) => state.genres.genres);
 
 	const handleChange = () => {
 		setChecked(!checked);
@@ -20,21 +20,26 @@ const AllGenresPage= ({ genres }: { genres: IGenres[] }) => {
 
 	useEffect(() => {
 		dispatch(getGenresApi());
-		console.log(dispatch(getGenresApi()))
 	}, []);
 
 	const handleSaveButtonClick = () => {
 		setSaveButtonPopupOpen(!SaveButtonPopupOpen);
 	};
-	console.log(genres)
+
 	return (
 		<section className="allgenrespage">
 			<h2 className="title">Все жанры</h2>
 			<ul className="allgenrespage__container">
-				
-				{genres.map((item) => (
+				{genre.map((item) => (
 					<li className="allgenrespage__list">
-						<img>{item.name}</img>
+						<a className="allgenrespage__link" href="#">
+							<img
+								className="allgenrespage__img"
+								alt={item.slug}
+								src={item.picture}
+							></img>
+							<p className="allgenrespage__title">{item.title}</p>
+						</a>
 					</li>
 				))}
 			</ul>

@@ -18,6 +18,7 @@ import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
 import { ratingReducer } from './slices/rating/rating';
 import { windowResizeReducer } from './slices/window_resize/window_resize';
+import { genresReducer } from './slices/genres/genres';
 
 const rootReducer = combineReducers({
 	example: exampleReducer,
@@ -26,6 +27,7 @@ const rootReducer = combineReducers({
 	selection: selectionsReducer,
 	rating: ratingReducer,
 	windowResize: windowResizeReducer,
+	genres: genresReducer,
 });
 
 const persistConfig = {
