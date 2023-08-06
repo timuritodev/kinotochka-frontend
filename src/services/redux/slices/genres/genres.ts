@@ -6,6 +6,14 @@ export const getGenresApi = createAsyncThunk('@@genres/genres', async () => {
 	return getGenres();
 });
 
+/*export const updateGenres = createAsyncThunk(
+	'@@genres/updateGenres',
+	async ({ genres }: { genres: string;}) => {
+		console.log(genres)
+		return { genres };
+	}
+);*/
+
 const initialState: IGenresState = {
 	genres: [
 		{

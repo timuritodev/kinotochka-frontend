@@ -54,9 +54,6 @@ const Account: FC = (isLoggedIn) => {
 							<Link to="/rated-films" className="account__content-link">
 								Оцененное
 							</Link>
-							<Link to="/allgenres" className="account__content-link">
-								Все жанры
-							</Link>
 							<Link to="/collections" className="account__content-link">
 								Подборки
 							</Link>

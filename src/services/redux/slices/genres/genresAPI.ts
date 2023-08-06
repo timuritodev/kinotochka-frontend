@@ -22,4 +22,3 @@ const fetchData = (url: string) => {
 export const getGenres = (): Promise<Array<IGenres>> => {
 	return fetchData(`${API_URL}/v1/genres/`);
 };
-

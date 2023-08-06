@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getGenresApi } from '../../services/redux/slices/genres/genres';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { IGenres } from 'src/types/Genres.types';
+import { GenresSlice } from 'src/services/redux/slices/genres/genres';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import OneGenrePage from '../OneGenrePage/OneGenrePage';
 
@@ -12,21 +13,28 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 	const [GenreLinkClick, setGenreLinkClick] = useState(false);
 	const dispatch = useAppDispatch();
 	const genre = useAppSelector((state) => state.genres.genres);
+	
 
 	useEffect(() => {
 		dispatch(getGenresApi());
 	}, []);
 
-	const handleGenreClick = (item) => {
-		navigate("/onegenre");
+	const handleGenreClick = (item: string) => {
+		console.log(item)
+		dispatch(GenresSlice({ genres: item }));
+		navigate('/onegenre');
 	};
+
 	return (
 		<section className="allgenrespage">
 			<h2 className="title">Все жанры</h2>
 			<ul className="allgenrespage__container">
 				{genre.map((item) => (
 					<li className="allgenrespage__list">
-						<button  className="allgenrespage__link"  onClick={handleGenreClick(item.title)}>
+						<button
+							className="allgenrespage__link"
+							onClick={() => handleGenreClick(item.title)}
+						>
 							<img
 								className="allgenrespage__img"
 								alt={item.slug}
@@ -34,7 +42,6 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 							></img>
 							<p className="allgenrespage__title">{item.title}</p>
 						</button>
-
 					</li>
 				))}
 			</ul>
@@ -43,5 +50,3 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 };
 
 export default AllGenresPage;
-
-//<CheckboxMain text={item.name} onChange={handleChange} />
