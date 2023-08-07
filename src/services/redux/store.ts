@@ -21,6 +21,7 @@ import { windowResizeReducer } from './slices/window_resize/window_resize';
 import { moviebyidReducer } from './slices/moviebyid/moviebyid';
 import { moviecardsReducer } from './slices/newmoviecards/newmoviecards';
 import { filmidReducer } from './slices/filmid/filmid';
+import { moviedaycardsReducer } from './slices/moviesoftheday/moviesoftheday'
 
 const rootReducer = combineReducers({
 	example: exampleReducer,
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
 	selection: selectionsReducer,
 	rating: ratingReducer,
 	windowResize: windowResizeReducer,
+	daymoviescards: moviedaycardsReducer,
 });
 
 const persistConfig = {
