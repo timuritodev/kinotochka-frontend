@@ -2,25 +2,18 @@ import './FilmCardLarge.css';
 import { RatedElement } from 'src/components/RatedElement/RatedElement';
 import { BookmarkSmall } from 'src/components/Bookmark_small/Bookmark_small';
 import { IMovieCard } from 'src/types/MovieCard.types';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setFilmId } from 'src/services/redux/slices/filmid/filmid';
+import { useNavigate } from 'react-router-dom';
+import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+import { useAppDispatch } from '../../services/typeHooks';
 
 export const FilmCardLarge = ({ film }: { film: IMovieCard }) => {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const location = useLocation();
+	const dispatch = useAppDispatch();
 
 	const handleImgClick = () => {
-		if (location.pathname === '/movie-page') {
-			window.location.reload();
-			dispatch(setFilmId(film.id));
-			window.scrollTo(0, 0);
-		} else {
+			dispatch(getMoviebyidApi({ filmId: film.id }));
 			navigate('/movie-page');
-			dispatch(setFilmId(film.id));
 			window.scrollTo(0, 0);
-		}
 	};
 
 	return (
