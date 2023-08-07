@@ -46,11 +46,11 @@ export interface IRating {
 export interface IMoviebyidState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	film: IMoviebyid;
+	movie: IMoviebyid;
 }
 
 export interface IFilmabout {
-	film: IMoviebyid;
+	movie: IMoviebyid;
 }
 
 export interface IDescription {
