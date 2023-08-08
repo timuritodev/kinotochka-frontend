@@ -4,6 +4,8 @@ import { BookmarkSmall } from 'src/components/Bookmark_small/Bookmark_small';
 import { IFilms } from 'src/types/Film.types';
 
 export const FilmCard = ({ film }: { film: IFilms }) => {
+	
+	//console.log(film.imageUrl)
 	return (
 		<section key={film.id} className="flanks_card">
 			<img className="flanks_card-img" src={film.imageUrl} alt="" />

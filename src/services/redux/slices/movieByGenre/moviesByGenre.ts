@@ -153,7 +153,6 @@ export const moviesByGenreSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesByGenreApi.fulfilled, (state, action) => {
 			state.films = action.payload;
-			console.log(state.films)
 		})
 	},
 });
