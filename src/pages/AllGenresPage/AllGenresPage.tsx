@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getGenresApi } from '../../services/redux/slices/genres/genres';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { IGenres } from 'src/types/Genres.types';
-import { GenresSlice } from 'src/services/redux/slices/genres/genres';
+import { getMoviesByGenreApi } from 'src/services/redux/slices/movieByGenre/moviesByGenre';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import OneGenrePage from '../OneGenrePage/OneGenrePage';
 
@@ -20,8 +20,7 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 	}, []);
 
 	const handleGenreClick = (item: string) => {
-		console.log(item)
-		dispatch(GenresSlice({ genres: item }));
+		dispatch(getMoviesByGenreApi({ genres: item }));
 		navigate('/onegenre');
 	};
 
@@ -33,7 +32,7 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 					<li className="allgenrespage__list">
 						<button
 							className="allgenrespage__link"
-							onClick={() => handleGenreClick(item.title)}
+							onClick={() => handleGenreClick(item.slug)}
 						>
 							<img
 								className="allgenrespage__img"

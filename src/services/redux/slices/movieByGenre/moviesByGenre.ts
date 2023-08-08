@@ -1,24 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFilms } from './filmsAPI';
+import { getFilmsByGenre } from '../genres/genresAPI';
+import { IGenresState } from 'src/types/Genres.types';
+import { getMoviesByGenre } from './moviesByGenreApi';
 import { IFilmsState } from 'src/types/Film.types';
 
-export const getFilmsApi = createAsyncThunk('@@films/films', async () => {
-	return getFilms();
+
+
+
+
+export const getMoviesByGenreApi = createAsyncThunk('@@moviesbygenre/moviesbygenre', 
+async ({ genres }: { genres: string; }) => {
+console.log(genres)
+return getMoviesByGenre(genres);
 });
 
-export const updateFavorite = createAsyncThunk(
-	'@@films/updateFavorite',
-	async ({ id, favorite }: { id: string; favorite: boolean }) => {
-		return { id, favorite };
-	}
-);
-
-export const updateWatch = createAsyncThunk(
-	'@@films/updateWatch',
-	async ({ id, watch }: { id: string; watch: boolean }) => {
-		return { id, watch };
-	}
-);
 
 const initialState: IFilmsState = {
 	status: 'idle',
@@ -154,42 +149,15 @@ const initialState: IFilmsState = {
 	genres: undefined
 };
 
-export const filmSlice = createSlice({
-	name: '@@films',
+export const moviesByGenreSlice = createSlice({
+	name: '@@moviesbygenre',
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
-		builder
-			.addCase(getFilmsApi.fulfilled, (state, action) => {
-				state.status = 'success';
-				state.films = action.payload;
-				state.favoriteFilms = action.payload.filter((film) => film.is_favorite);
-				state.mustSeeFilms = action.payload.filter((film) => film.must_see);
-				state.viewedFilms = action.payload.filter((film) => film.is_viewed);
-			})
-			.addCase(updateFavorite.fulfilled, (state, action) => {
-				state.status = 'success';
-				const { id, favorite } = action.payload;
-				state.films = state.films.map((film) =>
-					film.id === id ? { ...film, is_favorite: favorite } : film
-				);
-				state.favoriteFilms = state.films.filter((film) => film.is_favorite);
-				state.mustSeeFilms = state.films.filter((film) => film.must_see);
-				state.viewedFilms = state.films.filter((film) => film.is_viewed);
-			})
-			.addCase(updateWatch.fulfilled, (state, action) => {
-				state.status = 'success';
-				const { id, watch } = action.payload;
-				state.films = state.films.map((film) =>
-					film.id === id ? { ...film, must_see: watch } : film
-				);
-				state.favoriteFilms = state.films.filter((film) => film.is_favorite);
-				state.mustSeeFilms = state.films.filter((film) => film.must_see);
-				state.viewedFilms = state.films.filter((film) => film.is_viewed);
-			});
+		builder.addCase(getMoviesByGenreApi.fulfilled, (state, action) => {
+			state.films = action.payload;
+		})
 	},
 });
 
-export const filmsReducer = filmSlice.reducer;
-
-// export const selectFilms = (state: { films: IFilmsState }) => state.films.films;
+export const moviesbygenreReducer = moviesByGenreSlice.reducer;

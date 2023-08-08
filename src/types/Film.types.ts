@@ -39,6 +39,7 @@ interface IRating {
 }
 
 export interface IFilmsState {
+	genres: any;
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
 	films: Array<IFilms>;
