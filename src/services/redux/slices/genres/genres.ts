@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getGenres } from './genresAPI';
-import { getFilmsByGenre } from './../genres/genresAPI';
 import { IGenresState } from 'src/types/Genres.types';
 
 

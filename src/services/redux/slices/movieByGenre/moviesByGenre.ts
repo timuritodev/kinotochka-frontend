@@ -1,6 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFilmsByGenre } from '../genres/genresAPI';
-import { IGenresState } from 'src/types/Genres.types';
 import { getMoviesByGenre } from './moviesByGenreApi';
 import { IFilmsState } from 'src/types/Film.types';
 
@@ -10,7 +8,6 @@ import { IFilmsState } from 'src/types/Film.types';
 
 export const getMoviesByGenreApi = createAsyncThunk('@@moviesbygenre/moviesbygenre', 
 async ({ genres }: { genres: string; }) => {
-console.log(genres)
 return getMoviesByGenre(genres);
 });
 
@@ -156,6 +153,7 @@ export const moviesByGenreSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesByGenreApi.fulfilled, (state, action) => {
 			state.films = action.payload;
+			console.log(state.films)
 		})
 	},
 });

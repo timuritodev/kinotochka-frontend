@@ -22,8 +22,7 @@ const fetchData = (url: string) => {
 };
 
 export const getMoviesByGenre = (genres: string | undefined): Promise<Array<IFilms>> => {
-	const ept = `${genres}`;
-	console.log(`${API_URL}/v1/movies?genres=${genres}`)
-	return fetchData(`${API_URL}/v1/movies?genres=${genres}`);
+	
+	return fetchData(`${API_URL}/v1/movies/?genre=${genres}`);
 };
 

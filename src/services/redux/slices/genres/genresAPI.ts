@@ -20,10 +20,6 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getFilmsByGenre = (genres: string | undefined): Promise<Array<IFilms>> => {
-	return fetchData(`${API_URL}/v1/movies/${genres}`);
-};
-
 export const getGenres = (): Promise<Array<IGenres>> => {
 	return fetchData(`${API_URL}/v1/genres/`);
 };
