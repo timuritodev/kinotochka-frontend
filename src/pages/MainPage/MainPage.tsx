@@ -11,6 +11,8 @@ import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from 'src/types/Rating.types';
 import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderGenres';
 import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
+import { SlickSliderDayMovies } from 'src/components/SlickSliderDayMovies/SlickSliderDayMovies';
+
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -25,7 +27,7 @@ export default function MainPage() {
 
 	return (
 		<main className="main-page" id="main-page">
-			<FirstScreenCompilation film={films[0]} />
+				<SlickSliderDayMovies />
 			<div className="main-page_slick-slider">
 				<SlickSlider type={SlickSliderTypes.news} />
 			</div>
