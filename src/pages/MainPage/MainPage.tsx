@@ -39,7 +39,6 @@ export default function MainPage() {
 	return (
 		<main className="main-page" id="main-page">
 				<SlickSliderDayMovies />
-			<Loader />
 			<div className="main-page_slick-slider">
 				<SlickSlider type={SlickSliderTypes.news} />
 			</div>
