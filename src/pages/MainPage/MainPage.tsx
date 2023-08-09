@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './MainPage.css';
 import FirstScreenCompilation from '../../components/FirstScreenCompilation/FirstScreenCompilation';
 import Slider from 'src/components/Slider/Slider';
-import { GENRES, GENRESv2 } from 'src/utils/constants';
+import { GENRESv2 } from 'src/utils/constants';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { SliderTypes } from '../../types/Slider.types';
@@ -12,7 +12,6 @@ import { SlickSliderTypes } from 'src/types/Rating.types';
 import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderGenres';
 import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
 import { SlickSliderDayMovies } from 'src/components/SlickSliderDayMovies/SlickSliderDayMovies';
-
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -27,7 +26,7 @@ export default function MainPage() {
 
 	return (
 		<main className="main-page" id="main-page">
-				<SlickSliderDayMovies />
+			<SlickSliderDayMovies />
 			<div className="main-page_slick-slider">
 				<SlickSlider type={SlickSliderTypes.news} />
 			</div>

@@ -1,16 +1,12 @@
 import { FC, useEffect, useRef, useState } from 'react';
-
-import Checkbox from '../GenreCheckbox/GenreCheckbox';
 import SliderController from '../SliderController1/SliderController1';
-
-import { ISlider } from '../../types/Slider.types';
 import { SliderControllerTypes } from '../../types/SliderController.types';
 
-import { GENRES } from 'src/utils/constants';
-
 import './Slider.css';
+import { ISlider } from 'src/types/Slider.types';
+import GenreCheckbox from '../GenreCheckbox/GenreCheckbox';
 
-const Slider: FC<ISlider> = ({ contentType, content }) => {
+const Slider: FC<ISlider> = ({ contentType, content, onGenreSelection }) => {
 	const [liIndex, setLiIndex] = useState<number>(0);
 	const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
 	const [canScrollRight, setCanScrollRight] = useState<boolean>(false);
@@ -21,7 +17,7 @@ const Slider: FC<ISlider> = ({ contentType, content }) => {
 		setCanScrollLeft(liIndex <= 0);
 		if (contentType === 'genresBlock') {
 			setCanScrollRight(
-				GENRES.length - liIndex <= 9 && GENRES.length - liIndex >= 0
+				content.length - liIndex <= 9 && content.length - liIndex >= 0
 			);
 		}
 	}, [liIndex]);
@@ -44,21 +40,38 @@ const Slider: FC<ISlider> = ({ contentType, content }) => {
 			});
 		}
 		return contentType === 'genresBlock' &&
-			GENRES.length - liIndex <= 9 &&
-			GENRES.length - liIndex >= 0
+			content.length - liIndex <= 9 &&
+			content.length - liIndex >= 0
 			? setCanScrollRight(true)
 			: setCanScrollRight(false);
 	}
 
-	const blockJSX = (
+	const [selectedGenres, setSelectedGenres] = useState<number[]>([]);
+
+	const handleCheckboxChange = (id: number, checked: boolean) => {
+		const newSelectedGenres = checked
+			? [...selectedGenres, id]
+			: selectedGenres.filter((genreId) => genreId !== id);
+
+		setSelectedGenres(newSelectedGenres);
+
+		// Вызываем коллбэк onGenreSelection с актуальным массивом
+		onGenreSelection(newSelectedGenres);
+	};
+
+	return (
 		<div className="slider slider_type_block">
 			<ul
 				className="slider__items-list slider__items-list_type_block"
 				ref={containerRef}
 			>
-				{content.map((item) => (
-					<li key={content.indexOf(item)}>
-						<Checkbox text={item} />
+				{content.map((genre) => (
+					<li key={genre.id}>
+						<GenreCheckbox
+							text={genre.title}
+							id={genre.id}
+							onChange={handleCheckboxChange}
+						/>
 					</li>
 				))}
 			</ul>
@@ -76,30 +89,6 @@ const Slider: FC<ISlider> = ({ contentType, content }) => {
 			</div>
 		</div>
 	);
-
-	const rowJSX = (
-		<div className="slider slider_type_row">
-			<SliderController
-				direction={SliderControllerTypes.left}
-				canScrollLeft={canScrollLeft}
-				handleScroll={scrollList}
-			/>
-			<ul className="slider__items-list" ref={containerRef}>
-				{GENRES.map((genre) => (
-					<li key={GENRES.indexOf(genre)}>
-						<Checkbox text={genre} />
-					</li>
-				))}
-			</ul>
-			<SliderController
-				direction={SliderControllerTypes.right}
-				canScrollRight={canScrollRight}
-				handleScroll={scrollList}
-			/>
-		</div>
-	);
-
-	return contentType === 'genresBlock' ? blockJSX : rowJSX;
 };
 
 export default Slider;

@@ -15,6 +15,7 @@ const ConfirmEmailPage = () => {
 				<Button
 					buttonText={'Войти'}
 					handleButtonClick={() => navigate('/sign-in')}
+					type="button"
 				/>
 			</div>
 		</main>

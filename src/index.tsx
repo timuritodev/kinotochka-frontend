@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -23,8 +23,16 @@ import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { WindowResize } from './components/WindowResize/WindowResize';
+import { useAppDispatch } from './services/typeHooks';
+import { getGenres } from './services/redux/slices/genres/genres';
 
 const Root: FC = () => {
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(getGenres());
+	}, []);
+
 	return (
 		<div className="page">
 			<Routes>
