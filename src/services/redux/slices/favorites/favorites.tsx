@@ -1,15 +1,15 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getMoviebyid } from './favoritesApi';
-import { IFavorites } from 'src/types/Favorites.types';
+import { getFavorites, deleteFromFavorites, addToFavorites } from './favoritesApi';
+import { IFavoritesState } from 'src/types/Favorites.types';
 
-export const getMoviebyidApi = createAsyncThunk(
-    '@@movie/movie',
-    async ({ filmId }: { filmId: number }) => {
-        return getMoviebyid(filmId);
+export const getFavoritesApi = createAsyncThunk(
+    '@@favorite/favorite',
+    async () => {
+        return getFavorites();
     }
 );
 
-const initialState: IMoviebyidState = {
+const initialState: IFavoritesState = {
     status: 'idle',
     error: '',
     favorites: {
@@ -26,21 +26,21 @@ const initialState: IMoviebyidState = {
     },
 };
 
-export const moviebyidSlice = createSlice({
-    name: '@@movie',
+export const favoriteSlice = createSlice({
+    name: '@@favorite',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(getMoviebyidApi.pending, (state, action) => {
+            .addCase(getFavoritesApi.pending, (state, action) => {
                 state.status = 'loading';
             })
-            .addCase(getMoviebyidApi.fulfilled, (state, action) => {
+            .addCase(getFavoritesApi.fulfilled, (state, action) => {
                 state.status = 'success';
-                state.movie = action.payload;
+                state.favorites = action.payload;
             });
 
-},
+    },
 });
 
-export const moviebyidReducer = moviebyidSlice.reducer;
+export const favoriteReducer = favoriteSlice.reducer;
