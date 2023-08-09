@@ -1,17 +1,19 @@
 import { FC } from 'react';
 
 import './Button.css';
+import { IButton } from 'src/types/Button.types';
 
-export interface IButton {
-	buttonText: string;
-	handleButtonClick: any;
-}
-const Button: FC<IButton> = ({ buttonText, handleButtonClick }) => {
+const Button: FC<IButton> = ({
+	buttonText,
+	handleButtonClick,
+	type,
+	disabled,
+}) => {
 	return (
 		<button
 			className="button"
-			// disabled
-			type="button"
+			disabled={disabled}
+			type={type}
 			onClick={handleButtonClick}
 		>
 			{buttonText}
