@@ -1,7 +1,7 @@
 export interface IFavorites {
 	id: number;
 	title: string;
-	h_picture: string;
+	v_picture: string;
 	premiere_date: string;
 	rating: IRating;
 	is_favorite: boolean;
@@ -16,5 +16,5 @@ export interface IRating {
 export interface IFavoritesState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	movie: IFavorites;
+	favorites: IFavorites;
 }
