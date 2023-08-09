@@ -27,16 +27,6 @@ export default function MainPage() {
 
 	const films = useAppSelector((state) => state.films.films);
 
-	function countDown(num: any) {
-		if (num === 0) {
-			return;
-		}
-		console.log(num);
-		countDown(num - 1);
-	}
-
-	countDown(5);
-
 	return (
 		<main className="main-page" id="main-page">
 				<SlickSliderDayMovies />

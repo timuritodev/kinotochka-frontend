@@ -11,7 +11,7 @@ import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from '../../types/Rating.types';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
-import Preloader from 'src/components/Preloader/Preloader';
+import { Loader } from 'src/components/Loader/Loader';
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
@@ -19,7 +19,7 @@ const MoviePage: FC = () => {
 	console.log(movie)
 	return (
 		<>
-			{loading === 'loading' ? <Preloader /> :
+			{loading === 'loading' ? <Loader /> :
 				<section className="moviepage">
 					<img className="background-image" alt="" src={movie.h_picture} />
 					<div className="moviepage__container">
