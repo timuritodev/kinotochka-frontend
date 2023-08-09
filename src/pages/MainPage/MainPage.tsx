@@ -13,6 +13,7 @@ import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderG
 import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
 import { SlickSliderDayMovies } from 'src/components/SlickSliderDayMovies/SlickSliderDayMovies';
 import { Loader } from 'src/components/Loader/Loader';
+import { SlickSliderGenresAPI } from 'src/components/SlickSliderGenres/SlickSliderGenresAPI';
 
 
 export default function MainPage() {
@@ -61,7 +62,7 @@ export default function MainPage() {
 				<SlickSlider type={SlickSliderTypes.newyear} />
 			</div>
 			<div className="main-page_slick-slider">
-				<SlickSliderGenres content={GENRESv2} />
+				<SlickSliderGenresAPI />
 			</div>
 		</main>
 	);
