@@ -12,7 +12,6 @@ import { SlickSliderTypes } from 'src/types/Rating.types';
 import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderGenres';
 import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
 import { SlickSliderDayMovies } from 'src/components/SlickSliderDayMovies/SlickSliderDayMovies';
-import { Loader } from 'src/components/Loader/Loader';
 
 
 export default function MainPage() {
@@ -25,16 +24,6 @@ export default function MainPage() {
 	}, []);
 
 	const films = useAppSelector((state) => state.films.films);
-
-	function countDown(num: any) {
-		if (num === 0) {
-			return;
-		}
-		console.log(num);
-		countDown(num - 1);
-	}
-
-	countDown(5);
 
 	return (
 		<main className="main-page" id="main-page">
