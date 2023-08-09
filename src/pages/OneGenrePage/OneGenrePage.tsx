@@ -6,9 +6,10 @@ import { IFilms } from 'src/types/Film.types';
 import { IFlanks } from 'src/types/Flanks.types';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { getSelectionsApi } from '../../services/redux/slices/selections/selections';
-import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
+import { FilmCardByGenre } from 'src/components/FilmCardByGenre/FilmCardByGenre';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
+import { IFilmsbyGenre } from 'src/types/FilmsByGenre.types';
 
 
 
@@ -24,18 +25,18 @@ const OneGenrePage: FC = () => {
 		setPageMore((prev) => prev + page);
 	};
 	
-	console.log(filmsBygenre)
+	console.log(filmsBygenre[0].genres)
 	
 	
 	
 	return (
 		<section className="flank">
-			<h1 className="flank_title"></h1>
+			<h1 className="flank_title">{filmsBygenre[0].genres[0]}</h1>
 			<div className="flank_container">
 				{
 					filmsBygenre
 						.slice(0, pageMore)
-						.map((film) => <FilmCard film={film} />)
+						.map((film: IFilmsbyGenre) => <FilmCardByGenre film={film} />)
 				}
 			</div>
 			<div className="flank_btn">
