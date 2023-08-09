@@ -40,7 +40,7 @@ export const favoriteSlice = createSlice({
                 state.favorites = action.payload;
             });
 
-},
+    },
 });
 
 export const favoriteReducer = favoriteSlice.reducer;

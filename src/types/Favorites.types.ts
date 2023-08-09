@@ -9,8 +9,8 @@ export interface IFavorites {
 }
 
 export interface IRating {
-	rate_imdb: number;
-	rate_kinopoisk: number;
+    rate_imdb: number;
+    rate_kinopoisk: number;
 }
 
 export interface IFavoritesState {
