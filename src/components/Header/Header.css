@@ -71,7 +71,7 @@
 	display: none;
 	z-index: 5;
 	width: 256px;
-	height: 285px;
+	height: 250px;
 	background-color: #141414;
 	border-radius: 0 0 25px 25px;
 	margin-top: 50px;
@@ -86,7 +86,7 @@
 .header__list {
 	display: flex;
 	flex-direction: column;
-	padding: 120px 0 0 25px;
+	padding: 115px 0 0 25px;
 	width: 190px;
 }
 
