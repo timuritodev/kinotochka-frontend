@@ -1,4 +1,4 @@
-export const API_BASE_URL = 'http://kinotochka.acceleratorpracticum.ru/api/v1';
+export const API_BASE_URL = 'https://kinotochka.acceleratorpracticum.ru/api/v1';
 
 export const GENRESv2 = [
 	'Комедия',
