@@ -5,14 +5,13 @@ import {
 	persistReducer,
 	persistStore,
 	PERSIST,
-	FLUSH,
 	REHYDRATE,
+	FLUSH,
 	PAUSE,
 	PURGE,
 	REGISTER,
 } from 'redux-persist';
 
-import { exampleReducer } from './slices/example/example';
 import { userReducer } from './slices/user/user';
 import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
@@ -22,9 +21,9 @@ import { moviebyidReducer } from './slices/moviebyid/moviebyid';
 import { moviecardsReducer } from './slices/newmoviecards/newmoviecards';
 import { moviedaycardsReducer } from './slices/moviesoftheday/moviesoftheday'
 import { genresiconscardsReducer } from './slices/genresIconsApi/genresIcons';
+import { genresReducer } from './slices/genres/genres';
 
 const rootReducer = combineReducers({
-	example: exampleReducer,
 	user: userReducer,
 	films: filmsReducer,
 	movie: moviebyidReducer,
@@ -34,6 +33,8 @@ const rootReducer = combineReducers({
 	windowResize: windowResizeReducer,
 	daymoviescards: moviedaycardsReducer,
 	genresiconscards: genresiconscardsReducer,
+	genres: genresReducer,
+
 });
 
 const persistConfig = {
@@ -47,14 +48,14 @@ export const store = configureStore({
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
 			serializableCheck: {
-				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+				ignoredActions: [PERSIST, REHYDRATE, FLUSH, PAUSE, PURGE, REGISTER],
 			},
 		}),
 });
+
+export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
 export const useAppDispatch: () => AppDispatch = useDispatch;
-
-export const persistor = persistStore(store);

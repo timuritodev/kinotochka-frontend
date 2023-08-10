@@ -30,7 +30,11 @@ export const SpecialForYou: FC = () => {
 					рекомендации.
 				</p>
 				<div className="specialforyou__button">
-					<Button buttonText="Войти" handleButtonClick={handleButtonClick} />
+					<Button
+						buttonText="Войти"
+						handleButtonClick={handleButtonClick}
+						type="button"
+					/>
 				</div>
 			</div>
 			<div className="specialforyou__container-img">

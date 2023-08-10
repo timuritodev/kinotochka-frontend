@@ -75,7 +75,11 @@ const ProfilePage = () => {
 					<p className="profile__user-first-letter">W</p>
 				</div>
 				<div className="profile__buttons">
-					<Button buttonText={'Сохранить'} handleButtonClick={undefined} />
+					<Button
+						buttonText={'Сохранить'}
+						handleButtonClick={undefined}
+						type="submit"
+					/>
 					<Link to="/preferences" className="profile__preferences-button">
 						Мои предпочтения
 					</Link>

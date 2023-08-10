@@ -40,6 +40,7 @@ const ResetPasswordPage = () => {
 						<Button
 							buttonText={'Продолжить'}
 							handleButtonClick={() => setStep(step + 1)}
+							type="submit"
 						/>
 					</form>
 				) : step === 2 ? (
@@ -48,6 +49,7 @@ const ResetPasswordPage = () => {
 						<Button
 							buttonText={'Войти'}
 							handleButtonClick={() => navigate('/sign-in')}
+							type="button"
 						/>
 					</>
 				) : null}
