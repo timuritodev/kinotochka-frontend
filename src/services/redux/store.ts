@@ -19,7 +19,8 @@ import { ratingReducer } from './slices/rating/rating';
 import { windowResizeReducer } from './slices/window_resize/window_resize';
 import { moviebyidReducer } from './slices/moviebyid/moviebyid';
 import { moviecardsReducer } from './slices/newmoviecards/newmoviecards';
-import { moviedaycardsReducer } from './slices/moviesoftheday/moviesoftheday';
+import { moviedaycardsReducer } from './slices/moviesoftheday/moviesoftheday'
+import { genresiconscardsReducer } from './slices/genresIconsApi/genresIcons';
 import { genresReducer } from './slices/genres/genres';
 
 const rootReducer = combineReducers({
@@ -31,7 +32,9 @@ const rootReducer = combineReducers({
 	rating: ratingReducer,
 	windowResize: windowResizeReducer,
 	daymoviescards: moviedaycardsReducer,
+	genresiconscards: genresiconscardsReducer,
 	genres: genresReducer,
+
 });
 
 const persistConfig = {
