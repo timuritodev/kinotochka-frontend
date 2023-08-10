@@ -1,6 +1,6 @@
 import { IGenresIcons } from 'src/types/GenresIcons.types';
 
-const API_URL = 'https://kinotochka.acceleratorpracticum.ru/api';
+const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
 
 const checkRes = (res: Response) => {
 	if (res.ok) {

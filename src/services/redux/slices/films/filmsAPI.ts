@@ -1,6 +1,6 @@
 import { IFilms } from 'src/types/Film.types';
 
-// const API_URL = 'https://127.0.0.1:3000';
+// const API_URL = 'http://127.0.0.1:3000';
 
 // const checkRes = (res: Response) => {
 //     if (res.ok) {
