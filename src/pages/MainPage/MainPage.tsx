@@ -14,6 +14,7 @@ import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
 import { SlickSliderDayMovies } from 'src/components/SlickSliderDayMovies/SlickSliderDayMovies';
 import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderGenresAPI } from 'src/components/SlickSliderGenres/SlickSliderGenresAPI';
+import { getNewMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -21,7 +22,7 @@ export default function MainPage() {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(getFilmsApi());
+		dispatch(getNewMovieCardsApi());
 	}, []);
 
 	const films = useAppSelector((state) => state.films.films);
