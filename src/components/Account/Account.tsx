@@ -3,9 +3,11 @@ import { useState } from 'react';
 import './Account.css';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { selectUser } from 'src/services/redux/slices/user/user';
+import { selectUser, signOut } from 'src/services/redux/slices/user/user';
 
-const Account: FC = (isLoggedIn) => {
+const Account: FC = () => {
+	const dispatch = useAppDispatch();
+	const user = useAppSelector(selectUser);
 	const [isOpen, setIsOpen] = useState(false);
 
 	const setProfileOpen = () => {
@@ -20,7 +22,7 @@ const Account: FC = (isLoggedIn) => {
 
 	return (
 		<section className="account">
-			{!isLoggedIn ? (
+			{!user.email[0] ? (
 				<Link to="/sign-in" className="account__login">
 					<p className="account__login-text">Войти</p>
 				</Link>
@@ -57,9 +59,12 @@ const Account: FC = (isLoggedIn) => {
 							<Link to="/collections" className="account__content-link">
 								Подборки
 							</Link>
-							<Link to="/" className="account__content-link">
+							<button
+								className="account__content-button"
+								onClick={() => dispatch(signOut())}
+							>
 								Выйти
-							</Link>
+							</button>
 						</ul>
 					</nav>
 				</>

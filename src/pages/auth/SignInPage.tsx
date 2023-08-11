@@ -27,18 +27,20 @@ const SignInPage = () => {
 	} = useForm<ISignInFields>({ mode: 'onChange' });
 
 	const onSubmit: SubmitHandler<ISignInFields> = (data) => {
-		console.log('data onSubmit:', data.email, data.password);
+		console.log('data signInUser onSubmit:', data.email, data.password);
 
 		const formValues = getValues();
 		console.log(formValues);
-		dispatch(signInUser(getValues() as ISignInData))
+		dispatch(signInUser(formValues as ISignInData))
 			.unwrap()
-			.then((res) => console.log('dispatch success', res))
-			.then(() => {
-				setUser(formValues.email);
+			.then((res) => {
+				console.log('dispatch signInUser success', res);
+				console.log('formValues.email', formValues.email);
+				dispatch(setUser({ email: formValues.email, token: res }));
 				navigate('/');
 				reset();
 			})
+			.then(() => {})
 			.catch((err) => {
 				if (err.status === 404) {
 					setAuthError(true);

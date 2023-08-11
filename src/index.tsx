@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter, useLocation } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './services/redux/store';
@@ -25,8 +25,14 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { WindowResize } from './components/WindowResize/WindowResize';
 import { useAppDispatch } from './services/typeHooks';
 import { getGenres } from './services/redux/slices/genres/genres';
+import DeleteProfilePopup from './components/Popup/DeleteProfilePopup';
+import ChangesSavedPopup from './components/Popup/ChangesSavedPopup';
 
 const Root: FC = () => {
+	const location = useLocation();
+	const state = location.state as {
+		backgroundLocation?: Location;
+	};
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -35,7 +41,7 @@ const Root: FC = () => {
 
 	return (
 		<div className="page">
-			<Routes>
+			<Routes location={state?.backgroundLocation || location}>
 				<Route path="/" element={<Layout />}>
 					<Route index element={<MainPage />} />
 					<Route path="/sign-up" element={<SignUpPage />} />
@@ -66,7 +72,17 @@ const Root: FC = () => {
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
-			<WindowResize />
+
+			{state?.backgroundLocation && (
+				<Routes>
+					<Route path="/profile/delete" element={<DeleteProfilePopup />} />
+					<Route
+						path="/profile/changes-saved"
+						element={<ChangesSavedPopup />}
+					/>
+				</Routes>
+			)}
+			{/* <WindowResize /> */}
 		</div>
 	);
 };

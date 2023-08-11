@@ -22,5 +22,4 @@ export interface IInput {
 	color?: InputColors;
 	validation?: any;
 	error?: string;
-	ref?: any;
 }

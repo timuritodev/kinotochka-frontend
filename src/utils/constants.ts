@@ -40,6 +40,28 @@ export const VALIDATION_SETTINGS = {
 			noMatch: 'Пароли не совпадают',
 		},
 	},
+	nickname: {
+		// По дефолту поле пустое. Только русские и английские буквы. Длина 0-32 символов включительно
+		pattern: /^[a-zа-яё\s]+$/iu,
+		maxLength: 32,
+		messages: {
+			invalid: 'Только кириллица или латинские буквы',
+			tooLong: 'Слишком длинный никнейм',
+		},
+	},
+	dateOfBirth: {
+		// По дефолту поле пустое.
+		// Есть плейсхолдер "ДД.ММ.ГГГГ". длина либо 0 ( не обязательно к заполнению) либо строго 10 символов, жесткое соответствие маске "ДД.ММ.ГГГГ".
+		// Только цифры и символ ".". Проверка по календарю - предлагаю минимальное значение - 1 января 1923 года, максимальное значение - 1 января 2018 года.
+		// Проверка на реальность даты ( нельзя ввести (60.60.1960).
+		min: '1923-01-01',
+		max: '2018-01-01',
+		messages: {
+			invalid: 'Введите корректную дату',
+		},
+	},
+
+	// По дефолту поле пустое. Есть плейсхолдер "ДД.ММ.ГГГГ". длина либо 0 ( не обязательно к заполнению) либо строго 10 символов, жесткое соответствие маске "ДД.ММ.ГГГГ". Только цифры и символ ".". Проверка по календарю - предлагаю минимальное значение - 1 января 1923 года, максимальное значение - 1 января 2018 года. Проверка на реальность даты ( нельзя ввести (60.60.1960).
 };
 
 export const EMAIL_VALIDATION_CONFIG = {
@@ -69,5 +91,32 @@ export const PASSWORD_VALIDATION_CONFIG = {
 	maxLegth: {
 		value: VALIDATION_SETTINGS.password.maxLength,
 		message: VALIDATION_SETTINGS.password.messages.tooLong,
+	},
+};
+
+export const NICKNAME_VALIDATION_CONFIG = {
+	required: {
+		value: true,
+		message: VALIDATION_SETTINGS.password.messages.noPassword,
+	},
+	pattern: {
+		value: VALIDATION_SETTINGS.nickname.pattern,
+		message: VALIDATION_SETTINGS.nickname.messages.invalid,
+	},
+	maxLength: {
+		value: VALIDATION_SETTINGS.nickname.maxLength,
+		message: VALIDATION_SETTINGS.nickname.messages.tooLong,
+	},
+};
+
+export const DATE_OF_BIRTH_VALIDATION_CONFIG = {
+	// valueAsDate: true,
+	min: {
+		value: VALIDATION_SETTINGS.dateOfBirth.min,
+		message: VALIDATION_SETTINGS.dateOfBirth.messages.invalid,
+	},
+	max: {
+		value: VALIDATION_SETTINGS.dateOfBirth.max,
+		message: VALIDATION_SETTINGS.dateOfBirth.messages.invalid,
 	},
 };

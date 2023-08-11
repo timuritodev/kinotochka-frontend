@@ -1,6 +1,18 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCheckEmail, fetchSignIn, fetchSignUp } from './userApi';
-import { IUser, ISignInData, ISignUpData } from 'src/types/Auth.types';
+import {
+	fetchCheckEmail,
+	fetchDeleteUser,
+	fetchPasswordRecovery,
+	fetchResetPassword,
+	fetchSignIn,
+	fetchSignUp,
+} from './userApi';
+import {
+	IUser,
+	ISignInData,
+	ISignUpData,
+	IResetPasswordData,
+} from 'src/types/Auth.types';
 
 export interface IUserState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
@@ -14,7 +26,7 @@ export const signInUser = createAsyncThunk(
 		try {
 			const response = await fetchSignIn(data);
 			const json = await response.json();
-			return fulfillWithValue(json);
+			return fulfillWithValue(json.access);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -45,10 +57,53 @@ export const signUpUser = createAsyncThunk(
 	}
 );
 
+export const recoverPassword = createAsyncThunk(
+	'@@user/recoverPassword',
+	async (data: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await fetchPasswordRecovery(data);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const resetPassword = createAsyncThunk(
+	'@@user/resetPassword',
+	async (data: IResetPasswordData, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await fetchResetPassword(data);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const deleteUser = createAsyncThunk(
+	'@@user/deleteUser',
+	async (_, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await fetchDeleteUser();
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
 const initialState: IUserState = {
 	status: 'idle',
-	error: '',
-	user: { token: '', email: '', fav_genres: [] },
+	error: null,
+	user: {
+		email: '',
+		token: '',
+		fav_genres: [],
+		nickname: undefined,
+		dateOfBirth: undefined,
+		sex: undefined,
+	},
 };
 
 const userSlice = createSlice({
@@ -72,6 +127,13 @@ const userSlice = createSlice({
 			.addCase(signUpUser.fulfilled, (state) => {
 				state.status = 'success';
 			})
+			.addCase(recoverPassword.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(resetPassword.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(deleteUser.fulfilled, () => initialState)
 			.addMatcher(
 				(action) => action.type.endsWith('/pending'),
 				(state) => {
