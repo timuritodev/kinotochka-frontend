@@ -1,15 +1,14 @@
 import { FC, useState } from 'react';
 import './GenreCheckbox.css';
+import { IGenreCheckbox } from 'src/types/GenreCheckbox.types';
 
-interface ICheckbox {
-	text: string;
-	id?: string;
-}
-
-const Checkbox: FC<ICheckbox> = ({ text, id }) => {
+const GenreCheckbox: FC<IGenreCheckbox> = ({ id, text, onChange }) => {
 	const [checked, setChecked] = useState(false);
+
 	const handleChange = () => {
-		setChecked(!checked);
+		const newChecked = !checked;
+		setChecked(newChecked);
+		onChange(id, newChecked);
 	};
 
 	return (
@@ -19,11 +18,11 @@ const Checkbox: FC<ICheckbox> = ({ text, id }) => {
 				type="checkbox"
 				checked={checked}
 				onChange={handleChange}
-				id={id}
+				value={id}
 			/>
 			<span className="genre-checkbox__appearance">{text}</span>
 		</label>
 	);
 };
 
-export default Checkbox;
+export default GenreCheckbox;
