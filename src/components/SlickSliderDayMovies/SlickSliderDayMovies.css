@@ -53,7 +53,7 @@ li button {
 	width: 10px;
 }
 
-.slick-active {
+.slick-numbers .slick-active {
 	background-image: url('/src/images/Rectangle1.png');
 	background-repeat: no-repeat;
 	background-position: left;
