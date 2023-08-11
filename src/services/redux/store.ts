@@ -22,11 +22,13 @@ import { newmoviecardsReducer } from './slices/newmoviecards/newmoviecards';
 import { moviedaycardsReducer } from './slices/moviesoftheday/moviesoftheday'
 import { genresiconscardsReducer } from './slices/genresIconsApi/genresIcons';
 import { genresReducer } from './slices/genres/genres';
+import { moviesReducer } from './slices/movies/movies';
 
 const rootReducer = combineReducers({
 	user: userReducer,
 	films: filmsReducer,
 	movie: moviebyidReducer,
+	movies: moviesReducer,
 	newmoviecards: newmoviecardsReducer,
 	selection: selectionsReducer,
 	rating: ratingReducer,

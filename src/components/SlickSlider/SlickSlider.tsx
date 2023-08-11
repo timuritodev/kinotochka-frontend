@@ -14,7 +14,7 @@ import { IMovieCard } from 'src/types/MovieCard.types';
 
 export const SlickSlider: FC<ISlider> = ({ type }) => {
 	const dispatch = useAppDispatch();
-	const films = useAppSelector((state) => state.newmoviecards.movies);
+	const films = useAppSelector((state) => state.movies.movies);
 	const [data, setData] = useState<IMovieCard[]>(films);
 
 	// const favorites = useAppSelector((state) => state.films.favoriteFilms);
@@ -44,13 +44,13 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 
 	useEffect(() => {
 		if (type === 'specialforyou') {
-			setData(newmovies);
+			setData(films);
 		} else if (type === 'news') {
 			setData(newmovies);
 		} else if (type === 'similar') {
-			setData(newmovies);
+			setData(films);
 		} else if (type === 'oscar') {
-			setData(newmovies);
+			setData(films);
 		} else {
 			setData(films);
 		}

@@ -16,7 +16,7 @@ import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genr
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 
 export const SlickSliderGenresAPI = ({ }) => {
-	const films = useAppSelector((state) => state.newmoviecards.movies);
+	const films = useAppSelector((state) => state.movies.movies);
 	const page = useAppSelector((state) => state.windowResize.page);
 	const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
 	const [pageMore, setPageMore] = useState(page);
