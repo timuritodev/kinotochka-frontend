@@ -9,19 +9,19 @@ import { FC } from 'react';
 import { ISlider } from 'src/types/Rating.types';
 import { FilmCardLarge } from '../FilmCardLarge/FilmCardLarge';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
-import { getMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
+import { getNewMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
 import { IMovieCard } from 'src/types/MovieCard.types';
 
 export const SlickSlider: FC<ISlider> = ({ type }) => {
 	const dispatch = useAppDispatch();
-	const films = useAppSelector((state) => state.moviecards.movies);
+	const films = useAppSelector((state) => state.movies.movies);
 	const [data, setData] = useState<IMovieCard[]>(films);
 
 	// const favorites = useAppSelector((state) => state.films.favoriteFilms);
 	// const willSee = useAppSelector((state) => state.films.mustSeeFilms);
 	// const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
 
-	const newmovies = useAppSelector((state) => state.moviecards.movies);
+	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
 
 	const settings =
 		type === 'news' || type === 'similar'
@@ -43,18 +43,14 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			  };
 
 	useEffect(() => {
-		dispatch(getMovieCardsApi());
-	}, []);
-
-	useEffect(() => {
 		if (type === 'specialforyou') {
-			setData(newmovies);
-		} else if (type === 'news') {
 			setData(films);
+		} else if (type === 'news') {
+			setData(newmovies);
 		} else if (type === 'similar') {
-			setData(newmovies);
+			setData(films);
 		} else if (type === 'oscar') {
-			setData(newmovies);
+			setData(films);
 		} else {
 			setData(films);
 		}
