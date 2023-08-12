@@ -4,7 +4,6 @@ import { BookmarkSmall } from 'src/components/Bookmark_small/Bookmark_small';
 import { IFilmsbyGenre } from 'src/types/FilmsByGenre.types';
 
 export const FilmCardByGenre = ({ film }: { film: IFilmsbyGenre }) => {
-	
 	return (
 		<section key={film.id} className="flanks_card">
 			<img className="flanks_card-img" src={film.v_picture} alt="" />

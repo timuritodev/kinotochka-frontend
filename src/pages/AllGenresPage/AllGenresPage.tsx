@@ -2,9 +2,11 @@ import './AllGenresPage.css';
 import { useEffect, useState } from 'react';
 import { getGenresApi } from '../../services/redux/slices/genres/genres';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { getMoviesByGenreApi, onegenre } from 'src/services/redux/slices/movieByGenre/moviesByGenre';
+import {
+	getMoviesByGenreApi,
+	onegenre,
+} from 'src/services/redux/slices/movieByGenre/moviesByGenre';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-
 
 const AllGenresPage = () => {
 	const navigate = useNavigate();
@@ -20,7 +22,7 @@ const AllGenresPage = () => {
 	const handleGenreClick = (itemslug: string, itemtitle: string) => {
 		dispatch(getMoviesByGenreApi({ genres: itemslug }));
 		navigate('/onegenre');
-		localStorage.setItem("genre", itemtitle);
+		localStorage.setItem('genre', itemtitle);
 	};
 
 	return (

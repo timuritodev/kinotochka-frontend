@@ -12,7 +12,7 @@ export const getMoviesByGenreApi = createAsyncThunk(
 export const onegenre = createAsyncThunk(
 	'@@onegenre/onegenre',
 	async ({ genres }: { genres: string }) => {
-		console.log(genres)
+		console.log(genres);
 		return genres;
 	}
 );

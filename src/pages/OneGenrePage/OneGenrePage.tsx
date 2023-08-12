@@ -7,7 +7,6 @@ import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IFilmsbyGenre } from 'src/types/FilmsByGenre.types';
 
 const OneGenrePage: FC = () => {
-	
 	const filmsBygenre = useAppSelector((state) => state.moviesbygenre.films);
 	const page = useAppSelector((state) => state.windowResize.page);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -15,11 +14,16 @@ const OneGenrePage: FC = () => {
 	const handleMoreButtonClick = () => {
 		setPageMore((prev) => prev + page);
 	};
-	const genre = localStorage.getItem("genre");
-	
+	const genre = localStorage.getItem('genre');
+
 	return (
 		<section className="flank">
-			<h1 className="flank_title">Жанр {filmsBygenre[0].genres.find((element: string) => element === `${genre}`)}</h1>
+			<h1 className="flank_title">
+				Жанр{' '}
+				{filmsBygenre[0].genres.find(
+					(element: string) => element === `${genre}`
+				)}
+			</h1>
 			<div className="flank_container">
 				{filmsBygenre.slice(0, pageMore).map((film: IFilmsbyGenre) => (
 					<FilmCardByGenre film={film} />
