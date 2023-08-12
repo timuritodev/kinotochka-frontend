@@ -151,7 +151,7 @@ const initialState: IFilmsState = {
 			is_viewed: false,
 		},
 	],
-	genres: undefined
+	genres: undefined,
 };
 
 export const filmSlice = createSlice({

@@ -11,8 +11,6 @@ import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IFilmsbyGenre } from 'src/types/FilmsByGenre.types';
 
-
-
 const OneGenrePage: FC = () => {
 	const [checked, setChecked] = useState(false);
 	const [SaveButtonPopupOpen, setSaveButtonPopupOpen] = useState(false);
@@ -24,20 +22,16 @@ const OneGenrePage: FC = () => {
 	const handleMoreButtonClick = () => {
 		setPageMore((prev) => prev + page);
 	};
-	
-	console.log(filmsBygenre[0].genres)
-	
-	
-	
+
+	console.log(filmsBygenre[0].genres);
+
 	return (
 		<section className="flank">
-			<h1 className="flank_title">{filmsBygenre[0].genres[0]}</h1>
+			<h1 className="flank_title">Жанр {filmsBygenre[0].genres[0]}</h1>
 			<div className="flank_container">
-				{
-					filmsBygenre
-						.slice(0, pageMore)
-						.map((film: IFilmsbyGenre) => <FilmCardByGenre film={film} />)
-				}
+				{filmsBygenre.slice(0, pageMore).map((film: IFilmsbyGenre) => (
+					<FilmCardByGenre film={film} />
+				))}
 			</div>
 			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
@@ -45,6 +39,5 @@ const OneGenrePage: FC = () => {
 		</section>
 	);
 };
-	
-	
+
 export default OneGenrePage;

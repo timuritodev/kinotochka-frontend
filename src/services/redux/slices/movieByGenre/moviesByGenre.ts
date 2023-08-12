@@ -2,15 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getMoviesByGenre } from './moviesByGenreApi';
 import { IFilmsbyGenreState } from 'src/types/FilmsByGenre.types';
 
-
-
-
-
-export const getMoviesByGenreApi = createAsyncThunk('@@moviesbygenre/moviesbygenre', 
-async ({ genres }: { genres: string; }) => {
-return getMoviesByGenre(genres);
-});
-
+export const getMoviesByGenreApi = createAsyncThunk(
+	'@@moviesbygenre/moviesbygenre',
+	async ({ genres }: { genres: string }) => {
+		return getMoviesByGenre(genres);
+	}
+);
 
 const initialState: IFilmsbyGenreState = {
 	status: 'idle',
@@ -20,8 +17,8 @@ const initialState: IFilmsbyGenreState = {
 			id: '',
 			title: '',
 			rating: {
-				kinopoisk: 0,
-				imdb: 0,
+				rate_kinopoisk: 0,
+				rate_imdb: 0,
 			},
 			shortDescription: '',
 			v_picture: '',
@@ -52,8 +49,8 @@ const initialState: IFilmsbyGenreState = {
 			id: '',
 			title: '',
 			rating: {
-				kinopoisk: 0,
-				imdb: 0,
+				rate_kinopoisk: 0,
+				rate_imdb: 0,
 			},
 			shortDescription: '',
 			v_picture: '',
@@ -84,8 +81,8 @@ const initialState: IFilmsbyGenreState = {
 			id: '',
 			title: '',
 			rating: {
-				kinopoisk: 0,
-				imdb: 0,
+				rate_kinopoisk: 0,
+				rate_imdb: 0,
 			},
 			shortDescription: '',
 			v_picture: '',
@@ -116,8 +113,8 @@ const initialState: IFilmsbyGenreState = {
 			id: '',
 			title: '',
 			rating: {
-				kinopoisk: 0,
-				imdb: 0,
+				rate_kinopoisk: 0,
+				rate_imdb: 0,
 			},
 			shortDescription: '',
 			v_picture: '',
@@ -144,7 +141,7 @@ const initialState: IFilmsbyGenreState = {
 		},
 	],
 	genres: undefined,
-	filmsbygenre: []
+	filmsbygenre: [],
 };
 
 export const moviesByGenreSlice = createSlice({
@@ -154,8 +151,8 @@ export const moviesByGenreSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesByGenreApi.fulfilled, (state, action) => {
 			state.films = action.payload;
-			console.log(state.films)
-		})
+			console.log(state.films);
+		});
 	},
 });
 

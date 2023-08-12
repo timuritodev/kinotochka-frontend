@@ -37,9 +37,6 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-
-
-
 export const getFilms = (): Array<IFilms> => {
 	// return fetchData(`${API_URL}/signin`, data);
 
@@ -1053,5 +1050,3 @@ export const getFilms = (): Array<IFilms> => {
 
 	return mymovie;
 };
-
-

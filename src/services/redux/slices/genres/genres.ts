@@ -2,14 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getGenres } from './genresAPI';
 import { IGenresState } from 'src/types/Genres.types';
 
-
-
-
-
 export const getGenresApi = createAsyncThunk('@@genres/genres', async () => {
 	return getGenres();
 });
-
 
 const initialState: IGenresState = {
 	genres: [
@@ -29,7 +24,7 @@ export const genresSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(getGenresApi.fulfilled, (state, action) => {
 			state.genres = action.payload;
-		})
+		});
 	},
 });
 

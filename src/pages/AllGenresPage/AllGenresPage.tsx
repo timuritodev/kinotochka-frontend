@@ -13,7 +13,6 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 	const [GenreLinkClick, setGenreLinkClick] = useState(false);
 	const dispatch = useAppDispatch();
 	const genre = useAppSelector((state) => state.genres.genres);
-	
 
 	useEffect(() => {
 		dispatch(getGenresApi());

@@ -34,8 +34,8 @@ export interface ISelect {
 }
 
 interface IRating {
-	kinopoisk: number;
-	imdb: number;
+	rate_kinopoisk: number;
+	rate_imdb: number;
 }
 
 export interface IFilmsbyGenreState {
