@@ -22,6 +22,9 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 	// const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
 
 	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
+	const oscar = useAppSelector((state) => state.compilations.data[0])
+	const similar = useAppSelector((state) => state.compilations.data[1])
+	const specialforyou = useAppSelector((state) => state.compilations.data[2])
 
 	const settings =
 		type === 'news' || type === 'similar'
