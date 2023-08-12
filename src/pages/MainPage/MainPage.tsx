@@ -17,6 +17,7 @@ import { SlickSliderGenresAPI } from 'src/components/SlickSliderGenres/SlickSlid
 import { getNewMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
 import { getMoviesApi } from 'src/services/redux/slices/movies/movies';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
+import { getFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -27,12 +28,13 @@ export default function MainPage() {
 		dispatch(getNewMovieCardsApi());
 		dispatch(getMoviesApi());
 		dispatch(getCompilationsApi());
+		dispatch(getFavoritesApi())
 	}, []);
 
 	const films = useAppSelector((state) => state.films.films);
 	const compilations = useAppSelector((state) => state.compilations.data)
-	console.log(compilations)
-	
+	// console.log(compilations)
+
 	return (
 		<main className="main-page" id="main-page">
 			<SlickSliderDayMovies />
