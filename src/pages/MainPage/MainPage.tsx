@@ -16,6 +16,8 @@ import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderGenresAPI } from 'src/components/SlickSliderGenres/SlickSliderGenresAPI';
 import { getNewMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
 import { getMoviesApi } from 'src/services/redux/slices/movies/movies';
+import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
+import { getFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -25,9 +27,13 @@ export default function MainPage() {
 	useEffect(() => {
 		dispatch(getNewMovieCardsApi());
 		dispatch(getMoviesApi());
+		dispatch(getCompilationsApi());
+		dispatch(getFavoritesApi())
 	}, []);
 
 	const films = useAppSelector((state) => state.films.films);
+	const compilations = useAppSelector((state) => state.compilations.data)
+	// console.log(compilations)
 
 	return (
 		<main className="main-page" id="main-page">

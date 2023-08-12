@@ -1,12 +1,16 @@
-export interface IFavorites {
-	id: number;
-	title: string;
-	v_picture: string;
-	premiere_date: string;
-	rating: IRating;
-	is_favorite: boolean;
-	is_need_see?: boolean;
-}
+import { IMovieCard } from "./MovieCard.types";
+
+// export interface IFavorites {
+// 	id: number;
+// 	title?: string;
+// 	v_picture?: string;
+// 	h_picture?: string;
+// 	rating?: IRating;
+// 	year?: number;
+// 	genres?: string[],
+// 	is_favorite?: boolean;
+// 	is_need_see?: boolean;
+// }
 
 export interface IRating {
     rate_imdb: number;
@@ -16,5 +20,5 @@ export interface IRating {
 export interface IFavoritesState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	favorites: IFavorites;
+	favorites: IMovieCard[];
 }
