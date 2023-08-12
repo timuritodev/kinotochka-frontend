@@ -1,7 +1,7 @@
 import './OneGenrePage.css';
 import { FC } from 'react';
-import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
+import { useState } from 'react';
+import { useAppSelector } from '../../services/typeHooks';
 import { FilmCardByGenre } from 'src/components/FilmCardByGenre/FilmCardByGenre';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IFilmsbyGenre } from 'src/types/FilmsByGenre.types';
@@ -16,10 +16,7 @@ const OneGenrePage: FC = () => {
 		setPageMore((prev) => prev + page);
 	};
 	const genre = localStorage.getItem("genre");
-	console.log(genre)
-
-	console.log(filmsBygenre[0].genres.find((element: string) => element === `${genre}`))
-
+	
 	return (
 		<section className="flank">
 			<h1 className="flank_title">Жанр {filmsBygenre[0].genres.find((element: string) => element === `${genre}`)}</h1>
