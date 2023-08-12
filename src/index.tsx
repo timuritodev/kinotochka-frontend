@@ -44,7 +44,7 @@ const Root: FC = () => {
 						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
 					/>
 					<Route path="/preferences" element={<PreferencesPage />} />
-					<Route path="/allgenres" element={<AllGenresPage genres={[]} />} />
+					<Route path="/allgenres" element={<AllGenresPage />} />
 					<Route path="/onegenre" element={<OneGenrePage />} />
 					<Route
 						path="/will-see"

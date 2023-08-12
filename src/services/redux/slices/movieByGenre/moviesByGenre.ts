@@ -9,6 +9,14 @@ export const getMoviesByGenreApi = createAsyncThunk(
 	}
 );
 
+export const onegenre = createAsyncThunk(
+	'@@onegenre/onegenre',
+	async ({ genres }: { genres: string }) => {
+		console.log(genres)
+		return genres;
+	}
+);
+
 const initialState: IFilmsbyGenreState = {
 	status: 'idle',
 	error: '',
@@ -151,7 +159,6 @@ export const moviesByGenreSlice = createSlice({
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesByGenreApi.fulfilled, (state, action) => {
 			state.films = action.payload;
-			console.log(state.films);
 		});
 	},
 });

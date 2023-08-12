@@ -2,15 +2,14 @@ import './AllGenresPage.css';
 import { useEffect, useState } from 'react';
 import { getGenresApi } from '../../services/redux/slices/genres/genres';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { IGenres } from 'src/types/Genres.types';
-import { getMoviesByGenreApi } from 'src/services/redux/slices/movieByGenre/moviesByGenre';
+import { getMoviesByGenreApi, onegenre } from 'src/services/redux/slices/movieByGenre/moviesByGenre';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import OneGenrePage from '../OneGenrePage/OneGenrePage';
 
-const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
+
+const AllGenresPage = () => {
 	const navigate = useNavigate();
 	const [checked, setChecked] = useState(false);
-	const [GenreLinkClick, setGenreLinkClick] = useState(false);
+	const [GenreLinkClick, setGenreLinkClick] = useState('');
 	const dispatch = useAppDispatch();
 	const genre = useAppSelector((state) => state.genres.genres);
 
@@ -18,9 +17,10 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 		dispatch(getGenresApi());
 	}, []);
 
-	const handleGenreClick = (item: string) => {
-		dispatch(getMoviesByGenreApi({ genres: item }));
+	const handleGenreClick = (itemslug: string, itemtitle: string) => {
+		dispatch(getMoviesByGenreApi({ genres: itemslug }));
 		navigate('/onegenre');
+		localStorage.setItem("genre", itemtitle);
 	};
 
 	return (
@@ -31,7 +31,7 @@ const AllGenresPage = ({ genres }: { genres: IGenres[] }) => {
 					<li className="allgenrespage__list">
 						<button
 							className="allgenrespage__link"
-							onClick={() => handleGenreClick(item.slug)}
+							onClick={() => handleGenreClick(item.slug, item.title)}
 						>
 							<img
 								className="allgenrespage__img"

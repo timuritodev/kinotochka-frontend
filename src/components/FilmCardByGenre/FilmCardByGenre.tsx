@@ -4,7 +4,7 @@ import { BookmarkSmall } from 'src/components/Bookmark_small/Bookmark_small';
 import { IFilmsbyGenre } from 'src/types/FilmsByGenre.types';
 
 export const FilmCardByGenre = ({ film }: { film: IFilmsbyGenre }) => {
-	console.log(film.rating.rate_kinopoisk)
+	
 	return (
 		<section key={film.id} className="flanks_card">
 			<img className="flanks_card-img" src={film.v_picture} alt="" />
@@ -13,7 +13,10 @@ export const FilmCardByGenre = ({ film }: { film: IFilmsbyGenre }) => {
 			<p className="flanks_card-subtitle">{`${film.genres.join(', ')} • ${
 				film.year
 			}`}</p>
-			<RatedElement imdb={film.rating.rate_imdb} kinopoisk={film.rating.rate_kinopoisk} />
+			<RatedElement
+				imdb={film.rating.rate_imdb}
+				kinopoisk={film.rating.rate_kinopoisk}
+			/>
 		</section>
 	);
 };

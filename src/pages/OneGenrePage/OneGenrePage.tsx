@@ -1,20 +1,13 @@
 import './OneGenrePage.css';
-import { useEffect, FC, useState } from 'react';
-import { getMoviesByGenreApi } from '../../services/redux/slices/movieByGenre/moviesByGenre';
+import { FC } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { IFilms } from 'src/types/Film.types';
-import { IFlanks } from 'src/types/Flanks.types';
-import { getFilmsApi } from '../../services/redux/slices/films/films';
-import { getSelectionsApi } from '../../services/redux/slices/selections/selections';
 import { FilmCardByGenre } from 'src/components/FilmCardByGenre/FilmCardByGenre';
-import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IFilmsbyGenre } from 'src/types/FilmsByGenre.types';
 
 const OneGenrePage: FC = () => {
-	const [checked, setChecked] = useState(false);
-	const [SaveButtonPopupOpen, setSaveButtonPopupOpen] = useState(false);
-	const dispatch = useAppDispatch();
+	
 	const filmsBygenre = useAppSelector((state) => state.moviesbygenre.films);
 	const page = useAppSelector((state) => state.windowResize.page);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -22,12 +15,14 @@ const OneGenrePage: FC = () => {
 	const handleMoreButtonClick = () => {
 		setPageMore((prev) => prev + page);
 	};
+	const genre = localStorage.getItem("genre");
+	console.log(genre)
 
-	console.log(filmsBygenre[0].genres);
+	console.log(filmsBygenre[0].genres.find((element: string) => element === `${genre}`))
 
 	return (
 		<section className="flank">
-			<h1 className="flank_title">Жанр {filmsBygenre[0].genres[0]}</h1>
+			<h1 className="flank_title">Жанр {filmsBygenre[0].genres.find((element: string) => element === `${genre}`)}</h1>
 			<div className="flank_container">
 				{filmsBygenre.slice(0, pageMore).map((film: IFilmsbyGenre) => (
 					<FilmCardByGenre film={film} />
