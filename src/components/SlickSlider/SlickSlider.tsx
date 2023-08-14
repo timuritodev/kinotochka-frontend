@@ -22,9 +22,9 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 	// const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
 
 	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
-	const oscar = useAppSelector((state) => state.compilations.data[0])
-	const similar = useAppSelector((state) => state.compilations.data[1])
-	const specialforyou = useAppSelector((state) => state.compilations.data[2])
+	const redactionOne = useAppSelector((state) => state.compilations.data[0])
+	const redactionTwo = useAppSelector((state) => state.compilations.data[1])
+	const redactionThree = useAppSelector((state) => state.compilations.data[2])
 
 	const settings =
 		type === 'news' || type === 'similar'
@@ -52,10 +52,13 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			setData(newmovies);
 		} else if (type === 'similar') {
 			setData(films);
-		} else if (type === 'oscar') {
-			setData(films);
-		} else {
-			setData(films);
+		} else if (type === 'redactionOne') {
+			setData(redactionOne.movies);
+		} 
+		else if (type === 'redactionTwo') {
+			setData(redactionTwo.movies);
+		} if (type === 'redactionThree') {
+			setData(redactionThree.movies);
 		}
 	}, []);
 
@@ -64,13 +67,13 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			? 'Новинки'
 			: type === 'specialforyou'
 			? 'Специально для вас'
-			: type === 'oscar'
-			? 'Оскар 2023'
+			: type === 'redactionOne'
+			? 'Напряжение на пределе'
 			: type === 'similar'
 			? 'Похожие'
-			: type === 'blackwhite'
-			? 'Черно-белое кино'
-			: 'Новогоднее кино';
+			: type === 'redactionTwo'
+			? 'Герои с сильным характером'
+			: 'Не умри от смеха';
 
 	const asdw =
 		type === 'specialforyou'
@@ -81,7 +84,7 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 		<div className="slick-slider_container">
 			<h1 className="slick-slider_title">{title}</h1>
 			<Slider {...settings} className="slick-slider">
-				{type === 'oscar' || type === 'blackwhite' || type === 'newyear'
+				{type === 'redactionOne' || type === 'redactionTwo' || type === 'redactionThree'
 					? data.map((item) => <FilmCard film={item} />)
 					: asdw}
 			</Slider>

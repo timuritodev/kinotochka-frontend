@@ -1,12 +1,12 @@
 import './Search.css';
 import { useAppSelector } from '../../services/typeHooks';
-import { IFilms } from 'src/types/Film.types';
+// import { IFilms } from 'src/types/Film.types';
 import { RatedElement } from '../RatedElement/RatedElement';
 import { useState, useEffect } from 'react';
 import { IMovieCard } from 'src/types/MovieCard.types';
-import { useNavigate } from 'react-router-dom';
-import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
-import { useAppDispatch } from '../../services/typeHooks';
+// import { useNavigate } from 'react-router-dom';
+// import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+// import { useAppDispatch } from '../../services/typeHooks';
 
 const Search = ({
 	isOpenSearch,
@@ -35,14 +35,14 @@ const Search = ({
 		}
 	}, [values]);
 
-	const navigate = useNavigate();
-	const dispatch = useAppDispatch();
+	// const navigate = useNavigate();
+	// const dispatch = useAppDispatch();
 
-	const handleImgClick = (film: IMovieCard) => {
-		dispatch(getMoviebyidApi({ filmId: film.id }));
-		navigate('/movie-page');
-		window.scrollTo(0, 0);
-};
+	// const handleImgClick = () => {
+	// 	dispatch(getMoviebyidApi({ filmId: film.id }));
+	// 	navigate('/movie-page');
+	// 	window.scrollTo(0, 0);
+	// };
 
 	return (
 		<section
@@ -51,13 +51,14 @@ const Search = ({
 			<div className="searchGeneral__films" id="searchGeneral__films">
 				{!isFilteredFilms ? (
 					filteredFilms.slice(0, 5).map((film: IMovieCard) => (
-						<a 
-						// href={film.movieCardUrl}
-						 className="searchGeneral__film">
+						<a
+							// href={film.movieCardUrl}
+							// onClick={handleImgClick}
+							className="searchGeneral__film"
+						>
 							<img
 								className="searchGeneral__film-poster"
 								src={film.v_picture}
-								// onClick={handleImgClick}
 							></img>
 							<article className="searchGeneral__film-desc">
 								<p className="searchGeneral__film-name">{film.title}</p>
@@ -69,7 +70,7 @@ const Search = ({
 											isSearch={true}
 										/>
 									</p>
-									<p className="searchGeneral__film-country">
+									<p className="searchGeneral__film-genres">
 										{film.genres.join(', ')}
 									</p>
 									<p className="searchGeneral__film-year"> • {film.year}</p>

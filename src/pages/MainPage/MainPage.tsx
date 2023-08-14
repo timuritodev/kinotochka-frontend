@@ -33,7 +33,6 @@ export default function MainPage() {
 
 	const films = useAppSelector((state) => state.films.films);
 	const compilations = useAppSelector((state) => state.compilations.data)
-	// console.log(compilations)
 
 	return (
 		<main className="main-page" id="main-page">
@@ -51,13 +50,13 @@ export default function MainPage() {
 				</div>
 			</div>
 			<div className="main-page_slick-slider">
-				<SlickSlider type={SlickSliderTypes.oscar} />
+				<SlickSlider type={SlickSliderTypes.redactionOne} />
 			</div>
 			<div className="main-page_slick-slider">
-				<SlickSlider type={SlickSliderTypes.blackwhite} />
+				<SlickSlider type={SlickSliderTypes.redactionTwo} />
 			</div>
 			<div className="main-page_slick-slider">
-				<SlickSlider type={SlickSliderTypes.newyear} />
+				<SlickSlider type={SlickSliderTypes.redactionThree} />
 			</div>
 			<div className="main-page_slick-slider">
 				<SlickSliderGenresAPI />
