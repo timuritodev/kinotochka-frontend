@@ -68,12 +68,12 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			: type === 'specialforyou'
 			? 'Специально для вас'
 			: type === 'redactionOne'
-			? 'Напряжение на пределе'
+			? `${redactionOne.title}`
 			: type === 'similar'
 			? 'Похожие'
 			: type === 'redactionTwo'
-			? 'Герои с сильным характером'
-			: 'Не умри от смеха';
+			? `${redactionTwo.title}`
+			: `${redactionThree.title}`;
 
 	const asdw =
 		type === 'specialforyou'
