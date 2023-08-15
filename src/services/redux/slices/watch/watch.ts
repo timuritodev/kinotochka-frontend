@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getFavorites, deleteFromFavorites, addToFavorites } from './favoritesApi';
+import { getWatch, deleteFromWatch, addToWatch } from './watchApi';
 import { IFavoritesState } from 'src/types/Favorites.types';
 
-export const getFavoritesApi = createAsyncThunk(
-    '@@favorite/favorite',
+export const getWatchApi = createAsyncThunk(
+    '@@watch/watch',
     async (_, { fulfillWithValue, rejectWithValue }) => {
         try {
-            const response = await getFavorites();
+            const response = await getWatch();
             const json = await response.json();
             return fulfillWithValue(json);
         } catch (error: unknown) {
@@ -15,11 +15,11 @@ export const getFavoritesApi = createAsyncThunk(
     }
 );
 
-export const addToFavoritesApi = createAsyncThunk(
-    '@@favorite/addFavorite',
+export const addToWatchApi = createAsyncThunk(
+    '@@watch/addWatch',
     async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
         try {
-            const response = await addToFavorites(filmId);
+            const response = await addToWatch(filmId);
             // const json = await response.json();
             return fulfillWithValue(response);
         } catch (error: unknown) {
@@ -28,11 +28,11 @@ export const addToFavoritesApi = createAsyncThunk(
     }
 );
 
-export const deleteFromFavoritesApi = createAsyncThunk(
-    '@@favorite/deleteFavorite',
+export const deleteFromWatchApi = createAsyncThunk(
+    '@@watch/deleteWatch',
     async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
         try {
-            const response = await deleteFromFavorites(filmId);
+            const response = await deleteFromWatch(filmId);
             // const json = await response.json();
             return fulfillWithValue(response);
         } catch (error: unknown) {
@@ -47,27 +47,27 @@ const initialState: IFavoritesState = {
     favorites: [],
 };
 
-export const favoriteSlice = createSlice({
-    name: '@@favorite',
+export const watchSlice = createSlice({
+    name: '@@watch',
     initialState,
     reducers: {
-        addFavorites: (state, action) => {
+        addWatch: (state, action) => {
             state.favorites = [...state.favorites, action.payload];
         },
-        deleteFavorites: (state, action) => {
+        deleteWatch: (state, action) => {
             state.favorites.filter((item) => item !== action.payload);
         },
     },
     extraReducers: (builder) => {
         builder
-            .addCase(getFavoritesApi.fulfilled, (state, action) => {
+            .addCase(getWatchApi.fulfilled, (state, action) => {
                 state.status = 'success';
                 state.favorites = action.payload;
             })
-            .addCase(addToFavoritesApi.fulfilled, (state) => {
+            .addCase(addToWatchApi.fulfilled, (state) => {
                 state.status = 'success';
             })
-            .addCase(deleteFromFavoritesApi.fulfilled, (state) => {
+            .addCase(deleteFromWatchApi.fulfilled, (state) => {
                 state.status = 'success';
             })
             .addMatcher(
@@ -87,6 +87,6 @@ export const favoriteSlice = createSlice({
     },
 });
 
-export const { addFavorites, deleteFavorites } = favoriteSlice.actions;
+export const { addWatch, deleteWatch } = watchSlice.actions;
 
-export const favoriteReducer = favoriteSlice.reducer;
+export const watchReducer = watchSlice.reducer;

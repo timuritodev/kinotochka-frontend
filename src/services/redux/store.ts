@@ -25,6 +25,7 @@ import { genresReducer } from './slices/genres/genres';
 import { moviesReducer } from './slices/movies/movies';
 import { favoriteReducer } from './slices/favorites/favorites';
 import { compilationsReducer } from './slices/compilations/compilations';
+import { watchReducer } from './slices/watch/watch';
 
 const rootReducer = combineReducers({
 	user: userReducer,
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
 	movie: moviebyidReducer,
 	movies: moviesReducer,
 	favoritemovies: favoriteReducer,
+	watchmovies: watchReducer,
 	compilations: compilationsReducer,
 	newmoviecards: newmoviecardsReducer,
 	selection: selectionsReducer,
