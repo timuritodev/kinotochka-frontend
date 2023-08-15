@@ -4,14 +4,14 @@ import { IFavoritesState } from 'src/types/Favorites.types';
 
 export const getFavoritesApi = createAsyncThunk(
     '@@favorite/favorite',
-	async (_, { fulfillWithValue, rejectWithValue }) => {
+    async (_, { fulfillWithValue, rejectWithValue }) => {
         try {
-			const response = await getFavorites();
-			const json = await response.json();
-			return fulfillWithValue(json);
-		} catch (error: unknown) {
-			return rejectWithValue(error);
-		}
+            const response = await getFavorites();
+            const json = await response.json();
+            return fulfillWithValue(json);
+        } catch (error: unknown) {
+            return rejectWithValue(error);
+        }
     }
 );
 
@@ -19,12 +19,12 @@ export const addToFavoritesApi = createAsyncThunk(
     '@@favorite/addFavorite',
     async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
         try {
-			const response = await addToFavorites(filmId);
-			// const json = await response.json();
-			return fulfillWithValue(response);
-		} catch (error: unknown) {
-			return rejectWithValue(error);
-		}
+            const response = await addToFavorites(filmId);
+            // const json = await response.json();
+            return fulfillWithValue(response);
+        } catch (error: unknown) {
+            return rejectWithValue(error);
+        }
     }
 );
 
@@ -32,12 +32,12 @@ export const deleteFromFavoritesApi = createAsyncThunk(
     '@@favorite/deleteFavorite',
     async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
         try {
-			const response = await deleteFromFavorites(filmId);
-			// const json = await response.json();
-			return fulfillWithValue(response);
-		} catch (error: unknown) {
-			return rejectWithValue(error);
-		}
+            const response = await deleteFromFavorites(filmId);
+            // const json = await response.json();
+            return fulfillWithValue(response);
+        } catch (error: unknown) {
+            return rejectWithValue(error);
+        }
     }
 );
 
@@ -52,9 +52,12 @@ export const favoriteSlice = createSlice({
     initialState,
     reducers: {
         addFavorites: (state, action) => {
-			state.favorites = [...state.favorites, action.payload];
-		},
-	},
+            state.favorites = [...state.favorites, action.payload];
+        },
+        deleteFavorites: (state, action) => {
+            state.favorites.filter((item) => item !== action.payload);
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getFavoritesApi.fulfilled, (state, action) => {
@@ -68,19 +71,19 @@ export const favoriteSlice = createSlice({
                 state.status = 'success';
             })
             .addMatcher(
-				(action) => action.type.endsWith('/pending'),
-				(state) => {
-					state.status = 'loading';
-					state.error = '';
-				}
-			)
-			.addMatcher(
-				(action) => action.type.endsWith('/rejected'),
-				(state, action) => {
-					state.status = 'failed';
-					state.error = action.payload.statusText;
-				}
-			);
+                (action) => action.type.endsWith('/pending'),
+                (state) => {
+                    state.status = 'loading';
+                    state.error = '';
+                }
+            )
+            .addMatcher(
+                (action) => action.type.endsWith('/rejected'),
+                (state, action) => {
+                    state.status = 'failed';
+                    state.error = action.payload.statusText;
+                }
+            );
     },
 });
 

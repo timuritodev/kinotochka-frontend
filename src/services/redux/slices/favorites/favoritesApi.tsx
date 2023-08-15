@@ -33,7 +33,7 @@ const fetchData = (url: string) => {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrZW5kLWFwaSIsInVzZXJfaWQiOiJmODI0MDVlOC1iYjBkLTQ5YzItOGE4Zi1iMGU1OWUwY2UzYzkiLCJleHAiOjE2OTI0NTIxMjIsInR5cGUiOiJhY2Nlc3MifQ.l6V90AlN42M5fDvBKf5gm3EGtT_0cDiNoBXho8s1dWc'
+			'Authorization': 'Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrZW5kLWFwaSIsInVzZXJfaWQiOiJmODI0MDVlOC1iYjBkLTQ5YzItOGE4Zi1iMGU1OWUwY2UzYzkiLCJleHAiOjE2OTI0NTIxMjIsInR5cGUiOiJhY2Nlc3MifQ.l6V90AlN42M5fDvBKf5gm3EGtT_0cDiNoBXho8s1dWc'
 		},
 	}).then((res) => checkRes(res));
 };
