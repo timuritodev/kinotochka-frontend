@@ -12,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { MoreButton } from '../MoreBtn/MoreButton';
 
 export const SlickSliderGenres = ({ content }: { content: string[] }) => {
-	const films = useAppSelector((state) => state.moviecards.movies);
+	const films = useAppSelector((state) => state.newmoviecards.movies);
 	const page = useAppSelector((state) => state.windowResize.page);
 	const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
 	const [pageMore, setPageMore] = useState(page);

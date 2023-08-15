@@ -19,6 +19,6 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getNewMovieCards = (): Promise<Array<IMovieCard>> => {
-	return fetchData(`${API_BASE_URL}/movies/newest`);
+export const getMovies = (): Promise<Array<IMovieCard>> => {
+	return fetchData(`${API_BASE_URL}/movies`);
 };
