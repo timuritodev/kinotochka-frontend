@@ -2,15 +2,12 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import './MovieButton.css';
 import { IButton } from 'src/types/Rating.types';
 import { FC } from 'react';
-import {
-	updateFavorite,
-	updateWatch,
-} from 'src/services/redux/slices/films/films';
 import eye from '../../images/black_eye.svg';
 import eye_clicked from '../../images/eye_clicked.svg';
 import bookmark from '../../images/Bookmark.svg';
 import bookmark_clicked from '../../images/bookmark_clicked.svg';
 import { addFavorites, addToFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
+import { addToWatchApi, addWatch } from 'src/services/redux/slices/watch/watch';
 
 const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 	const dispatch = useAppDispatch();
@@ -33,7 +30,10 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 	};
 
 	const handleClickWatch = () => {
-		dispatch(updateWatch({ watch: !filmWatch, id }));
+		dispatch(addToWatchApi(id))
+		.unwrap()
+		.then(() => dispatch(addWatch(film)))
+		.catch(() => console.log('mistake'))
 	};
 
 	const typesImg =

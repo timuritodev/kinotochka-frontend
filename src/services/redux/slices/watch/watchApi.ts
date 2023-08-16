@@ -38,14 +38,14 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getFavorites = (): Promise<Response> => {
-	return fetchData(`${API_BASE_URL}/movies/favorite}`);
+export const getWatch = (): Promise<Response> => {
+	return fetchData(`${API_BASE_URL}/movies/watchlist}`);
 };
 
-export const addToFavorites = (filmId: number): Promise<Response> => {
-	return postData(`${API_BASE_URL}/movies/${filmId}/favorite}`);
+export const addToWatch = (filmId: number): Promise<Response> => {
+	return postData(`${API_BASE_URL}/movies/${filmId}/setwatch}`);
 };
 
-export const deleteFromFavorites = (filmId: number): Promise<Response> => {
-	return deleteData(`${API_BASE_URL}/movies/${filmId}/favorite}`);
+export const deleteFromWatch = (filmId: number): Promise<Response> => {
+	return deleteData(`${API_BASE_URL}/movies/${filmId}/setwatch}`);
 };
