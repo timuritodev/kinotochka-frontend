@@ -15,6 +15,7 @@ import { IGenresIcons } from 'src/types/GenresIcons.types';
 import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genresIcons';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 
+
 export const SlickSliderGenresAPI = ({ }) => {
 	const films = useAppSelector((state) => state.movies.movies);
 	const page = useAppSelector((state) => state.windowResize.page);
@@ -23,7 +24,9 @@ export const SlickSliderGenresAPI = ({ }) => {
 	const [isMoreButton, setIsMoreButton] = useState(false);
 
 	const dispatch = useAppDispatch();
-	const genresicons = useAppSelector((state) => state.genresiconscards.genresicons);
+	const genresicons = useAppSelector(
+		(state) => state.genresiconscards.genresicons
+	);
 	const [data, setData] = useState<IGenresIcons[]>(genresicons);
 
 	useEffect(() => {
@@ -31,7 +34,7 @@ export const SlickSliderGenresAPI = ({ }) => {
 	}, []);
 
 	useEffect(() => {
-			setData(genresicons);
+		setData(genresicons);
 	}, []);
 
 	const settings = {
@@ -77,7 +80,11 @@ export const SlickSliderGenresAPI = ({ }) => {
 				<Slider {...settings} className="slick-slider">
 					{data.map((item) => (
 						<li key={data.indexOf(item)} className="main-page_color-white">
-							<CheckboxMainAPI  genreapi={item} checked={false} onChange={handleCheckboxChange} />
+							<CheckboxMainAPI
+								genreapi={item}
+								checked={false}
+								onChange={handleCheckboxChange}
+							/>
 						</li>
 					))}
 				</Slider>

@@ -42,7 +42,6 @@ const rootReducer = combineReducers({
 	daymoviescards: moviedaycardsReducer,
 	genresiconscards: genresiconscardsReducer,
 	genres: genresReducer,
-
 });
 
 const persistConfig = {
