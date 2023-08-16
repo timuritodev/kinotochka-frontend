@@ -1,5 +1,4 @@
 import { IFilms } from 'src/types/Film.types';
-const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
 
 // const API_URL = 'http://127.0.0.1:3000';
 
@@ -20,22 +19,6 @@ const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
 // 		...(!!data && { body: JSON.stringify(data) }),
 // 	}).then((res) => checkRes(res));
 // };
-const checkRes = (res: Response) => {
-	if (res.ok) {
-		return res.json();
-	} else {
-		return Promise.reject(res);
-	}
-};
-
-const fetchData = (url: string) => {
-	return fetch(url, {
-		method: 'GET',
-		headers: {
-			'Content-Type': 'application/json',
-		},
-	}).then((res) => checkRes(res));
-};
 
 export const getFilms = (): Array<IFilms> => {
 	// return fetchData(`${API_URL}/signin`, data);
