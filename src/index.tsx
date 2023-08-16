@@ -18,9 +18,6 @@ import ConfirmEmailPage from './pages/auth/ConfirmEmailPage';
 import RecoverPasswordPage from './pages/auth/RecoverPasswordPage';
 import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import PreferencesPage from './pages/PreferencesPage/PreferencesPage';
-import OneGenrePage from './pages/OneGenrePage/OneGenrePage';
-import AllGenresPage from './pages/AllGenresPage/AllGenresPage';
-//import { GenresTypes } from './types/Genres.types';
 import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
@@ -52,8 +49,6 @@ const Root: FC = () => {
 						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
 					/>
 					<Route path="/preferences" element={<PreferencesPage />} />
-					<Route path="/allgenres" element={<AllGenresPage />} />
-					<Route path="/onegenre" element={<OneGenrePage />} />
 					<Route
 						path="/will-see"
 						element={<FlanksPage formName={FlanksTypes.willSee} />}

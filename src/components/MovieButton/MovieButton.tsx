@@ -2,11 +2,6 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import './MovieButton.css';
 import { IButton } from 'src/types/Rating.types';
 import { FC } from 'react';
-
-import {
-	updateFavorite,
-	updateWatch,
-} from 'src/services/redux/slices/films/films';
 import eye from '../../images/black_eye.svg';
 import eye_clicked from '../../images/eye_clicked.svg';
 import bookmark from '../../images/Bookmark.svg';
