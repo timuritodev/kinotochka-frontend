@@ -15,8 +15,8 @@ import { Loader } from 'src/components/Loader/Loader';
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
-	const loading = useAppSelector((state) => state.movie.status);
-	console.log(movie);
+	const loading = useAppSelector((state) => state.movie.status)
+
 	return (
 		<>
 			{loading === 'loading' ? (

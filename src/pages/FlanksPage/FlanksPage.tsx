@@ -15,7 +15,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
 	const page = useAppSelector((state) => state.windowResize.page);
 	const selected = useAppSelector((state) => state.selection.selections);
-	const favorites = useAppSelector((state) => state.moviecards.movies);
+	const favorites = useAppSelector((state) => state.newmoviecards.movies);
 	// const willSee = useAppSelector((state) => state.films.mustSeeFilms);
 	// const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);

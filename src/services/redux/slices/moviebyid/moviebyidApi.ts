@@ -1,6 +1,6 @@
 import { IMoviebyid } from 'src/types/Moviebyid.types';
+import { API_BASE_URL } from 'src/utils/constants';
 
-const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
 
 const checkRes = (res: Response) => {
 	if (res.ok) {
@@ -20,5 +20,5 @@ const fetchData = (url: string) => {
 };
 
 export const getMoviebyid = (filmId: number): Promise<IMoviebyid> => {
-	return fetchData(`${API_URL}/v1/movies/${filmId}`);
+	return fetchData(`${API_BASE_URL}/movies/${filmId}`);
 };

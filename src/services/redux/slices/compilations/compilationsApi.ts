@@ -1,4 +1,4 @@
-import { IMovieCard } from 'src/types/MovieCard.types';
+import { ICompilationsTwo } from 'src/types/Compilations.types';
 import { API_BASE_URL } from 'src/utils/constants';
 
 
@@ -19,6 +19,6 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getNewMovieCards = (): Promise<Array<IMovieCard>> => {
-	return fetchData(`${API_BASE_URL}/movies/newest`);
+export const getCompilations = (): Promise<Array<ICompilationsTwo>> => {
+	return fetchData(`${API_BASE_URL}/compilations/redaction`);
 };
