@@ -1,9 +1,9 @@
-export interface IFilms {
-	id: number;
+export interface IFilmsbyGenre {
+	id: string;
 	title: string;
 	rating: IRating;
 	shortDescription: string;
-	imageUrl: string;
+	v_picture: string;
 	movieCardUrl: string;
 	index: number;
 	year: number;
@@ -30,22 +30,23 @@ export interface ISelect {
 	id: number;
 	title: string;
 	description: string;
-	movie: IFilms[];
+	movie: IFilmsbyGenre[];
 }
 
 interface IRating {
-	kinopoisk: number;
-	imdb: number;
+	rate_kinopoisk: number;
+	rate_imdb: number;
 }
 
-export interface IFilmsState {
+export interface IFilmsbyGenreState {
+	films: any;
 	genres: any;
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	films: Array<IFilms>;
-	favoriteFilms: Array<IFilms>;
-	mustSeeFilms: Array<IFilms>;
-	viewedFilms: Array<IFilms>;
+	filmsbygenre: Array<IFilmsbyGenre>;
+	favoriteFilms: Array<IFilmsbyGenre>;
+	mustSeeFilms: Array<IFilmsbyGenre>;
+	viewedFilms: Array<IFilmsbyGenre>;
 }
 
 export interface ISelectionState {

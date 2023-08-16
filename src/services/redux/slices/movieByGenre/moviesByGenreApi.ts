@@ -1,4 +1,3 @@
-import { IGenres } from 'src/types/Genres.types';
 import { IFilms } from 'src/types/Film.types';
 
 const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
@@ -20,6 +19,8 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getGenres = (): Promise<Array<IGenres>> => {
-	return fetchData(`${API_URL}/v1/genres/`);
+export const getMoviesByGenre = (
+	genres: string | undefined
+): Promise<Array<IFilms>> => {
+	return fetchData(`${API_URL}/v1/movies/?genre=${genres}`);
 };

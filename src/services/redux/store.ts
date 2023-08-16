@@ -17,15 +17,8 @@ import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
 import { ratingReducer } from './slices/rating/rating';
 import { windowResizeReducer } from './slices/window_resize/window_resize';
-import { moviebyidReducer } from './slices/moviebyid/moviebyid';
-import { newmoviecardsReducer } from './slices/newmoviecards/newmoviecards';
-import { moviedaycardsReducer } from './slices/moviesoftheday/moviesoftheday'
-import { genresiconscardsReducer } from './slices/genresIconsApi/genresIcons';
 import { genresReducer } from './slices/genres/genres';
-import { moviesReducer } from './slices/movies/movies';
-import { favoriteReducer } from './slices/favorites/favorites';
-import { compilationsReducer } from './slices/compilations/compilations';
-import { watchReducer } from './slices/watch/watch';
+import { moviesbygenreReducer } from './slices/movieByGenre/moviesByGenre';
 
 const rootReducer = combineReducers({
 	user: userReducer,
@@ -39,9 +32,8 @@ const rootReducer = combineReducers({
 	selection: selectionsReducer,
 	rating: ratingReducer,
 	windowResize: windowResizeReducer,
-	daymoviescards: moviedaycardsReducer,
-	genresiconscards: genresiconscardsReducer,
 	genres: genresReducer,
+	moviesbygenre: moviesbygenreReducer,
 });
 
 const persistConfig = {
