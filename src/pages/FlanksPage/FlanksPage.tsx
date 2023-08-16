@@ -9,25 +9,26 @@ import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { IFilms } from 'src/types/Film.types';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
+import { IMovieCard } from 'src/types/MovieCard.types';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
 	const page = useAppSelector((state) => state.windowResize.page);
 	const selected = useAppSelector((state) => state.selection.selections);
-	const favorites = useAppSelector((state) => state.films.favoriteFilms);
-	const willSee = useAppSelector((state) => state.films.mustSeeFilms);
-	const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
-	const [toggleFavorites, setToggleFavorites] = useState<IFilms[]>([]);
+	const favorites = useAppSelector((state) => state.newmoviecards.movies);
+	// const willSee = useAppSelector((state) => state.films.mustSeeFilms);
+	// const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
+	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
 	const [pageMore, setPageMore] = useState(page);
 
 	const title =
 		formName === 'ratedFilms'
-			? 'Оцененные фильмы'
+			? 'Оцененное'
 			: formName === 'willSee'
 			? 'Буду смотреть'
 			: formName === 'favorites'
-			? 'Избранные'
+			? 'Избранное'
 			: 'Подборки';
 
 	useEffect(() => {
@@ -37,15 +38,16 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 
 	useEffect(() => {
 		if (formName === 'ratedFilms') {
-			setToggleFavorites(ratedFilms);
+			setToggleFavorites(favorites);
 		} else if (formName === 'willSee') {
-			setToggleFavorites(willSee);
+			setToggleFavorites(favorites);
 		} else if (formName === 'favorites') {
 			setToggleFavorites(favorites);
 		} else {
 			setToggleFavorites([]);
 		}
-	}, [ratedFilms, willSee, favorites, formName]);
+		// }, [ratedFilms, willSee, favorites, formName]);
+	}, [favorites, formName]);
 
 	useEffect(() => {
 		if (toggleFavorites.length > page) {

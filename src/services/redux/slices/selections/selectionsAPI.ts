@@ -10,7 +10,7 @@ export const getSelections = (): ISelect[] => {
 			description: 'holy super hit',
 			movie: [
 				{
-					id: '106',
+					id: 106,
 					title: 'Вечное сияние чистого разума',
 					rating: {
 						kinopoisk: 7.6,
@@ -56,7 +56,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '104',
+					id: 104,
 					title: 'Пролетая над гнездом кукушки',
 					rating: {
 						kinopoisk: 7.4,
@@ -103,7 +103,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '103',
+					id: 103,
 					title: 'Синичка',
 					rating: {
 						kinopoisk: 7.3,
@@ -157,7 +157,7 @@ export const getSelections = (): ISelect[] => {
 			description: 'Хотите, расскажу вам сказку как Дед...',
 			movie: [
 				{
-					id: '103',
+					id: 103,
 					title: 'Синичка',
 					rating: {
 						kinopoisk: 7.3,
@@ -204,7 +204,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '101',
+					id: 101,
 					title: 'Абра кадабра',
 					rating: {
 						kinopoisk: 7.1,
@@ -252,7 +252,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '106',
+					id: 106,
 					title: 'Вечное сияние чистого разума',
 					rating: {
 						kinopoisk: 7.6,
@@ -305,7 +305,7 @@ export const getSelections = (): ISelect[] => {
 			description: 'Лучшая подборка для просмотра зимним, семейным, вечером',
 			movie: [
 				{
-					id: '102',
+					id: 102,
 					title: 'Переводчик',
 					rating: {
 						kinopoisk: 7.2,
@@ -353,7 +353,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '103',
+					id: 103,
 					title: 'Синичка',
 					rating: {
 						kinopoisk: 7.3,
@@ -400,7 +400,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '105',
+					id: 105,
 					title: 'Конь',
 					rating: {
 						kinopoisk: 7.5,
@@ -454,7 +454,7 @@ export const getSelections = (): ISelect[] => {
 			description: 'По другой — название появилось от слова «самородок»',
 			movie: [
 				{
-					id: '106',
+					id: 106,
 					title: 'Вечное сияние чистого разума',
 					rating: {
 						kinopoisk: 7.6,
@@ -501,7 +501,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '104',
+					id: 104,
 					title: 'Пролетая над гнездом кукушки',
 					rating: {
 						kinopoisk: 7.4,
@@ -548,7 +548,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '103',
+					id: 103,
 					title: 'Синичка',
 					rating: {
 						kinopoisk: 7.3,
@@ -602,7 +602,7 @@ export const getSelections = (): ISelect[] => {
 			description: 'Изображения могут быть защищены авторским правом',
 			movie: [
 				{
-					id: '106',
+					id: 106,
 					title: 'Вечное сияние чистого разума',
 					rating: {
 						kinopoisk: 7.6,
@@ -649,7 +649,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '104',
+					id: 104,
 					title: 'Пролетая над гнездом кукушки',
 					rating: {
 						kinopoisk: 7.4,
@@ -696,7 +696,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '103',
+					id: 103,
 					title: 'Синичка',
 					rating: {
 						kinopoisk: 7.3,
@@ -751,7 +751,7 @@ export const getSelections = (): ISelect[] => {
 				'Употребление ягод смородины опосредованно влияет на улучшение микроциркуляции в области органов',
 			movie: [
 				{
-					id: '106',
+					id: 106,
 					title: 'Вечное сияние чистого разума',
 					rating: {
 						kinopoisk: 7.6,
@@ -798,7 +798,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '104',
+					id: 104,
 					title: 'Пролетая над гнездом кукушки',
 					rating: {
 						kinopoisk: 7.4,
@@ -845,7 +845,7 @@ export const getSelections = (): ISelect[] => {
 					is_viewed: false,
 				},
 				{
-					id: '103',
+					id: 103,
 					title: 'Синичка',
 					rating: {
 						kinopoisk: 7.3,

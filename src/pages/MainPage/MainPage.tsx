@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './MainPage.css';
 import FirstScreenCompilation from '../../components/FirstScreenCompilation/FirstScreenCompilation';
 import Slider from 'src/components/Slider/Slider';
-import { GENRES, GENRESv2 } from 'src/utils/constants';
+import { GENRESv2 } from 'src/utils/constants';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { SliderTypes } from '../../types/Slider.types';
@@ -11,6 +11,13 @@ import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SlickSliderTypes } from 'src/types/Rating.types';
 import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderGenres';
 import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
+import { SlickSliderDayMovies } from 'src/components/SlickSliderDayMovies/SlickSliderDayMovies';
+import { Loader } from 'src/components/Loader/Loader';
+import { SlickSliderGenresAPI } from 'src/components/SlickSliderGenres/SlickSliderGenresAPI';
+import { getNewMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
+import { getMoviesApi } from 'src/services/redux/slices/movies/movies';
+import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
+import { getFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -18,14 +25,19 @@ export default function MainPage() {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
-		dispatch(getFilmsApi());
+		dispatch(getNewMovieCardsApi());
+		dispatch(getMoviesApi());
+		dispatch(getCompilationsApi());
+		dispatch(getFavoritesApi())
 	}, []);
 
 	const films = useAppSelector((state) => state.films.films);
+	const compilations = useAppSelector((state) => state.compilations.data)
+	// console.log(compilations)
 
 	return (
 		<main className="main-page" id="main-page">
-			<FirstScreenCompilation film={films[0]} />
+			<SlickSliderDayMovies />
 			<div className="main-page_slick-slider">
 				<SlickSlider type={SlickSliderTypes.news} />
 			</div>
@@ -45,7 +57,10 @@ export default function MainPage() {
 				<SlickSlider type={SlickSliderTypes.blackwhite} />
 			</div>
 			<div className="main-page_slick-slider">
-				<SlickSliderGenres content={GENRESv2} />
+				<SlickSlider type={SlickSliderTypes.newyear} />
+			</div>
+			<div className="main-page_slick-slider">
+				<SlickSliderGenresAPI />
 			</div>
 		</main>
 	);

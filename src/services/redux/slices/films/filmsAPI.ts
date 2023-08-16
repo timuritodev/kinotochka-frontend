@@ -42,7 +42,7 @@ export const getFilms = (): Array<IFilms> => {
 
 	const mymovie = [
 		{
-			id: '101',
+			id: 101,
 			title: 'Абра кадабра',
 			rating: {
 				kinopoisk: 7.1,
@@ -90,7 +90,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '107',
+			id: 107,
 			title: 'Абра кадабра',
 			rating: {
 				kinopoisk: 7.1,
@@ -138,7 +138,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '108',
+			id: 108,
 			title: 'Абра кадабра',
 			rating: {
 				kinopoisk: 7.1,
@@ -186,7 +186,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '102',
+			id: 102,
 			title: 'Переводчик',
 			rating: {
 				kinopoisk: 7.2,
@@ -234,7 +234,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '109',
+			id: 109,
 			title: 'Переводчик',
 			rating: {
 				kinopoisk: 7.2,
@@ -282,7 +282,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '110',
+			id: 110,
 			title: 'Переводчик',
 			rating: {
 				kinopoisk: 7.2,
@@ -330,7 +330,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '103',
+			id: 103,
 			title: 'Синичка',
 			rating: {
 				kinopoisk: 7.3,
@@ -383,7 +383,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '111',
+			id: 111,
 			title: 'Синичка',
 			rating: {
 				kinopoisk: 7.3,
@@ -429,7 +429,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '112',
+			id: 112,
 			title: 'Синичка',
 			rating: {
 				kinopoisk: 7.3,
@@ -475,7 +475,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: false,
 		},
 		{
-			id: '104',
+			id: 104,
 			title: 'Favorit',
 			rating: {
 				kinopoisk: 7.4,
@@ -522,7 +522,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '113',
+			id: 113,
 			title: 'Пролетая над гнездом кукушки',
 			rating: {
 				kinopoisk: 7.4,
@@ -577,7 +577,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '114',
+			id: 114,
 			title: 'Пролетая над гнездом кукушки',
 			rating: {
 				kinopoisk: 7.4,
@@ -636,7 +636,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '105',
+			id: 105,
 			title: 'Конь',
 			rating: {
 				kinopoisk: 7.5,
@@ -683,7 +683,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '115',
+			id: 115,
 			title: 'Конь',
 			rating: {
 				kinopoisk: 7.5,
@@ -738,7 +738,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '116',
+			id: 116,
 			title: 'Конь',
 			rating: {
 				kinopoisk: 7.5,
@@ -793,7 +793,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '106',
+			id: 106,
 			title: 'Вечное сияние чистого разума',
 			rating: {
 				kinopoisk: 7.6,
@@ -846,7 +846,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '117',
+			id: 117,
 			title: 'Вечное сияние чистого разума',
 			rating: {
 				kinopoisk: 7.6,
@@ -892,7 +892,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '118',
+			id: 118,
 			title: 'Вечное сияние чистого разума',
 			rating: {
 				kinopoisk: 7.6,
@@ -938,7 +938,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '119',
+			id: 119,
 			title: 'Вечное сияние чистого разума',
 			rating: {
 				kinopoisk: 7.6,
@@ -993,7 +993,7 @@ export const getFilms = (): Array<IFilms> => {
 			is_viewed: true,
 		},
 		{
-			id: '120',
+			id: 120,
 			title: 'Вечное сияние чистого разума',
 			rating: {
 				kinopoisk: 7.6,

@@ -1,5 +1,5 @@
 import './Search.css';
-import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
+import { useAppSelector } from '../../services/typeHooks';
 import { IFilms } from 'src/types/Film.types';
 import { RatedElement } from '../RatedElement/RatedElement';
 import { useState, useEffect } from 'react';
@@ -37,7 +37,7 @@ const Search = ({
 		>
 			<div className="searchGeneral__films" id="searchGeneral__films">
 				{!isFilteredFilms ? (
-					filteredFilms.map((film: IFilms) => (
+					filteredFilms.slice(0, 5).map((film: IFilms) => (
 						<a href={film.movieCardUrl} className="searchGeneral__film">
 							<img
 								className="searchGeneral__film-poster"
@@ -50,18 +50,21 @@ const Search = ({
 										<RatedElement
 											imdb={film.rating.imdb}
 											kinopoisk={film.rating.kinopoisk}
+											isSearch={true}
 										/>
 									</p>
 									<p className="searchGeneral__film-country">
 										{film.country.join(', ')}
 									</p>
-									<p className="searchGeneral__film-year">{film.year}</p>
+									<p className="searchGeneral__film-year"> • {film.year}</p>
 								</div>
 							</article>
 						</a>
 					))
 				) : (
-					<p className="searchGeneral__film-none">Фильмы не найдены</p>
+					<p className="searchGeneral__film-none">
+						По вашему запросу ничего не найдено
+					</p>
 				)}
 			</div>
 		</section>

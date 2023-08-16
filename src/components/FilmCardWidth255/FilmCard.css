@@ -1,6 +1,7 @@
 .flanks_card {
 	max-width: 255px;
 	position: relative;
+	cursor: pointer;
 }
 
 .flanks_card-img {
@@ -39,4 +40,5 @@
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+	text-align: left;
 }

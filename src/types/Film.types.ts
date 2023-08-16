@@ -1,5 +1,5 @@
 export interface IFilms {
-	id: string;
+	id: number;
 	title: string;
 	rating: IRating;
 	shortDescription: string;

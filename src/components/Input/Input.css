@@ -44,10 +44,15 @@
 	outline: none;
 }
 
-.input__field:invalid {
+.input__field_invalid {
 	color: #ea4335;
 	border: 0.5px solid #ea4335;
 }
+
+/* .input__field:invalid {
+	color: #ea4335;
+	border: 0.5px solid #ea4335;
+} */
 
 .input__field_color_black {
 	background-color: #0c0c0c;

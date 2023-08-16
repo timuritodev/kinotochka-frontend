@@ -6,21 +6,25 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { FilmCard } from '../FilmCardWidth255/FilmCard';
 import { FC } from 'react';
-import { IFilms } from 'src/types/Film.types';
 import { ISlider } from 'src/types/Rating.types';
-
-import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { FilmCardLarge } from '../FilmCardLarge/FilmCardLarge';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
+import { getNewMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
+import { IMovieCard } from 'src/types/MovieCard.types';
 
 export const SlickSlider: FC<ISlider> = ({ type }) => {
 	const dispatch = useAppDispatch();
-	const films = useAppSelector((state) => state.films.films);
+	const films = useAppSelector((state) => state.movies.movies);
+	const [data, setData] = useState<IMovieCard[]>(films);
 
-	const favorites = useAppSelector((state) => state.films.favoriteFilms);
-	const willSee = useAppSelector((state) => state.films.mustSeeFilms);
-	const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
-	const [data, setData] = useState<IFilms[]>(films);
+	// const favorites = useAppSelector((state) => state.films.favoriteFilms);
+	// const willSee = useAppSelector((state) => state.films.mustSeeFilms);
+	// const ratedFilms = useAppSelector((state) => state.films.viewedFilms);
+
+	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
+	const oscar = useAppSelector((state) => state.compilations.data[0])
+	const similar = useAppSelector((state) => state.compilations.data[1])
+	const specialforyou = useAppSelector((state) => state.compilations.data[2])
 
 	const settings =
 		type === 'news' || type === 'similar'
@@ -42,18 +46,14 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			  };
 
 	useEffect(() => {
-		dispatch(getFilmsApi());
-	}, []);
-
-	useEffect(() => {
 		if (type === 'specialforyou') {
-			setData(willSee);
-		} else if (type === 'news') {
 			setData(films);
+		} else if (type === 'news') {
+			setData(newmovies);
 		} else if (type === 'similar') {
 			setData(films);
 		} else if (type === 'oscar') {
-			setData(favorites);
+			setData(films);
 		} else {
 			setData(films);
 		}
@@ -68,7 +68,9 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 			? 'Оскар 2023'
 			: type === 'similar'
 			? 'Похожие'
-			: 'Черно-белое кино';
+			: type === 'blackwhite'
+			? 'Черно-белое кино'
+			: 'Новогоднее кино';
 
 	const asdw =
 		type === 'specialforyou'
@@ -79,7 +81,7 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 		<div className="slick-slider_container">
 			<h1 className="slick-slider_title">{title}</h1>
 			<Slider {...settings} className="slick-slider">
-				{type === 'oscar' || type === 'blackwhite'
+				{type === 'oscar' || type === 'blackwhite' || type === 'newyear'
 					? data.map((item) => <FilmCard film={item} />)
 					: asdw}
 			</Slider>

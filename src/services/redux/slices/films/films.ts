@@ -8,14 +8,14 @@ export const getFilmsApi = createAsyncThunk('@@films/films', async () => {
 
 export const updateFavorite = createAsyncThunk(
 	'@@films/updateFavorite',
-	async ({ id, favorite }: { id: string; favorite: boolean }) => {
+	async ({ id, favorite }: { id: number; favorite: boolean }) => {
 		return { id, favorite };
 	}
 );
 
 export const updateWatch = createAsyncThunk(
 	'@@films/updateWatch',
-	async ({ id, watch }: { id: string; watch: boolean }) => {
+	async ({ id, watch }: { id: number; watch: boolean }) => {
 		return { id, watch };
 	}
 );
@@ -25,7 +25,7 @@ const initialState: IFilmsState = {
 	error: '',
 	films: [
 		{
-			id: '',
+			id: 0,
 			title: '',
 			rating: {
 				kinopoisk: 0,
@@ -57,7 +57,7 @@ const initialState: IFilmsState = {
 	],
 	favoriteFilms: [
 		{
-			id: '',
+			id: 0,
 			title: '',
 			rating: {
 				kinopoisk: 0,
@@ -89,7 +89,7 @@ const initialState: IFilmsState = {
 	],
 	mustSeeFilms: [
 		{
-			id: '',
+			id: 0,
 			title: '',
 			rating: {
 				kinopoisk: 0,
@@ -121,7 +121,7 @@ const initialState: IFilmsState = {
 	],
 	viewedFilms: [
 		{
-			id: '',
+			id: 0,
 			title: '',
 			rating: {
 				kinopoisk: 0,

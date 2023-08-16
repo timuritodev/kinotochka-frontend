@@ -1,5 +1,3 @@
-import { IActor } from './Film.types';
-
 export interface IRating {
 	id: number;
 	user: number;
@@ -32,7 +30,7 @@ export interface IImage {
 }
 
 export interface ActorsListProps {
-	actors: IActor[];
+	actors: string[];
 }
 export interface PopupTrailerProps {
 	isPopupOpen: boolean;
@@ -46,6 +44,7 @@ export enum SlickSliderTypes {
 	specialforyou = 'specialforyou',
 	similar = 'similar',
 	genres = 'genres',
+	newyear = 'newyear',
 }
 
 export interface ISlider {

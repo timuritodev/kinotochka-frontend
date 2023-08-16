@@ -20,4 +20,7 @@ export interface IInput {
 	labelText?: string;
 	showPasswordButton?: boolean;
 	color?: InputColors;
+	validation?: any;
+	error?: string;
+	ref?: any;
 }

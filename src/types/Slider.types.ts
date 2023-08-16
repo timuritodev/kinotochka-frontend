@@ -1,3 +1,5 @@
+import { IGenre } from './Genre.types';
+
 export enum SliderTypes {
 	genresBlock = 'genresBlock',
 	genresRow = 'genresRow',
@@ -7,5 +9,6 @@ export enum SliderTypes {
 
 export interface ISlider {
 	contentType: SliderTypes;
-	content: string[];
+	content: IGenre[];
+	onGenreSelection: (selectedGenres: number[]) => void;
 }

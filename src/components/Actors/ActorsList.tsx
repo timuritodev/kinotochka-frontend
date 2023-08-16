@@ -9,9 +9,7 @@ const ActorsList: FC<ActorsListProps> = ({ actors }) => {
 			<h1 className="actorslist__title">Актеры</h1>
 			<div className="actorslist__container">
 				<p className="actorslist__text">
-					{actors
-						.map((item) => item.first_name + ' ' + item.last_name)
-						.join(', ')}
+					{actors.map((item) => item).join(', ')}
 				</p>
 			</div>
 		</section>
