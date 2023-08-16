@@ -16,6 +16,8 @@ export const FilmCard = ({ film }: { film: IMovieCard }) => {
 		window.scrollTo(0, 0);
 	};
 
+	console.log(film)
+
 	return (
 		<section key={film.id} className="flanks_card">
 			<img
