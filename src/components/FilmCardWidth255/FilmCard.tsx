@@ -20,7 +20,7 @@ export const FilmCard = ({ film }: { film: IMovieCard }) => {
 		<section key={film.id} className="flanks_card">
 			<img
 				className="flanks_card-img"
-				src={film.v_picture}
+				src={film.h_picture}
 				alt=""
 				onClick={handleImgClick}
 			/>
