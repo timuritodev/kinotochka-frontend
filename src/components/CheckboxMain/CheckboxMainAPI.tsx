@@ -6,13 +6,16 @@ type Props = {
 	genreapi: IGenresIcons;
 	checked: boolean;
 	onChange: (value: string) => void;
-}
+};
 
-	export default function GenresIconsFunc({ genreapi, checked, onChange}: Props ) {
-
-		const handleChange = () => {
-			onChange(genreapi.title);
-		};
+export default function GenresIconsFunc({
+	genreapi,
+	checked,
+	onChange,
+}: Props) {
+	const handleChange = () => {
+		onChange(genreapi.title);
+	};
 
 	return (
 		<label className="genre-checkbox">
@@ -23,7 +26,8 @@ type Props = {
 				onChange={handleChange}
 			/>
 			<div className="genre-checkbox__appearance">
-			<img src={genreapi.picture} alt={genreapi.title} />{genreapi.title}
+				<img src={genreapi.picture} alt={genreapi.title} />
+				{genreapi.title}
 			</div>
 		</label>
 	);

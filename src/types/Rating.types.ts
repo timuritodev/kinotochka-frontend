@@ -38,13 +38,12 @@ export interface PopupTrailerProps {
 }
 
 export enum SlickSliderTypes {
-	oscar = 'oscar',
 	news = 'news',
-	blackwhite = 'blackwhite',
 	specialforyou = 'specialforyou',
 	similar = 'similar',
-	genres = 'genres',
-	newyear = 'newyear',
+	redactionOne = 'redactionOne',
+	redactionTwo = 'redactionTwo',
+	redactionThree = 'redactionThree',
 }
 
 export interface ISlider {

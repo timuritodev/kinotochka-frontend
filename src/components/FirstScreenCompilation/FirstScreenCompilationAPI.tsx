@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom';
 import { RatedElement } from '../RatedElement/RatedElement';
 import { IMoviesOfDay } from 'src/types/moviesoftheday.types';
 
-export default function FirstScreenCompilation({ film }: { film: IMoviesOfDay }) {
+export default function FirstScreenCompilation({
+	film,
+}: {
+	film: IMoviesOfDay;
+}) {
 	return (
 		<section className="first-screen-compilation">
 			<img className="movie__img" src={film.h_picture} alt={film.title} />

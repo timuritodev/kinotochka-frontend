@@ -2,7 +2,9 @@ import { FC } from 'react';
 import { useState } from 'react';
 import './Account.css';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
+import { 
+	// useAppDispatch,
+	 useAppSelector } from '../../services/typeHooks';
 import { selectUser } from 'src/services/redux/slices/user/user';
 
 const Account: FC = (isLoggedIn) => {
@@ -28,7 +30,7 @@ const Account: FC = (isLoggedIn) => {
 				<>
 					<p className="account__profile-icon" onMouseOver={setProfileOpen}>
 						<Link to="/profile" className="account__profile-link">
-							<p className="account__profile-word">{email[0]}</p>
+							<p className="account__profile-word">W{email[0]}</p>
 						</Link>
 					</p>
 					<nav
@@ -37,8 +39,8 @@ const Account: FC = (isLoggedIn) => {
 						onMouseOut={setProfileClose}
 					>
 						<ul className="account__list" onMouseOver={setProfileOpen}>
-							<p className="account__content-nik">{email}</p>
-							<p className="account__content-email">{email}</p>
+							<p className="account__content-nik">Nickname{email}</p>
+							<p className="account__content-email">email{email}</p>
 							{/* <Link to="/sign-in" className="account__content-link">
 								Авторизация
 							</Link>

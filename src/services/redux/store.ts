@@ -26,6 +26,7 @@ import { moviesReducer } from './slices/movies/movies';
 import { favoriteReducer } from './slices/favorites/favorites';
 import { compilationsReducer } from './slices/compilations/compilations';
 import { watchReducer } from './slices/watch/watch';
+import { moviesbygenreReducer} from './slices/movieByGenre/moviesByGenre';
 
 const rootReducer = combineReducers({
 	user: userReducer,
@@ -42,7 +43,7 @@ const rootReducer = combineReducers({
 	daymoviescards: moviedaycardsReducer,
 	genresiconscards: genresiconscardsReducer,
 	genres: genresReducer,
-
+	moviesbygenre: moviesbygenreReducer,
 });
 
 const persistConfig = {

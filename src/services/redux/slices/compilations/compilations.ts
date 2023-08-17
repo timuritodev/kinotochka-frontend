@@ -10,8 +10,6 @@ export const getCompilationsApi = createAsyncThunk(
 );
 
 const initialState: ICompilationsState = {
-    status: 'idle',
-    error: '',
     data: [
         {
             id: 0,
@@ -43,7 +41,6 @@ export const compilationsSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getCompilationsApi.fulfilled, (state, action) => {
-            state.status = 'success';
             state.data = action.payload;
         });
     },
