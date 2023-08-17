@@ -14,13 +14,11 @@ export interface ICompilations {
 }
 
 export interface ICompilationsTwo {
-	id: number,
-    title: string,
+	id?: number,
+    title: string;
     movies: IMovieCard[]
 }
 
 export interface ICompilationsState {
-	status: 'idle' | 'success' | 'loading' | 'failed';
-	error: string | undefined;
-	data: Array<ICompilationsTwo>;
+	data: ICompilationsTwo[];
 }
