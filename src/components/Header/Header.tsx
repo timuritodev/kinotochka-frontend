@@ -72,7 +72,7 @@ const Header: FC = () => {
 					<Link to="/collections" className="header__content-link">
 						Все подборки
 					</Link>
-					<Link to="/will-see" className="header__content-link">
+					<Link to="/allgenres" className="header__content-link">
 						Фильмы по жанрам
 					</Link>
 				</ul>

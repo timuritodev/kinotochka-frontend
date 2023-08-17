@@ -16,6 +16,7 @@ import { Loader } from 'src/components/Loader/Loader';
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
 	const loading = useAppSelector((state) => state.movie.status)
+	const films = useAppSelector((state) => state.movies.movies);
 
 	return (
 		<>
@@ -59,7 +60,7 @@ const MoviePage: FC = () => {
 							<FilmAbout movie={movie} />
 						</div>
 						<div className="moviepage-cards__container">
-							<SlickSlider type={SlickSliderTypes.similar} />
+							<SlickSlider title={`Подборки`} movies={films} />
 						</div>
 					</div>
 				</section>

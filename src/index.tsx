@@ -25,6 +25,8 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { WindowResize } from './components/WindowResize/WindowResize';
 import { useAppDispatch } from './services/typeHooks';
 import { getGenres } from './services/redux/slices/genres/genres';
+import  AllGenresPage  from './pages/AllGenresPage/AllGenresPage';
+import  OneGenrePage  from './pages/OneGenrePage/OneGenrePage';
 
 const Root: FC = () => {
 	const dispatch = useAppDispatch();
@@ -49,6 +51,8 @@ const Root: FC = () => {
 						element={<FlanksPage formName={FlanksTypes.ratedFilms} />}
 					/>
 					<Route path="/preferences" element={<PreferencesPage />} />
+					<Route path="/allgenres" element={<AllGenresPage />} />
+					<Route path="/onegenre" element={<OneGenrePage />} />
 					<Route
 						path="/will-see"
 						element={<FlanksPage formName={FlanksTypes.willSee} />}
