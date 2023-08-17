@@ -3,7 +3,7 @@ import { getMovies } from './moviesApi';
 import { IMovieCardState } from 'src/types/MovieCard.types';
 
 export const getMoviesApi = createAsyncThunk(
-	'@@film/film',
+	'@@movies/movies',
 	async () => {
 		return getMovies();
 	}
@@ -31,7 +31,7 @@ const initialState: IMovieCardState = {
 };
 
 export const moviesSlice = createSlice({
-	name: '@@film',
+	name: '@@movies',
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
