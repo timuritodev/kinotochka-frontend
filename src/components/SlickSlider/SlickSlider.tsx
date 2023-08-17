@@ -62,18 +62,18 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 		}
 	}, []);
 
-	const title =
-		type === 'news'
-			? 'Новинки'
-			: type === 'specialforyou'
-			? 'Специально для вас'
-			: type === 'redactionOne'
-			? `${redactionOne.title}`
-			: type === 'similar'
-			? 'Похожие'
-			: type === 'redactionTwo'
-			? `${redactionTwo.title}`
-			: `${redactionThree.title}`;
+	// const title =
+	// 	type === 'news'
+	// 		? 'Новинки'
+	// 		: type === 'specialforyou'
+	// 		? 'Специально для вас'
+	// 		: type === 'redactionOne'
+	// 		? `${redactionOne.title}`
+	// 		: type === 'similar'
+	// 		? 'Похожие'
+	// 		: type === 'redactionTwo'
+	// 		? `${redactionTwo.title}`
+	// 		: `${redactionThree.title}`;
 
 	const asdw =
 		type === 'specialforyou'
@@ -82,7 +82,8 @@ export const SlickSlider: FC<ISlider> = ({ type }) => {
 
 	return (
 		<div className="slick-slider_container">
-			<h1 className="slick-slider_title">{title}</h1>
+			<h1 className="slick-slider_title">{}</h1>
+			{/* {title && <h1 className="slick-slider_title">{title}</h1>} */}
 			<Slider {...settings} className="slick-slider">
 				{type === 'redactionOne' || type === 'redactionTwo' || type === 'redactionThree'
 					? data.map((item) => <FilmCard film={item} />)

@@ -4,9 +4,9 @@ import { useAppSelector } from '../../services/typeHooks';
 import { RatedElement } from '../RatedElement/RatedElement';
 import { useState, useEffect } from 'react';
 import { IMovieCard } from 'src/types/MovieCard.types';
-// import { useNavigate } from 'react-router-dom';
-// import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
-// import { useAppDispatch } from '../../services/typeHooks';
+import { useNavigate } from 'react-router-dom';
+import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+import { useAppDispatch } from '../../services/typeHooks';
 
 const Search = ({
 	isOpenSearch,
@@ -35,14 +35,15 @@ const Search = ({
 		}
 	}, [values]);
 
-	// const navigate = useNavigate();
-	// const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 
-	// const handleImgClick = () => {
-	// 	dispatch(getMoviebyidApi({ filmId: film.id }));
-	// 	navigate('/movie-page');
-	// 	window.scrollTo(0, 0);
-	// };
+	const handleImgClick = (filmId: number) => {
+		dispatch(getMoviebyidApi(filmId));
+		navigate('/movie-page');
+		window.scrollTo(0, 0);
+	};
+
 
 	return (
 		<section
@@ -52,8 +53,7 @@ const Search = ({
 				{!isFilteredFilms ? (
 					filteredFilms.slice(0, 5).map((film: IMovieCard) => (
 						<a
-							// href={film.movieCardUrl}
-							// onClick={handleImgClick}
+							onClick={() => handleImgClick(film.id)}
 							className="searchGeneral__film"
 						>
 							<img
