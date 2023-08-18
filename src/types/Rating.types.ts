@@ -14,6 +14,11 @@ export interface IRatingState {
 	movie_rating: IRating;
 }
 
+export interface IRate {
+	rate: number;
+}
+
+
 export enum ButtonTypes {
 	seen = 'seen',
 	willSee = 'willSee',

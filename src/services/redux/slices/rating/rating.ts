@@ -1,11 +1,11 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { IRatingState } from 'src/types/Rating.types';
-import { getRating } from './ratingApi';
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { IRating, IRatingState } from 'src/types/Rating.types';
+import { fetchRating } from './ratingApi';
 
 export const getMoviesRating = createAsyncThunk(
-	'@@favorites/favorites',
-	async () => {
-		return getRating();
+	'@@rating/rating',
+	async ({id,rate}:{id: number, rate: any}) => {
+		return fetchRating(id,rate);
 	}
 );
 
@@ -24,17 +24,15 @@ const initialState: IRatingState = {
 };
 
 export const ratingSlice = createSlice({
-	name: '@@favorites',
+	name: '@@rating',
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getMoviesRating.pending, (state) => {
-				state.status = 'loading';
-			})
-			.addCase(getMoviesRating.fulfilled, (state, action) => {
+			
+			.addCase(getMoviesRating.fulfilled, (state, action ) => {
 				state.status = 'success';
-				state.movie_rating = action.payload;
+				//state.movie_rating = action.payload;
 			})
 			.addCase(getMoviesRating.rejected, (state) => {
 				state.status = 'failed';

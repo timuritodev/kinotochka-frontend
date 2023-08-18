@@ -30,7 +30,6 @@ const SignInPage = () => {
 		console.log('data onSubmit:', data.email, data.password);
 
 		const formValues = getValues();
-		console.log(formValues);
 		dispatch(signInUser(getValues() as ISignInData))
 			.unwrap()
 			.then((res) => console.log('dispatch success', res))

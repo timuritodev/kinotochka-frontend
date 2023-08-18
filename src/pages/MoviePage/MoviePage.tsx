@@ -16,7 +16,7 @@ import { Loader } from 'src/components/Loader/Loader';
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
 	const loading = useAppSelector((state) => state.movie.status)
-
+	
 	return (
 		<>
 			{loading === 'loading' ? (
@@ -46,7 +46,7 @@ const MoviePage: FC = () => {
 									/>
 									<MovieButton buttonName={ButtonTypes.willSee} id={movie.id} />
 								</div>
-								<RatingElement />
+								<RatingElement id={movie.id} user={0} movie={0} rate={0} is_viewed={false} must_see={false} is_favorite={false} />
 							</div>
 						</div>
 						<div className="description__container">

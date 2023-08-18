@@ -1,17 +1,36 @@
 import { IRating } from 'src/types/Rating.types';
+import { API_BASE_URL } from 'src/utils/constants';
 
-export const getRating = (): IRating => {
-	// return fetchData(`${API_URL}/signin`, data);
 
-	const mymovie = {
-		id: 1,
-		user: 3,
-		movie: 1,
-		rate: 6.4,
-		is_viewed: false,
-		must_see: true,
-		is_favorite: true,
-	};
+const API_AUTH_URL = `${API_BASE_URL}/movies`;
 
-	return mymovie;
+const checkRes = (res: Response) => {
+	if (res.ok) {
+		
+		return res;
+	} else {
+		return Promise.reject(res);
+	}
 };
+
+
+const fetchData = (
+	url: string,
+    rate: number 
+	) => {
+		console.log({rate})
+	return fetch(url, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		...({ body: JSON.stringify({rate}) }),
+	}).then((res) => checkRes(res));
+};
+
+export const fetchRating = (id: any, rate: any): Promise<Response> => {
+	return fetchData(`${API_AUTH_URL}/${id}/rate`, rate).then((res) => checkRes(res));
+};
+
+
+
