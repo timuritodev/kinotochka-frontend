@@ -4,7 +4,7 @@ import { IMoviebyidState } from 'src/types/Moviebyid.types';
 
 export const getMoviebyidApi = createAsyncThunk(
 	'@@movie/movie',
-	async ({ filmId }: { filmId: number }) => {
+	async (filmId: number) => {
 		return getMoviebyid(filmId);
 	}
 );

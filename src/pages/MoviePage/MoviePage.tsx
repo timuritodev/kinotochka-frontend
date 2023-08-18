@@ -8,10 +8,9 @@ import TrailerButton from '../../components/TrailerButton/TrailerButton';
 import { FC } from 'react';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
-import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
-import { SlickSliderTypes } from '../../types/Rating.types';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 import { Loader } from 'src/components/Loader/Loader';
+import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
@@ -41,9 +40,7 @@ const MoviePage: FC = () => {
 							</div>
 							<div className="moviepage__button__container">
 								<div className="moviepage__button__container_plus">
-									<MovieButton
-										buttonName={ButtonTypes.favorites}
-										id={movie.id}
+									<MovieButton buttonName={ButtonTypes.favorites} id={movie.id}
 									/>
 									<MovieButton buttonName={ButtonTypes.willSee} id={movie.id} />
 								</div>
@@ -62,7 +59,7 @@ const MoviePage: FC = () => {
 							<FilmAbout movie={movie} />
 						</div>
 						<div className="moviepage-cards__container">
-							<SlickSlider title={`Подборки`} movies={films} />
+							<SlickSliderMini title={`Подборки`} movies={films} />
 						</div>
 					</div>
 				</section>

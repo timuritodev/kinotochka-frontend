@@ -39,8 +39,8 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 	const typesImg =
 		buttonName === 'favorites'
 			? filmFav
-				? bookmark
-				: bookmark_clicked
+				? bookmark_clicked
+				: bookmark
 			: filmWatch
 			? eye_clicked
 			: eye;
