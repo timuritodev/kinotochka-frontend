@@ -11,6 +11,7 @@ import { getMoviesApi } from 'src/services/redux/slices/movies/movies';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
 import { getFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
 import { Loader } from 'src/components/Loader/Loader';
+import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -48,12 +49,12 @@ export default function MainPage() {
 				<main className="main-page" id="main-page">
 					<SlickSliderDayMovies />
 					<div className="main-page_slick-slider">
-						<SlickSlider title={`Новинки`} movies={films} />
+						<SlickSliderMini title={`Новинки`} movies={films} />
 					</div>
 					<div className="main-page_slick-slider">
 						<div className="main-page_slick-slider_specialforyou">
 							{isLoggedIn === true ? (
-								<SlickSlider title={`Специально для вас`} movies={films} />
+								<SlickSliderMini title={`Специально для вас`} movies={films} />
 							) : (
 								<SpecialForYou />
 							)}
