@@ -60,7 +60,7 @@ export const moviebyidSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getMoviebyidApi.pending, (state, action) => {
+			.addCase(getMoviebyidApi.pending, (state) => {
 				state.status = 'loading';
 			})
 			.addCase(getMoviebyidApi.fulfilled, (state, action) => {

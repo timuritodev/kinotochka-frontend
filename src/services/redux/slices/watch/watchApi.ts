@@ -39,13 +39,13 @@ const fetchData = (url: string) => {
 };
 
 export const getWatch = (): Promise<Response> => {
-	return fetchData(`${API_BASE_URL}/movies/watchlist}`);
+	return fetchData(`${API_BASE_URL}/movies/watchlist`);
 };
 
 export const addToWatch = (filmId: number): Promise<Response> => {
-	return postData(`${API_BASE_URL}/movies/${filmId}/setwatch}`);
+	return postData(`${API_BASE_URL}/movies/${filmId}/setwatch`);
 };
 
 export const deleteFromWatch = (filmId: number): Promise<Response> => {
-	return deleteData(`${API_BASE_URL}/movies/${filmId}/setwatch}`);
+	return deleteData(`${API_BASE_URL}/movies/${filmId}/setwatch`);
 };
