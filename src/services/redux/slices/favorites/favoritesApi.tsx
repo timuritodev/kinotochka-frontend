@@ -39,13 +39,13 @@ const fetchData = (url: string) => {
 };
 
 export const getFavorites = (): Promise<Response> => {
-	return fetchData(`${API_BASE_URL}/movies/favorite}`);
+	return fetchData(`${API_BASE_URL}/movies/favorite`);
 };
 
 export const addToFavorites = (filmId: number): Promise<Response> => {
-	return postData(`${API_BASE_URL}/movies/${filmId}/favorite}`);
+	return postData(`${API_BASE_URL}/movies/${filmId}/favorite`);
 };
 
 export const deleteFromFavorites = (filmId: number): Promise<Response> => {
-	return deleteData(`${API_BASE_URL}/movies/${filmId}/favorite}`);
+	return deleteData(`${API_BASE_URL}/movies/${filmId}/favorite`);
 };
