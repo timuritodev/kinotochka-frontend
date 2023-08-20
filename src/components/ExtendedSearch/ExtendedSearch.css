@@ -35,6 +35,11 @@
 	margin: 0 0 15px 0;
 }
 
+.searchExtended__form:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
+
 .searchExtended__form-select {
 	font-size: 16px;
 	font-weight: 500;
