@@ -41,12 +41,12 @@ const Account: FC = (isLoggedIn) => {
 						<ul className="account__list" onMouseOver={setProfileOpen}>
 							<p className="account__content-nik">Nickname{email}</p>
 							<p className="account__content-email">email{email}</p>
-							{/* <Link to="/sign-in" className="account__content-link">
+							 <Link to="/sign-in" className="account__content-link">
 								Авторизация
 							</Link>
 							<Link to="/movie-page" className="account__content-link">
 								Страница фильма
-							</Link> */}
+							</Link> 
 							<Link to="/favorites" className="account__content-link">
 								Избранное
 							</Link>

@@ -25,6 +25,7 @@ export const fetchData = (
 };
 
 export const fetchSignIn = (data: ISignInData): Promise<Response> => {
+	console.log(data)
 	return fetchData(`${API_AUTH_URL}/login/`, data).then((res) => checkRes(res));
 };
 

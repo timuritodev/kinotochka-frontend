@@ -8,7 +8,7 @@ import { IRating } from 'src/types/Rating.types';
 const RatingElement: FC<IRating> = ({ id,rate })=>  {
 	const [rating, setRating] = useState(0);
 	const dispatch = useAppDispatch();
-	//const movierating = useAppSelector((state) => state.movie_rating.rate);
+	//const movierating = useAppSelector((state) => state.movie_rating);
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
 		
@@ -16,6 +16,7 @@ const RatingElement: FC<IRating> = ({ id,rate })=>  {
 			id,
 			rate: value,
 		}))
+		
 	};
 	
 	useEffect(() => {
