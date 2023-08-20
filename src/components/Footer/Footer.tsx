@@ -13,20 +13,22 @@ const Footer: FC = () => {
 	};
 
 	
-	const ScrollBtn = document.querySelector('.footer__scroll');
-
+	
 	window.addEventListener('scroll', () => {
-	if (window.scrollY < 900) {
-		ScrollBtn?.classList.add('scroll-hidden');
-	} else {
-		ScrollBtn?.classList.remove('scroll-hidden');
-	}
+
+		const ScrollBtn = document.querySelector('.footer__scroll');
+		if (window.scrollY < 900) {
+			ScrollBtn?.classList.add('scroll-hidden');
+		} else {
+			ScrollBtn?.classList.remove('scroll-hidden');
+		}
+		
 	});
 
 	return (
 		<footer className="footer">
 			<h4 className="footer__desc">© 2023 КиноТочка. Все права защищены.</h4>
-			<button onClick={buttonUp} className="footer__scroll">
+			<button onClick={buttonUp} className="footer__scroll scroll-hidden">
 				<img
 					className="footer__scroll-button"
 					alt="скролл вверх"
