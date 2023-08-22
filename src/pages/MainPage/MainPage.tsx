@@ -24,7 +24,7 @@ export default function MainPage() {
 			dispatch(getNewMovieCardsApi()),
 			dispatch(getMoviesApi()),
 			dispatch(getCompilationsApi()),
-			dispatch(getFavoritesApi())
+			// dispatch(getFavoritesApi())
 		])
 			.then(() => {
 				setIsLoading(false);
