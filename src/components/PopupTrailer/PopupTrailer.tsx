@@ -1,5 +1,5 @@
 import { useAppSelector } from '../../services/typeHooks';
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import './PopupTrailer.css';
 import { PopupTrailerProps } from 'src/types/Rating.types';
 
@@ -8,10 +8,18 @@ const PopupTrailer: FC<PopupTrailerProps> = ({
 	switchPopupTrailer,
 }) => {
 	const link = useAppSelector((state) => state.movie.movie.trailer_link);
+	const [iframeKey, setIframeKey] = useState(0);
+
+	useEffect(() => {
+		if (!isPopupOpen) {
+			setIframeKey(iframeKey + 1);
+		}
+	}, [isPopupOpen]);
 
 	return (
 		<div className={`popupTrailer ${isPopupOpen ? 'popupTrailer_opened' : ''}`}>
 			<iframe
+				key={iframeKey}
 				width="720"
 				height="480"
 				src={link}
