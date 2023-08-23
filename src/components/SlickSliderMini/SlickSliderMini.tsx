@@ -21,7 +21,7 @@ export const SlickSliderMini: FC<ICompilationsTwo> = ({ title, movies }) => {
 		<div className="slick-slider_container">
 			<h1 className="slick-slider_title">{title}</h1>
 			<Slider {...settings} className="slick-slider">
-				{movies.map((item) => <FilmCardSmall film={item} />)}
+				{movies.map((item) => <FilmCardSmall key={item.id} film={item} />)}
 			</Slider>
 		</div>
 	);
