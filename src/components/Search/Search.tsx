@@ -53,6 +53,7 @@ const Search = ({
 				{!isFilteredFilms ? (
 					filteredFilms.slice(0, 5).map((film: IMovieCard) => (
 						<a
+							key={film.id}
 							onClick={() => handleImgClick(film.id)}
 							className="searchGeneral__film"
 						>
