@@ -18,20 +18,22 @@ const PopupTrailer: FC<PopupTrailerProps> = ({
 
 	return (
 		<div className={`popupTrailer ${isPopupOpen ? 'popupTrailer_opened' : ''}`}>
-			<iframe
-				key={iframeKey}
-				width="720"
-				height="480"
-				src={link}
-				title="YouTube video player"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				allowFullScreen
-			/>
-			<button
-				className="popupTrailer__close"
-				type="button"
-				onClick={switchPopupTrailer}
-			/>
+			<div className="popupTrailer__content">
+				<iframe
+					key={iframeKey}
+					width="720"
+					height="480"
+					src={link}
+					title="YouTube video player"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					allowFullScreen
+				/>
+				<button
+					className="popupTrailer__close"
+					type="button"
+					onClick={switchPopupTrailer}
+				/>
+			</div>
 		</div>
 	);
 };
