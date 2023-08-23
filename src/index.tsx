@@ -24,8 +24,8 @@ import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import { useAppDispatch } from './services/typeHooks';
 import { getGenres } from './services/redux/slices/genres/genres';
-import  AllGenresPage  from './pages/AllGenresPage/AllGenresPage';
-import  OneGenrePage  from './pages/OneGenrePage/OneGenrePage';
+import AllGenresPage from './pages/AllGenresPage/AllGenresPage';
+import OneGenrePage from './pages/OneGenrePage/OneGenrePage';
 
 const Root: FC = () => {
 	const dispatch = useAppDispatch();

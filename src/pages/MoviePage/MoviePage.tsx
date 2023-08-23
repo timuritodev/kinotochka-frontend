@@ -14,7 +14,7 @@ import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini'
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
-	const loading = useAppSelector((state) => state.movie.status)
+	const loading = useAppSelector((state) => state.movie.status);
 	const films = useAppSelector((state) => state.movies.movies);
 
 	return (
@@ -40,7 +40,9 @@ const MoviePage: FC = () => {
 							</div>
 							<div className="moviepage__button__container">
 								<div className="moviepage__button__container_plus">
-									<MovieButton buttonName={ButtonTypes.favorites} id={movie.id}
+									<MovieButton
+										buttonName={ButtonTypes.favorites}
+										id={movie.id}
 									/>
 									<MovieButton buttonName={ButtonTypes.willSee} id={movie.id} />
 								</div>

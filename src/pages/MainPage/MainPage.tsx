@@ -34,9 +34,9 @@ export default function MainPage() {
 
 	const films = useAppSelector((state) => state.movies.movies);
 	const compilations = useAppSelector((state) => state.compilations.data);
-	const redactionOne = useAppSelector((state) => state.compilations.data[0])
-	const redactionTwo = useAppSelector((state) => state.compilations.data[1])
-	const redactionThree = useAppSelector((state) => state.compilations.data[2])
+	const redactionOne = useAppSelector((state) => state.compilations.data[0]);
+	const redactionTwo = useAppSelector((state) => state.compilations.data[1]);
+	const redactionThree = useAppSelector((state) => state.compilations.data[2]);
 
 	return (
 		<>
@@ -59,17 +59,26 @@ export default function MainPage() {
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionOne && (
-							<SlickSlider title={redactionOne.title} movies={redactionOne.movies} />
+							<SlickSlider
+								title={redactionOne.title}
+								movies={redactionOne.movies}
+							/>
 						)}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionTwo && (
-							<SlickSlider title={redactionTwo.title} movies={redactionTwo.movies} />
+							<SlickSlider
+								title={redactionTwo.title}
+								movies={redactionTwo.movies}
+							/>
 						)}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionThree && (
-							<SlickSlider title={redactionThree.title} movies={redactionThree.movies} />
+							<SlickSlider
+								title={redactionThree.title}
+								movies={redactionThree.movies}
+							/>
 						)}
 					</div>
 					<div className="main-page_slick-slider">

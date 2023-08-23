@@ -33,7 +33,8 @@ export default function FirstScreenCompilation({
 				/>
 				<p className="movie__description">{film.short_description}</p>
 				<div className="button-wraper">
-					<div className="movie__more-detailed"
+					<div
+						className="movie__more-detailed"
 						onClick={() => handleImgClick(film.id)}
 					>
 						Подробнее

@@ -3,19 +3,18 @@ import { FC } from 'react';
 import { useState, useEffect, useCallback } from 'react';
 import { useAppSelector } from '../../services/typeHooks';
 import { useNavigate } from 'react-router-dom';
-import { FilmCardLarge} from 'src/components/FilmCardLarge/FilmCardLarge';
-import { FilmCardSmall} from 'src/components/FilmCardWidth180/FilmCardSmall';
-import { FilmCard} from 'src/components/FilmCardWidth255/FilmCard';
+import { FilmCardLarge } from 'src/components/FilmCardLarge/FilmCardLarge';
+import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
+import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
-import  BackButton  from 'src/components/BackButton/BackButton';
+import BackButton from 'src/components/BackButton/BackButton';
 
 const OneGenrePage: FC = () => {
 	const filmsBygenre = useAppSelector((state) => state.moviesbygenre.films);
 	const [isMoreButton, setIsMoreButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
-
 
 	const handleResize = useCallback(() => {
 		const windowWidth = window.innerWidth;
@@ -57,16 +56,18 @@ const OneGenrePage: FC = () => {
 
 	const navigate = useNavigate();
 
-    const handButtonBackClick = () => {
+	const handButtonBackClick = () => {
 		navigate('/');
 	};
-	
+
 	const genre = localStorage.getItem('genre');
-	
-	
+
 	return (
 		<section className="flank">
-			<BackButton  type={'button'} buttonText={'Назад'} handleButtonClick={handButtonBackClick}
+			<BackButton
+				type={'button'}
+				buttonText={'Назад'}
+				handleButtonClick={handButtonBackClick}
 			/>
 			<h1 className="flank_title">
 				Жанр{' '}

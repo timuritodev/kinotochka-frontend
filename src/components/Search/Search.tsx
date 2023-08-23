@@ -44,7 +44,6 @@ const Search = ({
 		window.scrollTo(0, 0);
 	};
 
-
 	return (
 		<section
 			className={`searchGeneral ${isOpenSearch && 'searchGeneral_open'}`}

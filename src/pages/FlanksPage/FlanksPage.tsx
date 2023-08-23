@@ -11,12 +11,11 @@ import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
 
-
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
 	const favorites = useAppSelector((state) => state.newmoviecards.movies);
 	const compilations = useAppSelector((state) => state.compilations.data);
-	
+
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
@@ -26,12 +25,12 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		formName === 'ratedFilms'
 			? 'Оцененное'
 			: formName === 'willSee'
-				? 'Буду смотреть'
-				: formName === 'favorites'
-					? 'Избранное'
-					: 'Все подборки';
+			? 'Буду смотреть'
+			: formName === 'favorites'
+			? 'Избранное'
+			: 'Все подборки';
 
-// Отвечает за определение какой масив показывать
+	// Отвечает за определение какой масив показывать
 	useEffect(() => {
 		if (formName === 'ratedFilms') {
 			setToggleFavorites(favorites);
@@ -47,7 +46,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	useEffect(() => {
 		dispatch(getFilmsApi());
 		dispatch(getSelectionsApi());
-		dispatch(getCompilationsApi())
+		dispatch(getCompilationsApi());
 	}, []);
 
 	const handleResize = useCallback(() => {

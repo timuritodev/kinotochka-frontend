@@ -1,7 +1,11 @@
 import './SelectionCard.css';
 import { ICompilationsTwo } from 'src/types/Compilations.types';
 
-export const SelectionCard = ({ compilations }: { compilations: ICompilationsTwo[] }) => {
+export const SelectionCard = ({
+	compilations,
+}: {
+	compilations: ICompilationsTwo[];
+}) => {
 	return (
 		<section className="selections">
 			{compilations.map((item) => (

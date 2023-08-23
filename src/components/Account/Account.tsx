@@ -2,9 +2,10 @@ import { FC } from 'react';
 import { useState } from 'react';
 import './Account.css';
 import { Link } from 'react-router-dom';
-import { 
+import {
 	// useAppDispatch,
-	 useAppSelector } from '../../services/typeHooks';
+	useAppSelector,
+} from '../../services/typeHooks';
 import { selectUser } from 'src/services/redux/slices/user/user';
 
 const Account: FC = (isLoggedIn) => {

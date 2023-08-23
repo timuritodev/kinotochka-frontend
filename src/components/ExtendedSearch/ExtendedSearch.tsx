@@ -11,11 +11,7 @@ const ExtendedSearch = ({ isOpenExtended }: { isOpenExtended: boolean }) => {
 		>
 			<p className="searchExtended__title">Расширенный поиск</p>
 			<select id="genre" name="genre" className="searchExtended__form">
-				<option
-					value=""
-					disabled
-					className="searchExtended__form-select"
-				>
+				<option value="" disabled className="searchExtended__form-select">
 					Жанр
 				</option>
 				<option className="searchExtended__form-option">Комедии</option>
