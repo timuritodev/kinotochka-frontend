@@ -28,11 +28,11 @@ const Account: FC = (isLoggedIn) => {
 				</Link>
 			) : (
 				<>
-					<p className="account__profile-icon" onMouseOver={setProfileOpen}>
+					<div className="account__profile-icon" onMouseOver={setProfileOpen}>
 						<Link to="/profile" className="account__profile-link">
 							<p className="account__profile-word">W{email[0]}</p>
 						</Link>
-					</p>
+					</div>
 					<nav
 						className={`account__content ${isOpen && 'account__content_open'}`}
 						onMouseOver={setProfileOpen}
@@ -55,9 +55,6 @@ const Account: FC = (isLoggedIn) => {
 							</Link>
 							<Link to="/rated-films" className="account__content-link">
 								Оцененное
-							</Link>
-							<Link to="/collections" className="account__content-link">
-								Подборки
 							</Link>
 							<Link to="/" className="account__content-link">
 								Выйти

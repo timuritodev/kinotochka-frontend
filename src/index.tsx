@@ -22,7 +22,6 @@ import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-import { WindowResize } from './components/WindowResize/WindowResize';
 import { useAppDispatch } from './services/typeHooks';
 import { getGenres } from './services/redux/slices/genres/genres';
 import  AllGenresPage  from './pages/AllGenresPage/AllGenresPage';
@@ -70,7 +69,6 @@ const Root: FC = () => {
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
-			<WindowResize />
 		</div>
 	);
 };

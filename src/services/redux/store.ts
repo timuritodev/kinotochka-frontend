@@ -16,7 +16,6 @@ import { userReducer } from './slices/user/user';
 import { filmsReducer } from './slices/films/films';
 import { selectionsReducer } from './slices/selections/selections';
 import { ratingReducer } from './slices/rating/rating';
-import { windowResizeReducer } from './slices/window_resize/window_resize';
 import { moviebyidReducer } from './slices/moviebyid/moviebyid';
 import { newmoviecardsReducer } from './slices/newmoviecards/newmoviecards';
 import { moviedaycardsReducer } from './slices/moviesoftheday/moviesoftheday'
@@ -39,7 +38,6 @@ const rootReducer = combineReducers({
 	newmoviecards: newmoviecardsReducer,
 	selection: selectionsReducer,
 	rating: ratingReducer,
-	windowResize: windowResizeReducer,
 	daymoviescards: moviedaycardsReducer,
 	genresiconscards: genresiconscardsReducer,
 	genres: genresReducer,

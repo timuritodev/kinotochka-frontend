@@ -64,13 +64,13 @@ const Search = ({
 							<article className="searchGeneral__film-desc">
 								<p className="searchGeneral__film-name">{film.title}</p>
 								<div className="searchGeneral__film-info">
-									<p className="searchGeneral__film-rating">
+									<div className="searchGeneral__film-rating">
 										<RatedElement
 											imdb={film.rating.rate_imdb}
 											kinopoisk={film.rating.rate_kinopoisk}
 											isSearch={true}
 										/>
-									</p>
+									</div>
 									<p className="searchGeneral__film-genres">
 										{film.genres.join(', ')}
 									</p>

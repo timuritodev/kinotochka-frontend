@@ -16,6 +16,7 @@ export interface ICompilations {
 export interface ICompilationsTwo {
 	id?: number,
     title: string;
+	description?: string
     movies: IMovieCard[]
 }
 

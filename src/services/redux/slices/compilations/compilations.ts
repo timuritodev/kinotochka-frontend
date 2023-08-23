@@ -14,6 +14,7 @@ const initialState: ICompilationsState = {
         {
             id: 0,
             title: '',
+            description: '',
             movies: [
                 {
                     id: 0,
