@@ -21,5 +21,9 @@ export interface IInput {
 	showPasswordButton?: boolean;
 	color?: InputColors;
 	validation?: any;
+	rules?: any;
 	error?: string;
+	onChange?: any;
+	max?: string;
+	defaultValue?: string;
 }

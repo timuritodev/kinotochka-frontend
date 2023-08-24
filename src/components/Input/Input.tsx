@@ -13,6 +13,9 @@ const Input: FC<IInput> = ({
 	showPasswordButton = false,
 	validation,
 	error = '',
+	onChange,
+	max,
+	defaultValue,
 }) => {
 	const [isPasswordHidden, setIsPasswordHidden] = useState(true);
 
@@ -48,6 +51,13 @@ const Input: FC<IInput> = ({
 			</div>
 			<input
 				{...validation}
+				onChange={
+					onChange
+						? onChange
+						: (e) => {
+								validation.onChange(e);
+						  }
+				}
 				className={`input__field input__field_color_${color} ${
 					error ? 'input__field_invalid' : ''
 				}`}
@@ -55,6 +65,9 @@ const Input: FC<IInput> = ({
 				name={inputType}
 				id={inputType}
 				readOnly={readOnly}
+				max={max}
+				defaultValue={defaultValue}
+				maxLength={inputTextType === 'date' ? 8 : undefined}
 				value={readOnly && value ? value : undefined}
 			/>
 			{showPasswordButton ? (

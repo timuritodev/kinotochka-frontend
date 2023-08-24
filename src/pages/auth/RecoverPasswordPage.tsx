@@ -34,7 +34,6 @@ const RecoverPasswordPage = () => {
 				console.log('dispatch recoverPassword success', res);
 
 				setStep(step + 1);
-				reset();
 			})
 			.catch((err) => {
 				console.log('dispatch recoverPassword err:', err);
@@ -72,7 +71,10 @@ const RecoverPasswordPage = () => {
 						<p className="auth__email">{getValues('email')}</p>
 						<Button
 							buttonText={'Перейти на Главную'}
-							handleButtonClick={() => navigate('/')}
+							handleButtonClick={() => {
+								reset();
+								navigate('/');
+							}}
 							type="button"
 						/>
 					</>

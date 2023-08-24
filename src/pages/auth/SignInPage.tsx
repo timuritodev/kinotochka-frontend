@@ -5,17 +5,24 @@ import { InputTypes } from 'src/types/Input.types';
 import Button from 'src/components/Button/Button';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useAppDispatch } from 'src/services/typeHooks';
+import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
 import { ISignInData, ISignInFields } from 'src/types/Auth.types';
-import { setUser, signInUser } from 'src/services/redux/slices/user/user';
+import {
+	getUserInfo,
+	selectUser,
+	setUser,
+	signInUser,
+} from 'src/services/redux/slices/user/user';
 import {
 	EMAIL_VALIDATION_CONFIG,
 	PASSWORD_VALIDATION_CONFIG,
+	VALIDATION_SETTINGS,
 } from 'src/utils/constants';
 
 const SignInPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
+	const user = useAppSelector(selectUser);
 	const [authError, setAuthError] = useState(false);
 
 	const {
@@ -39,15 +46,21 @@ const SignInPage = () => {
 				dispatch(setUser({ email: formValues.email, token: res }));
 				navigate('/');
 				reset();
+				return res;
 			})
-			.then(() => {})
+			.then((res) => dispatch(getUserInfo(res)))
+			// dispatch(getUserInfo(user.token)))
 			.catch((err) => {
-				if (err.status === 404) {
+				if (err.status === 404 || err.status === 400) {
 					setAuthError(true);
 				}
 				console.log('dispatch signInUser err:', err);
 			});
 	};
+	console.log(errors, 'errors');
+	// console.log(getValues(), 'getValues()');
+
+	// console.log(isDirty, isValid, 'isDirty, isValid');
 
 	return (
 		<main className="auth" id="sign-in-page">
@@ -67,8 +80,11 @@ const SignInPage = () => {
 					<Input
 						inputType={InputTypes.email}
 						labelText="Электронная почта"
-						validation={{ ...register('email', EMAIL_VALIDATION_CONFIG) }}
+						validation={{
+							...register('email', EMAIL_VALIDATION_CONFIG),
+						}}
 						error={errors?.email?.message}
+						// maxLength={VALIDATION_SETTINGS.email.maxLength}
 					/>
 					<Input
 						inputType={InputTypes.password}

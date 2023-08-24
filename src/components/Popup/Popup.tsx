@@ -1,25 +1,24 @@
-import { useNavigate } from 'react-router';
 import { FC, ReactNode, useEffect } from 'react';
 
 import './Popup.css';
 
 interface IPopup {
 	children: ReactNode;
+	isOpened: boolean;
+	setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Popup: FC<IPopup> = ({ children }) => {
-	const navigate = useNavigate();
-
+const Popup: FC<IPopup> = ({ children, isOpened, setIsOpened }) => {
 	const handleOverlayClick: React.MouseEventHandler<HTMLDivElement> = (evt) => {
 		if (evt.target === evt.currentTarget) {
-			navigate(-1);
+			setIsOpened(false);
 		}
 	};
 
 	useEffect(() => {
 		const handleEscClick = (evt: KeyboardEvent) => {
 			if (evt.key === 'Escape') {
-				navigate(-1);
+				setIsOpened(false);
 			}
 		};
 
@@ -29,7 +28,10 @@ const Popup: FC<IPopup> = ({ children }) => {
 	}, []);
 
 	return (
-		<div className="popup" onClick={handleOverlayClick}>
+		<div
+			className={`popup ${isOpened ? 'popup_opened' : ''}`}
+			onClick={handleOverlayClick}
+		>
 			<div className="popup__container">{children}</div>
 		</div>
 	);

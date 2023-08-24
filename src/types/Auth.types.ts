@@ -16,9 +16,11 @@ export interface IResetPasswordFields {
 }
 
 export interface IEditProfileFields {
+	// email: string;
+	// password: string;
 	nickname: string;
 	dateOfBirth: string;
-	sex: 'female' | 'male';
+	sex: 0 | 1;
 }
 
 export interface ISignInData {
@@ -32,11 +34,11 @@ export interface ISignUpData extends ISignInData {
 
 export interface IUser {
 	email: string;
-	fav_genres: number[];
+	fav_genres: (number | string)[];
 	token: string;
 	nickname?: string;
 	dateOfBirth?: string;
-	sex?: 'male' | 'female';
+	sex?: 0 | 1;
 }
 
 export interface IResetPasswordData {

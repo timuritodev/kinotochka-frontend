@@ -1,26 +1,27 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import jwtDecode from 'jwt-decode';
 import Button from 'src/components/Button/Button';
 import Input from 'src/components/Input/Input';
 import { InputTypes } from 'src/types/Input.types';
 import { IResetPasswordFields } from 'src/types/Auth.types';
+import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
 import './Auth.css';
 import {
 	PASSWORD_VALIDATION_CONFIG,
 	VALIDATION_SETTINGS,
 } from 'src/utils/constants';
-import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
 import {
 	resetPassword,
 	selectUser,
+	setUser,
 	signOut,
 } from 'src/services/redux/slices/user/user';
 
 const ResetPasswordPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-	const user = useAppSelector(selectUser);
 	const [step, setStep] = useState(1);
 
 	const {
@@ -32,6 +33,19 @@ const ResetPasswordPage = () => {
 		getValues,
 	} = useForm<IResetPasswordFields>({ mode: 'onChange' });
 
+	const getTokenFromURL = () => {
+		const url = window.location.href;
+		const tokenStartIndex = url.indexOf('eyJ');
+
+		if (tokenStartIndex !== -1) {
+			const token = url.substring(tokenStartIndex).replace('/', '');
+			console.log('token token token', token);
+			return token;
+		}
+
+		return null;
+	};
+
 	const onSubmit: SubmitHandler<IResetPasswordFields> = (data) => {
 		console.log(
 			'data onSubmit resetPassword:',
@@ -39,25 +53,33 @@ const ResetPasswordPage = () => {
 			data.repeatPassword
 		);
 
-		const newPassword = getValues('password');
-		dispatch(
-			resetPassword({
-				token: user.token,
-				new_password: newPassword,
-			})
-		)
-			.unwrap()
-			.then(() => {
-				// .then((res) => {
-				// console.log('dispatch resetPassword success', res);
+		const token = getTokenFromURL();
 
-				setStep(step + 1);
-				reset();
-				dispatch(signOut());
-			})
-			.catch((err) => {
-				console.log('dispatch resetPassword err:', err);
-			});
+		if (token) {
+			try {
+				const newPassword = getValues('password');
+				dispatch(
+					resetPassword({
+						token: token,
+						new_password: newPassword,
+					})
+				)
+					.unwrap()
+					.then(() => {
+						const decodedToken: { exp: number; email: string } =
+							jwtDecode(token);
+						console.log('decodedToken', decodedToken);
+						setStep(step + 1);
+						reset();
+						dispatch(setUser({ email: decodedToken.email, token: token }));
+					})
+					.catch((err) => {
+						console.log('dispatch resetPassword err:', err);
+					});
+			} catch (error: any) {
+				console.error('Ошибка расшифровки токена:', error.message);
+			}
+		}
 	};
 
 	useEffect(() => {

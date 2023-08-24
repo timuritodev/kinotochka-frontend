@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { useState } from 'react';
 import './Account.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { selectUser, signOut } from 'src/services/redux/slices/user/user';
 
 const Account: FC = () => {
+	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
 	const [isOpen, setIsOpen] = useState(false);
@@ -61,7 +62,10 @@ const Account: FC = () => {
 							</Link>
 							<button
 								className="account__content-button"
-								onClick={() => dispatch(signOut())}
+								onClick={() => {
+									dispatch(signOut());
+									navigate('/');
+								}}
 							>
 								Выйти
 							</button>

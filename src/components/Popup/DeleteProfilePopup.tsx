@@ -2,24 +2,36 @@ import { useNavigate } from 'react-router';
 import Button from '../Button/Button';
 import { FC, useState } from 'react';
 import Popup from './Popup';
-// import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
-// import { selectUser } from 'src/services/redux/slices/user/user';
+import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
+import { deleteUser, selectUser } from 'src/services/redux/slices/user/user';
 
-const DeleteProfilePopup: FC = () => {
-	// const dispatch = useAppDispatch();
+interface IDeleteProfilePopup {
+	isOpened: boolean;
+	setIsOpened: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DeleteProfilePopup: FC<IDeleteProfilePopup> = ({
+	isOpened,
+	setIsOpened,
+}) => {
+	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-	// const user = useAppSelector(selectUser)
+	const user = useAppSelector(selectUser);
 	const [step, setStep] = useState(0);
 
 	const onDeleteClick = () => {
 		console.log('user deleted');
-		// dispatch(deleteUser(user.token))
-		// 	.then(()=> setStep(step+1))
-		// 	.catch((err)=> console.log(err))
+		dispatch(deleteUser(user.token))
+			.unwrap()
+			.then((res) => {
+				console.log('dispatch deleteUser res', res);
+				setStep(step + 1);
+			})
+			.catch((err) => console.log('dispatch deleteUser err', err));
 	};
 
 	return (
-		<Popup>
+		<Popup isOpened={isOpened} setIsOpened={setIsOpened}>
 			<h4 className="popup__title">Удалить профиль</h4>
 			{step === 0 ? (
 				<>
@@ -31,7 +43,7 @@ const DeleteProfilePopup: FC = () => {
 						handleButtonClick={onDeleteClick}
 						type="button"
 					/>
-					<button className="popup__close" onClick={() => navigate(-1)}>
+					<button className="popup__close" onClick={() => setIsOpened(false)}>
 						Нет, отменить удаление
 					</button>
 				</>
