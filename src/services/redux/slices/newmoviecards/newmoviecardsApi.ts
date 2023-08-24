@@ -1,6 +1,5 @@
 import { IMovieCard } from 'src/types/MovieCard.types';
-
-const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
+import { API_BASE_URL } from 'src/utils/constants';
 
 const checkRes = (res: Response) => {
 	if (res.ok) {
@@ -19,6 +18,6 @@ const fetchData = (url: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const getMovieCards = (): Promise<Array<IMovieCard>> => {
-	return fetchData(`${API_URL}/v1/movies/newest`);
+export const getNewMovieCards = (): Promise<Array<IMovieCard>> => {
+	return fetchData(`${API_BASE_URL}/movies/newest`);
 };

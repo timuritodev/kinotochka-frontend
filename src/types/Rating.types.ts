@@ -11,8 +11,13 @@ export interface IRating {
 export interface IRatingState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	movie_rating: IRating;
+	movie_rating: IRating[];
 }
+
+export interface IRate {
+	rate: number;
+}
+
 
 export enum ButtonTypes {
 	seen = 'seen',
@@ -38,13 +43,12 @@ export interface PopupTrailerProps {
 }
 
 export enum SlickSliderTypes {
-	oscar = 'oscar',
 	news = 'news',
-	blackwhite = 'blackwhite',
 	specialforyou = 'specialforyou',
 	similar = 'similar',
-	genres = 'genres',
-	newyear = 'newyear',
+	redactionOne = 'redactionOne',
+	redactionTwo = 'redactionTwo',
+	redactionThree = 'redactionThree',
 }
 
 export interface ISlider {

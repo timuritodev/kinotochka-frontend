@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getMovieCards } from './newmoviecardsApi';
+import { getNewMovieCards } from './newmoviecardsApi';
 import { IMovieCardState } from 'src/types/MovieCard.types';
 
-export const getMovieCardsApi = createAsyncThunk(
-	'@@moviecards/moviecards',
+export const getNewMovieCardsApi = createAsyncThunk(
+	'@@newmoviecards/newmoviecards',
 	async () => {
-		return getMovieCards();
+		return getNewMovieCards();
 	}
 );
 
@@ -30,16 +30,16 @@ const initialState: IMovieCardState = {
 	],
 };
 
-export const moviecardsSlice = createSlice({
-	name: '@@MovieCards',
+export const newmoviecardsSlice = createSlice({
+	name: '@@newmoviecards',
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
-		builder.addCase(getMovieCardsApi.fulfilled, (state, action) => {
+		builder.addCase(getNewMovieCardsApi.fulfilled, (state, action) => {
 			state.status = 'success';
 			state.movies = action.payload;
 		});
 	},
 });
 
-export const moviecardsReducer = moviecardsSlice.reducer;
+export const newmoviecardsReducer = newmoviecardsSlice.reducer;

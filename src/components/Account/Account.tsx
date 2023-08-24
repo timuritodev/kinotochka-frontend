@@ -29,25 +29,25 @@ const Account: FC = () => {
 				</Link>
 			) : (
 				<>
-					<p className="account__profile-icon" onMouseOver={setProfileOpen}>
+					<div className="account__profile-icon" onMouseOver={setProfileOpen}>
 						<Link to="/profile" className="account__profile-link">
-							<p className="account__profile-word">{email[0]}</p>
+							<p className="account__profile-word">W{email[0]}</p>
 						</Link>
-					</p>
+					</div>
 					<nav
 						className={`account__content ${isOpen && 'account__content_open'}`}
 						onMouseOver={setProfileOpen}
 						onMouseOut={setProfileClose}
 					>
 						<ul className="account__list" onMouseOver={setProfileOpen}>
-							<p className="account__content-nik">{email}</p>
-							<p className="account__content-email">{email}</p>
-							{/* <Link to="/sign-in" className="account__content-link">
+							<p className="account__content-nik">Nickname{email}</p>
+							<p className="account__content-email">email{email}</p>
+							<Link to="/sign-in" className="account__content-link">
 								Авторизация
 							</Link>
 							<Link to="/movie-page" className="account__content-link">
 								Страница фильма
-							</Link> */}
+							</Link>
 							<Link to="/favorites" className="account__content-link">
 								Избранное
 							</Link>
@@ -56,9 +56,6 @@ const Account: FC = () => {
 							</Link>
 							<Link to="/rated-films" className="account__content-link">
 								Оцененное
-							</Link>
-							<Link to="/collections" className="account__content-link">
-								Подборки
 							</Link>
 							<button
 								className="account__content-button"

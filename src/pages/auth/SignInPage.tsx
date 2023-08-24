@@ -5,24 +5,21 @@ import { InputTypes } from 'src/types/Input.types';
 import Button from 'src/components/Button/Button';
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
+import { useAppDispatch } from 'src/services/typeHooks';
 import { ISignInData, ISignInFields } from 'src/types/Auth.types';
 import {
 	getUserInfo,
-	selectUser,
 	setUser,
 	signInUser,
 } from 'src/services/redux/slices/user/user';
 import {
 	EMAIL_VALIDATION_CONFIG,
 	PASSWORD_VALIDATION_CONFIG,
-	VALIDATION_SETTINGS,
 } from 'src/utils/constants';
 
 const SignInPage = () => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-	const user = useAppSelector(selectUser);
 	const [authError, setAuthError] = useState(false);
 
 	const {
@@ -44,6 +41,7 @@ const SignInPage = () => {
 				console.log('dispatch signInUser success', res);
 				console.log('formValues.email', formValues.email);
 				dispatch(setUser({ email: formValues.email, token: res }));
+
 				navigate('/');
 				reset();
 				return res;
@@ -57,10 +55,6 @@ const SignInPage = () => {
 				console.log('dispatch signInUser err:', err);
 			});
 	};
-	console.log(errors, 'errors');
-	// console.log(getValues(), 'getValues()');
-
-	// console.log(isDirty, isValid, 'isDirty, isValid');
 
 	return (
 		<main className="auth" id="sign-in-page">

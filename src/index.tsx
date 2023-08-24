@@ -1,13 +1,6 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC } from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-	Routes,
-	Route,
-	HashRouter,
-	useLocation,
-	useNavigate,
-	Navigate,
-} from 'react-router-dom';
+import { Routes, Route, HashRouter, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './services/redux/store';
@@ -29,11 +22,13 @@ import SignInPage from './pages/auth/SignInPage';
 import SignUpPage from './pages/auth/SignUpPage';
 import { SearchResultPage } from './pages/SearchResultsPage/SearchResultPage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-import { WindowResize } from './components/WindowResize/WindowResize';
 import ProtectedRoute from './components/ProtectedRoute';
-import { useAppSelector } from './services/typeHooks';
 import { selectUser } from './services/redux/slices/user/user';
 import { Loader } from './components/Loader/Loader';
+import { useAppDispatch, useAppSelector } from './services/typeHooks';
+import { getGenres } from './services/redux/slices/genres/genres';
+import AllGenresPage from './pages/AllGenresPage/AllGenresPage';
+import OneGenrePage from './pages/OneGenrePage/OneGenrePage';
 
 const Root: FC = () => {
 	const user = useAppSelector(selectUser);
@@ -132,6 +127,8 @@ const Root: FC = () => {
 							</ProtectedRoute>
 						}
 					/>
+					<Route path="/allgenres" element={<AllGenresPage />} />
+					<Route path="/onegenre" element={<OneGenrePage />} />
 					<Route
 						path="/will-see"
 						element={
@@ -157,7 +154,6 @@ const Root: FC = () => {
 					<Route path="*" element={<ErrorPage />} />
 				</Route>
 			</Routes>
-			{/* <WindowResize /> */}
 		</div>
 	);
 };

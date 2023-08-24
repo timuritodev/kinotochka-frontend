@@ -107,6 +107,5 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
-	},
-	"homepage": "https://movie-recommendations.github.io/frontend/#"
+	}
 }

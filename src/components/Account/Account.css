@@ -53,10 +53,10 @@
 	display: none;
 	z-index: 5;
 	width: 270px;
-	height: 370px;
+	height: 340px;
 	background-color: #141414;
 	border-radius: 0 0 25px 25px;
-	margin-top: 50px;
+	margin-top: 45px;
 	top: -85px;
 	left: -200px;
 }
@@ -88,7 +88,7 @@
 	font-weight: 500;
 	line-height: 12px;
 	color: #6b7280;
-	margin: 5px 0 50px 0;
+	margin: 5px 0 55px 0;
 	width: 155px;
 	overflow: hidden;
 	text-overflow: ellipsis;

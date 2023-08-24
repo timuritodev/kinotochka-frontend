@@ -8,18 +8,20 @@ import TrailerButton from '../../components/TrailerButton/TrailerButton';
 import { FC } from 'react';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
-import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
-import { SlickSliderTypes } from '../../types/Rating.types';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 import { Loader } from 'src/components/Loader/Loader';
+import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
 	const loading = useAppSelector((state) => state.movie.status)
-	console.log(movie)
+	const films = useAppSelector((state) => state.movies.movies);
+
 	return (
 		<>
-			{loading === 'loading' ? <Loader /> :
+			{loading === 'loading' ? (
+				<Loader />
+			) : (
 				<section className="moviepage">
 					<img className="background-image" alt="" src={movie.h_picture} />
 					<div className="moviepage__container">
@@ -38,10 +40,13 @@ const MoviePage: FC = () => {
 							</div>
 							<div className="moviepage__button__container">
 								<div className="moviepage__button__container_plus">
-									<MovieButton buttonName={ButtonTypes.favorites} id={movie.id} />
+									<MovieButton
+										buttonName={ButtonTypes.favorites}
+										id={movie.id}
+									/>
 									<MovieButton buttonName={ButtonTypes.willSee} id={movie.id} />
 								</div>
-								<RatingElement />
+								<RatingElement id={movie.id} user={0} movie={0} rate={0} is_viewed={false} must_see={false} is_favorite={false} />
 							</div>
 						</div>
 						<div className="description__container">
@@ -56,11 +61,11 @@ const MoviePage: FC = () => {
 							<FilmAbout movie={movie} />
 						</div>
 						<div className="moviepage-cards__container">
-							<SlickSlider type={SlickSliderTypes.similar} />
+							<SlickSliderMini title={`Подборки`} movies={films} />
 						</div>
 					</div>
 				</section>
-			}
+			)}
 		</>
 	);
 };

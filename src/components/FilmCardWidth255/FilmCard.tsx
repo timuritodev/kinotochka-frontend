@@ -11,23 +11,24 @@ export const FilmCard = ({ film }: { film: IMovieCard }) => {
 	const dispatch = useAppDispatch();
 
 	const handleImgClick = () => {
-			dispatch(getMoviebyidApi({ filmId: film.id }));
-			navigate('/movie-page');
-			window.scrollTo(0, 0);
+		dispatch(getMoviebyidApi(film.id));
+		navigate('/movie-page');
+		window.scrollTo(0, 0);
 	};
 
 	return (
 		<section key={film.id} className="flanks_card">
 			<img
 				className="flanks_card-img"
-				src={film.v_picture}
+				src={film.h_picture}
 				alt=""
 				onClick={handleImgClick}
 			/>
 			<div className="bookmark-small">{<BookmarkSmall id={film.id} />}</div>
 			<h4 className="flanks_card-title">{film.title}</h4>
-			<p className="flanks_card-subtitle">{`${film.genres.join(', ')} • ${film.year
-				}`}</p>
+			<p className="flanks_card-subtitle">{`${film.genres.join(', ')} • ${
+				film.year
+			}`}</p>
 			<RatedElement
 				imdb={film.rating.rate_imdb}
 				kinopoisk={film.rating.rate_kinopoisk}
