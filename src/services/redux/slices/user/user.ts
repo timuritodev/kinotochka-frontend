@@ -3,6 +3,7 @@ import { fetchCheckEmail, fetchSignIn, fetchSignUp } from './userApi';
 import { IUser, ISignInData, ISignUpData } from 'src/types/Auth.types';
 
 export interface IUserState {
+	[x: string]: any;
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: unknown;
 	user: IUser;
@@ -51,6 +52,7 @@ const initialState: IUserState = {
 	user: { token: '', email: '', fav_genres: [] },
 };
 
+
 const userSlice = createSlice({
 	name: '@@user',
 	initialState,
@@ -65,6 +67,7 @@ const userSlice = createSlice({
 			.addCase(signInUser.fulfilled, (state, action: PayloadAction<string>) => {
 				state.status = 'success';
 				state.user.token = action.payload;
+				console.log(state.user.token)
 			})
 			.addCase(checkEmail.fulfilled, (state) => {
 				state.status = 'success';
@@ -88,6 +91,7 @@ const userSlice = createSlice({
 			);
 	},
 });
+
 
 export const { setUser, signOut } = userSlice.actions;
 
