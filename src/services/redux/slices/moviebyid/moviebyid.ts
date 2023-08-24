@@ -4,7 +4,7 @@ import { IMoviebyidState } from 'src/types/Moviebyid.types';
 
 export const getMoviebyidApi = createAsyncThunk(
 	'@@movie/movie',
-	async ({ filmId }: { filmId: number }) => {
+	async (filmId: number) => {
 		return getMoviebyid(filmId);
 	}
 );
@@ -60,7 +60,7 @@ export const moviebyidSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getMoviebyidApi.pending, (state, action) => {
+			.addCase(getMoviebyidApi.pending, (state) => {
 				state.status = 'loading';
 			})
 			.addCase(getMoviebyidApi.fulfilled, (state, action) => {

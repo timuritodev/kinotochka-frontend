@@ -8,15 +8,15 @@ import TrailerButton from '../../components/TrailerButton/TrailerButton';
 import { FC } from 'react';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
-import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
-import { SlickSliderTypes } from '../../types/Rating.types';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 import { Loader } from 'src/components/Loader/Loader';
+import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
 	const loading = useAppSelector((state) => state.movie.status)
-	
+	const films = useAppSelector((state) => state.movies.movies);
+
 	return (
 		<>
 			{loading === 'loading' ? (
@@ -61,7 +61,7 @@ const MoviePage: FC = () => {
 							<FilmAbout movie={movie} />
 						</div>
 						<div className="moviepage-cards__container">
-							<SlickSlider type={SlickSliderTypes.similar} />
+							<SlickSliderMini title={`Подборки`} movies={films} />
 						</div>
 					</div>
 				</section>

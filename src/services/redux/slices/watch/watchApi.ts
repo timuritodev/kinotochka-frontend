@@ -1,10 +1,9 @@
 import { API_BASE_URL } from 'src/utils/constants';
 
-
 const checkRes = (res: Response) => {
 	if (res.ok) {
-		console.log(res.json())
-		return res
+		console.log(res.json());
+		return res;
 	} else {
 		return Promise.reject(res);
 	}
@@ -33,19 +32,20 @@ const fetchData = (url: string) => {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			'Authorization': 'Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrZW5kLWFwaSIsInVzZXJfaWQiOiJmODI0MDVlOC1iYjBkLTQ5YzItOGE4Zi1iMGU1OWUwY2UzYzkiLCJleHAiOjE2OTI0NTIxMjIsInR5cGUiOiJhY2Nlc3MifQ.l6V90AlN42M5fDvBKf5gm3EGtT_0cDiNoBXho8s1dWc'
+			Authorization:
+				'Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrZW5kLWFwaSIsInVzZXJfaWQiOiJmODI0MDVlOC1iYjBkLTQ5YzItOGE4Zi1iMGU1OWUwY2UzYzkiLCJleHAiOjE2OTI0NTIxMjIsInR5cGUiOiJhY2Nlc3MifQ.l6V90AlN42M5fDvBKf5gm3EGtT_0cDiNoBXho8s1dWc',
 		},
 	}).then((res) => checkRes(res));
 };
 
 export const getWatch = (): Promise<Response> => {
-	return fetchData(`${API_BASE_URL}/movies/watchlist}`);
+	return fetchData(`${API_BASE_URL}/movies/watchlist`);
 };
 
 export const addToWatch = (filmId: number): Promise<Response> => {
-	return postData(`${API_BASE_URL}/movies/${filmId}/setwatch}`);
+	return postData(`${API_BASE_URL}/movies/${filmId}/setwatch`);
 };
 
 export const deleteFromWatch = (filmId: number): Promise<Response> => {
-	return deleteData(`${API_BASE_URL}/movies/${filmId}/setwatch}`);
+	return deleteData(`${API_BASE_URL}/movies/${filmId}/setwatch`);
 };

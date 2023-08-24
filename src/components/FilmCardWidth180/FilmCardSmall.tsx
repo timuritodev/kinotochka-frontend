@@ -11,7 +11,7 @@ export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 	const dispatch = useAppDispatch();
 
 	const handleImgClick = () => {
-		dispatch(getMoviebyidApi({ filmId: film.id }));
+		dispatch(getMoviebyidApi(film.id));
 		navigate('/movie-page');
 		window.scrollTo(0, 0);
 	};

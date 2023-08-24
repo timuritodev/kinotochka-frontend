@@ -43,12 +43,11 @@ export interface PopupTrailerProps {
 }
 
 export enum SlickSliderTypes {
-	redactionOne = 'redactionOne',
 	news = 'news',
-	redactionTwo = 'redactionTwo',
 	specialforyou = 'specialforyou',
 	similar = 'similar',
-	genres = 'genres',
+	redactionOne = 'redactionOne',
+	redactionTwo = 'redactionTwo',
 	redactionThree = 'redactionThree',
 }
 
