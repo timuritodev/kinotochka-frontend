@@ -3,24 +3,34 @@ import { IRating, IRatingState } from 'src/types/Rating.types';
 import { postRating } from './ratingApi';
 
 export const getMoviesRating = createAsyncThunk(
-	'@@rating/rating',
-	async ({id,rate}:{id: any, rate: any}) => {
-		return postRating(id,rate);
+	'@@movie_rating/postRating',	
+	async ({id,rate}: {id: any, rate: any}) => {
+		return postRating(id, rate);
 	}
 );
+
+	
+	
+	
+	
+	/*async ({id,rate}: {id: any, rate: any}, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			
+			const response = await postRating(id,rate);
+			
+			//const json = await response.json();
+			return fulfillWithValue(response);
+			
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);*/
 
 const initialState: IRatingState = {
 	status: 'idle',
 	error: '',
-	movie_rating: {
-		id: 0,
-		user: 0,
-		movie: 0,
-		rate: 0,
-		is_viewed: false,
-		must_see: false,
-		is_favorite: false,
-	},
+	movie_rating:[],
 };
 
 export const ratingSlice = createSlice({
@@ -30,10 +40,15 @@ export const ratingSlice = createSlice({
 	extraReducers: (builder) => {
 		builder
 			
-			.addCase(getMoviesRating.fulfilled, (state, action ) => {
+			.addCase(getMoviesRating.fulfilled, (state, action) => {
+				console.log(1)
 				state.status = 'success';
-				console.log(state)
-				//state.movie_rating = action.payload;
+				//state.movie_rating = [...state.movie_rating, action.payload];
+				//const { id, rate } = action.payload;
+				//state.movie_rating = state.movie_rating.map((movie_rate) =>
+				//movie_rate.id === id ? { ...movie_rate, rate: rate } : movie_rate
+				//);
+				
 			})
 	},
 });
