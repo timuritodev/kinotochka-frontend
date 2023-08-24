@@ -19,7 +19,7 @@ const Account: FC = () => {
 		setIsOpen(false);
 	};
 
-	const { email } = useAppSelector(selectUser);
+	const { email, nickname } = useAppSelector(selectUser);
 
 	return (
 		<section className="account">
@@ -31,7 +31,7 @@ const Account: FC = () => {
 				<>
 					<div className="account__profile-icon" onMouseOver={setProfileOpen}>
 						<Link to="/profile" className="account__profile-link">
-							<p className="account__profile-word">W{email[0]}</p>
+							<p className="account__profile-word">{email[0]}</p>
 						</Link>
 					</div>
 					<nav
@@ -40,11 +40,8 @@ const Account: FC = () => {
 						onMouseOut={setProfileClose}
 					>
 						<ul className="account__list" onMouseOver={setProfileOpen}>
-							<p className="account__content-nik">Nickname{email}</p>
-							<p className="account__content-email">email{email}</p>
-							<Link to="/sign-in" className="account__content-link">
-								Авторизация
-							</Link>
+							<p className="account__content-nik">{nickname}</p>
+							<p className="account__content-email">{email}</p>
 							<Link to="/movie-page" className="account__content-link">
 								Страница фильма
 							</Link>

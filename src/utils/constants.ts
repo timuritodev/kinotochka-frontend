@@ -1,5 +1,3 @@
-import { useAppSelector } from "src/services/typeHooks";
-
 export const API_BASE_URL = 'http://kinotochka.acceleratorpracticum.ru/api/v1';
 
 export const GENRESv2 = [
@@ -15,8 +13,6 @@ export const GENRESv2 = [
 	'Спорт',
 	'Аниме',
 ];
-
-export const token = useAppSelector((state) => state.user.token);
 
 export const VALIDATION_SETTINGS = {
 	email: {
