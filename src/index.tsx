@@ -26,6 +26,7 @@ import { useAppDispatch } from './services/typeHooks';
 import { getGenres } from './services/redux/slices/genres/genres';
 import AllGenresPage from './pages/AllGenresPage/AllGenresPage';
 import OneGenrePage from './pages/OneGenrePage/OneGenrePage';
+import { Selections } from './pages/Selections/Selections';
 
 const Root: FC = () => {
 	const dispatch = useAppDispatch();
@@ -63,6 +64,10 @@ const Root: FC = () => {
 					<Route
 						path="/collections"
 						element={<FlanksPage formName={FlanksTypes.collections} />}
+					/>
+					<Route
+						path="/selections"
+						element={<Selections />}
 					/>
 					<Route path="/movie-page" element={<MoviePage />} />
 					<Route path="/search-result" element={<SearchResultPage />} />

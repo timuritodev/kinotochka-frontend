@@ -1,5 +1,6 @@
 import './FlanksPage.css';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback,} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -8,16 +9,20 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
+import { AllButton } from 'src/components/AllBtn/AllButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
+import { Selections } from '../Selections/Selections';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 	const favorites = useAppSelector((state) => state.newmoviecards.movies);
 	const compilations = useAppSelector((state) => state.compilations.data);
 
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
+	const [isAllButton, setIsAllButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
 
@@ -28,7 +33,12 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 			? 'Буду смотреть'
 			: formName === 'favorites'
 			? 'Избранное'
-			: 'Все подборки';
+			: 'Все подборки'
+			? 'Избранное'
+			: 'Подборки'
+			
+
+			
 
 	// Отвечает за определение какой масив показывать
 	useEffect(() => {
@@ -87,16 +97,26 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		setPageMore((prev) => prev + pageMore);
 	};
 
+	const handleAllButtonClick = () => {
+		navigate('/selections');
+		setIsAllButton(true);
+		
+	};
+	
+
 	return (
 		<section className="flank">
 			<h1 className="flank_title">{title}</h1>
 			<div className="flank_container">
 				{formName === 'collections' ? (
-					<SelectionCard compilations={compilations} />
+					<><SelectionCard compilations={compilations} />
+					<div className="flank_btn">
+						<AllButton onClick={handleAllButtonClick} /> 
+					</div></>
 				) : (
 					toggleFavorites
 						.slice(0, pageMore)
-						.map((film) => <FilmCard film={film} />)
+						.map((film) =><FilmCard film={film} />)
 				)}
 			</div>
 			<div className="flank_btn">

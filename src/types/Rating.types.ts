@@ -11,7 +11,7 @@ export interface IRating {
 export interface IRatingState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	movie_rating: IRating;
+	movie_rating: IRating[];
 }
 
 export enum ButtonTypes {
