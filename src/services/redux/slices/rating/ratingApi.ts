@@ -32,3 +32,6 @@ export const postRating = (id: any, rate: any): Promise<Response> => {
 		checkRes(res)
 	);
 };
+
+
+

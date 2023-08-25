@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import React, { useState } from 'react';
 import './RatingElement.css';
 import { IRating } from 'src/types/Rating.types';
@@ -19,7 +19,12 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 				rate: value,
 			})
 		);
+
 	};
+	
+	useEffect(() => {
+		//dispatch(getMoviesRating());
+	}, []);
 
 	return (
 		<div className="rating-element">
