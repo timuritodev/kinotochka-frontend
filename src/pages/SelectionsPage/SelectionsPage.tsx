@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
-import './Selections.css';
+import './SelectionsPage.css';
 import { ICompilationsTwo } from 'src/types/Compilations.types';
 import { useEffect, useState } from 'react';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
@@ -9,7 +9,7 @@ import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 
-export const Selections = () => {
+export const SelectionsPage = () => {
 	const dispatch = useAppDispatch();
 	const [isMoreButton, setIsMoreButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
