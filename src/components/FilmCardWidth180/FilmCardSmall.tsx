@@ -9,7 +9,6 @@ import { useAppDispatch } from '../../services/typeHooks';
 export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
-
 	const handleImgClick = () => {
 		dispatch(getMoviebyidApi(film.id));
 		navigate('/movie-page');

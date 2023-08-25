@@ -24,7 +24,6 @@ const AllGenresPage = () => {
 		localStorage.setItem('genre', itemtitle);
 		navigate('/onegenre');
 	};
-
 	return (
 		<section className="allgenrespage">
 			<h2 className="title">Все жанры</h2>
