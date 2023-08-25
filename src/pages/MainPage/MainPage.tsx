@@ -10,6 +10,7 @@ import { getMoviesApi } from 'src/services/redux/slices/movies/movies';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
 import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
+import { getGenres } from 'src/services/redux/slices/genres/genres';
 
 export default function MainPage() {
 	const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -22,6 +23,7 @@ export default function MainPage() {
 			dispatch(getNewMovieCardsApi()),
 			dispatch(getMoviesApi()),
 			dispatch(getCompilationsApi()),
+			dispatch(getGenres()),
 		])
 			.then(() => {
 				setIsLoading(false);
@@ -37,7 +39,6 @@ export default function MainPage() {
 	const redactionOne = useAppSelector((state) => state.compilations.data[0]);
 	const redactionTwo = useAppSelector((state) => state.compilations.data[1]);
 	const redactionThree = useAppSelector((state) => state.compilations.data[2]);
-
 	return (
 		<>
 			{isLoading ? (

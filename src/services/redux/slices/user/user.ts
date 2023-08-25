@@ -1,6 +1,20 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchCheckEmail, fetchSignIn, fetchSignUp } from './userApi';
-import { IUser, ISignInData, ISignUpData } from 'src/types/Auth.types';
+import {
+	fetchCheckEmail,
+	fetchDeleteUser,
+	fetchEditUserInfo,
+	fetchGetUserInfo,
+	fetchPasswordRecovery,
+	fetchResetPassword,
+	fetchSignIn,
+	fetchSignUp,
+} from './userApi';
+import {
+	IUser,
+	ISignInData,
+	ISignUpData,
+	IResetPasswordData,
+} from 'src/types/Auth.types';
 
 export interface IUserState {
 	[x: string]: any;
@@ -15,7 +29,7 @@ export const signInUser = createAsyncThunk(
 		try {
 			const response = await fetchSignIn(data);
 			const json = await response.json();
-			return fulfillWithValue(json);
+			return fulfillWithValue(json.access);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -46,10 +60,85 @@ export const signUpUser = createAsyncThunk(
 	}
 );
 
+export const recoverPassword = createAsyncThunk(
+	'@@user/recoverPassword',
+	async (data: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await fetchPasswordRecovery(data);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const resetPassword = createAsyncThunk(
+	'@@user/resetPassword',
+	async (data: IResetPasswordData, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await fetchResetPassword(data);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const getUserInfo = createAsyncThunk(
+	'@@user/getUserInfo',
+	async (token: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await fetchGetUserInfo(token);
+			const json = await response.json();
+			console.log('getUserInfo json', json);
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const editUserInfo = createAsyncThunk(
+	'@@user/editUserInfo',
+	async (
+		arg: { data: any; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { data, token } = arg;
+		try {
+			const response = await fetchEditUserInfo(data, token);
+			const json = await response.json();
+			console.log('editUserInfo json', json);
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const deleteUser = createAsyncThunk(
+	'@@user/deleteUser',
+	async (token: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await fetchDeleteUser(token);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
 const initialState: IUserState = {
 	status: 'idle',
-	error: '',
-	user: { token: '', email: '', fav_genres: [] },
+	error: null,
+	user: {
+		email: '',
+		token: '',
+		fav_genres: [],
+		nickname: undefined,
+		dateOfBirth: undefined,
+		sex: undefined,
+	},
 };
 
 
@@ -75,6 +164,26 @@ const userSlice = createSlice({
 			.addCase(signUpUser.fulfilled, (state) => {
 				state.status = 'success';
 			})
+			.addCase(recoverPassword.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(resetPassword.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(getUserInfo.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.user.nickname = action.payload.username;
+				state.user.dateOfBirth = action.payload.date_of_birth;
+				state.user.sex = action.payload.sex;
+				state.user.fav_genres = action.payload.fav_genres;
+			})
+			.addCase(editUserInfo.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.user.nickname = action.payload.username;
+				state.user.dateOfBirth = action.payload.date_of_birth;
+				state.user.sex = action.payload.sex;
+			})
+			.addCase(deleteUser.fulfilled, () => initialState)
 			.addMatcher(
 				(action) => action.type.endsWith('/pending'),
 				(state) => {
@@ -98,3 +207,5 @@ export const { setUser, signOut } = userSlice.actions;
 export const userReducer = userSlice.reducer;
 
 export const selectUser = (state: { user: IUserState }) => state.user.user;
+export const selectUserStatus = (state: { user: IUserState }) =>
+	state.user.status;
