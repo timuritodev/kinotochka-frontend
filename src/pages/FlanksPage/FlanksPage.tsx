@@ -48,11 +48,14 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	}, [favorites, formName]);
 
 	useEffect(() => {
-		dispatch(getFavoritesApi(user.token));
 		dispatch(getFilmsApi());
 		dispatch(getSelectionsApi());
 		dispatch(getCompilationsApi());
-	}, [favorites]);
+	}, []);
+
+	useEffect(() => {
+		dispatch(getFavoritesApi(user.token));
+	}, [dispatch]);
 
 	const handleResize = useCallback(() => {
 		const windowWidth = window.innerWidth;
@@ -60,11 +63,16 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	}, []);
 
 	useEffect(() => {
+		return () => {
+			dispatch(resetFavorites());
+		};
+	}, []);
+
+	useEffect(() => {
 		window.addEventListener('resize', handleResize);
 		handleResize();
 		return () => {
 			window.removeEventListener('resize', handleResize);
-			dispatch(resetFavorites());
 		};
 	}, []);
 

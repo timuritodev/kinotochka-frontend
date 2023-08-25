@@ -26,6 +26,7 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
 	
 	const handleClickFavorite = () => {
+		console.log(1)
 		const favoriteIds = favorites.map((film)=>film.id);
 		console.log(favoriteIds)
 		if(favoriteIds.includes(id))
