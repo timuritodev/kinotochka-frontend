@@ -1,11 +1,11 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { IRating, IRatingState } from 'src/types/Rating.types';
-import { postRating } from './ratingApi';
+// import { postRating } from './ratingApi';
 
 export const getMoviesRating = createAsyncThunk(
 	'@@movie_rating/postRating',
 	async ({ id, rate }: { id: any; rate: any }) => {
-		return postRating(id, rate);
+		return { id, rate };
 	}
 );
 

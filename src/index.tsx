@@ -29,7 +29,6 @@ import { useAppDispatch, useAppSelector } from './services/typeHooks';
 import { getGenres } from './services/redux/slices/genres/genres';
 import AllGenresPage from './pages/AllGenresPage/AllGenresPage';
 import OneGenrePage from './pages/OneGenrePage/OneGenrePage';
-import { SelectionsPage } from './pages/SelectionsPage/SelectionsPage';
 
 const Root: FC = () => {
 	const user = useAppSelector(selectUser);
@@ -130,7 +129,6 @@ const Root: FC = () => {
 					/>
 					<Route path="/allgenres" element={<AllGenresPage />} />
 					<Route path="/onegenre" element={<OneGenrePage />} />
-					<Route path="/selections" element={<SelectionsPage />} />
 					<Route
 						path="/will-see"
 						element={
@@ -151,7 +149,6 @@ const Root: FC = () => {
 						path="/collections"
 						element={<FlanksPage formName={FlanksTypes.collections} />}
 					/>
-					<Route path="/selections" element={<SelectionsPage />} />
 					<Route path="/movie-page" element={<MoviePage />} />
 					<Route path="/search-result" element={<SearchResultPage />} />
 					<Route path="*" element={<ErrorPage />} />
