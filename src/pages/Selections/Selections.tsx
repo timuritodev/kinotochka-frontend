@@ -14,14 +14,7 @@ export const Selections = () => {
 	const [isMoreButton, setIsMoreButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
-	const compilations = useAppSelector((state) => state.compilations.data);
-	const films = JSON.parse(localStorage.getItem("filmsBy") || "");
-
-	
-	console.log(films)
-	
-
-
+	const films = JSON.parse(localStorage.getItem('filmsBy') || '');
 
 	useEffect(() => {
 		if (screenSize >= 1280) {
@@ -36,24 +29,21 @@ export const Selections = () => {
 		}
 	}, [screenSize]);
 
-
-
 	const handleMoreButtonClick = () => {
 		setPageMore((prev) => prev + pageMore);
 	};
-	console.log(films)
+
 	return (
 		<section className="flank">
 			<h1 className="flank_title">{films.title}</h1>
-			
-				<section>
 
-					<div className="flank_container">
-						{films.movies.slice(0, pageMore).map((film: IMovieCard) => (
-							<FilmCardSmall film={film} />
-						))}
-					</div>
-				</section>
+			<section>
+				<div className="flank_container">
+					{films.movies.slice(0, pageMore).map((film: IMovieCard) => (
+						<FilmCardSmall film={film} />
+					))}
+				</div>
+			</section>
 			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>

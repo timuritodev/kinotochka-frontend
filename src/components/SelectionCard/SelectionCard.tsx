@@ -6,27 +6,27 @@ import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
 import { getFilmsApi } from 'src/services/redux/slices/films/films';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
 
-
 export const SelectionCard = ({
-	compilations, }: {
+	compilations,
+}: {
 	compilations: ICompilationsTwo[];
 }) => {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 
-	
-
 	const handleAllButtonClick = (item: any) => {
-		localStorage.setItem('filmsBy',JSON.stringify(item));
+		localStorage.setItem('filmsBy', JSON.stringify(item));
 		navigate('/selections');
-	
-		
 	};
 
 	return (
 		<section className="selections">
 			{compilations.map((item) => (
-				<div key={item.id} className="selections_cards"    onClick={() => handleAllButtonClick(item)}>
+				<div
+					key={item.id}
+					className="selections_cards"
+					onClick={() => handleAllButtonClick(item)}
+				>
 					<div className="selections_card">
 						{item.movies.slice(0, 3).map((film) => (
 							<img
@@ -44,6 +44,3 @@ export const SelectionCard = ({
 		</section>
 	);
 };
-
-
-

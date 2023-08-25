@@ -1,5 +1,5 @@
 import './FlanksPage.css';
-import React, { useEffect, useState, useCallback,} from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
@@ -33,8 +33,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 			? 'Буду смотреть'
 			: formName === 'favorites'
 			? 'Избранное'
-			: 'Все подборки'
-
+			: 'Все подборки';
 
 	// Отвечает за определение какой масив показывать
 	useEffect(() => {
@@ -98,11 +97,11 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 			<h1 className="flank_title">{title}</h1>
 			<div className="flank_container">
 				{formName === 'collections' ? (
-						<SelectionCard compilations={compilations} />
+					<SelectionCard compilations={compilations} />
 				) : (
 					toggleFavorites
 						.slice(0, pageMore)
-						.map((film) =><FilmCard film={film} />)
+						.map((film) => <FilmCard film={film} />)
 				)}
 			</div>
 			<div className="flank_btn">
