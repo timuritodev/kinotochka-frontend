@@ -10,11 +10,15 @@ import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
+import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
+import { getFavoritesApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
+import { selectUser } from 'src/services/redux/slices/user/user';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
-	const favorites = useAppSelector((state) => state.newmoviecards.movies);
+	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
 	const compilations = useAppSelector((state) => state.compilations.data);
+	const user = useAppSelector(selectUser);
 
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -44,10 +48,11 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	}, [favorites, formName]);
 
 	useEffect(() => {
+		dispatch(getFavoritesApi(user.token));
 		dispatch(getFilmsApi());
 		dispatch(getSelectionsApi());
 		dispatch(getCompilationsApi());
-	}, []);
+	}, [favorites]);
 
 	const handleResize = useCallback(() => {
 		const windowWidth = window.innerWidth;
@@ -59,6 +64,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		handleResize();
 		return () => {
 			window.removeEventListener('resize', handleResize);
+			dispatch(resetFavorites());
 		};
 	}, []);
 
@@ -96,7 +102,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 				) : (
 					toggleFavorites
 						.slice(0, pageMore)
-						.map((film) => <FilmCard film={film} />)
+						.map((film) => <FilmCardSmall film={film} />)
 				)}
 			</div>
 			<div className="flank_btn">

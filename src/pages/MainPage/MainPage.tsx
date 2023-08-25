@@ -12,6 +12,7 @@ import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 import { getGenres } from 'src/services/redux/slices/genres/genres';
 import { selectUser } from 'src/services/redux/slices/user/user';
+import { getFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
 
 
 export default function MainPage() {

@@ -7,36 +7,41 @@ import eye_clicked from '../../images/eye_clicked.svg';
 import bookmark from '../../images/Bookmark.svg';
 import bookmark_clicked from '../../images/bookmark_clicked.svg';
 import {
-	addFavorites,
-	addToFavoritesApi,
+	// addFavorites,
+	addToFavoritesApi, deleteFromFavoritesApi,
 } from 'src/services/redux/slices/favorites/favorites';
 import { addToWatchApi, addWatch } from 'src/services/redux/slices/watch/watch';
+import { selectUser } from '../../services/redux/slices/user/user';
 
 const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 	const dispatch = useAppDispatch();
+	const user = useAppSelector(selectUser);
+
 	const filmFav = useAppSelector(
-		(state) => state.movies.movies.find((film) => film.id === id)?.is_favorite
+		(state) => state.favoritemovies.favorites.find((film) => film.id === id)?.is_favorite
 	);
 	const filmWatch = useAppSelector(
 		(state) => state.movies.movies.find((film) => film.id === id)?.is_need_see
 	);
-
-	const film = useAppSelector((state) =>
-		state.movies.movies.find((item) => item.id === id)
-	);
-
+	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
+	
 	const handleClickFavorite = () => {
-		dispatch(addToFavoritesApi(id))
-			.unwrap()
-			.then(() => dispatch(addFavorites(film)))
-			.catch(() => console.log('mistake'));
-	};
+		const favoriteIds = favorites.map((film)=>film.id);
+		console.log(favoriteIds)
+		if(favoriteIds.includes(id))
+		{
+			dispatch(deleteFromFavoritesApi({id, token: user.token}))
+		} else {
+			dispatch(addToFavoritesApi({id, token: user.token}))
+		}
+	}
+
+	// const handleClickFavorite = () => {
+	// 	dispatch(addToFavoritesApi({id, token: user.token}))
+	// };
 
 	const handleClickWatch = () => {
 		dispatch(addToWatchApi(id))
-			.unwrap()
-			.then(() => dispatch(addWatch(film)))
-			.catch(() => console.log('mistake'));
 	};
 
 	const typesImg =

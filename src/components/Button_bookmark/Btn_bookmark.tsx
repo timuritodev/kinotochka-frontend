@@ -8,6 +8,8 @@ import {
 	updateFavorite,
 	updateWatch,
 } from 'src/services/redux/slices/films/films';
+import { addToFavoritesApi, deleteFromFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
+import { selectUser } from '../../services/redux/slices/user/user';
 
 export const BtnBookmark = ({
 	nameTypes,
@@ -17,20 +19,26 @@ export const BtnBookmark = ({
 	id: number;
 }) => {
 	const dispatch = useAppDispatch();
+	const user = useAppSelector(selectUser);
+
 	const filmFav = useAppSelector(
-		(state) => state.films.films.find((film) => film.id === id)?.is_favorite
+		(state) => state.favoritemovies.favorites.find((film) => film.id === id)?.is_favorite
 	);
 	const filmWatch = useAppSelector(
-		(state) => state.films.films.find((film) => film.id === id)?.must_see
+		(state) => state.movies.movies.find((film) => film.id === id)?.is_need_see
 	);
-
+	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
+	
 	const handleClickFavorite = () => {
-		dispatch(updateFavorite({ favorite: !filmFav, id }));
-	};
-
-	const handleClickWatch = () => {
-		dispatch(updateWatch({ watch: !filmWatch, id }));
-	};
+		const favoriteIds = favorites.map((film)=>film.id);
+		console.log(favoriteIds)
+		if(favoriteIds.includes(id))
+		{
+			dispatch(deleteFromFavoritesApi({id, token: user.token}))
+		} else {
+			dispatch(addToFavoritesApi({id, token: user.token}))
+		}
+	}
 
 	const typesImg =
 		nameTypes === 'favorite'
@@ -44,9 +52,7 @@ export const BtnBookmark = ({
 	return (
 		<section
 			className="bookmark_favorite"
-			onClick={
-				nameTypes === 'favorite' ? handleClickFavorite : handleClickWatch
-			}
+			onClick={handleClickFavorite}
 		>
 			<div className="bookmark_fon" />
 			<img className="bookmark_img" src={typesImg} alt="icon" />

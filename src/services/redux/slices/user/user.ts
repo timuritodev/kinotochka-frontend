@@ -141,7 +141,6 @@ const initialState: IUserState = {
 	},
 };
 
-
 const userSlice = createSlice({
 	name: '@@user',
 	initialState,
@@ -156,7 +155,7 @@ const userSlice = createSlice({
 			.addCase(signInUser.fulfilled, (state, action: PayloadAction<string>) => {
 				state.status = 'success';
 				state.user.token = action.payload;
-				console.log(state.user.token)
+				console.log(state.user.token);
 			})
 			.addCase(checkEmail.fulfilled, (state) => {
 				state.status = 'success';
@@ -200,7 +199,6 @@ const userSlice = createSlice({
 			);
 	},
 });
-
 
 export const { setUser, signOut } = userSlice.actions;
 
