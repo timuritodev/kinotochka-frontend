@@ -12,7 +12,7 @@ import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { AllButton } from 'src/components/AllBtn/AllButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
-import { Selections } from '../Selections/Selections';
+import { SelectionsPage } from '../SelectionsPage/SelectionsPage';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
