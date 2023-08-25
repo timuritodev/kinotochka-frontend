@@ -34,7 +34,7 @@ export interface ISignUpData extends ISignInData {
 
 export interface IUser {
 	email: string;
-	fav_genres: (number | string)[];
+	fav_genres: number[];
 	token: string;
 	nickname?: string;
 	dateOfBirth?: string;
