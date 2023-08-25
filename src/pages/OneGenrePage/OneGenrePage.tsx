@@ -59,8 +59,9 @@ const OneGenrePage: FC = () => {
 	const handButtonBackClick = () => {
 		navigate('/');
 	};
+
 	const genre = localStorage.getItem('genre');
-	console.log(filmsBygenre);
+
 	return (
 		<section className="flank">
 			<BackButton

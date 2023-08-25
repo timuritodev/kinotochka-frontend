@@ -38,11 +38,10 @@ const SignInPage = () => {
 		dispatch(signInUser(formValues as ISignInData))
 			.unwrap()
 			.then((res) => {
-				localStorage.setItem('token', res.access);
-			})
-			.then(() => {
-				setUser(formValues.email);
+				console.log('dispatch signInUser success', res);
+				console.log('formValues.email', formValues.email);
 				dispatch(setUser({ email: formValues.email, token: res }));
+
 				navigate('/');
 				reset();
 				return res;

@@ -1,6 +1,5 @@
 import './FlanksPage.css';
 import React, { useEffect, useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -9,20 +8,16 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
-import { AllButton } from 'src/components/AllBtn/AllButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
-import { SelectionsPage } from '../SelectionsPage/SelectionsPage';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
 	const favorites = useAppSelector((state) => state.newmoviecards.movies);
 	const compilations = useAppSelector((state) => state.compilations.data);
 
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
-	const [isAllButton, setIsAllButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
 

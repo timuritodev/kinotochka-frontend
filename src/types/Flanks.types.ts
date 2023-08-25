@@ -3,7 +3,6 @@ export enum FlanksTypes {
 	willSee = 'willSee',
 	favorites = 'favorites',
 	collections = 'collections',
-	selections = 'selections',
 }
 
 export interface IFlanks {
