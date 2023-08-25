@@ -5,21 +5,20 @@ import { IRating } from 'src/types/Rating.types';
 import { useAppDispatch } from 'src/services/typeHooks';
 import { getMoviesRating } from 'src/services/redux/slices/rating/rating';
 
-const RatingElement: FC<IRating> = ({ id,rate })=>  {
+const RatingElement: FC<IRating> = ({ id, rate }) => {
 	const [rating, setRating] = useState(rate);
 	const dispatch = useAppDispatch();
 	//const movie = useAppSelector((state) => state.movie_rating.movie_rating);
-	
-	
+
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
-		
-		dispatch(getMoviesRating({
-			id,
-			rate: value,
-			
-		}))
-		
+
+		dispatch(
+			getMoviesRating({
+				id,
+				rate: value,
+			})
+		);
 	};
 
 	return (

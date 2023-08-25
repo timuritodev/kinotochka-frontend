@@ -34,11 +34,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 			: formName === 'favorites'
 			? 'Избранное'
 			: 'Все подборки'
-			? 'Избранное'
-			: 'Подборки'
-			
 
-			
 
 	// Отвечает за определение какой масив показывать
 	useEffect(() => {
@@ -97,22 +93,12 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		setPageMore((prev) => prev + pageMore);
 	};
 
-	const handleAllButtonClick = () => {
-		navigate('/selections');
-		setIsAllButton(true);
-		
-	};
-	
-
 	return (
 		<section className="flank">
 			<h1 className="flank_title">{title}</h1>
 			<div className="flank_container">
 				{formName === 'collections' ? (
-					<><SelectionCard compilations={compilations} />
-					<div className="flank_btn">
-						<AllButton onClick={handleAllButtonClick} /> 
-					</div></>
+						<SelectionCard compilations={compilations} />
 				) : (
 					toggleFavorites
 						.slice(0, pageMore)

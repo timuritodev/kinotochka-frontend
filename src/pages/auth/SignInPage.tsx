@@ -34,8 +34,9 @@ const SignInPage = () => {
 		dispatch(signInUser(getValues() as ISignInData))
 			.unwrap()
 			.then((res) => {
-				localStorage.setItem('token',res.access)
-				console.log('dispatch success', res)})
+				localStorage.setItem('token', res.access);
+				console.log('dispatch success', res);
+			})
 			.then(() => {
 				setUser(formValues.email);
 				navigate('/');

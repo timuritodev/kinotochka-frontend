@@ -60,7 +60,7 @@ const OneGenrePage: FC = () => {
 		navigate('/');
 	};
 	const genre = localStorage.getItem('genre');
-console.log(filmsBygenre)
+	console.log(filmsBygenre);
 	return (
 		<section className="flank">
 			<BackButton

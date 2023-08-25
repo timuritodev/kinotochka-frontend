@@ -10,43 +10,50 @@ import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 
 export const Selections = () => {
+	const dispatch = useAppDispatch();
+	const [isMoreButton, setIsMoreButton] = useState(false);
+	const [screenSize, setScreenSize] = useState<number>(0);
+	const [pageMore, setPageMore] = useState(screenSize);
+	const compilations = useAppSelector((state) => state.compilations.data);
+	const films = JSON.parse(localStorage.getItem("filmsBy") || "");
 
-    const dispatch = useAppDispatch();
-    const [isMoreButton, setIsMoreButton] = useState(false);
-    const [screenSize, setScreenSize] = useState<number>(0);
-    const [pageMore, setPageMore] = useState(screenSize);
-    const compilations = useAppSelector((state) => state.compilations.data);
-
-useEffect(() => {
-    if (screenSize >= 1280) {
-        const page = 12;
-        setPageMore(page);
-    } else if (screenSize <= 1280 && screenSize > 800) {
-        const page = 9;
-        setPageMore(page);
-    } else if (screenSize < 800) {
-        const page = 8;
-        setPageMore(page);
-    }
-}, [screenSize]);
+	
+	console.log(films)
+	
 
 
-    const handleMoreButtonClick = () => {
-     setPageMore((prev) => prev + pageMore);
+
+	useEffect(() => {
+		if (screenSize >= 1280) {
+			const page = 12;
+			setPageMore(page);
+		} else if (screenSize <= 1280 && screenSize > 800) {
+			const page = 9;
+			setPageMore(page);
+		} else if (screenSize < 800) {
+			const page = 8;
+			setPageMore(page);
+		}
+	}, [screenSize]);
+
+
+
+	const handleMoreButtonClick = () => {
+		setPageMore((prev) => prev + pageMore);
 	};
-    console.log(compilations)
+	console.log(films)
 	return (
 		<section className="flank">
-            {compilations.map((item) => (
-                <section>
-					<h1 className="flank_title">{item.title}</h1>
-                    <div className="flank_container">
-				{item.movies.slice(0, pageMore).map((film: IMovieCard) => (
-					<FilmCardSmall film={film} />
-				))}
-			</div>
-                    </section>
-				))}  
+			<h1 className="flank_title">{films.title}</h1>
+			
+				<section>
+
+					<div className="flank_container">
+						{films.movies.slice(0, pageMore).map((film: IMovieCard) => (
+							<FilmCardSmall film={film} />
+						))}
+					</div>
+				</section>
 			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>
