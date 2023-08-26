@@ -31,10 +31,10 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import { selectUser } from './services/redux/slices/user/user';
 import { Loader } from './components/Loader/Loader';
-import { useAppDispatch, useAppSelector } from './services/typeHooks';
-import { getGenres } from './services/redux/slices/genres/genres';
+import { useAppSelector } from './services/typeHooks';
 import AllGenresPage from './pages/AllGenresPage/AllGenresPage';
 import OneGenrePage from './pages/OneGenrePage/OneGenrePage';
+import { Selections } from './pages/Selections/Selections';
 
 const Root: FC = () => {
 	const user = useAppSelector(selectUser);
@@ -136,6 +136,7 @@ const Root: FC = () => {
 					/>
 					<Route path="/allgenres" element={<AllGenresPage />} />
 					<Route path="/onegenre" element={<OneGenrePage />} />
+					<Route path="/selections" element={<Selections />} />
 					<Route
 						path="/will-see"
 						element={
