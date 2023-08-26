@@ -2,6 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
 	fetchCheckEmail,
 	fetchDeleteUser,
+	fetchEditFavGenres,
 	fetchEditUserInfo,
 	fetchGetUserInfo,
 	fetchPasswordRecovery,
@@ -108,7 +109,24 @@ export const editUserInfo = createAsyncThunk(
 		try {
 			const response = await fetchEditUserInfo(data, token);
 			const json = await response.json();
-			console.log('editUserInfo json', json);
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const editFavGenres = createAsyncThunk(
+	'@@user/editFavGenres',
+	async (
+		arg: { data: { fav_genres: number[] }; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { data, token } = arg;
+		try {
+			const response = await fetchEditFavGenres(data, token);
+			const json = await response.json();
+			console.log('editFavGenres json', json);
 			return fulfillWithValue(json);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
@@ -181,6 +199,10 @@ const userSlice = createSlice({
 				state.user.nickname = action.payload.username;
 				state.user.dateOfBirth = action.payload.date_of_birth;
 				state.user.sex = action.payload.sex;
+			})
+			.addCase(editFavGenres.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.user.fav_genres = action.payload.fav_genres;
 			})
 			.addCase(deleteUser.fulfilled, () => initialState)
 			.addMatcher(
