@@ -2,27 +2,25 @@ import { FC, useEffect } from 'react';
 import React, { useState } from 'react';
 import './RatingElement.css';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { getMoviesRating } from 'src/services/redux/slices/rating/rating';
+import { getMoviesRating, postRating } from 'src/services/redux/slices/rating/rating';
 import { IRating } from 'src/types/Rating.types';
+import { selectUser } from 'src/services/redux/slices/user/user';
 
 const RatingElement: FC<IRating> = ({ id,rate })=>  {
 	const [rating, setRating] = useState(0);
 	const dispatch = useAppDispatch();
-	//const movierating = useAppSelector((state) => state.movie_rating);
+	const user = useAppSelector(selectUser);
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
 		
 		dispatch(getMoviesRating({
 			id,
-			rate: value,
-		}))
+			rate: value  , 
+			token: user.token
+	}))
 		
 	};
 	
-	useEffect(() => {
-		//dispatch(getMoviesRating());
-	}, []);
-
 	return (
 		<div className="rating-element">
 			<h2 className="rating-element__text">Ваша оценка - {rating}</h2>
