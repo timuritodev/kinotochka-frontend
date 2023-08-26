@@ -18,10 +18,10 @@ export const BtnBookmark = ({
 	const user = useAppSelector(selectUser);
 
 	const filmFav = useAppSelector(
-		(state) => state.favoritemovies.favorites.find((film) => film.id === id)?.is_favorite
+		(state) => state.favoritemovies.favorites?.find((film) => film.id === id)?.is_favorite
 	);
 	const filmWatch = useAppSelector(
-		(state) => state.favoritemovies.watchlist.find((film) => film.id === id)?.is_need_see
+		(state) => state.favoritemovies.watchlist?.find((film) => film.id === id)?.is_need_see
 	);
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
 	const watchList = useAppSelector((state) => state.favoritemovies.watchlist)
