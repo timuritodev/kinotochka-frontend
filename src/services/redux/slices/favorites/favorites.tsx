@@ -3,6 +3,9 @@ import {
 	fetchAddToFavorites,
 	fetchDeleteFromFavorites,
 	getFavoriteMovies,
+	getWatchList,
+	fetchAddToWatch,
+	fetchDeleteFromWatch
 } from './favoritesApi';
 import { IFavoritesState } from 'src/types/Favorites.types';
 
@@ -51,10 +54,56 @@ export const deleteFromFavoritesApi = createAsyncThunk(
 	}
 );
 
+export const getWatchListApi = createAsyncThunk(
+	'@@watch/getWatch',
+	async (token: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await getWatchList(token);
+			const json = await response.json();
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const addToWatchApi = createAsyncThunk(
+	'@@watch/addWatch',
+	async (
+		arg: { id: number; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { id, token } = arg;
+		try {
+			const response = await fetchAddToWatch(id, token);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const deleteFromWatchApi = createAsyncThunk(
+	'@@watch/deleteWatch',
+	async (
+		arg: { id: number; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { id, token } = arg;
+		try {
+			const response = await fetchDeleteFromWatch(id, token);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
 const initialState: IFavoritesState = {
 	status: 'idle',
 	error: '',
 	favorites: [],
+	watchlist: [],
 };
 
 export const favoriteSlice = createSlice({
@@ -73,6 +122,16 @@ export const favoriteSlice = createSlice({
 				state.status = 'success';
 			})
 			.addCase(deleteFromFavoritesApi.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(getWatchListApi.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.watchlist = action.payload;
+			})
+			.addCase(addToWatchApi.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(deleteFromWatchApi.fulfilled, (state) => {
 				state.status = 'success';
 			})
 			.addMatcher(

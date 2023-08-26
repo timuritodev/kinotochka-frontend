@@ -4,11 +4,7 @@ import img_bookmark_pressed from '../../images/btn_bookmark_pressed.svg';
 import img_watch_default from '../../images/btn_watch_default.svg';
 import img_watch_pressed from '../../images/btn_watch_pressed.svg';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import {
-	updateFavorite,
-	updateWatch,
-} from 'src/services/redux/slices/films/films';
-import { addToFavoritesApi, deleteFromFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
+import { addToFavoritesApi, deleteFromFavoritesApi, addToWatchApi, deleteFromWatchApi } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from '../../services/redux/slices/user/user';
 
 export const BtnBookmark = ({
@@ -28,7 +24,8 @@ export const BtnBookmark = ({
 		(state) => state.movies.movies.find((film) => film.id === id)?.is_need_see
 	);
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
-	
+	const watchList = useAppSelector((state) => state.favoritemovies.watchlist)
+
 	const handleClickFavorite = () => {
 		const favoriteIds = favorites.map((film)=>film.id);
 		console.log(favoriteIds)
@@ -39,6 +36,17 @@ export const BtnBookmark = ({
 			dispatch(addToFavoritesApi({id, token: user.token}))
 		}
 	}
+
+	const handleClickWatch = () => {
+		const watchIds = watchList.map((film)=>film.id);
+		console.log(watchIds)
+		if(watchIds.includes(id))
+		{
+			dispatch(deleteFromWatchApi({id, token: user.token}))
+		} else {
+			dispatch(addToWatchApi({id, token: user.token}))
+		}
+	};
 
 	const typesImg =
 		nameTypes === 'favorite'
@@ -52,7 +60,11 @@ export const BtnBookmark = ({
 	return (
 		<section
 			className="bookmark_favorite"
-			onClick={handleClickFavorite}
+			onClick={
+				nameTypes === 'favorite'
+					? () => handleClickFavorite()
+					: () => handleClickWatch()
+			}
 		>
 			<div className="bookmark_fon" />
 			<img className="bookmark_img" src={typesImg} alt="icon" />

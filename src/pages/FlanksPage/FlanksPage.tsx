@@ -5,18 +5,18 @@ import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { getSelectionsApi } from '../../services/redux/slices/selections/selections';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
 import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
-import { getFavoritesApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
+import { getFavoritesApi, getWatchListApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
+	const watchList = useAppSelector((state) => state.favoritemovies.watchlist);
 	const compilations = useAppSelector((state) => state.compilations.data);
 	const user = useAppSelector(selectUser);
 
@@ -39,7 +39,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		if (formName === 'ratedFilms') {
 			setToggleFavorites(favorites);
 		} else if (formName === 'willSee') {
-			setToggleFavorites(favorites);
+			setToggleFavorites(watchList);
 		} else if (formName === 'favorites') {
 			setToggleFavorites(favorites);
 		} else {
@@ -55,6 +55,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 
 	useEffect(() => {
 		dispatch(getFavoritesApi(user.token));
+		dispatch(getWatchListApi(user.token));
 	}, [dispatch]);
 
 	const handleResize = useCallback(() => {
@@ -110,7 +111,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 				) : (
 					toggleFavorites
 						.slice(0, pageMore)
-						.map((film) => <FilmCardSmall film={film} />)
+						.map((film) => <FilmCardSmall key={film.id} film={film} />)
 				)}
 			</div>
 			<div className="flank_btn">

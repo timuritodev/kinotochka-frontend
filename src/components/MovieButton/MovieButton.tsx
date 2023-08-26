@@ -6,11 +6,7 @@ import eye from '../../images/black_eye.svg';
 import eye_clicked from '../../images/eye_clicked.svg';
 import bookmark from '../../images/Bookmark.svg';
 import bookmark_clicked from '../../images/bookmark_clicked.svg';
-import {
-	// addFavorites,
-	addToFavoritesApi, deleteFromFavoritesApi,
-} from 'src/services/redux/slices/favorites/favorites';
-import { addToWatchApi, addWatch } from 'src/services/redux/slices/watch/watch';
+import { addToFavoritesApi, deleteFromFavoritesApi, addToWatchApi, deleteFromWatchApi } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from '../../services/redux/slices/user/user';
 
 const MovieButton: FC<IButton> = ({ buttonName, id }) => {
@@ -24,25 +20,27 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 		(state) => state.movies.movies.find((film) => film.id === id)?.is_need_see
 	);
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
-	
+	const watchList = useAppSelector((state) => state.favoritemovies.watchlist)
+
 	const handleClickFavorite = () => {
-		console.log(1)
-		const favoriteIds = favorites.map((film)=>film.id);
+		const favoriteIds = favorites.map((film) => film.id);
 		console.log(favoriteIds)
-		if(favoriteIds.includes(id))
-		{
-			dispatch(deleteFromFavoritesApi({id, token: user.token}))
+		if (favoriteIds.includes(id)) {
+			dispatch(deleteFromFavoritesApi({ id, token: user.token }))
 		} else {
-			dispatch(addToFavoritesApi({id, token: user.token}))
+			dispatch(addToFavoritesApi({ id, token: user.token }))
 		}
 	}
 
-	// const handleClickFavorite = () => {
-	// 	dispatch(addToFavoritesApi({id, token: user.token}))
-	// };
-
 	const handleClickWatch = () => {
-		dispatch(addToWatchApi(id))
+		const watchIds = watchList.map((film)=>film.id);
+		console.log(watchIds)
+		if(watchIds.includes(id))
+		{
+			dispatch(deleteFromWatchApi({id, token: user.token}))
+		} else {
+			dispatch(addToWatchApi({id, token: user.token}))
+		}
 	};
 
 	const typesImg =
@@ -51,8 +49,8 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 				? bookmark_clicked
 				: bookmark
 			: filmWatch
-			? eye_clicked
-			: eye;
+				? eye_clicked
+				: eye;
 
 	const addCss =
 		buttonName === 'favorites'
@@ -65,7 +63,7 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 			onClick={
 				buttonName === 'favorites'
 					? () => handleClickFavorite()
-					: handleClickWatch
+					: () => handleClickWatch()
 			}
 		>
 			<div className="moviepage-button" />
