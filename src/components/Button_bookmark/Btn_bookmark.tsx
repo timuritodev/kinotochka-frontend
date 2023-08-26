@@ -21,30 +21,26 @@ export const BtnBookmark = ({
 		(state) => state.favoritemovies.favorites.find((film) => film.id === id)?.is_favorite
 	);
 	const filmWatch = useAppSelector(
-		(state) => state.movies.movies.find((film) => film.id === id)?.is_need_see
+		(state) => state.favoritemovies.watchlist.find((film) => film.id === id)?.is_need_see
 	);
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
 	const watchList = useAppSelector((state) => state.favoritemovies.watchlist)
 
 	const handleClickFavorite = () => {
-		const favoriteIds = favorites.map((film)=>film.id);
-		console.log(favoriteIds)
-		if(favoriteIds.includes(id))
-		{
-			dispatch(deleteFromFavoritesApi({id, token: user.token}))
+		const favoriteIds = favorites.map((film) => film.id);
+		if (favoriteIds.includes(id)) {
+			dispatch(deleteFromFavoritesApi({ id, token: user.token }))
 		} else {
-			dispatch(addToFavoritesApi({id, token: user.token}))
+			dispatch(addToFavoritesApi({ id, token: user.token }))
 		}
 	}
 
 	const handleClickWatch = () => {
-		const watchIds = watchList.map((film)=>film.id);
-		console.log(watchIds)
-		if(watchIds.includes(id))
-		{
-			dispatch(deleteFromWatchApi({id, token: user.token}))
+		const watchIds = watchList.map((film) => film.id);
+		if (watchIds.includes(id)) {
+			dispatch(deleteFromWatchApi({ id, token: user.token }))
 		} else {
-			dispatch(addToWatchApi({id, token: user.token}))
+			dispatch(addToWatchApi({ id, token: user.token }))
 		}
 	};
 
@@ -54,8 +50,8 @@ export const BtnBookmark = ({
 				? img_bookmark_pressed
 				: img_bookmark_default
 			: filmWatch
-			? img_watch_pressed
-			: img_watch_default;
+				? img_watch_pressed
+				: img_watch_default;
 
 	return (
 		<section
