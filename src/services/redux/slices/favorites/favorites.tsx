@@ -1,16 +1,19 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import {
-	getFavorites,
-	deleteFromFavorites,
-	addToFavorites,
+	fetchAddToFavorites,
+	fetchDeleteFromFavorites,
+	getFavoriteMovies,
+	getWatchList,
+	fetchAddToWatch,
+	fetchDeleteFromWatch
 } from './favoritesApi';
 import { IFavoritesState } from 'src/types/Favorites.types';
 
 export const getFavoritesApi = createAsyncThunk(
-	'@@favorite/favorite',
-	async (_, { fulfillWithValue, rejectWithValue }) => {
+	'@@favorite/getFavorite',
+	async (token: string, { fulfillWithValue, rejectWithValue }) => {
 		try {
-			const response = await getFavorites();
+			const response = await getFavoriteMovies(token);
 			const json = await response.json();
 			return fulfillWithValue(json);
 		} catch (error: unknown) {
@@ -21,10 +24,13 @@ export const getFavoritesApi = createAsyncThunk(
 
 export const addToFavoritesApi = createAsyncThunk(
 	'@@favorite/addFavorite',
-	async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
+	async (
+		arg: { id: number; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { id, token } = arg;
 		try {
-			const response = await addToFavorites(filmId);
-			// const json = await response.json();
+			const response = await fetchAddToFavorites(id, token);
 			return fulfillWithValue(response);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
@@ -34,10 +40,58 @@ export const addToFavoritesApi = createAsyncThunk(
 
 export const deleteFromFavoritesApi = createAsyncThunk(
 	'@@favorite/deleteFavorite',
-	async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
+	async (
+		arg: { id: number; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { id, token } = arg;
 		try {
-			const response = await deleteFromFavorites(filmId);
-			// const json = await response.json();
+			const response = await fetchDeleteFromFavorites(id, token);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const getWatchListApi = createAsyncThunk(
+	'@@favorite/getWatch',
+	async (token: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await getWatchList(token);
+			const json = await response.json();
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const addToWatchApi = createAsyncThunk(
+	'@@favorite/addWatch',
+	async (
+		arg: { id: number; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { id, token } = arg;
+		try {
+			const response = await fetchAddToWatch(id, token);
+			return fulfillWithValue(response);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
+export const deleteFromWatchApi = createAsyncThunk(
+	'@@favorite/deleteWatch',
+	async (
+		arg: { id: number; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { id, token } = arg;
+		try {
+			const response = await fetchDeleteFromWatch(id, token);
 			return fulfillWithValue(response);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
@@ -49,18 +103,14 @@ const initialState: IFavoritesState = {
 	status: 'idle',
 	error: '',
 	favorites: [],
+	watchlist: [],
 };
 
 export const favoriteSlice = createSlice({
 	name: '@@favorite',
 	initialState,
 	reducers: {
-		addFavorites: (state, action) => {
-			state.favorites = [...state.favorites, action.payload];
-		},
-		deleteFavorites: (state, action) => {
-			state.favorites.filter((item) => item !== action.payload);
-		},
+		resetFavorites: () => initialState
 	},
 	extraReducers: (builder) => {
 		builder
@@ -72,6 +122,16 @@ export const favoriteSlice = createSlice({
 				state.status = 'success';
 			})
 			.addCase(deleteFromFavoritesApi.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(getWatchListApi.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.watchlist = action.payload;
+			})
+			.addCase(addToWatchApi.fulfilled, (state) => {
+				state.status = 'success';
+			})
+			.addCase(deleteFromWatchApi.fulfilled, (state) => {
 				state.status = 'success';
 			})
 			.addMatcher(
@@ -91,6 +151,6 @@ export const favoriteSlice = createSlice({
 	},
 });
 
-export const { addFavorites, deleteFavorites } = favoriteSlice.actions;
+export const { resetFavorites } = favoriteSlice.actions;
 
 export const favoriteReducer = favoriteSlice.reducer;
