@@ -1,6 +1,12 @@
 import React, { FC } from 'react';
 import ReactDOM from 'react-dom/client';
-import { Routes, Route, HashRouter, Navigate } from 'react-router-dom';
+import {
+	Routes,
+	Route,
+	HashRouter,
+	Navigate,
+	BrowserRouter,
+} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './services/redux/store';
@@ -78,7 +84,7 @@ const Root: FC = () => {
 						}
 					/>
 					<Route
-						path="/password-recovery/:code"
+						path="/reset-password/:code"
 						element={
 							user.token ? (
 								<>
@@ -90,6 +96,7 @@ const Root: FC = () => {
 							)
 						}
 					/>
+					<Route path="/reset-password" element={<ResetPasswordPage />} />
 					<Route
 						path="/confirm-email"
 						element={
@@ -166,9 +173,9 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 			<PersistGate loading={<div>Loading...</div>} persistor={persistor}>
-				<HashRouter>
+				<BrowserRouter>
 					<Root />
-				</HashRouter>
+				</BrowserRouter>
 			</PersistGate>
 		</Provider>
 	</React.StrictMode>

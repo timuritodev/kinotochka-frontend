@@ -32,7 +32,9 @@ const Account: FC = () => {
 				<>
 					<div className="account__profile-icon" onMouseOver={setProfileOpen}>
 						<Link to="/profile" className="account__profile-link">
-							<p className="account__profile-word">{email[0]}</p>
+							<p className="account__profile-word">
+								{nickname ? nickname[0] : email[0]}
+							</p>
 						</Link>
 					</div>
 					<nav
