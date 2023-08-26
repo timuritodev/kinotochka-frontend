@@ -6,7 +6,7 @@ import eye from '../../images/black_eye.svg';
 import eye_clicked from '../../images/eye_clicked.svg';
 import bookmark from '../../images/Bookmark.svg';
 import bookmark_clicked from '../../images/bookmark_clicked.svg';
-import { addToFavoritesApi, deleteFromFavoritesApi, addToWatchApi, deleteFromWatchApi } from 'src/services/redux/slices/favorites/favorites';
+import { addToFavoritesApi, deleteFromFavoritesApi, addToWatchApi, deleteFromWatchApi, getFavoritesApi, getWatchListApi } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from '../../services/redux/slices/user/user';
 
 const MovieButton: FC<IButton> = ({ buttonName, id }) => {
@@ -22,22 +22,25 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
 	const watchList = useAppSelector((state) => state.favoritemovies.watchlist)
 
-	const handleClickFavorite = () => {
+	const handleClickFavorite = async () => {
 		const favoriteIds = favorites.map((film) => film.id);
 		if (favoriteIds.includes(id)) {
-			dispatch(deleteFromFavoritesApi({ id, token: user.token }))
+			await dispatch(deleteFromFavoritesApi({ id, token: user.token }));
 		} else {
-			dispatch(addToFavoritesApi({ id, token: user.token }))
+			await dispatch(addToFavoritesApi({ id, token: user.token }));
 		}
-	}
+		await dispatch(getFavoritesApi(user.token));
+	};
 
-	const handleClickWatch = () => {
+
+	const handleClickWatch = async () => {
 		const watchIds = watchList.map((film) => film.id);
 		if (watchIds.includes(id)) {
-			dispatch(deleteFromWatchApi({ id, token: user.token }))
+			await dispatch(deleteFromWatchApi({ id, token: user.token }))
 		} else {
-			dispatch(addToWatchApi({ id, token: user.token }))
+			await dispatch(addToWatchApi({ id, token: user.token }))
 		}
+		await dispatch(getWatchListApi(user.token));
 	};
 
 	const typesImg =
@@ -55,7 +58,7 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 			: 'moviepage__button_seen';
 
 	return (
-		<section
+		<>{user.token ? (<section
 			className={`moviepage-button__container ${addCss}`}
 			onClick={
 				buttonName === 'favorites'
@@ -65,7 +68,10 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 		>
 			<div className="moviepage-button" />
 			<img className="moviepage-button__img" src={typesImg} alt="icon" />
-		</section>
+		</section>) : (
+			null
+		)}
+		</>
 	);
 };
 

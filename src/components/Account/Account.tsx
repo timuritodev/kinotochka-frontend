@@ -4,6 +4,7 @@ import './Account.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { selectUser, signOut } from 'src/services/redux/slices/user/user';
+import { resetFavorites } from 'src/services/redux/slices/favorites/favorites';
 
 const Account: FC = () => {
 	const navigate = useNavigate();
@@ -59,6 +60,7 @@ const Account: FC = () => {
 								onClick={() => {
 									dispatch(signOut());
 									navigate('/');
+									dispatch(resetFavorites());
 								}}
 							>
 								Выйти

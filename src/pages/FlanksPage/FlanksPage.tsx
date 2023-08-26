@@ -29,10 +29,10 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		formName === 'ratedFilms'
 			? 'Оцененное'
 			: formName === 'willSee'
-			? 'Буду смотреть'
-			: formName === 'favorites'
-			? 'Избранное'
-			: 'Все подборки';
+				? 'Буду смотреть'
+				: formName === 'favorites'
+					? 'Избранное'
+					: 'Все подборки';
 
 	// Отвечает за определение какой масив показывать
 	useEffect(() => {
@@ -54,9 +54,11 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	}, []);
 
 	useEffect(() => {
-		dispatch(getFavoritesApi(user.token));
-		dispatch(getWatchListApi(user.token));
-	}, [dispatch]);
+		if (user.token) {
+			dispatch(getFavoritesApi(user.token));
+			dispatch(getWatchListApi(user.token));
+		}
+	}, []);
 
 	const handleResize = useCallback(() => {
 		const windowWidth = window.innerWidth;

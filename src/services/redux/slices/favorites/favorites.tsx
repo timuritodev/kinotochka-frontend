@@ -55,7 +55,7 @@ export const deleteFromFavoritesApi = createAsyncThunk(
 );
 
 export const getWatchListApi = createAsyncThunk(
-	'@@watch/getWatch',
+	'@@favorite/getWatch',
 	async (token: string, { fulfillWithValue, rejectWithValue }) => {
 		try {
 			const response = await getWatchList(token);
@@ -68,7 +68,7 @@ export const getWatchListApi = createAsyncThunk(
 );
 
 export const addToWatchApi = createAsyncThunk(
-	'@@watch/addWatch',
+	'@@favorite/addWatch',
 	async (
 		arg: { id: number; token: string },
 		{ fulfillWithValue, rejectWithValue }
@@ -84,7 +84,7 @@ export const addToWatchApi = createAsyncThunk(
 );
 
 export const deleteFromWatchApi = createAsyncThunk(
-	'@@watch/deleteWatch',
+	'@@favorite/deleteWatch',
 	async (
 		arg: { id: number; token: string },
 		{ fulfillWithValue, rejectWithValue }

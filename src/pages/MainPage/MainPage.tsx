@@ -12,11 +12,9 @@ import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 import { getGenres } from 'src/services/redux/slices/genres/genres';
 import { selectUser } from 'src/services/redux/slices/user/user';
-import { getFavoritesApi } from 'src/services/redux/slices/favorites/favorites';
-
+import { getFavoritesApi, getWatchListApi } from 'src/services/redux/slices/favorites/favorites';
 
 export default function MainPage() {
-	const [isLoggedIn, setIsLoggedIn] = useState(true);
 	const [isLoading, setIsLoading] = useState(true);
 	const user = useAppSelector(selectUser);
 
@@ -38,10 +36,17 @@ export default function MainPage() {
 			});
 	}, []);
 
+	useEffect(() => {
+		if (user.token) {
+			dispatch(getFavoritesApi(user.token));
+			dispatch(getWatchListApi(user.token));
+		}
+	}, []);
+
 	const films = useAppSelector((state) => state.movies.movies);
 	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
 
-	const compilations = useAppSelector((state) => state.compilations.data);
+	// const compilations = useAppSelector((state) => state.compilations.data);
 	const redactionOne = useAppSelector((state) => state.compilations.data[0]);
 	const redactionTwo = useAppSelector((state) => state.compilations.data[1]);
 	const redactionThree = useAppSelector((state) => state.compilations.data[2]);
