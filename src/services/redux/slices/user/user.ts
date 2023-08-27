@@ -15,10 +15,10 @@ import {
 	ISignInData,
 	ISignUpData,
 	IResetPasswordData,
+	IEditProfileData,
 } from 'src/types/Auth.types';
 
 export interface IUserState {
-	[x: string]: any;
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: unknown;
 	user: IUser;
@@ -54,7 +54,8 @@ export const signUpUser = createAsyncThunk(
 	async (data: ISignUpData, { fulfillWithValue, rejectWithValue }) => {
 		try {
 			const response = await fetchSignUp(data);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -66,7 +67,8 @@ export const recoverPassword = createAsyncThunk(
 	async (data: string, { fulfillWithValue, rejectWithValue }) => {
 		try {
 			const response = await fetchPasswordRecovery(data);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -78,7 +80,8 @@ export const resetPassword = createAsyncThunk(
 	async (data: IResetPasswordData, { fulfillWithValue, rejectWithValue }) => {
 		try {
 			const response = await fetchResetPassword(data);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -91,7 +94,6 @@ export const getUserInfo = createAsyncThunk(
 		try {
 			const response = await fetchGetUserInfo(token);
 			const json = await response.json();
-			console.log('getUserInfo json', json);
 			return fulfillWithValue(json);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
@@ -102,7 +104,10 @@ export const getUserInfo = createAsyncThunk(
 export const editUserInfo = createAsyncThunk(
 	'@@user/editUserInfo',
 	async (
-		arg: { data: any; token: string },
+		arg: {
+			data: IEditProfileData;
+			token: string;
+		},
 		{ fulfillWithValue, rejectWithValue }
 	) => {
 		const { data, token } = arg;
@@ -126,7 +131,6 @@ export const editFavGenres = createAsyncThunk(
 		try {
 			const response = await fetchEditFavGenres(data, token);
 			const json = await response.json();
-			console.log('editFavGenres json', json);
 			return fulfillWithValue(json);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
@@ -139,7 +143,8 @@ export const deleteUser = createAsyncThunk(
 	async (token: string, { fulfillWithValue, rejectWithValue }) => {
 		try {
 			const response = await fetchDeleteUser(token);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -173,7 +178,6 @@ const userSlice = createSlice({
 			.addCase(signInUser.fulfilled, (state, action: PayloadAction<string>) => {
 				state.status = 'success';
 				state.user.token = action.payload;
-				console.log(state.user.token);
 			})
 			.addCase(checkEmail.fulfilled, (state) => {
 				state.status = 'success';
