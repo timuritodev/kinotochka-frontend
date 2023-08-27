@@ -45,3 +45,9 @@ export interface IResetPasswordData {
 	token: string;
 	new_password: string;
 }
+
+export interface IEditProfileData {
+	username: string | undefined;
+	date_of_birth: string | undefined;
+	sex: number | null;
+}

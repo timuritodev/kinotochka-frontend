@@ -1,5 +1,6 @@
 import { API_BASE_URL } from 'src/utils/constants';
 import {
+	IEditProfileData,
 	IResetPasswordData,
 	ISignInData,
 	ISignUpData,
@@ -27,7 +28,8 @@ export const fetchData = (
 		| ISignUpData
 		| { email: string }
 		| IResetPasswordData
-		| { fav_genres: number[] },
+		| { fav_genres: number[] }
+		| IEditProfileData,
 	token?: string
 ) => {
 	return fetch(url, {
@@ -81,7 +83,7 @@ export const fetchGetUserInfo = (token: string): Promise<Response> => {
 };
 
 export const fetchEditUserInfo = (
-	data: any,
+	data: IEditProfileData,
 	token: string
 ): Promise<Response> => {
 	return fetchData(API_USERS_ME_URL, 'PUT', data, token).then((res) =>
