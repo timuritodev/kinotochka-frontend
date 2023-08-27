@@ -1,6 +1,6 @@
 import './FlanksPage.css';
 import React, { useEffect, useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -13,6 +13,9 @@ import { getCompilationsApi } from 'src/services/redux/slices/compilations/compi
 import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
 import { getFavoritesApi, getWatchListApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
+import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
+import button from '../../images/pic_for_flankspage.svg';
+// import { Loader } from 'src/components/Loader/Loader';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
@@ -20,6 +23,8 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const watchList = useAppSelector((state) => state.favoritemovies.watchlist);
 	const compilations = useAppSelector((state) => state.compilations.data);
 	const user = useAppSelector(selectUser);
+	const films = useAppSelector((state) => state.movies.movies);
+	// const loadingFav = useAppSelector((state) => state.favoritemovies.status)
 
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -106,21 +111,39 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	};
 
 	return (
+		// <>
+		// 	{loadingFav === 'loading' ? (
+		// 		<Loader />
+		// 	) : (
 		<section className="flank">
 			<h1 className="flank_title">{title}</h1>
-			<div className="flank_container">
-				{formName === 'collections' ? (
-					<SelectionCard compilations={compilations} />
+			{formName === 'collections' ? (
+				<SelectionCard compilations={compilations} />
+			) : (
+				toggleFavorites.length === 0 ? (
+					<>
+						<div className='flank__text__container'>
+							<p className='flank__text'>Вы еще не добавили фильмы в этот раздел.<br />Чтобы добавить фильм, нажмите на кнопку </p>
+							<img className='flank__image' src={button} alt='button' />
+						</div>
+						<div className="main-page_slick-slider_specialforyou">
+							<SlickSliderMini title={`Специально для вас`} movies={films} />
+						</div>
+					</>
 				) : (
-					toggleFavorites
-						.slice(0, pageMore)
-						.map((film) => <FilmCardSmall key={film.id} film={film} />)
-				)}
-			</div>
+					<div className="flank_container">
+						{toggleFavorites
+							.slice(0, pageMore)
+							.map((film) => <FilmCardSmall key={film.id} film={film} />)
+						}
+					</div>
+				))}
 			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>
 		</section>
+		// )}
+		// </>
 	);
 };
 
