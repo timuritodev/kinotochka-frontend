@@ -1,6 +1,5 @@
 import './FlanksPage.css';
 import React, { useEffect, useState, useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -10,7 +9,7 @@ import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
-import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
+import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { getFavoritesApi, getWatchListApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
 
@@ -114,7 +113,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 				) : (
 					toggleFavorites
 						.slice(0, pageMore)
-						.map((film) => <FilmCardSmall key={film.id} film={film} />)
+						.map((film) => <FilmCard key={film.id} film={film} />)
 				)}
 			</div>
 			<div className="flank_btn">
