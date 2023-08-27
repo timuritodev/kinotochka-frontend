@@ -4,7 +4,7 @@ import './RatingElement.css';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import {
 	getMoviesRating,
-	postRating,
+
 } from 'src/services/redux/slices/rating/rating';
 import { IRating } from 'src/types/Rating.types';
 import { selectUser } from 'src/services/redux/slices/user/user';
@@ -12,7 +12,9 @@ import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
 
 const RatingElement: FC<IRating> = ({ id, rate }) => {
 	const movie = useAppSelector((state) => state.movie.movie);
-	const [rating, setRating] = useState(rate);
+	const rated: any = useAppSelector((state) => state.rating.movie_rating) ;
+	
+	const [rating, setRating] = useState(rated);
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
 	
@@ -20,6 +22,7 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 	
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
+		
 		dispatch(
 			getMoviesRating({
 				id,
@@ -27,17 +30,17 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 				token: user.token,
 			})
 		);
+
+		/*useEffect(() => {
+			getMoviebyidApi(movie.id);
+		}, []);*/
 		
 		
 	};
 
-	/*useEffect(() => {
-		dispatch(getMoviebyidApi(
-			id
-		));
-	}, []);*/
 
-console.log(movie)
+
+console.log(rated)
 	return (
 		<div className="rating-element">
 			<h2 className="rating-element__text">Ваша оценка - {rating}</h2>

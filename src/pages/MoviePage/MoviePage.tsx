@@ -1,22 +1,27 @@
-import { useAppSelector } from '../../services/typeHooks';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';
 import { RatedElement } from '../../components/RatedElement/RatedElement';
 import MovieButton from '../../components/MovieButton/MovieButton';
 import { ButtonTypes } from '../../types/Rating.types';
 import TrailerButton from '../../components/TrailerButton/TrailerButton';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
+import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
 	const loading = useAppSelector((state) => state.movie.status);
 	const films = useAppSelector((state) => state.movies.movies);
+	const dispatch = useAppDispatch();
 
+	
+	
+console.log(movie)
 	return (
 		<>
 			{loading === 'loading' ? (

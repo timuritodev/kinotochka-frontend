@@ -30,7 +30,6 @@ export const postRating = (
 	token: string
 ): Promise<Response> => {
 	console.log(id)
-	console.log(token)
 	return postData(`${API_AUTH_URL}/${id}/rate/`, rate, token).then((res) =>
 		checkRes(res)
 	);
