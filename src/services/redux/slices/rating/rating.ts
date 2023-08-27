@@ -9,19 +9,18 @@ import { postRating } from './ratingApi';
 	}
 );*/
 
+/*export const getMoviesRating = createAsyncThunk(
+	'@@movie_rating/getMoviesRating',
+	async ({ id, rate, token }: { id: any; rate: any; token: any }) => {
+		return postRating(id, rate, token);
+	}
+);*/
 export const getMoviesRating = createAsyncThunk(
 	'@@movie_rating/getMoviesRating',
-	async ({id, rate, token}: {id: any, rate: any, token: any}) => {
-		
-			return postRating( id, rate, token);
-		
-	}
-);
-
-/*async ({id,rate}: {id: any, rate: any}, { fulfillWithValue, rejectWithValue }) => {
+async ({ id, rate, token}: {id: any; rate: any; token: any}, { fulfillWithValue, rejectWithValue }) => {
 		try {
-			
-			const response = await postRating(id,rate);
+			console.log(rate)
+			const response = await postRating(id,rate, token);
 			
 			//const json = await response.json();
 			return fulfillWithValue(response);
@@ -30,7 +29,7 @@ export const getMoviesRating = createAsyncThunk(
 			return rejectWithValue(error);
 		}
 	}
-);*/
+);
 
 const initialState: IRatingState = {
 	status: 'idle',
@@ -44,7 +43,6 @@ export const ratingSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesRating.fulfilled, (state, action) => {
-			console.log(1);
 			state.status = 'success';
 			//state.movie_rating = action.payload;
 			//state.movie_rating = state.movie_rating, action.payload;
@@ -58,4 +56,3 @@ export const ratingSlice = createSlice({
 
 export const ratingReducer = ratingSlice.reducer;
 export { postRating };
-

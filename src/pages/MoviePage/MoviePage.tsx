@@ -14,9 +14,8 @@ import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini'
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.movie.movie);
-	const loading = useAppSelector((state) => state.movie.status)
+	const loading = useAppSelector((state) => state.movie.status);
 	const films = useAppSelector((state) => state.movies.movies);
-	console.log(movie)
 
 	return (
 		<>
@@ -47,7 +46,15 @@ const MoviePage: FC = () => {
 									/>
 									<MovieButton buttonName={ButtonTypes.willSee} id={movie.id} />
 								</div>
-								<RatingElement id={movie.id} user={0} movie={0} rate={0} is_viewed={false} must_see={false} is_favorite={false} />
+								<RatingElement
+									id={movie.id}
+									user={0}
+									movie={0}
+									rate={movie.user_rate}
+									is_viewed={false}
+									must_see={false}
+									is_favorite={false}
+								/>
 							</div>
 						</div>
 						<div className="description__container">

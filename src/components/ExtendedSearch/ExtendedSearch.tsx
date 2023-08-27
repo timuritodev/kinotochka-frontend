@@ -6,7 +6,6 @@ import './ExtendedSearch.css';
 // import { useAppSelector } from '../../services/typeHooks';
 
 const ExtendedSearch = ({ isOpenExtended }: { isOpenExtended: boolean }) => {
-
 	// const actors = useAppSelector((state) => state.actors.actors);
 	// console.log(actors)
 
