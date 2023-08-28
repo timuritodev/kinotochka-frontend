@@ -7,6 +7,7 @@ import { IMovieCard } from 'src/types/MovieCard.types';
 import { useNavigate } from 'react-router-dom';
 import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
 import { useAppDispatch } from '../../services/typeHooks';
+import { selectUser } from 'src/services/redux/slices/user/user';
 
 const Search = ({
 	isOpenSearch,
@@ -37,11 +38,12 @@ const Search = ({
 
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
+	const user = useAppSelector(selectUser);
 
-	const handleImgClick = (filmId: number) => {
-		dispatch(getMoviebyidApi(filmId));
-		navigate('/movie-page');
-		window.scrollTo(0, 0);
+	const handleImgClick = () => {
+	// 	dispatch(getMoviebyidApi({ filmId: films.id, token: user.token }));
+	// 	navigate('/movie-page');
+	// 	window.scrollTo(0, 0);
 	};
 
 	return (
@@ -53,7 +55,7 @@ const Search = ({
 					filteredFilms.slice(0, 5).map((film: IMovieCard) => (
 						<a
 							key={film.id}
-							onClick={() => handleImgClick(film.id)}
+							onClick={() => handleImgClick()}
 							className="searchGeneral__film"
 						>
 							<img
