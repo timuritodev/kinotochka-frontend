@@ -31,7 +31,8 @@ export const addToFavoritesApi = createAsyncThunk(
 		const { id, token } = arg;
 		try {
 			const response = await fetchAddToFavorites(id, token);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -47,7 +48,8 @@ export const deleteFromFavoritesApi = createAsyncThunk(
 		const { id, token } = arg;
 		try {
 			const response = await fetchDeleteFromFavorites(id, token);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -76,7 +78,8 @@ export const addToWatchApi = createAsyncThunk(
 		const { id, token } = arg;
 		try {
 			const response = await fetchAddToWatch(id, token);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -92,7 +95,8 @@ export const deleteFromWatchApi = createAsyncThunk(
 		const { id, token } = arg;
 		try {
 			const response = await fetchDeleteFromWatch(id, token);
-			return fulfillWithValue(response);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}

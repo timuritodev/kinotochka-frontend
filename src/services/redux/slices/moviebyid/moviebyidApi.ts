@@ -1,4 +1,4 @@
-// import { IMoviebyid } from 'src/types/Moviebyid.types';
+import { IMoviebyid } from 'src/types/Moviebyid.types';
 import { API_BASE_URL } from 'src/utils/constants';
 
 const checkRes = (res: Response) => {
@@ -23,10 +23,10 @@ export const fetchData = (
 	}).then((res) => checkRes(res));
 };
 
-export const getMoviebyidToken = (filmId: number, token: string): Promise<Response> => {
+export const getMoviebyidToken = (filmId: number, token: string): Promise<IMoviebyid> => {
 	return fetchData(`${API_BASE_URL}/movies/${filmId}`, 'GET', token);
 };
 
-export const getMoviebyid = (filmId: number): Promise<Response> => {
+export const getMoviebyid = (filmId: number): Promise<IMoviebyid> => {
 	return fetchData(`${API_BASE_URL}/movies/${filmId}`, 'GET');
 };
