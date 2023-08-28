@@ -15,7 +15,7 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 	//const rated: any = useAppSelector((state) => state.rating.movie_rating.rate) ;
 	//const movieId: any = useAppSelector((state) => state.rating.movie_rating.id) ;
 	
-	const [rating, setRating] = useState(0);
+	const [rating, setRating] = useState(rate);
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
