@@ -12,9 +12,10 @@ import { getMoviebyidApi } from 'src/services/redux/slices/moviebyid/moviebyid';
 
 const RatingElement: FC<IRating> = ({ id, rate }) => {
 	const movie = useAppSelector((state) => state.movie.movie);
-	const rated: any = useAppSelector((state) => state.rating.movie_rating) ;
+	//const rated: any = useAppSelector((state) => state.rating.movie_rating.rate) ;
+	//const movieId: any = useAppSelector((state) => state.rating.movie_rating.id) ;
 	
-	const [rating, setRating] = useState(rated);
+	const [rating, setRating] = useState(0);
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
 	
@@ -22,25 +23,35 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 	
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
-		
-		dispatch(
+		if(rating===0){dispatch(
 			getMoviesRating({
 				id,
 				rate: value,
 				token: user.token,
+				method: "POST",
 			})
 		);
+		}
+		else{
+			dispatch(
+				getMoviesRating({
+					id,
+					rate: value,
+					token: user.token,
+					method: "PUT",
+				})
+			);
+		}
+	
+	
+	
+		
 
-		/*useEffect(() => {
-			getMoviebyidApi(movie.id);
-		}, []);*/
-		
-		
 	};
 
 
 
-console.log(rated)
+console.log(rate)
 	return (
 		<div className="rating-element">
 			<h2 className="rating-element__text">Ваша оценка - {rating}</h2>

@@ -11,7 +11,15 @@ export interface IRating {
 export interface IRatingState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	movie_rating: IRating[];
+	movie_rating: {
+		id: number| undefined;
+		user: number| undefined;
+		movie: number| undefined;
+		rate: number| undefined;
+		is_viewed: boolean;
+		must_see: boolean;
+		is_favorite: boolean;
+	};
 }
 
 export interface IRate {
