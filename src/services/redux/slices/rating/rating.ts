@@ -2,19 +2,6 @@ import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { IRating } from 'src/types/Rating.types';
 import { postRating } from './ratingApi';
 
-/*export const getMoviesRating = createAsyncThunk(
-	'@@movie_rating/postRating',
-	async ({ id, rate }: { id: any; rate: any }) => {
-		return postRating(id, rate);
-	}
-);*/
-
-/*export const getMoviesRating = createAsyncThunk(
-	'@@movie_rating/getMoviesRating',
-	async ({ id, rate, token }: { id: any; rate: any; token: any }) => {
-		return postRating(id, rate, token);
-	}
-);*/
 export interface IRatingState {
 	[x: string]: any;
 	status: 'idle' | 'success' | 'loading' | 'failed';
@@ -60,8 +47,7 @@ export const ratingSlice = createSlice({
 		builder.addCase(getMoviesRating.fulfilled, (state, { meta, payload }) => {
 				
 			//state.status = 'success';
-			state.movie_rating.id = meta.arg.id;
-			console.log(state.movie_rating.id)
+			//state.movie_rating.id = meta.arg.id;
 			//state.movie_rating.id= action.meta.arg.id;
 			//console.log(action)
 			//console.log(action.meta.arg.rate)

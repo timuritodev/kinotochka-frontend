@@ -18,9 +18,6 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 	const [rating, setRating] = useState(0);
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
-	
-	
-	
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
 		if(rating===0){dispatch(
@@ -42,16 +39,8 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 				})
 			);
 		}
-	
-	
-	
-		
-
 	};
 
-
-
-console.log(rate)
 	return (
 		<div className="rating-element">
 			<h2 className="rating-element__text">Ваша оценка - {rating}</h2>
