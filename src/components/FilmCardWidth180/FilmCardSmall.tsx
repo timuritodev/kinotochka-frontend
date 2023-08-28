@@ -15,8 +15,10 @@ export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 	const handleImgClick = () => {
 		if (user.token) {
 			dispatch(getMoviebyidTokenApi({ filmId: film.id, token: user.token }));
+			console.log(1)
 		} else {
 			dispatch(getMoviebyidApi(film.id));
+			console.log(2)
 		}
 		navigate('/movie-page');
 		window.scrollTo(0, 0);

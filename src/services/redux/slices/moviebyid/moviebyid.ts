@@ -9,36 +9,6 @@ import { IMoviebyidState } from 'src/types/Moviebyid.types';
 // 	}
 // );
 
-// export const getMoviebyidTokenApi = createAsyncThunk(
-// 	'@@moviebyid/getMoviebyidToken',
-// 	async (
-// 		arg: { filmId: number; token: string },
-// 		{ fulfillWithValue, rejectWithValue }
-// 	) => {
-// 		const { filmId, token } = arg;
-// 		try {
-// 			const response = await getMoviebyidToken(filmId, token);
-// 			const json = await response.json();
-// 			return fulfillWithValue(json);
-// 		} catch (error: unknown) {
-// 			return rejectWithValue(error);
-// 		}
-// 	}
-// );
-
-// export const getMoviebyidApi = createAsyncThunk(
-// 	'@@moviebyid/getMoviebyid',
-// 	async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
-// 		try {
-// 			const response = await getMoviebyid(filmId);
-// 			const json = await response.json();
-// 			return fulfillWithValue(json);
-// 		} catch (error: unknown) {
-// 			return rejectWithValue(error);
-// 		}
-// 	}
-// );
-
 export const getMoviebyidTokenApi = createAsyncThunk(
 	'@@moviebyid/getMoviebyidToken',
 	async (
@@ -48,8 +18,8 @@ export const getMoviebyidTokenApi = createAsyncThunk(
 		const { filmId, token } = arg;
 		try {
 			const response = await getMoviebyidToken(filmId, token);
-			const jsonData = await response.json(); // Преобразуйте Response в JSON
-			return fulfillWithValue(jsonData);
+			const json = await response.json();
+			return fulfillWithValue(json);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -61,13 +31,43 @@ export const getMoviebyidApi = createAsyncThunk(
 	async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
 		try {
 			const response = await getMoviebyid(filmId);
-			const jsonData = await response.json(); // Преобразуйте Response в JSON
-			return fulfillWithValue(jsonData);
+			const json = await response.json();
+			return fulfillWithValue(json);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
 	}
 );
+
+// export const getMoviebyidTokenApi = createAsyncThunk(
+// 	'@@moviebyid/getMoviebyidToken',
+// 	async (
+// 		arg: { filmId: number; token: string },
+// 		{ fulfillWithValue, rejectWithValue }
+// 	) => {
+// 		const { filmId, token } = arg;
+// 		try {
+// 			const response = await getMoviebyidToken(filmId, token);
+// 			const jsonData = await response.json(); // Преобразуйте Response в JSON
+// 			return fulfillWithValue(jsonData);
+// 		} catch (error: unknown) {
+// 			return rejectWithValue(error);
+// 		}
+// 	}
+// );
+
+// export const getMoviebyidApi = createAsyncThunk(
+// 	'@@moviebyid/getMoviebyid',
+// 	async (filmId: number, { fulfillWithValue, rejectWithValue }) => {
+// 		try {
+// 			const response = await getMoviebyid(filmId);
+// 			const jsonData = await response.json(); // Преобразуйте Response в JSON
+// 			return fulfillWithValue(jsonData);
+// 		} catch (error: unknown) {
+// 			return rejectWithValue(error);
+// 		}
+// 	}
+// );
 
 const initialState: IMoviebyidState = {
 	status: 'idle',
@@ -124,13 +124,13 @@ export const moviebyidSlice = createSlice({
 		builder
 			.addCase(getMoviebyidApi.fulfilled, (state, action) => {
 				state.status = 'success';
-				const jsonData = action.payload; // Преобразуйте данные из Response в JSON
-				state.movie = jsonData;
+				// const jsonData = action.payload; // Преобразуйте данные из Response в JSON
+				state.movie = action.payload;
 			})
 			.addCase(getMoviebyidTokenApi.fulfilled, (state, action) => {
 				state.status = 'success';
-				const jsonData = action.payload; // Преобразуйте данные из Response в JSON
-				state.movie = jsonData;
+				// const jsonData = action.payload; // Преобразуйте данные из Response в JSON
+				state.movie = action.payload;
 			})
 			.addMatcher(
 				(action) => action.type.endsWith('/pending'),
