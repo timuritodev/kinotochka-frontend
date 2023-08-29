@@ -19,6 +19,8 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const watchList = useAppSelector((state) => state.favoritemovies.watchlist);
 	const compilations = useAppSelector((state) => state.compilations.data);
 	const user = useAppSelector(selectUser);
+	const films = useAppSelector((state) => state.movies.movies);
+	// const loadingFav = useAppSelector((state) => state.favoritemovies.status)
 
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);

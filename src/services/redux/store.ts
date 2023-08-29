@@ -31,7 +31,7 @@ import { directorsReducer} from './slices/director/directors';
 const rootReducer = combineReducers({
 	user: userReducer,
 	films: filmsReducer,
-	movie: moviebyidReducer,
+	moviebyid: moviebyidReducer,
 	movies: moviesReducer,
 	favoritemovies: favoriteReducer,
 	compilations: compilationsReducer,

@@ -45,6 +45,7 @@ export const BtnBookmark = ({
 			await dispatch(addToWatchApi({ id, token: user.token }))
 		}
 		await dispatch(getWatchListApi(user.token));
+		await dispatch(getFavoritesApi(user.token));
 	};
 
 	const typesImg =
@@ -61,9 +62,9 @@ export const BtnBookmark = ({
 			{user.token ? (<section
 				className="bookmark_favorite"
 				onClick={
-					nameTypes === 'favorite'
-						? () => handleClickFavorite()
-						: () => handleClickWatch()
+					nameTypes === 'willSee'
+						? () => handleClickWatch()
+						: () => handleClickFavorite()
 				}
 			>
 				<div className="bookmark_fon" />
