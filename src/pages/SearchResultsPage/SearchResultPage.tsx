@@ -14,7 +14,7 @@ export const SearchResultPage = () => {
 	const [isMoreButton, setIsMoreButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
-	
+
 	const location = useLocation();
 
 	const searchtext = decodeURI(location.search.slice(6));
@@ -73,24 +73,20 @@ export const SearchResultPage = () => {
 		setPageMore((prev) => prev + pageMore);
 	};
 
-
 	return (
 		<section className="search-result">
 			<h1 className="search-result_title">Результаты поиска</h1>
 			<p className="search-result_subtitle">По запросу: {searchtext} </p>
 			<div className="search-page_container">
-
 				{!isFilteredFilms ? (
-				filteredFilms.slice(0, pageMore).map((film) => (
-					<SeachResult film={film} />
-					
-				))
+					filteredFilms
+						.slice(0, pageMore)
+						.map((film) => <SeachResult film={film} />)
 				) : (
 					<p className="searchGeneral__film-none">
 						По вашему запросу ничего не найдено
 					</p>
-				)
-			}
+				)}
 			</div>
 			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}

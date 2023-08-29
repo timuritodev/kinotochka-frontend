@@ -15,6 +15,3 @@ export const getRating = (): IRating => {
 
 	return mymovie;
 };
-
-
-

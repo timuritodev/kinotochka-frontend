@@ -47,7 +47,7 @@ const Header: FC = () => {
 		event.preventDefault();
 		navigate(`/search-result?name=${values}`);
 		setValues('');
-	}
+	};
 
 	useEffect(() => {
 		if (values.length > 0) {
@@ -65,20 +65,20 @@ const Header: FC = () => {
 	return (
 		<header className="header" id="header">
 			<div className="header__logo">
-			<img
-			className="header__logo1"
-			alt="лого"
-			src={logo1}
-			onMouseOver={setNavOpen}
-			/>
-			<Link to="/">
-			<img
-				className="header__logo2"
-				alt="лого"
-				src={logo2}
-				onMouseOver={setNavOpen}
-			/>
-			</Link>
+				<img
+					className="header__logo1"
+					alt="лого"
+					src={logo1}
+					onMouseOver={setNavOpen}
+				/>
+				<Link to="/">
+					<img
+						className="header__logo2"
+						alt="лого"
+						src={logo2}
+						onMouseOver={setNavOpen}
+					/>
+				</Link>
 			</div>
 			<nav
 				className={`header__content ${isOpen && 'header__content_open'}`}

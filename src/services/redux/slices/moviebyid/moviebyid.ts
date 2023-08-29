@@ -58,7 +58,7 @@ export const moviebyidSlice = createSlice({
 	name: '@@movie',
 	initialState,
 	reducers: {
-		resetMoviebyid: () => initialState
+		resetMoviebyid: () => initialState,
 	},
 	extraReducers: (builder) => {
 		builder

@@ -10,7 +10,11 @@ import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
 import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
-import { getFavoritesApi, getWatchListApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
+import {
+	getFavoritesApi,
+	getWatchListApi,
+	resetFavorites,
+} from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
@@ -29,10 +33,10 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		formName === 'ratedFilms'
 			? 'Оцененное'
 			: formName === 'willSee'
-				? 'Буду смотреть'
-				: formName === 'favorites'
-					? 'Избранное'
-					: 'Все подборки';
+			? 'Буду смотреть'
+			: formName === 'favorites'
+			? 'Избранное'
+			: 'Все подборки';
 
 	// Отвечает за определение какой масив показывать
 	useEffect(() => {
