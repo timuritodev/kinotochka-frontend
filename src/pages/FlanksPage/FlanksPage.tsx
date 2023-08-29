@@ -12,9 +12,6 @@ import { getCompilationsApi } from 'src/services/redux/slices/compilations/compi
 import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { getFavoritesApi, getWatchListApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
-import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
-import button from '../../images/pic_for_flankspage.svg';
-// import { Loader } from 'src/components/Loader/Loader';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
@@ -110,10 +107,6 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	};
 
 	return (
-		// <>
-		// 	{loadingFav === 'loading' ? (
-		// 		<Loader />
-		// 	) : (
 		<section className="flank">
 			<h1 className="flank_title">{title}</h1>
 			<div className="flank_container">
@@ -129,8 +122,6 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>
 		</section>
-		// )}
-		// </>
 	);
 };
 
