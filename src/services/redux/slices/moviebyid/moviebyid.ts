@@ -2,13 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { getMoviebyid, getMoviebyidToken } from './moviebyidApi';
 import { IMoviebyidState } from 'src/types/Moviebyid.types';
 
-// export const getMoviebyidApi = createAsyncThunk(
-// 	'@@movie/movie',
-// 	async (filmId: number) => {
-// 		return getMoviebyid(filmId);
-// 	}
-// );
-
 export const getMoviebyidTokenApi = createAsyncThunk(
 	'@@moviebyid/getMoviebyidToken',
 	async (
@@ -94,28 +87,26 @@ export const moviebyidSlice = createSlice({
 		builder
 			.addCase(getMoviebyidApi.fulfilled, (state, action) => {
 				state.status = 'success';
-				// const jsonData = action.payload; // Преобразуйте данные из Response в JSON
 				state.movie = action.payload;
 			})
 			.addCase(getMoviebyidTokenApi.fulfilled, (state, action) => {
 				state.status = 'success';
-				// const jsonData = action.payload; // Преобразуйте данные из Response в JSON
 				state.movie = action.payload;
 			})
-			.addMatcher(
-				(action) => action.type.endsWith('/pending'),
-				(state) => {
-					state.status = 'loading';
-					state.error = '';
-				}
-			)
-			.addMatcher(
-				(action) => action.type.endsWith('/rejected'),
-				(state, action) => {
-					state.status = 'failed';
-					state.error = action.payload.statusText;
-				}
-			);
+			// .addMatcher(
+			// 	(action) => action.type.endsWith('/pending'),
+			// 	(state) => {
+			// 		state.status = 'loading';
+			// 		state.error = '';
+			// 	}
+			// )
+			// .addMatcher(
+			// 	(action) => action.type.endsWith('/rejected'),
+			// 	(state, action) => {
+			// 		state.status = 'failed';
+			// 		state.error = action.payload.statusText;
+			// 	}
+			// );
 	},
 });
 
