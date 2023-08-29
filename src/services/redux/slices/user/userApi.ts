@@ -1,5 +1,6 @@
 import { API_BASE_URL } from 'src/utils/constants';
 import {
+	IEditProfileData,
 	IResetPasswordData,
 	ISignInData,
 	ISignUpData,
@@ -27,7 +28,8 @@ export const fetchData = (
 		| ISignUpData
 		| { email: string }
 		| IResetPasswordData
-		| { fav_genres: number[] },
+		| { fav_genres: number[] }
+		| IEditProfileData,
 	token?: string
 ) => {
 	return fetch(url, {
@@ -67,11 +69,9 @@ export const fetchPasswordRecovery = (data: string): Promise<Response> => {
 export const fetchResetPassword = (
 	data: IResetPasswordData
 ): Promise<Response> => {
-	return fetchData(
-		`http://kinotochka.acceleratorpracticum.ru/reset-password/`,
-		'PUT',
-		data
-	).then((res) => checkRes(res));
+	return fetchData(`${API_AUTH_URL}/reset-password/`, 'PUT', data).then((res) =>
+		checkRes(res)
+	);
 };
 
 export const fetchGetUserInfo = (token: string): Promise<Response> => {
@@ -81,7 +81,7 @@ export const fetchGetUserInfo = (token: string): Promise<Response> => {
 };
 
 export const fetchEditUserInfo = (
-	data: any,
+	data: IEditProfileData,
 	token: string
 ): Promise<Response> => {
 	return fetchData(API_USERS_ME_URL, 'PUT', data, token).then((res) =>

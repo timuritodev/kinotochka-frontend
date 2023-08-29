@@ -1,6 +1,5 @@
 import './FlanksPage.css';
 import React, { useEffect, useState, useCallback } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -10,7 +9,7 @@ import { SelectionCard } from 'src/components/SelectionCard/SelectionCard';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
-import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
+import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import { getFavoritesApi, getWatchListApi, resetFavorites } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
@@ -117,27 +116,15 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		// 	) : (
 		<section className="flank">
 			<h1 className="flank_title">{title}</h1>
-			{formName === 'collections' ? (
-				<SelectionCard compilations={compilations} />
-			) : (
-				toggleFavorites.length === 0 ? (
-					<>
-						<div className='flank__text__container'>
-							<p className='flank__text'>Вы еще не добавили фильмы в этот раздел.<br />Чтобы добавить фильм, нажмите на кнопку </p>
-							<img className='flank__image' src={button} alt='button' />
-						</div>
-						<div className="main-page_slick-slider_specialforyou">
-							<SlickSliderMini title={`Специально для вас`} movies={films} />
-						</div>
-					</>
+			<div className="flank_container">
+				{formName === 'collections' ? (
+					<SelectionCard compilations={compilations} />
 				) : (
-					<div className="flank_container">
-						{toggleFavorites
-							.slice(0, pageMore)
-							.map((film) => <FilmCardSmall key={film.id} film={film} />)
-						}
-					</div>
-				))}
+					toggleFavorites
+						.slice(0, pageMore)
+						.map((film) => <FilmCard key={film.id} film={film} />)
+				)}
+			</div>
 			<div className="flank_btn">
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>

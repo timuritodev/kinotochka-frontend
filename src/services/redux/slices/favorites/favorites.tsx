@@ -5,7 +5,7 @@ import {
 	getFavoriteMovies,
 	getWatchList,
 	fetchAddToWatch,
-	fetchDeleteFromWatch
+	fetchDeleteFromWatch,
 } from './favoritesApi';
 import { IFavoritesState } from 'src/types/Favorites.types';
 
@@ -114,7 +114,7 @@ export const favoriteSlice = createSlice({
 	name: '@@favorite',
 	initialState,
 	reducers: {
-		resetFavorites: () => initialState
+		resetFavorites: () => initialState,
 	},
 	extraReducers: (builder) => {
 		builder
