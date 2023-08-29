@@ -8,6 +8,7 @@ import Account from '../Account/Account';
 import Search from '../Search/Search';
 import ExtendedSearch from '../ExtendedSearch/ExtendedSearch';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Header: FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -38,6 +39,14 @@ const Header: FC = () => {
 	};
 
 	const [isOpenSearch, setIsOpenSearch] = useState(false);
+
+	const navigate = useNavigate();
+
+	const onLinkclick = (event: any) => {
+		event.preventDefault();
+		navigate(`/search-result?name=${values}`);
+		setValues('');
+	}
 
 	useEffect(() => {
 		if (values.length > 0) {
@@ -81,6 +90,7 @@ const Header: FC = () => {
 				<form className="header__search">
 					<input
 						className="header__search-input"
+						value={values}
 						id="name"
 						name="name"
 						type="text"
@@ -100,13 +110,13 @@ const Header: FC = () => {
 							alt="Кнопка расширенного поиска"
 						/>
 					</button>
-					<Link to="/search-result" className="header__search-button">
+					<button onClick={onLinkclick} className="header__search-button">
 						<img
 							className="header__search-button_search"
 							src={search}
 							alt="Кнопка поиска"
 						/>
-					</Link>
+					</button>
 				</form>
 				<Search isOpenSearch={isOpenSearch} values={values} />
 				<ExtendedSearch isOpenExtended={isOpenExtended} />
