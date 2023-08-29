@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { useState, useEffect } from 'react';
 import './Header.css';
-import logo from '../../images/logo.svg';
+import logo1 from '../../images/logo.svg';
+import logo2 from '../../images/Logo2.svg';
 import adjustments from '../../images/adjustments.svg';
 import search from '../../images/search.svg';
 import Account from '../Account/Account';
@@ -63,12 +64,22 @@ const Header: FC = () => {
 
 	return (
 		<header className="header" id="header">
+			<div className="header__logo">
 			<img
-				className="header__logo"
+			className="header__logo1"
+			alt="лого"
+			src={logo1}
+			onMouseOver={setNavOpen}
+			/>
+			<Link to="/">
+			<img
+				className="header__logo2"
 				alt="лого"
-				src={logo}
+				src={logo2}
 				onMouseOver={setNavOpen}
 			/>
+			</Link>
+			</div>
 			<nav
 				className={`header__content ${isOpen && 'header__content_open'}`}
 				onMouseOver={setNavOpen}
