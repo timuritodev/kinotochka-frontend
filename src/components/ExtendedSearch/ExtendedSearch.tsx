@@ -43,11 +43,9 @@ const ExtendedSearch = ({ isOpenExtended }: { isOpenExtended: boolean }) => {
 		setFilteredActors([]);
 	};
 
-	useEffect(() => {
-		dispatch(getActorsApi());
-	}, []);
-
-	const handleChangeDirectors = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleChangeDirectors = (
+		event: React.ChangeEvent<HTMLInputElement>
+	) => {
 		const value = event.target.value;
 		setInputValueDirectors(value);
 
