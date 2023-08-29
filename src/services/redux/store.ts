@@ -24,13 +24,14 @@ import { genresReducer } from './slices/genres/genres';
 import { moviesReducer } from './slices/movies/movies';
 import { favoriteReducer } from './slices/favorites/favorites';
 import { compilationsReducer } from './slices/compilations/compilations';
-import { moviesbygenreReducer } from './slices/movieByGenre/moviesByGenre';
-import { actorsReducer } from './slices/actors/actors';
+import { moviesbygenreReducer} from './slices/movieByGenre/moviesByGenre';
+import { actorsReducer} from './slices/actors/actors';
+import { directorsReducer} from './slices/director/directors';
 
 const rootReducer = combineReducers({
 	user: userReducer,
 	films: filmsReducer,
-	movie: moviebyidReducer,
+	moviebyid: moviebyidReducer,
 	movies: moviesReducer,
 	favoritemovies: favoriteReducer,
 	compilations: compilationsReducer,
@@ -42,6 +43,7 @@ const rootReducer = combineReducers({
 	genres: genresReducer,
 	moviesbygenre: moviesbygenreReducer,
 	actors: actorsReducer,
+	directors: directorsReducer
 });
 
 const persistConfig = {

@@ -17,6 +17,8 @@ import {
 	getWatchListApi,
 } from 'src/services/redux/slices/favorites/favorites';
 
+import { getActorsApi } from 'src/services/redux/slices/actors/actors';
+
 export default function MainPage() {
 	const [isLoading, setIsLoading] = useState(true);
 	const user = useAppSelector(selectUser);
@@ -41,6 +43,7 @@ export default function MainPage() {
 
 	useEffect(() => {
 		if (user.token) {
+			dispatch(getActorsApi());
 			dispatch(getFavoritesApi(user.token));
 			dispatch(getWatchListApi(user.token));
 		}

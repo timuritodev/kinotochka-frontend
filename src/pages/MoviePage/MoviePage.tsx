@@ -13,8 +13,8 @@ import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 
 const MoviePage: FC = () => {
-	const movie = useAppSelector((state) => state.movie.movie);
-	const loading = useAppSelector((state) => state.movie.status);
+	const movie = useAppSelector((state) => state.moviebyid.movie);
+	const loading = useAppSelector((state) => state.moviebyid.status)
 	const films = useAppSelector((state) => state.movies.movies);
 
 	return (

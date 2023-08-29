@@ -58,9 +58,9 @@ const Header: FC = () => {
 		}
 	}, [values]);
 
-	// const setSearchClose = () => {
-	// 	setIsOpenSearch(false);
-	// };
+	const setSearchClose = () => {
+		setIsOpenSearch(false);
+	};
 
 	return (
 		<header className="header" id="header">
@@ -126,6 +126,7 @@ const Header: FC = () => {
 							className="header__search-button_search"
 							src={search}
 							alt="Кнопка поиска"
+							onClick={setSearchClose}
 						/>
 					</button>
 				</form>
