@@ -7,6 +7,7 @@ import { IRating } from 'src/types/Rating.types';
 import { selectUser } from '../../services/redux/slices/user/user';
 
 const RatingElement: FC<IRating> = ({ id, rate }) => {
+
 	const user = useAppSelector(selectUser);
 	const movierating = useAppSelector((state) => state.moviebyid.movie.user_rate);
 	const [rating, setRating] = useState(movierating);
@@ -14,11 +15,11 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
 
+
 		dispatch(getMoviesRating({
 			id,
 			rate: value,
 		}))
-
 	};
 
 	useEffect(() => {

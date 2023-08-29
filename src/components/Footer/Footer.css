@@ -9,10 +9,11 @@
 }
 
 .footer__desc {
+	width: 500px;
 	font-weight: 500;
 	font-size: 18px;
 	line-height: 22.59px;
-	text-align: center;
+	text-align: left;
 	color: #fff;
 	margin-left: 120px;
 }

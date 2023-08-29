@@ -18,7 +18,6 @@ export interface IRate {
 	rate: number;
 }
 
-
 export enum ButtonTypes {
 	seen = 'seen',
 	willSee = 'willSee',
