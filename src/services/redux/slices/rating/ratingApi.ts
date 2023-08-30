@@ -36,7 +36,7 @@ const checkRes = (res: Response) => {
 export const fetchData = (
 	url: string,
 	method: string,
-	rate: number,
+	rate: any,
 	token: string
 ) => {
 	return fetch(url, {
@@ -49,10 +49,10 @@ export const fetchData = (
 	}).then((res) => checkRes(res));
 };
 
-export const fetchSetRating = (id: number, rate: number, token: string): Promise<Response> => {
+export const fetchSetRating = (id: number, rate: any, token: string): Promise<Response> => {
 	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'POST', rate, token);
 };
 
-export const fetchUpdateRating = (id: number, rate: number, token: string): Promise<Response> => {
+export const fetchUpdateRating = (id: number, rate: any, token: string): Promise<Response> => {
 	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'PUT', rate, token);
 };

@@ -28,7 +28,7 @@ import { fetchSetRating, fetchUpdateRating } from './ratingApi';
 export const setRatingApi = createAsyncThunk(
 	'@@rate/setRate',
 	async (
-		arg: { id: number; rate: number; token: string },
+		arg: { id: number; rate: any; token: string },
 		{ fulfillWithValue, rejectWithValue }
 	) => {
 		const { id, rate, token } = arg;
@@ -45,7 +45,7 @@ export const setRatingApi = createAsyncThunk(
 export const updateRatingApi = createAsyncThunk(
 	'@@rate/updateRate',
 	async (
-		arg: { id: number; rate: number; token: string },
+		arg: { id: number; rate: any; token: string },
 		{ fulfillWithValue, rejectWithValue }
 	) => {
 		const { id, rate, token } = arg;
