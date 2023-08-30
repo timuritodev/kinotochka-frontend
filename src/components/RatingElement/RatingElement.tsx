@@ -1,16 +1,13 @@
 import { FC } from 'react';
-import React, { useState } from 'react';
 import './RatingElement.css';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { setRatingApi, updateRatingApi } from 'src/services/redux/slices/rating/rating';
 import { IRating } from 'src/types/Rating.types';
 import { selectUser } from '../../services/redux/slices/user/user';
 import { getMoviebyidTokenApi } from 'src/services/redux/slices/moviebyid/moviebyid';
-// import { useNavigate } from 'react-router';
 
-const RatingElement: FC<IRating> = ({ id, rate }) => {
+const RatingElement: FC<IRating> = ({ id }) => {
 	const user = useAppSelector(selectUser);
-	// const navigate = useNavigate();
 	const movierating = useAppSelector((state) => state.moviebyid.movie.user_rate);
 	const dispatch = useAppDispatch();
 
