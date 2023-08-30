@@ -28,8 +28,8 @@ export const postRating = (
 	token: string,
 	method: string
 ): Promise<Response> => {
-	console.log(method)
-	return postData(`${API_AUTH_URL}/${id}/rate/`, rate, token, method).then((res) =>
-		checkRes(res)
+	console.log(method);
+	return postData(`${API_AUTH_URL}/${id}/rate/`, rate, token, method).then(
+		(res) => checkRes(res)
 	);
 };

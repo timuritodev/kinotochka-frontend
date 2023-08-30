@@ -5,34 +5,39 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { getMoviesRating } from 'src/services/redux/slices/rating/rating';
 import { IRating } from 'src/types/Rating.types';
 import { selectUser } from '../../services/redux/slices/user/user';
-import { getMoviebyidApi, getMoviebyidTokenApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+import {
+	getMoviebyidApi,
+	getMoviebyidTokenApi,
+} from 'src/services/redux/slices/moviebyid/moviebyid';
 import { useNavigate } from 'react-router';
 
 const RatingElement: FC<IRating> = ({ id, rate }) => {
 	const user = useAppSelector(selectUser);
 	const navigate = useNavigate();
-	const movierating = useAppSelector((state) => state.moviebyid.movie.user_rate);
+	const movierating = useAppSelector(
+		(state) => state.moviebyid.movie.user_rate
+	);
 	const [rating, setRating] = useState(movierating);
 	const dispatch = useAppDispatch();
-	console.log(rating)
+	console.log(rating);
 	const handleRatingClick = (value: React.SetStateAction<number>) => {
 		setRating(value);
-		if(rating===0){dispatch(
-			getMoviesRating({
-				id,
-				rate: value,
-				token: user.token,
-				method: "POST",
-			})
-		);
-		}
-		else{
+		if (rating === 0) {
 			dispatch(
 				getMoviesRating({
 					id,
 					rate: value,
 					token: user.token,
-					method: "PUT",
+					method: 'POST',
+				})
+			);
+		} else {
+			dispatch(
+				getMoviesRating({
+					id,
+					rate: value,
+					token: user.token,
+					method: 'PUT',
 				})
 			);
 		}
@@ -41,9 +46,7 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 		} else {
 			dispatch(getMoviebyidApi(id));
 		}
-		
 	};
-
 
 	return (
 		<>
@@ -54,17 +57,15 @@ const RatingElement: FC<IRating> = ({ id, rate }) => {
 						{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => (
 							<div
 								key={value}
-								className={`star__button ${rating >= value ? 'star__button__filled' : ''
-									}`}
+								className={`star__button ${
+									rating >= value ? 'star__button__filled' : ''
+								}`}
 								onClick={() => handleRatingClick(value)}
 							/>
 						))}
 					</div>
 				</div>
-			) : (
-				null
-			)}
-
+			) : null}
 		</>
 	);
 };

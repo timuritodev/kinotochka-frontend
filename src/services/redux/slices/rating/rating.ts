@@ -11,14 +11,20 @@ export interface IRatingState {
 
 export const getMoviesRating = createAsyncThunk(
 	'@@movie_rating/getMoviesRating',
-async ({ id, rate, token, method }: {id: number; rate: any; token: any; method: string;}, { fulfillWithValue, rejectWithValue }) => {
+	async (
+		{
+			id,
+			rate,
+			token,
+			method,
+		}: { id: number; rate: any; token: any; method: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
 		try {
-
 			const response = await postRating(id, rate, token, method);
-			
+
 			//const json = await response.json();
 			return fulfillWithValue(response);
-			
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -37,7 +43,7 @@ const initialState: IRatingState = {
 		must_see: false,
 		is_favorite: false,
 	},
-}
+};
 
 export const ratingSlice = createSlice({
 	name: '@@movie_rating',
@@ -45,7 +51,6 @@ export const ratingSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder.addCase(getMoviesRating.fulfilled, (state, { meta, payload }) => {
-				
 			//state.status = 'success';
 			//state.movie_rating.id = meta.arg.id;
 			//state.movie_rating.id= action.meta.arg.id;
@@ -57,8 +62,7 @@ export const ratingSlice = createSlice({
 			movie_rate.id === id ? { ...movie_rate, rate: rate } : movie_rate
 			);*/
 			//console.log(state.movie_rating)
-		},
-		);
+		});
 	},
 });
 

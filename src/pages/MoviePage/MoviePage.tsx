@@ -11,16 +11,18 @@ import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
-import { getMoviebyidApi, getMoviebyidTokenApi } from 'src/services/redux/slices/moviebyid/moviebyid';
-
+import {
+	getMoviebyidApi,
+	getMoviebyidTokenApi,
+} from 'src/services/redux/slices/moviebyid/moviebyid';
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.moviebyid.movie);
-	const loading = useAppSelector((state) => state.moviebyid.status)
+	const loading = useAppSelector((state) => state.moviebyid.status);
 	const films = useAppSelector((state) => state.movies.movies);
 	const dispatch = useAppDispatch();
-	
-console.log(movie)
+
+	console.log(movie);
 	return (
 		<>
 			{loading === 'loading' ? (
