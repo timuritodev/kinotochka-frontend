@@ -20,7 +20,6 @@ const MoviePage: FC = () => {
 	const films = useAppSelector((state) => state.movies.movies);
 	const dispatch = useAppDispatch();
 	
-console.log(movie)
 	return (
 		<>
 			{loading === 'loading' ? (
@@ -52,12 +51,12 @@ console.log(movie)
 								</div>
 								<RatingElement
 									id={movie.id}
-									user={0}
-									movie={0}
+									// user={0}
+									// movie={0}
 									rate={movie.user_rate}
-									is_viewed={false}
-									must_see={false}
-									is_favorite={false}
+									// is_viewed={false}
+									// must_see={false}
+									// is_favorite={false}
 								/>
 							</div>
 						</div>
