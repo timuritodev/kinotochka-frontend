@@ -13,7 +13,7 @@ import { FilmCard } from 'src/components/FilmCardWidth255/FilmCard';
 import {
 	getFavoritesApi,
 	getWatchListApi,
-	resetFavorites,
+	// resetFavorites,
 } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
 import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
@@ -72,11 +72,11 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		setScreenSize(windowWidth);
 	}, []);
 
-	useEffect(() => {
-		return () => {
-			dispatch(resetFavorites());
-		};
-	}, []);
+	// useEffect(() => {
+	// 	return () => {
+	// 		dispatch(resetFavorites());
+	// 	};
+	// }, []);
 
 	useEffect(() => {
 		window.addEventListener('resize', handleResize);

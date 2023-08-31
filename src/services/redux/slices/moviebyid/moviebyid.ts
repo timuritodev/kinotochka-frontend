@@ -90,24 +90,30 @@ export const moviebyidSlice = createSlice({
 				state.movie = action.payload;
 				console.log(state.movie);
 			})
+			.addCase(getMoviebyidApi.pending, (state) => {
+				state.status = 'loading';
+			})
 			.addCase(getMoviebyidTokenApi.fulfilled, (state, action) => {
 				state.status = 'success';
 				state.movie = action.payload;
 			})
-			.addMatcher(
-				(action) => action.type.endsWith('/pending'),
-				(state) => {
-					state.status = 'loading';
-					state.error = '';
-				}
-			)
-			.addMatcher(
-				(action) => action.type.endsWith('/rejected'),
-				(state, action) => {
-					state.status = 'failed';
-					state.error = action.payload.statusText;
-				}
-			);
+			.addCase(getMoviebyidTokenApi.pending, (state) => {
+				state.status = 'loading';
+			})
+			// .addMatcher(
+			// 	(action) => action.type.endsWith('/pending'),
+			// 	(state) => {
+			// 		state.status = 'loading';
+			// 		state.error = '';
+			// 	}
+			// )
+			// .addMatcher(
+			// 	(action) => action.type.endsWith('/rejected'),
+			// 	(state, action) => {
+			// 		state.status = 'failed';
+			// 		state.error = action.payload.statusText;
+			// 	}
+			// );
 	},
 });
 
