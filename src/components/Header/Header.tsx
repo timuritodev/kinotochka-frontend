@@ -130,8 +130,15 @@ const Header: FC = () => {
 						/>
 					</button>
 				</form>
-				<Search isOpenSearch={isOpenSearch} isClose={setSearchClose} values={values} />
-				<ExtendedSearch isOpenExtended={isOpenExtended} isClose={setSearchClose} />
+				<Search
+					isOpenSearch={isOpenSearch}
+					isClose={setSearchClose}
+					values={values}
+				/>
+				<ExtendedSearch
+					isOpenExtended={isOpenExtended}
+					isClose={setSearchClose}
+				/>
 			</div>
 			<Account
 			// isLoggedIn={true}

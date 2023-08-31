@@ -15,11 +15,11 @@ import { selectUser } from 'src/services/redux/slices/user/user';
 const Search = ({
 	isOpenSearch,
 	values,
-	isClose
+	isClose,
 }: {
 	isOpenSearch: boolean;
 	values: string;
-	isClose: () => void
+	isClose: () => void;
 }) => {
 	const films = useAppSelector((state) => state.movies.movies);
 	const [isFilteredFilms, setIsFilteredFilms] = useState(false);
