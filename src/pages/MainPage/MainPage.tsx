@@ -20,6 +20,8 @@ import {
 import { getActorsApi } from 'src/services/redux/slices/actors/actors';
 import { getMoviesOfDayApi } from 'src/services/redux/slices/moviesoftheday/moviesoftheday';
 import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genresIcons';
+import { getCountriesApi } from 'src/services/redux/slices/countries/countries';
+import { getDirectorsApi } from 'src/services/redux/slices/director/directors';
 
 export default function MainPage() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -47,10 +49,12 @@ export default function MainPage() {
 
 	useEffect(() => {
 		if (user.token) {
-			dispatch(getActorsApi());
 			dispatch(getFavoritesApi(user.token));
 			dispatch(getWatchListApi(user.token));
 		}
+		dispatch(getCountriesApi());
+		dispatch(getActorsApi());
+		dispatch(getDirectorsApi());
 	}, []);
 
 	const films = useAppSelector((state) => state.movies.movies);
