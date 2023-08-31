@@ -25,15 +25,16 @@ const Search = ({
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
 	const user = useAppSelector(selectUser);
-	const films = useAppSelector((state) => state.movieByAdvancedSearc.moviesSearch);
+	const films = useAppSelector(
+		(state) => state.movieByAdvancedSearc.moviesSearch
+	);
 	const [isFilteredFilms, setIsFilteredFilms] = useState(false);
 
 	useEffect(() => {
-		dispatch(getMovieBySearchApi({values, token: user.token}));
-	  }, [values]);
+		dispatch(getMovieBySearchApi({ values, token: user.token }));
+	}, [values]);
 
 	const filteredFilms = films;
-	console.log(filteredFilms)
 
 	useEffect(() => {
 		if (filteredFilms?.length === 0) {

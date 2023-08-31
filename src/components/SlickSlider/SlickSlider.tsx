@@ -19,7 +19,6 @@ export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 		slidesToScroll: 4,
 		arrows: true,
 	};
-	console.log(movies);
 
 	return (
 		<div className="slick-slider_container">

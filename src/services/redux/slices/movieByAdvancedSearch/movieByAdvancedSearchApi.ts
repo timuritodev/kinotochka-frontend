@@ -31,6 +31,9 @@ export const getMovieByAdvancedSearch = (
 	);
 };
 
-export const getMovieBySearch = (values: any, token: string): Promise<IMovieAdvancedCard[]> => {
+export const getMovieBySearch = (
+	values: any,
+	token: string
+): Promise<IMovieAdvancedCard[]> => {
 	return fetchData(`${API_BASE_URL}/movies/?title=${values}`, 'GET', token);
 };

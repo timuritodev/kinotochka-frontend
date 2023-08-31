@@ -12,9 +12,10 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../services/typeHooks';
 
-
 const Header: FC = () => {
-	const films = useAppSelector((state) => state.movieByAdvancedSearc.moviesSearch);
+	const films = useAppSelector(
+		(state) => state.movieByAdvancedSearc.moviesSearch
+	);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isOpenExtended, setIsOpenExtended] = useState(false);
 
@@ -68,9 +69,9 @@ const Header: FC = () => {
 
 	const Click = (e: any) => {
 		e.preventDefault();
-		navigate('/search-result', {state: films});
+		navigate('/search-result', { state: films });
 		setSearchClose();
-	}
+	};
 
 	return (
 		<header className="header" id="header">

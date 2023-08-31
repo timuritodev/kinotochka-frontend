@@ -25,7 +25,9 @@ const ExtendedSearch = ({
 	const countries = useAppSelector(selectCountries);
 	const directors = useAppSelector(selectDirector);
 	const user = useAppSelector(selectUser);
-	const films = useAppSelector((state) => state.movieByAdvancedSearc.moviesAdvanced);
+	const films = useAppSelector(
+		(state) => state.movieByAdvancedSearc.moviesAdvanced
+	);
 	const [inputValueActors, setInputValueActors] = useState('');
 	const [inputValueDirectors, setInputValueDirectors] = useState('');
 	const [filteredActors, setFilteredActors] = useState<IActors[]>([]);
@@ -81,11 +83,29 @@ const ExtendedSearch = ({
 		setFilteredDirectors([]);
 	};
 
-	const Click = () => {
-		dispatch(getMovieByAdvancedSearchApi({data: {actor: selectedActorId, director: selectedDirectorId, genre: selectedGenreSlug, country: selectedCountrySlug}, token: user.token}))
-		navigate('/search-result', {state: films});
+	const resetState = () => {
 		isClose();
-	};
+		setSelectedActorId('');
+		setSelectedDirectorId('');
+		setSelectedGenreSlug('');
+		setSelectedCountrySlug('');
+	}
+
+	const Click = async () => {
+		dispatch(
+		  getMovieByAdvancedSearchApi({
+			data: {
+			  actor: selectedActorId,
+			  director: selectedDirectorId,
+			  genre: selectedGenreSlug,
+			  country: selectedCountrySlug,
+			},
+			token: user.token,
+		  })
+		);
+		navigate('/search-result', { state: films });
+		resetState();
+	  };
 
 	return (
 		<section

@@ -23,9 +23,6 @@ export default function FirstScreenCompilation({
 	const handleImgClick = () => {
 		if (user.token) {
 			dispatch(getMoviebyidTokenApi({ filmId: film.id, token: user.token }));
-			console.log(123);
-			console.log(film.id);
-			console.log(user.token);
 		} else {
 			dispatch(getMoviebyidApi(film.id));
 		}

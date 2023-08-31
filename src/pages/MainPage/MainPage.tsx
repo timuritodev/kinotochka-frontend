@@ -71,12 +71,10 @@ export default function MainPage() {
 	const handleAllButtonFilmsClick = (movies: any, title: string) => {
 		localStorage.setItem('filmsBy', JSON.stringify({ movies }));
 		localStorage.setItem('title', JSON.stringify(title));
-		console.log({ movies });
 		navigate('/selections');
 	};
 	const handleAllButtonClick = (movies: any) => {
 		localStorage.setItem('filmsBy', JSON.stringify(movies));
-		console.log({ movies });
 		navigate('/selections');
 	};
 	return (
@@ -94,10 +92,9 @@ export default function MainPage() {
 						/>
 					</div>
 					<div className="main-page_slick-slider">
-
 						<div className="main-page_slick-slider_specialforyou">
 							{user.token ? (
-								<div className='main-page__relative'>
+								<div className="main-page__relative">
 									<SlickSliderMini
 										title={`Специально для вас`}
 										movies={films}

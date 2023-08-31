@@ -60,8 +60,8 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 				: ''
 			: filmWatch
 			? 'black__fon'
-			: ''
-			
+			: '';
+
 	const typesImg =
 		buttonName === 'favorites'
 			? filmFav
