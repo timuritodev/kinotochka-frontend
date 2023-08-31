@@ -54,7 +54,6 @@ const initialState: IRatingState = {
 	error: '',
 	movie_rating: {
 		id: 0,
-		rate: 0,
 	},
 	ratedMovies: [],
 }
