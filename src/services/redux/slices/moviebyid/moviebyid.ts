@@ -88,6 +88,7 @@ export const moviebyidSlice = createSlice({
 			.addCase(getMoviebyidApi.fulfilled, (state, action) => {
 				state.status = 'success';
 				state.movie = action.payload;
+				console.log(state.movie)
 			})
 			.addCase(getMoviebyidTokenApi.fulfilled, (state, action) => {
 				state.status = 'success';
