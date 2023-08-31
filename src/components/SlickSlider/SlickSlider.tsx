@@ -19,16 +19,14 @@ export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 		slidesToScroll: 4,
 		arrows: true,
 	};
-	console.log(movies)
+	console.log(movies);
 
 	return (
-		<div className="slick-slider_container" >
+		<div className="slick-slider_container">
 			<h1 className="slick-slider_title">{title} </h1>
 			<Slider {...settings} className="slick-slider">
 				{movies.map((item) => (
-					
-					<FilmCard key={item.id} film={item}  />
-					
+					<FilmCard key={item.id} film={item} />
 				))}
 			</Slider>
 		</div>

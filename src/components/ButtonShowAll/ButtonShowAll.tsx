@@ -7,13 +7,11 @@ export const ButtonShowAll = ({
 	onClick: React.MouseEventHandler;
 }) => {
 	return (
-        <div className="flexbutton">
-            <button className='button-showall'  type="button" onClick={onClick}>
-        Показать все
-    </button>
-    <img className="arrowright" src={Arrowright} alt="Стрелка вправо" />
-    
-    </div>
-		
+		<div className="flexbutton">
+			<button className="button-showall" type="button" onClick={onClick}>
+				Показать все
+			</button>
+			<img className="arrowright" src={Arrowright} alt="Стрелка вправо" />
+		</div>
 	);
 };

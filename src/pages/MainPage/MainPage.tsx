@@ -60,7 +60,7 @@ export default function MainPage() {
 	const redactionThree = useAppSelector((state) => state.compilations.data[2]);
 	const navigate = useNavigate();
 	const handleAllButtonFilmsClick = (movies: any, title: string) => {
-		localStorage.setItem('filmsBy', JSON.stringify({movies}));
+		localStorage.setItem('filmsBy', JSON.stringify({ movies }));
 		localStorage.setItem('title', JSON.stringify(title));
 		console.log({ movies });
 		navigate('/selections');
@@ -80,41 +80,66 @@ export default function MainPage() {
 
 					<div className="main-page_slick-slider">
 						<SlickSliderMini title={`Новинки`} movies={newmovies} />
-						<ButtonShowAll onClick={() => handleAllButtonFilmsClick(films, `Новинки`)} /></div>
+						<ButtonShowAll
+							onClick={() => handleAllButtonFilmsClick(films, `Новинки`)}
+						/>
+					</div>
 					<div className="main-page_slick-slider">
 						<div className="main-page_slick-slider_specialforyou">
 							{user.token ? (
-								<><SlickSliderMini title={`Специально для вас`} movies={films} />
-								<ButtonShowAll onClick={() => handleAllButtonFilmsClick(films, `Специально для вас`)} /></>
+								<>
+									<SlickSliderMini
+										title={`Специально для вас`}
+										movies={films}
+									/>
+									<ButtonShowAll
+										onClick={() =>
+											handleAllButtonFilmsClick(films, `Специально для вас`)
+										}
+									/>
+								</>
 							) : (
 								<SpecialForYou />
 							)}
 						</div>
 					</div>
 					<div className="main-page_slick-slider">
-						{redactionOne && (<>
-							
-							<SlickSlider
-								title={redactionOne.title}
-								movies={redactionOne.movies}
-							/>
-							<ButtonShowAll onClick={() => handleAllButtonClick(redactionOne)} /></>
+						{redactionOne && (
+							<>
+								<SlickSlider
+									title={redactionOne.title}
+									movies={redactionOne.movies}
+								/>
+								<ButtonShowAll
+									onClick={() => handleAllButtonClick(redactionOne)}
+								/>
+							</>
 						)}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionTwo && (
-							<><SlickSlider
-								title={redactionTwo.title}
-								movies={redactionTwo.movies} />
-								<ButtonShowAll onClick={() => handleAllButtonClick(redactionTwo)} /></>
+							<>
+								<SlickSlider
+									title={redactionTwo.title}
+									movies={redactionTwo.movies}
+								/>
+								<ButtonShowAll
+									onClick={() => handleAllButtonClick(redactionTwo)}
+								/>
+							</>
 						)}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionThree && (
-							<><SlickSlider
-								title={redactionThree.title}
-								movies={redactionThree.movies} />
-								<ButtonShowAll onClick={() => handleAllButtonClick(redactionThree)} /></>
+							<>
+								<SlickSlider
+									title={redactionThree.title}
+									movies={redactionThree.movies}
+								/>
+								<ButtonShowAll
+									onClick={() => handleAllButtonClick(redactionThree)}
+								/>
+							</>
 						)}
 					</div>
 					<div className="main-page_slick-slider">

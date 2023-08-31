@@ -15,7 +15,7 @@ export const Selections = () => {
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
 	const films = JSON.parse(localStorage.getItem('filmsBy') || '');
-	const title = JSON.parse(localStorage.getItem('title')|| '');
+	const title = JSON.parse(localStorage.getItem('title') || '');
 
 	useEffect(() => {
 		if (screenSize >= 1280) {
@@ -42,18 +42,16 @@ export const Selections = () => {
 		setPageMore((prev) => prev + pageMore);
 	};
 
-	
-console.log(title)
+	console.log(title);
 	return (
 		<section className="flank">
-			<h1 className="flank_title">{films.title?films.title:title}
-		</h1>
+			<h1 className="flank_title">{films.title ? films.title : title}</h1>
 
 			<section>
 				<div className="flank_container">
 					{films.movies.slice(0, pageMore).map((film: IMovieCard) => (
 						<FilmCardSmall film={film} />
-					))} 
+					))}
 				</div>
 			</section>
 			<div className="flank_btn">
