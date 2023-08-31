@@ -12,7 +12,7 @@ export const getMovieByAdvancedSearchApi = createAsyncThunk(
 		const { data, token } = arg;
 		try {
 			const response = await getMovieByAdvancedSearch(data, token);
-			const json = await response
+			const json = await response;
 			return fulfillWithValue(json);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
@@ -23,20 +23,22 @@ export const getMovieByAdvancedSearchApi = createAsyncThunk(
 const initialState: IMovieAdvancedCardState = {
 	status: 'idle',
 	error: '',
-	movies: [{
-		id: 0,
-		title: '',
-		v_picture: '',
-		h_picture: '',
-		rating: {
-			rate_imdb: 0,
-			rate_kinopoisk: 0,
+	movies: [
+		{
+			id: 0,
+			title: '',
+			v_picture: '',
+			h_picture: '',
+			rating: {
+				rate_imdb: 0,
+				rate_kinopoisk: 0,
+			},
+			year: 0,
+			genres: [''],
+			is_favorite: false,
+			is_need_see: false,
 		},
-		year: 0,
-		genres: [''],
-		is_favorite: false,
-		is_need_see: false,
-	},]
+	],
 };
 
 export const movieByAdvancedSearcSlice = createSlice({

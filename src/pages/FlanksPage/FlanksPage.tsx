@@ -21,7 +21,7 @@ import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
-	const rated = useAppSelector((state) => state.rating.ratedMovies)
+	const rated = useAppSelector((state) => state.rating.ratedMovies);
 	const watchList = useAppSelector((state) => state.favoritemovies.watchlist);
 	const compilations = useAppSelector((state) => state.compilations.data);
 	const user = useAppSelector(selectUser);
