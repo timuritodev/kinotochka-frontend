@@ -17,9 +17,9 @@ import {
 	getWatchListApi,
 } from 'src/services/redux/slices/favorites/favorites';
 import { getActorsApi } from 'src/services/redux/slices/actors/actors';
-import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { useNavigate } from 'react-router';
 import { IMovieCard } from 'src/types/MovieCard.types';
+import { ButtonShowAll } from 'src/components/ButtonShowAll/ButtonShowAll';
 
 export default function MainPage() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -59,11 +59,15 @@ export default function MainPage() {
 	const redactionTwo = useAppSelector((state) => state.compilations.data[1]);
 	const redactionThree = useAppSelector((state) => state.compilations.data[2]);
 	const navigate = useNavigate();
-	const handleAllButtonClick = (movies: any, title: string) => {
-		
+	const handleAllButtonFilmsClick = (movies: any, title: string) => {
 		localStorage.setItem('filmsBy', JSON.stringify({movies}));
 		localStorage.setItem('title', JSON.stringify(title));
-		console.log({movies});
+		console.log({ movies });
+		navigate('/selections');
+	};
+	const handleAllButtonClick = (movies: any) => {
+		localStorage.setItem('filmsBy', JSON.stringify(movies));
+		console.log({ movies });
 		navigate('/selections');
 	};
 	return (
@@ -73,14 +77,15 @@ export default function MainPage() {
 			) : (
 				<main className="main-page" id="main-page">
 					<SlickSliderDayMovies />
+
 					<div className="main-page_slick-slider">
-					<MoreButton onClick={() => handleAllButtonClick(films,`Новинки`)}  />
 						<SlickSliderMini title={`Новинки`} movies={newmovies} />
-					</div>
+						<ButtonShowAll onClick={() => handleAllButtonFilmsClick(films, `Новинки`)} /></div>
 					<div className="main-page_slick-slider">
 						<div className="main-page_slick-slider_specialforyou">
 							{user.token ? (
-								<><MoreButton onClick={() => handleAllButtonClick(films, `Специально для вас`)} /><SlickSliderMini title={`Специально для вас`} movies={films} /></>
+								<><SlickSliderMini title={`Специально для вас`} movies={films} />
+								<ButtonShowAll onClick={() => handleAllButtonFilmsClick(films, `Специально для вас`)} /></>
 							) : (
 								<SpecialForYou />
 							)}
@@ -88,25 +93,28 @@ export default function MainPage() {
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionOne && (<>
-							<MoreButton onClick={() => handleAllButtonClick(redactionOne,'')}  />
+							
 							<SlickSlider
 								title={redactionOne.title}
 								movies={redactionOne.movies}
-							/></>
+							/>
+							<ButtonShowAll onClick={() => handleAllButtonClick(redactionOne)} /></>
 						)}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionTwo && (
-							<><MoreButton onClick={() => handleAllButtonClick(redactionTwo,'')} /><SlickSlider
-									title={redactionTwo.title}
-									movies={redactionTwo.movies} /></>
+							<><SlickSlider
+								title={redactionTwo.title}
+								movies={redactionTwo.movies} />
+								<ButtonShowAll onClick={() => handleAllButtonClick(redactionTwo)} /></>
 						)}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionThree && (
-							<><MoreButton onClick={() => handleAllButtonClick(redactionThree,'')} /><SlickSlider
-									title={redactionThree.title}
-									movies={redactionThree.movies} /></>
+							<><SlickSlider
+								title={redactionThree.title}
+								movies={redactionThree.movies} />
+								<ButtonShowAll onClick={() => handleAllButtonClick(redactionThree)} /></>
 						)}
 					</div>
 					<div className="main-page_slick-slider">

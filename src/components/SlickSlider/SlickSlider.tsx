@@ -19,16 +19,11 @@ export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 		slidesToScroll: 4,
 		arrows: true,
 	};
-	const navigate = useNavigate();
-	const handleAllButtonClick = () => {
-		localStorage.setItem('filmsBy', JSON.stringify(movies));
-		navigate('/selections');
-	};
+	console.log(movies)
 
 	return (
 		<div className="slick-slider_container" >
 			<h1 className="slick-slider_title">{title} </h1>
-			
 			<Slider {...settings} className="slick-slider">
 				{movies.map((item) => (
 					

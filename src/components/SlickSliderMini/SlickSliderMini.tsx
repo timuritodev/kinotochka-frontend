@@ -6,7 +6,7 @@ import { FC } from 'react';
 import { ICompilationsTwo } from 'src/types/Compilations.types';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 
-export const SlickSliderMini: FC<ICompilationsTwo> = ({ title, movies }) => {
+export const SlickSliderMini: FC<ICompilationsTwo> = ({ title, movies, }) => {
 	const settings = {
 		dots: false,
 		infinite: true,
@@ -20,7 +20,6 @@ export const SlickSliderMini: FC<ICompilationsTwo> = ({ title, movies }) => {
 	return (
 		<div className="slick-slider_container">
 			<h1 className="slick-slider_title">{title}</h1>
-			
 			<Slider {...settings} className="slick-slider">
 				{movies.map((item) => (
 					<FilmCardSmall key={item.id} film={item} />
