@@ -5,7 +5,10 @@ import { RatedElement } from '../RatedElement/RatedElement';
 import { useState, useEffect } from 'react';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import { useNavigate } from 'react-router-dom';
-import { getMoviebyidApi, getMoviebyidTokenApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+import {
+	getMoviebyidApi,
+	getMoviebyidTokenApi,
+} from 'src/services/redux/slices/moviebyid/moviebyid';
 import { useAppDispatch } from '../../services/typeHooks';
 import { selectUser } from 'src/services/redux/slices/user/user';
 import { getMovieBySearchApi } from 'src/services/redux/slices/movieByAdvancedSearch/movieByAdvancedSearch';
@@ -13,11 +16,11 @@ import { getMovieBySearchApi } from 'src/services/redux/slices/movieByAdvancedSe
 const Search = ({
 	isOpenSearch,
 	values,
-	isClose
+	isClose,
 }: {
 	isOpenSearch: boolean;
 	values: string;
-	isClose: () => void
+	isClose: () => void;
 }) => {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();

@@ -20,8 +20,8 @@ export interface IMovieAdvancedCardState {
 }
 
 export interface IData {
-	actor: any
-	director: any
-	genre: string
-	country: string
+	actor: any;
+	director: any;
+	genre: string;
+	country: string;
 }

@@ -72,8 +72,9 @@ export const SearchResultPage = () => {
 			} */}
 			<div className="search-page_container">
 				{!isFilteredFilms ? (
-					filteredFilms?.slice(0, pageMore)
-						.map((film) => <SeachResult film={film} />)
+					filteredFilms
+						.slice(0, pageMore)
+						.map((film) => <SeachResult film={film} key={film.id} />)
 				) : (
 					<p className="searchGeneral__film-none">
 						По вашему запросу ничего не найдено
