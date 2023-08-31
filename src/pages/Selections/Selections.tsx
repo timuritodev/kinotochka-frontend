@@ -36,11 +36,11 @@ export const Selections = () => {
 	return (
 		<section className="flank">
 			<h1 className="flank_title">{films.title}</h1>
-
+			<p className='flank_description'>{films.description}</p>
 			<section>
 				<div className="flank_container">
 					{films.movies.slice(0, pageMore).map((film: IMovieCard) => (
-						<FilmCardSmall film={film} />
+						<FilmCardSmall film={film} key={film.id}/>
 					))}
 				</div>
 			</section>
