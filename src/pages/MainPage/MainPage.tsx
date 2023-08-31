@@ -94,7 +94,6 @@ export default function MainPage() {
 						/>
 					</div>
 					<div className="main-page_slick-slider">
-
 						<div className="main-page_slick-slider_specialforyou">
 							{user.token ? (
 								<div className='main-page__relative'>
