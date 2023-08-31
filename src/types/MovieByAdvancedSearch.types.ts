@@ -15,7 +15,8 @@ export interface IMovieAdvancedCard {
 export interface IMovieAdvancedCardState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string | undefined;
-	movies: IMovieAdvancedCard[];
+	moviesAdvanced: IMovieAdvancedCard[];
+	moviesSearch: IMovieAdvancedCard[];
 }
 
 export interface IData {

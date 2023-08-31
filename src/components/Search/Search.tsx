@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { getMoviebyidApi, getMoviebyidTokenApi } from 'src/services/redux/slices/moviebyid/moviebyid';
 import { useAppDispatch } from '../../services/typeHooks';
 import { selectUser } from 'src/services/redux/slices/user/user';
+import { getMovieBySearchApi } from 'src/services/redux/slices/movieByAdvancedSearch/movieByAdvancedSearch';
 
 const Search = ({
 	isOpenSearch,
@@ -18,29 +19,26 @@ const Search = ({
 	values: string;
 	isClose: () => void
 }) => {
-	const films = useAppSelector((state) => state.movies.movies);
+	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
+	const user = useAppSelector(selectUser);
+	const films = useAppSelector((state) => state.movieByAdvancedSearc.moviesSearch);
 	const [isFilteredFilms, setIsFilteredFilms] = useState(false);
 
-	function filterFilms() {
-		return films.filter((film: IMovieCard) => {
-			const filmFind = film.title.toLowerCase();
-			const userFilm = values.toLowerCase();
-			return filmFind.includes(userFilm);
-		});
-	}
-	const filteredFilms = filterFilms();
+	useEffect(() => {
+		dispatch(getMovieBySearchApi({values, token: user.token}));
+	  }, [values]);
+
+	const filteredFilms = films;
+	console.log(filteredFilms)
 
 	useEffect(() => {
-		if (filteredFilms.length === 0) {
+		if (filteredFilms?.length === 0) {
 			setIsFilteredFilms(true);
 		} else {
 			setIsFilteredFilms(false);
 		}
 	}, [values]);
-
-	const navigate = useNavigate();
-	const dispatch = useAppDispatch();
-	const user = useAppSelector(selectUser);
 
 	const handleImgClick = (filmId: number, token: string) => {
 		if (user.token) {
@@ -59,7 +57,7 @@ const Search = ({
 		>
 			<div className="searchGeneral__films" id="searchGeneral__films">
 				{!isFilteredFilms ? (
-					filteredFilms.slice(0, 5).map((film: IMovieCard) => (
+					filteredFilms?.slice(0, 5).map((film: IMovieCard) => (
 						<a
 							key={film.id}
 							onClick={() => handleImgClick(film.id, user.token)}

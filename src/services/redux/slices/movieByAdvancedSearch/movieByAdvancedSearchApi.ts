@@ -27,3 +27,7 @@ export const fetchData = (
 export const getMovieByAdvancedSearch = (data: IData, token: string): Promise<IMovieAdvancedCard[]> => {
 	return fetchData(`${API_BASE_URL}/movies/?actor=${data.actor}&director=${data.director}&genre=${data.genre}&country=${data.country}`, 'GET', token);
 };
+
+export const getMovieBySearch = (values: any, token: string): Promise<IMovieAdvancedCard[]> => {
+	return fetchData(`${API_BASE_URL}/movies/?title=${values}`, 'GET', token);
+};

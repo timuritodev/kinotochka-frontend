@@ -1,35 +1,23 @@
 import './SearchResultPage.css';
-import React, { useCallback } from 'react';
-import { useAppSelector } from 'src/services/typeHooks';
+import { useCallback } from 'react';
 import { SeachResult } from 'src/components/SeachResult/SeachResult';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { useState, useEffect } from 'react';
-import { IMovieCard } from 'src/types/MovieCard.types';
 import { useLocation } from 'react-router-dom';
-// import { moviesAdvancedSearc } from 'src/services/redux/slices/movieByAdvancedSearch/movieByAdvancedSearch';
+import { IMovieAdvancedCard } from 'src/types/MovieByAdvancedSearch.types';
 
 export const SearchResultPage = () => {
+	const location = useLocation();
+	const props: IMovieAdvancedCard[] = location.state;
 	const [values] = useState('');
-	const films = useAppSelector((state) => state.movieByAdvancedSearc.movies);
 	const [isFilteredFilms, setIsFilteredFilms] = useState(false);
 	const [isMoreButton, setIsMoreButton] = useState(false);
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
 
-	const location = useLocation();
-
-	const searchtext = decodeURI(location.search.slice(6));
-
-	function filterFilms() {
-		return films.filter((film: IMovieCard) => {
-			const filmFind = film.title.toLowerCase();
-			const userFilm = searchtext.toLowerCase();
-			return filmFind.includes(userFilm);
-		});
-	}
-	const filteredFilms = filterFilms();
+	const filteredFilms = props;
 	useEffect(() => {
-		if (filteredFilms.length === 0) {
+		if (filteredFilms?.length === 0) {
 			setIsFilteredFilms(true);
 		} else {
 			setIsFilteredFilms(false);
@@ -63,12 +51,12 @@ export const SearchResultPage = () => {
 	}, [screenSize]);
 
 	useEffect(() => {
-		if (films.length > pageMore) {
+		if (props?.length > pageMore) {
 			setIsMoreButton(true);
 		} else {
 			setIsMoreButton(false);
 		}
-	}, [films, pageMore]);
+	}, [props, pageMore]);
 
 	const handleMoreButtonClick = () => {
 		setPageMore((prev) => prev + pageMore);
@@ -77,11 +65,14 @@ export const SearchResultPage = () => {
 	return (
 		<section className="search-result">
 			<h1 className="search-result_title">Результаты поиска</h1>
-			<p className="search-result_subtitle">По запросу: {searchtext} </p>
+			{/* {
+				props ? (
+					<p className="search-result_subtitle">По запросу: {props} </p>
+				) : (null)
+			} */}
 			<div className="search-page_container">
 				{!isFilteredFilms ? (
-					filteredFilms
-						.slice(0, pageMore)
+					filteredFilms?.slice(0, pageMore)
 						.map((film) => <SeachResult film={film} />)
 				) : (
 					<p className="searchGeneral__film-none">

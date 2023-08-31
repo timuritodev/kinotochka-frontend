@@ -10,8 +10,11 @@ import Search from '../Search/Search';
 import ExtendedSearch from '../ExtendedSearch/ExtendedSearch';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useAppSelector } from '../../services/typeHooks';
+
 
 const Header: FC = () => {
+	const films = useAppSelector((state) => state.movieByAdvancedSearc.moviesSearch);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isOpenExtended, setIsOpenExtended] = useState(false);
 
@@ -43,11 +46,11 @@ const Header: FC = () => {
 
 	const navigate = useNavigate();
 
-	const onLinkclick = (event: any) => {
-		event.preventDefault();
-		navigate(`/search-result?name=${values}`);
-		setValues('');
-	};
+	// const onLinkclick = (event: any) => {
+	// 	event.preventDefault();
+	// 	navigate(`/search-result?name=${values}`);
+	// 	setValues('');
+	// };
 
 	useEffect(() => {
 		if (values.length > 0) {
@@ -62,6 +65,12 @@ const Header: FC = () => {
 		setIsOpenSearch(false);
 		setIsOpenExtended(false);
 	};
+
+	const Click = (e: any) => {
+		e.preventDefault();
+		navigate('/search-result', {state: films});
+		setSearchClose();
+	}
 
 	return (
 		<header className="header" id="header">
@@ -121,7 +130,7 @@ const Header: FC = () => {
 							alt="Кнопка расширенного поиска"
 						/>
 					</button>
-					<button onClick={onLinkclick} className="header__search-button">
+					<button onClick={Click} className="header__search-button">
 						<img
 							className="header__search-button_search"
 							src={search}

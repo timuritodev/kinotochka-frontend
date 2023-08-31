@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from 'src/services/typeHooks';
 import './ExtendedSearch.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
 	selectActor,
@@ -23,6 +23,7 @@ const ExtendedSearch = ({ isOpenExtended, isClose }: { isOpenExtended: boolean, 
 	const countries = useAppSelector(selectCountries);
 	const directors = useAppSelector(selectDirector);
 	const user = useAppSelector(selectUser);
+	const films = useAppSelector((state) => state.movieByAdvancedSearc.moviesAdvanced);
 	const [inputValueActors, setInputValueActors] = useState('');
 	const [inputValueDirectors, setInputValueDirectors] = useState('');
 	const [filteredActors, setFilteredActors] = useState<IActors[]>([]);
@@ -80,7 +81,7 @@ const ExtendedSearch = ({ isOpenExtended, isClose }: { isOpenExtended: boolean, 
 
 	const Click = () => {
 		dispatch(getMovieByAdvancedSearchApi({data: {actor: selectedActorId, director: selectedDirectorId, genre: selectedGenreSlug, country: selectedCountrySlug}, token: user.token}))
-		navigate('/search-result');
+		navigate('/search-result', {state: films});
 		isClose();
 	}
 

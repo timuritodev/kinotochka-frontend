@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getMovieByAdvancedSearch } from './movieByAdvancedSearchApi';
+import { getMovieByAdvancedSearch, getMovieBySearch } from './movieByAdvancedSearchApi';
 import { IMovieAdvancedCardState } from 'src/types/MovieByAdvancedSearch.types';
 import { IData } from 'src/types/MovieByAdvancedSearch.types';
 
@@ -20,10 +20,41 @@ export const getMovieByAdvancedSearchApi = createAsyncThunk(
 	}
 );
 
+export const getMovieBySearchApi = createAsyncThunk(
+	'@@movieByAdvancedSearch/getMovieBySearch',
+	async (
+		arg: { values: any; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { values, token } = arg;
+		try {
+			const response = await getMovieBySearch(values, token);
+			const json = await response
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
 const initialState: IMovieAdvancedCardState = {
 	status: 'idle',
 	error: '',
-	movies: [{
+	moviesAdvanced: [{
+		id: 0,
+		title: '',
+		v_picture: '',
+		h_picture: '',
+		rating: {
+			rate_imdb: 0,
+			rate_kinopoisk: 0,
+		},
+		year: 0,
+		genres: [''],
+		is_favorite: false,
+		is_need_see: false,
+	},],
+	moviesSearch: [{
 		id: 0,
 		title: '',
 		v_picture: '',
@@ -47,7 +78,11 @@ export const movieByAdvancedSearcSlice = createSlice({
 		builder
 			.addCase(getMovieByAdvancedSearchApi.fulfilled, (state, action) => {
 				state.status = 'success';
-				state.movies = action.payload;
+				state.moviesAdvanced = action.payload;
+			})
+			.addCase(getMovieBySearchApi.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.moviesSearch = action.payload;
 			})
 			.addMatcher(
 				(action) => action.type.endsWith('/pending'),
