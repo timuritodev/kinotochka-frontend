@@ -94,9 +94,10 @@ export default function MainPage() {
 						/>
 					</div>
 					<div className="main-page_slick-slider">
+
 						<div className="main-page_slick-slider_specialforyou">
 							{user.token ? (
-								<>
+								<div className='main-page__relative'>
 									<SlickSliderMini
 										title={`Специально для вас`}
 										movies={films}
@@ -106,7 +107,7 @@ export default function MainPage() {
 											handleAllButtonFilmsClick(films, `Специально для вас`)
 										}
 									/>
-								</>
+								</div>
 							) : (
 								<SpecialForYou />
 							)}
