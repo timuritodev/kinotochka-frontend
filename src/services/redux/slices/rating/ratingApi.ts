@@ -11,8 +11,8 @@ const checkRes = (res: Response) => {
 export const fetchData = (
 	url: string,
 	method: string,
-	rate: object,
-	token: string
+	token: string,
+	rate?: object,
 ) => {
 	return fetch(url, {
 		method,
@@ -25,9 +25,13 @@ export const fetchData = (
 };
 
 export const fetchSetRating = (id: number, rate: object, token: string): Promise<Response> => {
-	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'POST', rate, token);
+	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'POST', token, rate);
 };
 
 export const fetchUpdateRating = (id: number, rate: object, token: string): Promise<Response> => {
-	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'PUT', rate, token);
+	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'PUT', token, rate);
+};
+
+export const getRatedMovies = (token: string): Promise<Response> => {
+	return fetchData(`${API_BASE_URL}/movies/rated`, 'GET', token)
 };

@@ -1,6 +1,19 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { IRatingState } from 'src/types/Rating.types';
-import { fetchSetRating, fetchUpdateRating } from './ratingApi';
+import { fetchSetRating, fetchUpdateRating, getRatedMovies } from './ratingApi';
+
+export const getRatedMoviesApi = createAsyncThunk(
+	'@@rate/getRated',
+	async (token: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await getRatedMovies(token);
+			const json = await response.json();
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
 
 export const setRatingApi = createAsyncThunk(
 	'@@rate/setRate',
@@ -43,6 +56,7 @@ const initialState: IRatingState = {
 		id: 0,
 		rate: 0,
 	},
+	ratedMovies: [],
 }
 
 export const ratingSlice = createSlice({
@@ -51,6 +65,11 @@ export const ratingSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
+			.addCase(getRatedMoviesApi.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.ratedMovies = action.payload
+			}
+			)
 			.addCase(setRatingApi.fulfilled, (state) => {
 				state.status = 'success';
 			}

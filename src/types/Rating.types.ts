@@ -1,3 +1,5 @@
+import { IMovieCard } from "./MovieCard.types";
+
 export interface IRating {
 	id: number;
 	user?: number;
@@ -12,6 +14,7 @@ export interface IRatingState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
 	error: string ;
 	movie_rating: IRating;
+	ratedMovies: IMovieCard[];
 }
 
 export interface IRate {
