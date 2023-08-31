@@ -1,30 +1,48 @@
-import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { IRating } from 'src/types/Rating.types';
-import { postRating } from './ratingApi';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { IRatingState } from 'src/types/Rating.types';
+import { fetchSetRating, fetchUpdateRating, getRatedMovies } from './ratingApi';
 
-export interface IRatingState {
-	[x: string]: any;
-	status: 'idle' | 'success' | 'loading' | 'failed';
-	error: unknown;
-	movie_rating: IRating;
-}
+export const getRatedMoviesApi = createAsyncThunk(
+	'@@rate/getRated',
+	async (token: string, { fulfillWithValue, rejectWithValue }) => {
+		try {
+			const response = await getRatedMovies(token);
+			const json = await response.json();
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
 
-export const getMoviesRating = createAsyncThunk(
-	'@@movie_rating/getMoviesRating',
+export const setRatingApi = createAsyncThunk(
+	'@@rate/setRate',
 	async (
-		{
-			id,
-			rate,
-			token,
-			method,
-		}: { id: number; rate: any; token: any; method: string },
+		arg: { id: number; rate: object; token: string },
 		{ fulfillWithValue, rejectWithValue }
 	) => {
+		const { id, rate, token } = arg;
 		try {
-			const response = await postRating(id, rate, token, method);
+			const response = await fetchSetRating(id, rate, token);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
 
-			//const json = await response.json();
-			return fulfillWithValue(response);
+export const updateRatingApi = createAsyncThunk(
+	'@@rate/updateRate',
+	async (
+		arg: { id: number; rate: object; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { id, rate, token } = arg;
+		try {
+			const response = await fetchUpdateRating(id, rate, token);
+			const responseData = { status: response.status, ok: response.ok };
+			return fulfillWithValue(responseData);
 		} catch (error: unknown) {
 			return rejectWithValue(error);
 		}
@@ -33,38 +51,33 @@ export const getMoviesRating = createAsyncThunk(
 
 const initialState: IRatingState = {
 	status: 'idle',
-	error: null,
+	error: '',
 	movie_rating: {
 		id: 0,
-		user: 0,
-		movie: 0,
-		rate: 0,
-		is_viewed: false,
-		must_see: false,
-		is_favorite: false,
 	},
-};
+	ratedMovies: [],
+}
 
 export const ratingSlice = createSlice({
-	name: '@@movie_rating',
+	name: '@@rate',
 	initialState,
 	reducers: {},
 	extraReducers: (builder) => {
-		builder.addCase(getMoviesRating.fulfilled, (state, { meta, payload }) => {
-			//state.status = 'success';
-			//state.movie_rating.id = meta.arg.id;
-			//state.movie_rating.id= action.meta.arg.id;
-			//console.log(action)
-			//console.log(action.meta.arg.rate)
-			//state.movie_rating = state.movie_rating, action.payload;
-			/*const { id, rate } = action.meta.arg;
-			state.movie_rating = state.movie_rating.map((movie_rate) =>
-			movie_rate.id === id ? { ...movie_rate, rate: rate } : movie_rate
-			);*/
-			//console.log(state.movie_rating)
-		});
+		builder
+			.addCase(getRatedMoviesApi.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.ratedMovies = action.payload
+			}
+			)
+			.addCase(setRatingApi.fulfilled, (state) => {
+				state.status = 'success';
+			}
+			)
+			.addCase(updateRatingApi.fulfilled, (state) => {
+				state.status = 'success';
+			})
 	},
 });
 
 export const ratingReducer = ratingSlice.reducer;
-export { postRating };
+// export { postRating };

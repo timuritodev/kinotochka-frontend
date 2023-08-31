@@ -24,11 +24,15 @@ import { genresReducer } from './slices/genres/genres';
 import { moviesReducer } from './slices/movies/movies';
 import { favoriteReducer } from './slices/favorites/favorites';
 import { compilationsReducer } from './slices/compilations/compilations';
-import { moviesbygenreReducer } from './slices/movieByGenre/moviesByGenre';
-import { actorsReducer } from './slices/actors/actors';
-import { directorsReducer } from './slices/director/directors';
+import { moviesbygenreReducer} from './slices/movieByGenre/moviesByGenre';
+import { actorsReducer} from './slices/actors/actors';
+import { directorsReducer} from './slices/director/directors';
+import { countriesReducer } from './slices/countries/countries';
+import { movieByAdvancedSearcReducer } from './slices/movieByAdvancedSearch/movieByAdvancedSearch';
 
 const rootReducer = combineReducers({
+	movieByAdvancedSearc: movieByAdvancedSearcReducer,
+	countries: countriesReducer,
 	user: userReducer,
 	films: filmsReducer,
 	moviebyid: moviebyidReducer,

@@ -1,7 +1,4 @@
-import { IRating } from 'src/types/Rating.types';
 import { API_BASE_URL } from 'src/utils/constants';
-
-const API_AUTH_URL = `${API_BASE_URL}/movies`;
 
 const checkRes = (res: Response) => {
 	if (res.ok) {
@@ -11,25 +8,30 @@ const checkRes = (res: Response) => {
 	}
 };
 
-const postData = (url: string, rate: any, token: string, method: string) => {
+export const fetchData = (
+	url: string,
+	method: string,
+	token: string,
+	rate?: object,
+) => {
 	return fetch(url, {
 		method,
 		headers: {
 			'Content-Type': 'application/json',
 			...(!!token && { Authorization: `Token ${token}` }),
 		},
-		...(!!rate && { body: JSON.stringify({ rate }) }),
-	});
+		...(!!rate && { body: JSON.stringify(rate) }),
+	}).then((res) => checkRes(res));
 };
 
-export const postRating = (
-	id: number,
-	rate: any,
-	token: string,
-	method: string
-): Promise<Response> => {
-	console.log(method);
-	return postData(`${API_AUTH_URL}/${id}/rate/`, rate, token, method).then(
-		(res) => checkRes(res)
-	);
+export const fetchSetRating = (id: number, rate: object, token: string): Promise<Response> => {
+	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'POST', token, rate);
+};
+
+export const fetchUpdateRating = (id: number, rate: object, token: string): Promise<Response> => {
+	return fetchData(`${API_BASE_URL}/movies/${id}/rate/`, 'PUT', token, rate);
+};
+
+export const getRatedMovies = (token: string): Promise<Response> => {
+	return fetchData(`${API_BASE_URL}/movies/rated`, 'GET', token)
 };

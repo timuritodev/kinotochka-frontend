@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import './MoviePage.css';
 import ActorsList from '../../components/Actors/ActorsList';
@@ -5,24 +6,26 @@ import { RatedElement } from '../../components/RatedElement/RatedElement';
 import MovieButton from '../../components/MovieButton/MovieButton';
 import { ButtonTypes } from '../../types/Rating.types';
 import TrailerButton from '../../components/TrailerButton/TrailerButton';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import RatingElement from 'src/components/RatingElement/RatingElement';
 import FilmAbout from 'src/components/FilmAbout/FilmAbout';
 import FilmDescription from 'src/components/FilmDescription/FilmDescription';
 import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
-import {
-	getMoviebyidApi,
-	getMoviebyidTokenApi,
-} from 'src/services/redux/slices/moviebyid/moviebyid';
+import { getMoviebyidApi, getMoviebyidTokenApi } from 'src/services/redux/slices/moviebyid/moviebyid';
+import { getMoviesByGenreApi } from 'src/services/redux/slices/movieByGenre/moviesByGenre';
+
 
 const MoviePage: FC = () => {
 	const movie = useAppSelector((state) => state.moviebyid.movie);
 	const loading = useAppSelector((state) => state.moviebyid.status);
-	const films = useAppSelector((state) => state.movies.movies);
+	const movieByGenre = useAppSelector((state) => state.moviesbygenre.films);
 	const dispatch = useAppDispatch();
 
-	console.log(movie);
+	useEffect(() => {
+		dispatch(getMoviesByGenreApi({ genres: movie.genres[0].slug }));
+	}, []);
+
 	return (
 		<>
 			{loading === 'loading' ? (
@@ -52,15 +55,7 @@ const MoviePage: FC = () => {
 									/>
 									<MovieButton buttonName={ButtonTypes.willSee} id={movie.id} />
 								</div>
-								<RatingElement
-									id={movie.id}
-									user={0}
-									movie={0}
-									rate={movie.user_rate}
-									is_viewed={false}
-									must_see={false}
-									is_favorite={false}
-								/>
+								<RatingElement id={movie.id} />
 							</div>
 						</div>
 						<div className="description__container">
@@ -75,7 +70,7 @@ const MoviePage: FC = () => {
 							<FilmAbout movie={movie} />
 						</div>
 						<div className="moviepage-cards__container">
-							<SlickSliderMini title={`Подборки`} movies={films} />
+							<SlickSlider title={`Похожие фильмы`} movies={movieByGenre} />
 						</div>
 					</div>
 				</section>

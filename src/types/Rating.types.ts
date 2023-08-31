@@ -1,25 +1,14 @@
+import { IMovieCard } from "./MovieCard.types";
+
 export interface IRating {
 	id: number;
-	user: number;
-	movie: number;
-	rate: number;
-	is_viewed: boolean;
-	must_see: boolean;
-	is_favorite: boolean;
 }
 
 export interface IRatingState {
 	status: 'idle' | 'success' | 'loading' | 'failed';
-	error: string | undefined;
-	movie_rating: {
-		id: number | undefined;
-		user: number | undefined;
-		movie: number | undefined;
-		rate: number | undefined;
-		is_viewed: boolean;
-		must_see: boolean;
-		is_favorite: boolean;
-	};
+	error: string;
+	movie_rating: IRating;
+	ratedMovies: IMovieCard[];
 }
 
 export interface IRate {

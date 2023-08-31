@@ -1,5 +1,5 @@
 import './FlanksPage.css';
-import React, { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { IFlanks } from 'src/types/Flanks.types';
 import { FC } from 'react';
 import { getFilmsApi } from '../../services/redux/slices/films/films';
@@ -16,15 +16,15 @@ import {
 	resetFavorites,
 } from 'src/services/redux/slices/favorites/favorites';
 import { selectUser } from 'src/services/redux/slices/user/user';
+import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
 	const favorites = useAppSelector((state) => state.favoritemovies.favorites);
+	const rated = useAppSelector((state) => state.rating.ratedMovies)
 	const watchList = useAppSelector((state) => state.favoritemovies.watchlist);
 	const compilations = useAppSelector((state) => state.compilations.data);
 	const user = useAppSelector(selectUser);
-	const films = useAppSelector((state) => state.movies.movies);
-	// const loadingFav = useAppSelector((state) => state.favoritemovies.status)
 
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -43,7 +43,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	// Отвечает за определение какой масив показывать
 	useEffect(() => {
 		if (formName === 'ratedFilms') {
-			setToggleFavorites(favorites);
+			setToggleFavorites(rated);
 		} else if (formName === 'willSee') {
 			setToggleFavorites(watchList);
 		} else if (formName === 'favorites') {
@@ -63,6 +63,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		if (user.token) {
 			dispatch(getFavoritesApi(user.token));
 			dispatch(getWatchListApi(user.token));
+			dispatch(getRatedMoviesApi(user.token));
 		}
 	}, []);
 
