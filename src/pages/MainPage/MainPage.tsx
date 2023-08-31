@@ -16,6 +16,7 @@ import {
 	getFavoritesApi,
 	getWatchListApi,
 } from 'src/services/redux/slices/favorites/favorites';
+
 import { getActorsApi } from 'src/services/redux/slices/actors/actors';
 
 export default function MainPage() {
