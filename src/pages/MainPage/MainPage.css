@@ -16,6 +16,10 @@
 	position: relative;
 }
 
+.main-page__relative {
+	position: relative;
+}
+
 .main-page_slick-slider_specialforyou {
 	display: flex;
 	justify-self: center;
