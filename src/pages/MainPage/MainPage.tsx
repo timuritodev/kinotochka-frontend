@@ -24,6 +24,8 @@ import { getMoviesOfDayApi } from 'src/services/redux/slices/moviesoftheday/movi
 import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genresIcons';
 import { getCountriesApi } from 'src/services/redux/slices/countries/countries';
 import { getDirectorsApi } from 'src/services/redux/slices/director/directors';
+import { getRecomendedMoviesApi } from 'src/services/redux/slices/recomendations/recomendations';
+import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
 
 export default function MainPage() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +55,8 @@ export default function MainPage() {
 		if (user.token) {
 			dispatch(getFavoritesApi(user.token));
 			dispatch(getWatchListApi(user.token));
+			dispatch(getRatedMoviesApi(user.token));
+			dispatch(getRecomendedMoviesApi(user.token));
 		}
 		dispatch(getCountriesApi());
 		dispatch(getActorsApi());
