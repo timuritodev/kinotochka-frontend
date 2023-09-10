@@ -5,12 +5,28 @@
 	cursor: pointer;
 }
 
+@media screen and (max-width: 1297px) {
+	.moviepage_card {
+		margin: 0px;
+		padding: 0;
+		max-width: 137px;
+	}
+}
+
 .moviepage_card-img {
 	width: 180px;
 	height: 240px;
 	background-repeat: no-repeat;
 	object-fit: cover;
 	border-radius: 10px;
+}
+
+@media screen and (max-width: 1297px) {
+	.moviepage_card-img {
+		width: 137px;
+		height: 183px;
+	}
+
 }
 
 .bookmark-small {

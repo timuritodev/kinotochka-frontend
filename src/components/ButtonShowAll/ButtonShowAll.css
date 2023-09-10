@@ -10,6 +10,14 @@
 	right: 140px;
 }
 
+@media screen and (max-width: 1297px) {
+	.flexbutton {
+		top: 55px;
+		right: 100px;
+	}
+
+}
+
 .button-showall {
 	border: none;
 	color: #ffcc33;
@@ -21,6 +29,8 @@
 	width: 145px;
 	align-self: center;
 }
+
+
 
 .arrowright {
 	margin: 0;
