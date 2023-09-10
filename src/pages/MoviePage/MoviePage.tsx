@@ -71,15 +71,16 @@ const MoviePage: FC = () => {
 							</div>
 						</div>
 						<div className="description__container">
-							<div>
+							{/* <div> */}
 								<FilmDescription description={movie.description} />
+								<FilmAbout movie={movie} />
 								{movie.trailer_link !== '-' ? (
 									<TrailerButton imageUrl={movie.h_picture} />
 								) : (
 									''
 								)}
-							</div>
-							<FilmAbout movie={movie} />
+							{/* </div> */}
+							
 						</div>
 						{status === 'loading' ? (
 							<Loader />

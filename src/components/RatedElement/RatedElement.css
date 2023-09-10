@@ -24,3 +24,8 @@
 .rated_img {
 	margin-right: 5px;
 }
+@media screen and (max-width: 1330px) {
+	.rated {
+		margin-top: 20px;
+	}
+}

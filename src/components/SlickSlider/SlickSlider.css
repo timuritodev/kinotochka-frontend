@@ -18,3 +18,8 @@
 	justify-content: center;
 	text-align: left;
 }
+@media screen and (max-width: 1320px) {
+	.slick-slider_container {
+		margin: 0 50px;
+	}
+}

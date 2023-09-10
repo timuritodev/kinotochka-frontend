@@ -124,3 +124,12 @@
 .account__content-button:hover {
 	opacity: 0.6;
 }
+@media screen and (max-width: 1330px) {
+	.account {
+		margin: 0 50px 0 auto;
+	}
+	.account__login-text {
+		font-size: 18px;
+		line-height: 25px;
+	}
+}
