@@ -29,3 +29,9 @@
 		margin-top: 20px;
 	}
 }
+@media screen and (max-width: 1260px) {
+	.rated {
+		margin-left: 9px;
+		margin-top: 12px;
+	}
+}

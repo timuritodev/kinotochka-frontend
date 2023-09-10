@@ -118,11 +118,14 @@
 @media screen and (max-width: 1320px) {
 	.moviepage-cards__container {
 		width: 100%;
-		margin: 0;
+		margin: 0 auto 0 -80px;
 		padding: 0;
 	}
 }
 @media screen and (max-width: 1260px) {
+	.moviepage-cards__container {
+		margin: 0 -100px 0 -65px;
+	}
 	.movie-block__img {
 		width: 208px;
 		height: 277px;
