@@ -13,7 +13,6 @@ import { useResize } from '../../hooks/useResize';
 
 export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 	const { width, isBreakpoint } = useResize();
-	console.log(width)
 	const moviesQty = !isBreakpoint ? 3 : 4;
 	const slidesToShow = movies.length < moviesQty ? movies.length : moviesQty;
 	const slidesToScroll = slidesToShow;
