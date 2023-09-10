@@ -8,7 +8,7 @@
 @media screen and (max-width: 1297px) {
 	.moviepage_card {
 		margin: 0px;
-		padding: 0 0 0 10px;
+		padding: 0;
 		max-width: 137px;
 	}
 }
@@ -25,7 +25,6 @@
 	.moviepage_card-img {
 		width: 137px;
 		height: 183px;
-
 	}
 
 }
@@ -60,6 +59,7 @@
 	text-overflow: ellipsis;
 	text-align: left;
 }
+
 @media screen and (max-width: 1260px) {
 	.bookmark-small {
 		right: 20px;
