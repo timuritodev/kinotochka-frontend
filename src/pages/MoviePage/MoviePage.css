@@ -104,6 +104,7 @@
 	}
 	.moviepage__container {
 		margin: 78px auto 0 130px;
+		padding-bottom: 120px;
 	}
 	.moviepage__button__container {
 		gap: 60px;
@@ -148,5 +149,10 @@
 	}
 	.moviepage__button__container {
 		gap: 25px;
+	}
+}
+@media screen and (max-width: 1130px) {
+	.moviepage__button__container_plus {
+		margin-right: 20px;
 	}
 }

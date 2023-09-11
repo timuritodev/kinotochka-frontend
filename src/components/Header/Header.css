@@ -112,8 +112,11 @@
 	.header__logo {
 		margin: 0 40px 0 60px;
 	}
+	.header__content {
+		left: 44px;
+	}
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1130px) {
 	.header {
 		height: 10vw;
 	}

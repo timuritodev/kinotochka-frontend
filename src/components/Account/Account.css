@@ -132,4 +132,26 @@
 		font-size: 18px;
 		line-height: 25px;
 	}
+	.account__content {
+		width: 300px;
+		left: -230px;
+	}
+}
+@media screen and (max-width: 1260px) {
+	.account__content {
+		height: 330px;
+		width: 250px;
+		left: -200px;
+	}
+}
+@media screen and (max-width: 1150px) {
+	.account__content {
+		height: 315px;
+	}
+}
+@media screen and (max-width: 1060px) {
+	.account__content {
+		left: -190px;
+		height: 310px;
+	}
 }
