@@ -127,7 +127,9 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		<section className="flank">
 			<h1 className="flank_title">{title}</h1>
 			{formName === 'collections' ? (
-				<SelectionCard compilations={compilations} />
+				<div className="flank_container">
+					<SelectionCard compilations={compilations} />
+				</div>
 			) : (
 				toggleFavorites.length === 0 ? (
 					<>
