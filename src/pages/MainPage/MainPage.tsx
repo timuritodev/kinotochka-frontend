@@ -41,6 +41,7 @@ export default function MainPage() {
 			dispatch(getGenres()),
 			dispatch(getMoviesOfDayApi()),
 			dispatch(getGenresIconsAPI()),
+			dispatch(getRecomendedMoviesApi(user.token)),
 		])
 			.then(() => {
 				setIsLoading(false);
@@ -65,6 +66,7 @@ export default function MainPage() {
 
 	const films = useAppSelector((state) => state.movies.movies);
 	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
+	const recomendations = useAppSelector((state) => state.recomendations.movies);
 
 	// const compilations = useAppSelector((state) => state.compilations.data);
 	const redactionOne = useAppSelector((state) => state.compilations.data[0]);
@@ -100,11 +102,11 @@ export default function MainPage() {
 								<div className="main-page__relative">
 									<SlickSliderMini
 										title={`Специально для вас`}
-										movies={films}
+										movies={recomendations}
 									/>
 									<ButtonShowAll
 										onClick={() =>
-											handleAllButtonFilmsClick(films, `Специально для вас`)
+											handleAllButtonFilmsClick(recomendations, `Специально для вас`)
 										}
 									/>
 								</div>
