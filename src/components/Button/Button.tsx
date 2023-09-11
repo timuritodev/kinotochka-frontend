@@ -12,7 +12,15 @@ const Button: FC<IButton> = ({
 }) => {
 	return (
 		<button
-			className={className ? className : `${buttonText!=='Сохранить' ? 'button button_type_toMain' : 'button'}`}
+			className={
+				className
+					? className
+					: `${
+							buttonText !== 'Сохранить'
+								? 'button button_type_toMain'
+								: 'button'
+					  }`
+			}
 			disabled={disabled}
 			type={type}
 			onClick={handleButtonClick}
