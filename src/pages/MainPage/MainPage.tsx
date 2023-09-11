@@ -106,7 +106,7 @@ export default function MainPage() {
 									/>
 									<ButtonShowAll
 										onClick={() =>
-											handleAllButtonFilmsClick(films, 'Специально для вас')
+											handleAllButtonFilmsClick(recomendations, 'Специально для вас')
 										}
 									/>
 								</div>
