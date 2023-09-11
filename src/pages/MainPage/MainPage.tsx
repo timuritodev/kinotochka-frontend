@@ -93,7 +93,7 @@ export default function MainPage() {
 					<div className="main-page_slick-slider">
 						<SlickSliderMini title={`Новинки`} movies={newmovies} />
 						<ButtonShowAll
-							onClick={() => handleAllButtonFilmsClick(films, `Новинки`)}
+							onClick={() => handleAllButtonFilmsClick(films, 'Новинки')}
 						/>
 					</div>
 					<div className="main-page_slick-slider">
@@ -106,7 +106,7 @@ export default function MainPage() {
 									/>
 									<ButtonShowAll
 										onClick={() =>
-											handleAllButtonFilmsClick(recomendations, `Специально для вас`)
+											handleAllButtonFilmsClick(films, 'Специально для вас')
 										}
 									/>
 								</div>
