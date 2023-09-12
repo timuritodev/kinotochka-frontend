@@ -15,6 +15,13 @@
 	/* transition: color 0.3s; */
 }
 
+@media screen and (max-width: 1297px) {
+	.genre-checkbox__input[type='checkbox'] {
+		width: 137px;
+		height: 137px;
+	}
+}
+
 .genre-checkbox__input[type='checkbox']:hover {
 	cursor: pointer;
 }
@@ -37,25 +44,31 @@
 	transition: background-color 0.3s;
 }
 
-.genre-checkbox__input[type='checkbox']:checked + .genre-checkbox__appearance {
+@media screen and (max-width: 1297px) {
+	.genre-checkbox__appearance {
+		width: 137px;
+		height: 137px;
+
+	}
+}
+
+.genre-checkbox__input[type='checkbox']:checked+.genre-checkbox__appearance {
 	background-color: #ffcc33;
 	transition: background-color 0.3s;
 }
 
-.genre-checkbox__input[type='checkbox']:hover + .genre-checkbox__appearance {
+.genre-checkbox__input[type='checkbox']:hover+.genre-checkbox__appearance {
 	color: #0c0c0c;
 	border: #0c0c0c solid 1px;
 	background-color: #d1d5db;
 }
 
-.genre-checkbox__input[type='checkbox']:hover:checked
-	+ .genre-checkbox__appearance {
+.genre-checkbox__input[type='checkbox']:hover:checked+.genre-checkbox__appearance {
 	background-color: #cc9900;
 	transition: background-color 0.3s;
 }
 
-.genre-checkbox__input_color_yellow[type='checkbox']:hover:checked
-	+ .genre-checkbox__appearance {
+.genre-checkbox__input_color_yellow[type='checkbox']:hover:checked+.genre-checkbox__appearance {
 	background-color: #ffcc33;
 	cursor: default;
 }

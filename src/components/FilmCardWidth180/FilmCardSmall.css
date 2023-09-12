@@ -8,7 +8,7 @@
 @media screen and (max-width: 1297px) {
 	.moviepage_card {
 		margin: 0px;
-		padding: 0;
+		padding: 0 0 0 10px;
 		max-width: 137px;
 	}
 }
@@ -25,6 +25,7 @@
 	.moviepage_card-img {
 		width: 137px;
 		height: 183px;
+
 	}
 
 }

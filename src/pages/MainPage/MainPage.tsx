@@ -97,6 +97,7 @@ export default function MainPage() {
 									<SlickSliderMini
 										title={`Специально для вас`}
 										movies={films}
+										id={1}
 									/>
 									<ButtonShowAll
 										onClick={() =>
@@ -115,6 +116,7 @@ export default function MainPage() {
 								<SlickSlider
 									title={redactionOne.title}
 									movies={redactionOne.movies}
+									id={1}
 								/>
 								<ButtonShowAll
 									onClick={() => handleAllButtonClick(redactionOne)}

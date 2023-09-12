@@ -4,12 +4,26 @@
 	cursor: pointer;
 }
 
+@media screen and (max-width: 1297px) {
+	.flanks_card {
+		max-width: 235px;
+		padding-left: 10px;
+	}
+}
+
 .flanks_card-img {
 	width: 255px;
 	height: 145px;
 	background-repeat: no-repeat;
 	/* object-fit: cover; */
 	border-radius: 10px;
+}
+
+@media screen and (max-width: 1297px) {
+	.flanks_card-img {
+		width: 235px;
+		height: 156px;
+	}
 }
 
 .bookmark-small {

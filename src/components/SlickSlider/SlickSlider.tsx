@@ -12,13 +12,14 @@ import { MoreButton } from '../MoreBtn/MoreButton';
 
 export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 	const slidesToShow = movies.length < 4 ? movies.length : 4;
+	const slidesToShow2 = ((window.innerWidth < 1280) ? 3 : slidesToShow)
 	const slidesToScroll = slidesToShow;
 
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: slidesToShow,
+		slidesToShow: slidesToShow2,
 		slidesToScroll: slidesToScroll,
 		arrows: true,
 	};
