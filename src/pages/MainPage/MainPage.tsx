@@ -123,7 +123,7 @@ export default function MainPage() {
 								<SlickSlider
 									title={redactionOne.title}
 									movies={redactionOne.movies}
-									id={1}
+									id={2}
 								/>
 								<ButtonShowAll
 									onClick={() => handleAllButtonClick(redactionOne)}
