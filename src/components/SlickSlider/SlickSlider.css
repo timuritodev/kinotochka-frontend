@@ -4,7 +4,8 @@
 
 @media screen and (max-width: 1297px) {
 	.slick-slider_container {
-		margin: 45px 130px 80px 130px
+		margin: 45px 130px 80px 130px;
+
 	}
 }
 
@@ -40,5 +41,11 @@
 
 	.slick-slider_title {
 		padding-left: 15px;
+	}
+}
+
+@media screen and (max-width: 1297px) {
+	.slick-slider {
+		max-width: 810px;
 	}
 }

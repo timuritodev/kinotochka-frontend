@@ -37,14 +37,13 @@ export const SlickSliderGenres = ({ }) => {
 		setData(genresicons);
 	}, []);
 
-	const { width, isBreakpoint } = useResize()
-	const moviesQty = !isBreakpoint ? 5 : 6
+	const slidesToShow = ((window.innerWidth < 1280) ? 5 : 6)
 
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: moviesQty,
+		slidesToShow: 6,
 		slidesToScroll: 4,
 		arrows: true,
 	};
