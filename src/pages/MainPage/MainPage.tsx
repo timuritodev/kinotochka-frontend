@@ -101,7 +101,7 @@ export default function MainPage() {
 								<div className="main-page__relative">
 									<SlickSliderSpecial
 										title={`Специально для вас`}
-										movies={recomendations}
+										movies={films}
 									/>
 									<ButtonShowAll
 										onClick={() =>
@@ -123,7 +123,6 @@ export default function MainPage() {
 								<SlickSlider
 									title={redactionOne.title}
 									movies={redactionOne.movies}
-									id={2}
 								/>
 								<ButtonShowAll
 									onClick={() => handleAllButtonClick(redactionOne)}

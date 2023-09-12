@@ -13,14 +13,6 @@ import { MoreButton } from '../MoreBtn/MoreButton';
 export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 	const { width, isBreakpoint } = useResize();
 	const moviesQty = !isBreakpoint ? 3 : 4;
-	// const slidesToShow = movies.length < moviesQty ? movies.length : moviesQty;
-	// // const slidesToShow = 4;
-	// const slidesToShow2 = ((window.innerWidth < 1280) ? 3 : slidesToShow)
-
-	// const slidesToScroll = slidesToShow2;
-
-	const { width, isBreakpoint } = useResize()
-	const moviesQty = !isBreakpoint ? 3 : 4;
 	const slidesToShow = movies.length < moviesQty ? movies.length : moviesQty;
 	const slidesToScroll = slidesToShow;
 

@@ -44,13 +44,6 @@
 	transition: background-color 0.3s;
 }
 
-@media screen and (max-width: 1297px) {
-	.genre-checkbox__appearance {
-		width: 137px;
-		height: 137px;
-	}
-}
-
 .genre-checkbox__input[type='checkbox']:checked+.genre-checkbox__appearance {
 	background-color: #ffcc33;
 	transition: background-color 0.3s;
