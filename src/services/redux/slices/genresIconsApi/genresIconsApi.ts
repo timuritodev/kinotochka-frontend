@@ -1,5 +1,6 @@
 import { IGenresIcons } from 'src/types/GenresIcons.types';
 import { API_BASE_URL } from 'src/utils/constants';
+import { API_BASE_URL } from 'src/utils/constants';
 
 const checkRes = (res: Response) => {
 	if (res.ok) {
@@ -20,4 +21,5 @@ const fetchData = (url: string) => {
 
 export const getGenresIcons = (): Promise<Array<IGenresIcons>> => {
 	return fetchData(`${API_BASE_URL}/genres`);
+	return fetchData(`${API_BASE_URL}/v1/genres`);
 };

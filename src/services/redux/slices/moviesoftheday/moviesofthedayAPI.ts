@@ -1,6 +1,7 @@
 import { IMoviesOfDay } from 'src/types/moviesoftheday.types';
-import { API_BASE_URL } from 'src/utils/constants';
 
+const API_URL = 'http://kinotochka.acceleratorpracticum.ru/api';
+//
 const checkRes = (res: Response) => {
 	if (res.ok) {
 		return res.json();
