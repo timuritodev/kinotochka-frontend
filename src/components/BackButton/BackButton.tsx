@@ -17,10 +17,14 @@ const BackButton: FC<IButton> = ({
 	const handButtonBackClick = () => {
 		navigate('/onegenre');
 	};
-const location = useLocation();
+	const location = useLocation();
 	return (
 		<button
-			className={location.pathname==='/preferences'? 'backbutton backbutton_type_preferences' : "backbutton"}
+			className={
+				location.pathname === '/preferences'
+					? 'backbutton backbutton_type_preferences'
+					: 'backbutton'
+			}
 			disabled={disabled}
 			type={type}
 			onClick={handleButtonClick}
