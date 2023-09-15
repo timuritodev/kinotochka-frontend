@@ -23,7 +23,7 @@ export const SpecialForYou: FC = () => {
 	}
 
 	const { width, isBreakpoint } = useResize()
-
+	const moviesQty = !isBreakpoint ? 3 : 4;
 
 	return (
 		<section className="specialforyou">
@@ -42,9 +42,12 @@ export const SpecialForYou: FC = () => {
 					/>
 				</div>
 			</div>
-			{!isBreakpoint ? (<div className="specialforyou__container-img">
-				<img className="specialforyou__image" alt="" src={films.h_picture} />
-			</div>) : (<div className="specialforyou__container-img">
+
+			<div className="specialforyou__container-img">
+				<img className="specialforyou__image specialforyou__image1" alt="" src={films.h_picture} />
+			</div>
+
+			<div className="specialforyou__container-img">
 				<img className="specialforyou__image" alt="" src={films.h_picture} />
 				<img className="specialforyou__image" alt="" src={films2.h_picture} />
 			</div>)}
