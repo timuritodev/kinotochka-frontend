@@ -5,6 +5,7 @@ import { getFilmsApi } from '../../services/redux/slices/films/films';
 import { FC } from 'react';
 import Button from '../Button/Button';
 import { useNavigate } from 'react-router';
+import { useResize } from '../../hooks/useResize';
 
 export const SpecialForYou: FC = () => {
 	const navigate = useNavigate();
@@ -20,6 +21,10 @@ export const SpecialForYou: FC = () => {
 	function handleButtonClick() {
 		navigate('/sign-in');
 	}
+
+	const { width, isBreakpoint } = useResize()
+	const moviesQty = !isBreakpoint ? 3 : 4;
+
 	return (
 		<section className="specialforyou">
 			<div className="specialforyou__container-text">
@@ -37,6 +42,11 @@ export const SpecialForYou: FC = () => {
 					/>
 				</div>
 			</div>
+
+			<div className="specialforyou__container-img">
+				<img className="specialforyou__image specialforyou__image1" alt="" src={films.h_picture} />
+			</div>
+
 			<div className="specialforyou__container-img">
 				<img className="specialforyou__image" alt="" src={films.h_picture} />
 				<img className="specialforyou__image" alt="" src={films2.h_picture} />

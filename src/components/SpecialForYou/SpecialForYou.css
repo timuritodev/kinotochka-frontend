@@ -5,7 +5,14 @@
 
 .specialforyou__container-text {
 	max-width: 475px;
+	/* height: 468px; */
 	margin: 0 90px 0 95px;
+}
+
+@media screen and (max-width: 1297px) {
+	.specialforyou__container-text {
+		/* max-width: 413px; */
+	}
 }
 
 .specialforyou__title {
