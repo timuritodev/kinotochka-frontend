@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import BackButton from '../BackButton/BackButton';
 import { MoreButton } from '../MoreBtn/MoreButton';
+import { useResize } from '../../hooks/useResize';
 
 export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 	const { width, isBreakpoint } = useResize();
