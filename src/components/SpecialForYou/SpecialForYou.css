@@ -38,6 +38,12 @@
 	padding: 0;
 }
 
+@media screen and (max-width: 1297px) {
+	.specialforyou__subtitle {
+		margin: 45px 0 60px 0;
+	}
+}
+
 .specialforyou__button {
 	width: 296px;
 	height: 55px;
@@ -55,4 +61,12 @@
 	object-fit: cover;
 	border-radius: 10px;
 	margin: 0 20px 0 0;
+	align-self: flex-end;
+}
+
+@media screen and (max-width: 1297px) {
+	.specialforyou__image {
+		width: 180px;
+		height: 240px;
+	}
 }
