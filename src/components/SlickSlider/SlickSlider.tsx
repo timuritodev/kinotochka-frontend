@@ -17,6 +17,8 @@ export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 	const slidesToShow = movies.length < moviesQty ? movies.length : moviesQty;
 	const slidesToScroll = slidesToShow;
 
+	const { width, isBreakpoint } = useResize()
+
 	const settings = {
 		dots: false,
 		infinite: true,

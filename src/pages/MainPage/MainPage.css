@@ -28,6 +28,12 @@
 	position: relative;
 }
 
+/* @media screen and (max-width: 1297px) {
+	.main-page__relative {
+		max-width: 924px;
+	}
+} */
+
 .main-page_slick-slider_specialforyou {
 	display: flex;
 	justify-self: center;
@@ -37,6 +43,13 @@
 	padding: 100px 0 100px 0;
 	border-radius: 100px;
 	box-shadow: 0px 0px 25px 0px rgba(255, 255, 255, 0.15);
+}
+
+@media screen and (max-width: 1297px) {
+	.main-page_slick-slider_specialforyou {
+		max-width: 924px;
+		margin: 0 auto;
+	}
 }
 
 .flex {
