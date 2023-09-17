@@ -14,6 +14,7 @@ import { MoreButton } from '../MoreBtn/MoreButton';
 import { IGenresIcons } from 'src/types/GenresIcons.types';
 import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genresIcons';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
+import { } from '../../hooks/useResize'
 
 export const SlickSliderGenres = ({ }) => {
 	const films = useAppSelector((state) => state.movies.movies);

@@ -5,6 +5,7 @@ import { SlickSlider } from 'src/components/SlickSlider/SlickSlider';
 import { SpecialForYou } from 'src/components/SpecialForYou/SpecialForYou';
 import { SlickSliderDayMovies } from 'src/components/SlickSliderDayMovies/SlickSliderDayMovies';
 import { SlickSliderGenres } from 'src/components/SlickSliderGenres/SlickSliderGenres';
+import { SlickSliderSpecial } from 'src/components/SlickSliderSpecial/SlickSliderSpecial';
 import { getNewMovieCardsApi } from 'src/services/redux/slices/newmoviecards/newmoviecards';
 import { getMoviesApi } from 'src/services/redux/slices/movies/movies';
 import { getCompilationsApi } from 'src/services/redux/slices/compilations/compilations';
@@ -96,10 +97,10 @@ export default function MainPage() {
 						/>
 					</div>
 					<div className="main-page_slick-slider">
-						<div className="main-page_slick-slider_specialforyou">
+						{<div className="main-page_slick-slider_specialforyou">
 							{user.token ? (
 								<div className="main-page__relative">
-									<SlickSliderMini
+									<SlickSliderSpecial
 										title={`Специально для вас`}
 										movies={films}
 									/>
@@ -112,7 +113,7 @@ export default function MainPage() {
 							) : (
 								<SpecialForYou />
 							)}
-						</div>
+						</div>}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionOne && (
