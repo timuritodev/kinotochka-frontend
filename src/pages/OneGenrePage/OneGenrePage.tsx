@@ -7,12 +7,17 @@ import { FilmCardSmall } from 'src/components/FilmCardWidth180/FilmCardSmall';
 import { MoreButton } from 'src/components/MoreBtn/MoreButton';
 import { IMovieCard } from 'src/types/MovieCard.types';
 import BackButton from 'src/components/BackButton/BackButton';
+import { Loader } from 'src/components/Loader/Loader';
+import { onegenre } from 'src/services/redux/slices/movieByGenre/moviesByGenre';
 
 const OneGenrePage: FC = () => {
 	const filmsBygenre = useAppSelector((state) => state.moviesbygenre.films);
 	const [isMoreButton, setIsMoreButton] = useState(false);
+	const loading = useAppSelector((state) => state.moviesbygenre.status);
 	const [screenSize, setScreenSize] = useState<number>(0);
 	const [pageMore, setPageMore] = useState(screenSize);
+	const [isLoading, setIsLoading] = useState(true);
+	const genre = localStorage.getItem('genre');
 
 	const handleResize = useCallback(() => {
 		const windowWidth = window.innerWidth;
@@ -58,9 +63,10 @@ const OneGenrePage: FC = () => {
 		navigate('/');
 	};
 
-	const genre = localStorage.getItem('genre');
-
-	return (
+	return (<>
+		{loading === 'loading' ? (
+			<Loader />
+		) : (
 		<section className="flank">
 			<BackButton
 				type={'button'}
@@ -82,6 +88,8 @@ const OneGenrePage: FC = () => {
 				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
 			</div>
 		</section>
+	)};
+	</>
 	);
 };
 

@@ -30,7 +30,7 @@ import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
 export default function MainPage() {
 	const [isLoading, setIsLoading] = useState(true);
 	const user = useAppSelector(selectUser);
-
+	
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -66,7 +66,6 @@ export default function MainPage() {
 	const films = useAppSelector((state) => state.movies.movies);
 	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
 	const recomendations = useAppSelector((state) => state.recomendations.movies);
-
 	// const compilations = useAppSelector((state) => state.compilations.data);
 	const redactionOne = useAppSelector((state) => state.compilations.data[0]);
 	const redactionTwo = useAppSelector((state) => state.compilations.data[1]);
@@ -105,7 +104,10 @@ export default function MainPage() {
 									/>
 									<ButtonShowAll
 										onClick={() =>
-											handleAllButtonFilmsClick(recomendations, 'Специально для вас')
+											handleAllButtonFilmsClick(
+												recomendations,
+												'Специально для вас'
+											)
 										}
 									/>
 								</div>
@@ -155,6 +157,9 @@ export default function MainPage() {
 					</div>
 					<div className="main-page_slick-slider">
 						<SlickSliderGenres />
+						<ButtonShowAll
+							onClick={() => handleAllButtonFilmsClick(films, 'Новинки')}
+						/>
 					</div>
 				</main>
 			)}
