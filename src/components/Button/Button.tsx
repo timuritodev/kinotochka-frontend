@@ -20,7 +20,11 @@ const Button: FC<IButton> = ({
 					: `${
 							buttonText !== 'Сохранить'
 								? 'button button_type_toMain'
-								: `${location.pathname==='/preferences' ? 'button button_type_preferences' : 'button'}`
+								: `${
+										location.pathname === '/preferences'
+											? 'button button_type_preferences'
+											: 'button'
+								  }`
 					  }`
 			}
 			disabled={disabled}
