@@ -41,7 +41,6 @@ export const Selections = () => {
 	const handleMoreButtonClick = () => {
 		setPageMore((prev) => prev + pageMore);
 	};
-	console.log(1);
 	console.log(1)
 	return (
 		<section className="flank">
