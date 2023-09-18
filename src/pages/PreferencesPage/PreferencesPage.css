@@ -112,10 +112,11 @@
 		padding-bottom: 25px;
 	}
 }
-@media screen and (max-width: 1210px) {
+@media screen and (max-width: 1260px) {
 	.preferences-page__container {
 		grid-template-columns: repeat(6, 137px);
-		grid-template-rows: repeat(6, 137px);
+		grid-template-rows: 137px;
+		padding-bottom: 53px;
 	}
 	.preferences-page__list {
 		width: 137px;
