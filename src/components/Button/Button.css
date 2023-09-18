@@ -37,4 +37,7 @@
 	.button_type_toMain {
 		width: 540px;
 	}
+	.button_type_preferences {
+		margin-right: 50px;
+	}
 }
