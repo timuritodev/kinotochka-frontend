@@ -42,3 +42,27 @@
 	text-overflow: ellipsis;
 	text-align: left;
 }
+@media screen and (max-width: 1320px) {
+	.flanks_card {
+		margin: 0 auto;
+	}
+}
+@media screen and (max-width: 1260px) {
+	.flanks_card-img {
+		width: 235px;
+		height: 156px;
+		object-fit: cover;
+	}
+	.flanks_card-img {
+		margin: 0 auto;
+	}
+	.flanks_card-title {
+		margin: 10px 8px 0 8px;
+		font-size: 16px;
+		line-height: 24px;
+	}
+	.flanks_card-subtitle {
+		margin-left: 8px;
+		margin-right: 8px;
+	}
+}
