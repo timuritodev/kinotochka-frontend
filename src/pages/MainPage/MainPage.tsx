@@ -24,6 +24,8 @@ import { getMoviesOfDayApi } from 'src/services/redux/slices/moviesoftheday/movi
 import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genresIcons';
 import { getCountriesApi } from 'src/services/redux/slices/countries/countries';
 import { getDirectorsApi } from 'src/services/redux/slices/director/directors';
+import { getRecomendedMoviesApi } from 'src/services/redux/slices/recomendations/recomendations';
+import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
 
 export default function MainPage() {
 	const [isLoading, setIsLoading] = useState(true);
@@ -53,6 +55,8 @@ export default function MainPage() {
 		if (user.token) {
 			dispatch(getFavoritesApi(user.token));
 			dispatch(getWatchListApi(user.token));
+			dispatch(getRatedMoviesApi(user.token));
+			dispatch(getRecomendedMoviesApi(user.token));
 		}
 		dispatch(getCountriesApi());
 		dispatch(getActorsApi());
@@ -61,6 +65,7 @@ export default function MainPage() {
 
 	const films = useAppSelector((state) => state.movies.movies);
 	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
+	const recomendations = useAppSelector((state) => state.recomendations.movies);
 
 	// const compilations = useAppSelector((state) => state.compilations.data);
 	const redactionOne = useAppSelector((state) => state.compilations.data[0]);
@@ -87,7 +92,7 @@ export default function MainPage() {
 					<div className="main-page_slick-slider">
 						<SlickSliderMini title={`Новинки`} movies={newmovies} />
 						<ButtonShowAll
-							onClick={() => handleAllButtonFilmsClick(films, `Новинки`)}
+							onClick={() => handleAllButtonFilmsClick(films, 'Новинки')}
 						/>
 					</div>
 					<div className="main-page_slick-slider">
@@ -96,11 +101,11 @@ export default function MainPage() {
 								<div className="main-page__relative">
 									<SlickSliderMini
 										title={`Специально для вас`}
-										movies={films}
+										movies={recomendations}
 									/>
 									<ButtonShowAll
 										onClick={() =>
-											handleAllButtonFilmsClick(films, `Специально для вас`)
+											handleAllButtonFilmsClick(recomendations, 'Специально для вас')
 										}
 									/>
 								</div>
