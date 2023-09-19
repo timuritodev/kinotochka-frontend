@@ -32,18 +32,21 @@
 		align-content: center;
 	}
 }
+
 @media screen and (max-width: 1320px) {
 	.slick-slider_container {
 		padding: 0 50px;
 		margin: 0;
 	}
 }
-@media screen and (max-width: 1260px) {
+
+/* @media screen and (max-width: 1260px) {
 	.slick-slider_container {
 		max-width: 815px;
 		margin: 90px auto 0 auto;
 	}
+
 	.slick-slider_title {
 		padding-left: 15px;
 	}
-}
+} */

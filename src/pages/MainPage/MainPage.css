@@ -19,18 +19,13 @@
 @media screen and (max-width: 1297px) {
 	.main-page_slick-slider {
 		max-width: 1024px;
+		margin-bottom: 50px;
 	}
 }
 
 .main-page__relative {
 	position: relative;
 }
-
-/* @media screen and (max-width: 1297px) {
-	.main-page__relative {
-		max-width: 924px;
-	}
-} */
 
 .main-page_slick-slider_specialforyou {
 	display: flex;
