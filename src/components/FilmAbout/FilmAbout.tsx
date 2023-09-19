@@ -4,7 +4,7 @@ import { IFilmabout } from 'src/types/Moviebyid.types';
 
 const FilmAbout: FC<IFilmabout> = ({ movie }) => {
 	return (
-		<div className="moviepage-description">
+		<div className="moviepage-description-list">
 			<div className="moviepage-description__about">
 				<h2 className="moviepage-description__title">О фильме</h2>
 				<div className="moviepage-description__about__container">
