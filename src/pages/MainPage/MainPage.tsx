@@ -31,7 +31,7 @@ import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
 export default function MainPage() {
 	const [isLoading, setIsLoading] = useState(true);
 	const user = useAppSelector(selectUser);
-	
+
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
