@@ -63,33 +63,37 @@ const OneGenrePage: FC = () => {
 		navigate('/');
 	};
 
-	return (<>
-		{loading === 'loading' ? (
-			<Loader />
-		) : (
-		<section className="flank">
-			<BackButton
-				type={'button'}
-				buttonText={'Назад'}
-				handleButtonClick={handButtonBackClick}
-			/>
-			<h1 className="flank_title">
-				Жанр{' '}
-				{filmsBygenre[0].genres.find(
-					(element: string) => element === `${genre}`
-				)}
-			</h1>
-			<div className="flank_container">
-				{filmsBygenre.slice(0, pageMore).map((film: IMovieCard) => (
-					<FilmCardSmall film={film} />
-				))}
-			</div>
-			<div className="flank_btn">
-				{isMoreButton ? <MoreButton onClick={handleMoreButtonClick} /> : null}
-			</div>
-		</section>
-	)};
-	</>
+	return (
+		<>
+			{loading === 'loading' ? (
+				<Loader />
+			) : (
+				<section className="flank">
+					<BackButton
+						type={'button'}
+						buttonText={'Назад'}
+						handleButtonClick={handButtonBackClick}
+					/>
+					<h1 className="flank_title">
+						Жанр{' '}
+						{filmsBygenre[0].genres.find(
+							(element: string) => element === `${genre}`
+						)}
+					</h1>
+					<div className="flank_container">
+						{filmsBygenre.slice(0, pageMore).map((film: IMovieCard) => (
+							<FilmCardSmall film={film} />
+						))}
+					</div>
+					<div className="flank_btn">
+						{isMoreButton ? (
+							<MoreButton onClick={handleMoreButtonClick} />
+						) : null}
+					</div>
+				</section>
+			)}
+			;
+		</>
 	);
 };
 
