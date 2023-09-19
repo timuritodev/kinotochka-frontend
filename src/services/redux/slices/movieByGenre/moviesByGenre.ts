@@ -5,7 +5,7 @@ import { IFilmsbyGenreState } from 'src/types/FilmsByGenre.types';
 export const getMoviesByGenreApi = createAsyncThunk(
 	'@@moviesbygenre/moviesbygenre',
 	async ({ genres }: { genres: string }) => {
-		console.log(1)
+		console.log(1);
 		return getMoviesByGenre(genres);
 	}
 );
@@ -13,7 +13,7 @@ export const getMoviesByGenreApi = createAsyncThunk(
 export const onegenre = createAsyncThunk(
 	'@@onegenre/onegenre',
 	async ({ genres }: { genres: string }) => {
-		console.log(genres)
+		console.log(genres);
 		return genres;
 	}
 );
@@ -63,24 +63,24 @@ export const moviesByGenreSlice = createSlice({
 	},
 	extraReducers: (builder) => {
 		builder
-		.addCase(getMoviesByGenreApi.fulfilled, (state, action) => {
-			state.status = 'success';
-			state.films = action.payload;
-		})
-		.addMatcher(
-			(action) => action.type.endsWith('/pending'),
-			(state) => {
-				state.status = 'loading';
-				state.error = '';
-			}
-		)
-		.addMatcher(
-			(action) => action.type.endsWith('/rejected'),
-			(state, action) => {
-				state.status = 'failed';
-				state.error = action.payload.statusText;
-			}
-		);
+			.addCase(getMoviesByGenreApi.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.films = action.payload;
+			})
+			.addMatcher(
+				(action) => action.type.endsWith('/pending'),
+				(state) => {
+					state.status = 'loading';
+					state.error = '';
+				}
+			)
+			.addMatcher(
+				(action) => action.type.endsWith('/rejected'),
+				(state, action) => {
+					state.status = 'failed';
+					state.error = action.payload.statusText;
+				}
+			);
 	},
 });
 

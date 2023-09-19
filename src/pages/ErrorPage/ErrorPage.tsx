@@ -27,6 +27,7 @@ export default function ErrorPage() {
 			<div className="error-page__status">
 				{' '}
 				<img
+					className="error-page__img"
 					src={img404}
 					alt="404"
 					style={{

@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import './Button.css';
 import { IButton } from 'src/types/Button.types';
+import { useLocation } from 'react-router-dom';
 
 const Button: FC<IButton> = ({
 	buttonText,
@@ -10,6 +11,7 @@ const Button: FC<IButton> = ({
 	disabled,
 	className,
 }) => {
+	const location = useLocation();
 	return (
 		<button
 			className={
@@ -18,7 +20,11 @@ const Button: FC<IButton> = ({
 					: `${
 							buttonText !== 'Сохранить'
 								? 'button button_type_toMain'
-								: 'button'
+								: `${
+										location.pathname === '/preferences'
+											? 'button button_type_preferences'
+											: 'button'
+								  }`
 					  }`
 			}
 			disabled={disabled}
