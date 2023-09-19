@@ -8,6 +8,7 @@
 @media screen and (max-width: 1297px) {
 	.slick-slider-main {
 		max-width: 1024px;
+		max-height: 576px;
 	}
 }
 

@@ -19,7 +19,8 @@
 @media screen and (max-width: 1297px) {
 	.main-page_slick-slider {
 		max-width: 1024px;
-		margin-bottom: 50px;
+		margin-bottom: 80px;
+
 	}
 }
 
@@ -41,7 +42,7 @@
 @media screen and (max-width: 1297px) {
 	.main-page_slick-slider_specialforyou {
 		max-width: 924px;
-		margin: 0 50px 80px;
+		margin: 0 50px 40px;
 		box-sizing: border-box;
 		padding: 60px 0 60px 0;
 	}
