@@ -1,4 +1,8 @@
 .server-error {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+.server-error__container {
 	margin: 203px 165px 0 0;
 	padding: 0 0 315px 165px;
 	display: flex;
@@ -38,7 +42,7 @@
 	line-height: 25px; /* 138.889% */
 }
 @media screen and (max-width: 1260px) {
-	.server-error {
+	.server-error__container {
 		background-image: url('../../images/500_error_for_1024.png');
 		background-position: bottom left;
 		padding-bottom: 557px;
@@ -47,7 +51,7 @@
 	}
 }
 @media screen and (max-width: 1080px) {
-	.server-error {
+	.server-error__container {
 		padding-right: 70px;
 		padding-left: 70px;
 	}
