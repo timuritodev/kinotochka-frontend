@@ -43,10 +43,16 @@
 	cursor: pointer;
 }
 
-.error-page__button a {
+.error-page__button-text {
 	font-size: 20px;
 	text-decoration: none;
 	color: white;
+}
+.error-page__button:hover .error-page__button-text {
+	color: #d1d5db;
+}
+.error-page__button:hover {
+	border: 1px solid #d1d5db;
 }
 @media screen and (max-width: 1024px) {
 	.error-page__img {

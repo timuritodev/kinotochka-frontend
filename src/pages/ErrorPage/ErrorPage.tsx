@@ -41,7 +41,7 @@ export default function ErrorPage() {
 			</span>
 			<button className="error-page__button">
 				{' '}
-				<a href="#/">На главную</a>
+				<a className="error-page__button-text" href="#/">На главную</a>
 			</button>
 		</main>
 	);
