@@ -24,7 +24,7 @@
 .error-page__text {
 	font-size: 18px;
 	line-height: 25px;
-	color: white;
+	color: var(--neutral-400, #d1d5db);
 	margin-top: 20px;
 	margin-bottom: 65px;
 }
