@@ -7,8 +7,9 @@
 	font-weight: 300;
 	line-height: 30px;
 	cursor: pointer;
+	transition: 0.2s color ease-in-out;
 }
 
 .cards__button:hover {
-	opacity: 0.3;
+	color: #cc9900;
 }
