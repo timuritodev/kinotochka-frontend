@@ -36,7 +36,7 @@
 }
 
 .searchGeneral__film:hover {
-	opacity: 0.6;
+	background: var(--neutral-200, #f3f4f6);
 	cursor: pointer;
 }
 
