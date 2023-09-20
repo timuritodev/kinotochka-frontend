@@ -9,6 +9,7 @@ import {
 } from 'src/services/redux/slices/moviebyid/moviebyid';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { selectUser } from 'src/services/redux/slices/user/user';
+import { useResize } from '../../hooks/useResize'
 
 export const FilmCardSpecial = ({ film }: { film: IMovieCard }) => {
     const navigate = useNavigate();
@@ -26,16 +27,16 @@ export const FilmCardSpecial = ({ film }: { film: IMovieCard }) => {
     };
 
     return (
-        <article key={film.id} className="moviepage_card">
+        <article key={film.id} className="specialmovie_card">
             <img
-                className="moviepage_card-img"
+                className="specialmovie_card-img"
                 src={film.v_picture}
                 alt=""
                 onClick={handleImgClick}
             />
-            <div className="bookmark-small">{<BookmarkSmall id={film.id} />}</div>
-            <h4 className="moviepage_card-title">{film.title}</h4>
-            <p className="moviepage_card-subtitle">{`${film.genres.join(', ')} • ${film.year
+            <div className="bookmark_special">{<BookmarkSmall id={film.id} />}</div>
+            <h4 className="specialmovie_card-title">{film.title}</h4>
+            <p className="specialmovie_card-subtitle">{`${film.genres.join(', ')} • ${film.year
                 }`}</p>
             <RatedElement
                 imdb={film.rating.rate_imdb}
