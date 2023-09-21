@@ -12,6 +12,25 @@
 	border-radius: 10px;
 }
 
+.flanks-card__background {
+	display: block;
+	position: relative;
+}
+.flanks-card__background::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(43, 47, 51, 0.4);
+	opacity: 0;
+	transition: 0.2s opacity ease-in-out;
+}
+.flanks-card__background:hover:after {
+	opacity: 1;
+}
+
 .bookmark-small {
 	position: absolute;
 	top: 10px;
