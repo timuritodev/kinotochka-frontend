@@ -27,7 +27,7 @@ export const FilmCard = ({ film }: { film: IMovieCard }) => {
 
 	return (
 		<div key={film.id} className="flanks_card">
-			<div className='flanks-card__background'>
+			<div className="flanks-card__background">
 				<img
 					className="flanks_card-img"
 					src={film.h_picture}
