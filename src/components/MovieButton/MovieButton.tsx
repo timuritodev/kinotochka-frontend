@@ -3,6 +3,7 @@ import './MovieButton.css';
 import { IButton } from 'src/types/Rating.types';
 import { FC } from 'react';
 import eye from '../../images/black_eye.svg';
+import neweye_clicked from '../../images/newEye.svg'
 import eye_clicked from '../../images/eye_clicked.svg';
 import bookmark from '../../images/Bookmark.svg';
 import bookmark_clicked from '../../images/bookmark_clicked.svg';
@@ -59,7 +60,7 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 				? ''
 				: ''
 			: filmWatch
-			? 'black__fon'
+			? ''
 			: '';
 
 	const typesImg =
@@ -68,7 +69,7 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 				? bookmark_clicked
 				: bookmark
 			: filmWatch
-			? eye_clicked
+			? neweye_clicked
 			: eye;
 
 	const addCss =
