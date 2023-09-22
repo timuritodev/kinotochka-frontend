@@ -99,7 +99,7 @@ export const movieByAdvancedSearcSlice = createSlice({
 					state.status = 'loading';
 					state.error = '';
 				}
-			)
+			);
 		// .addMatcher(
 		// 	(action) => action.type.endsWith('/rejected'),
 		// 	(state, action) => {

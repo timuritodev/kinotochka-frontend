@@ -6,10 +6,12 @@ import { FC } from 'react';
 import { ICompilationsTwo } from 'src/types/Compilations.types';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 
-export const SlickSliderMini: FC<ICompilationsTwo> = ({ title, movies, id }) => {
-
-
-	const slidesToShow = ((window.innerWidth < 1280 && id) ? 3 : 5)
+export const SlickSliderMini: FC<ICompilationsTwo> = ({
+	title,
+	movies,
+	id,
+}) => {
+	const slidesToShow = window.innerWidth < 1280 && id ? 3 : 5;
 
 	const settings = {
 		dots: false,
