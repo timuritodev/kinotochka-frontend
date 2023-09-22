@@ -14,8 +14,9 @@ import { MoreButton } from '../MoreBtn/MoreButton';
 import { IGenresIcons } from 'src/types/GenresIcons.types';
 import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genresIcons';
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
+import { useResize } from '../../hooks/useResize'
 
-export const SlickSliderGenres = ({}) => {
+export const SlickSliderGenres = ({ }) => {
 	const films = useAppSelector((state) => state.movies.movies);
 	const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -36,11 +37,14 @@ export const SlickSliderGenres = ({}) => {
 		setData(genresicons);
 	}, []);
 
+	const { width, isBreakpoint } = useResize()
+	const moviesQty = !isBreakpoint ? 5 : 6
+
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 6,
+		slidesToShow: moviesQty,
 		slidesToScroll: 4,
 		arrows: true,
 	};
@@ -56,8 +60,8 @@ export const SlickSliderGenres = ({}) => {
 	const filteredFilms =
 		selectedGenres.length > 0
 			? films.filter((film) => {
-					return selectedGenres.some((genre) => film.genres.includes(genre));
-			  })
+				return selectedGenres.some((genre) => film.genres.includes(genre));
+			})
 			: films;
 
 	const handleResize = useCallback(() => {

@@ -3,6 +3,13 @@
 	margin: 0 165px 45px;
 }
 
+@media screen and (max-width: 1297px) {
+	.slick-slider-genres_container {
+		max-width: 1110px;
+		margin: 0 130px 45px;
+	}
+}
+
 .slick-next:before {
 	content: url('../../images/ArrowNext.svg');
 }
@@ -13,6 +20,13 @@
 
 .main-page_color-white {
 	color: white;
+}
+
+.slick-next {
+}
+
+.slick-prev {
+	margin-right: 25px;
 }
 
 .slick-next {
