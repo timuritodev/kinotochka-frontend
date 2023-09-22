@@ -11,7 +11,7 @@ export const SlickSliderSpecial: FC<ICompilationsTwo> = ({ title, movies, id }) 
 
 
     const { width, isBreakpoint } = useResize()
-    const moviesQty = !isBreakpoint ? 3 : 4;
+    const moviesQty = !isBreakpoint ? 3 : 5;
 
     const settings = {
         dots: false,
