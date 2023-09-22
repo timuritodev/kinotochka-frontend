@@ -44,7 +44,6 @@ export const SpecialForYou: FC = () => {
 			</div>
 			{!isBreakpoint ? (<div className="specialforyou__container-img">
 				<img className="specialforyou__image" alt="" src={films.h_picture} />
-
 			</div>) : (<div className="specialforyou__container-img">
 				<img className="specialforyou__image" alt="" src={films.h_picture} />
 				<img className="specialforyou__image" alt="" src={films2.h_picture} />
