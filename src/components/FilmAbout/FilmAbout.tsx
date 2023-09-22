@@ -45,7 +45,7 @@ const FilmAbout: FC<IFilmabout> = ({ movie }) => {
 				<div className="moviepage-description__about__container">
 					<p className="moviepage-description__about__text_add">Возраст</p>
 					<p className="moviepage-description__about__text">
-						{movie.age_limit}
+						{movie.age_limit}+
 					</p>
 				</div>
 				<br />

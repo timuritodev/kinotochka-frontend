@@ -35,8 +35,9 @@ export const FilmCardSmall = ({ film }: { film: IMovieCard }) => {
 			/>
 			<div className="bookmark-small">{<BookmarkSmall id={film.id} />}</div>
 			<h4 className="moviepage_card-title">{film.title}</h4>
-			<p className="moviepage_card-subtitle">{`${film.genres.join(', ')} • ${film.year
-				}`}</p>
+			<p className="moviepage_card-subtitle">{`${film.genres.join(', ')} • ${
+				film.year
+			}`}</p>
 			<RatedElement
 				imdb={film.rating.rate_imdb}
 				kinopoisk={film.rating.rate_kinopoisk}

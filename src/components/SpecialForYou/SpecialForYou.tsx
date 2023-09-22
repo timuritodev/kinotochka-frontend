@@ -22,8 +22,7 @@ export const SpecialForYou: FC = () => {
 		navigate('/sign-in');
 	}
 
-	const { width, isBreakpoint } = useResize()
-
+	const { width, isBreakpoint } = useResize();
 
 	return (
 		<section className="specialforyou">
@@ -42,14 +41,16 @@ export const SpecialForYou: FC = () => {
 					/>
 				</div>
 			</div>
-			{!isBreakpoint ? (<div className="specialforyou__container-img">
-				<img className="specialforyou__image" alt="" src={films.h_picture} />
-			</div>) : (<div className="specialforyou__container-img">
-				<img className="specialforyou__image" alt="" src={films.h_picture} />
-				<img className="specialforyou__image" alt="" src={films2.h_picture} />
-			</div>)}
-
-
+			{!isBreakpoint ? (
+				<div className="specialforyou__container-img">
+					<img className="specialforyou__image" alt="" src={films.h_picture} />
+				</div>
+			) : (
+				<div className="specialforyou__container-img">
+					<img className="specialforyou__image" alt="" src={films.h_picture} />
+					<img className="specialforyou__image" alt="" src={films2.h_picture} />
+				</div>
+			)}
 		</section>
 	);
 };

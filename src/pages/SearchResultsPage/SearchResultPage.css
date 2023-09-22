@@ -11,6 +11,7 @@
 }
 
 .search-result_title {
+	font-family: 'Unbounded';
 	margin: 80px 165px 0;
 	font-size: 35px;
 	font-style: normal;

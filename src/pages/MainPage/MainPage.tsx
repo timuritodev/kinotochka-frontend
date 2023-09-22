@@ -96,26 +96,28 @@ export default function MainPage() {
 						/>
 					</div>
 					<div className="main-page_slick-slider">
-						{<div className="main-page_slick-slider_specialforyou">
-							{user.token ? (
-								<div className="main-page__relative">
-									<SlickSliderSpecial
-										title={`Специально для вас`}
-										movies={films}
-									/>
-									<ButtonShowAll
-										onClick={() =>
-											handleAllButtonFilmsClick(
-												recomendations,
-												'Специально для вас'
-											)
-										}
-									/>
-								</div>
-							) : (
-								<SpecialForYou />
-							)}
-						</div>}
+						{
+							<div className="main-page_slick-slider_specialforyou">
+								{user.token ? (
+									<div className="main-page__relative">
+										<SlickSliderSpecial
+											title={`Специально для вас`}
+											movies={films}
+										/>
+										<ButtonShowAll
+											onClick={() =>
+												handleAllButtonFilmsClick(
+													recomendations,
+													'Специально для вас'
+												)
+											}
+										/>
+									</div>
+								) : (
+									<SpecialForYou />
+								)}
+							</div>
+						}
 					</div>
 					<div className="main-page_slick-slider">
 						{redactionOne && (

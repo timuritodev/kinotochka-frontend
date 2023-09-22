@@ -10,7 +10,6 @@
 	}
 }
 
-
 .slick-next:before {
 	content: url('../../images/ArrowNext.svg');
 }
@@ -23,7 +22,8 @@
 	color: white;
 }
 
-.slick-next {}
+.slick-next {
+}
 
 .slick-prev {
 	margin-right: 25px;
