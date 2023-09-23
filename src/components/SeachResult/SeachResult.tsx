@@ -29,12 +29,8 @@ export const SeachResult = ({ film }: { film: IMovieCard }) => {
 	return (
 		<section className="search">
 			<div className="search_img-container">
-				<div className='search-img-background' onClick={handleImgClick}>
-					<img
-						className="search_img"
-						src={film.v_picture}
-						alt=""
-					/>
+				<div className="search-img-background" onClick={handleImgClick}>
+					<img className="search_img" src={film.v_picture} alt="" />
 				</div>
 				<div className="button__container">
 					<BookmarkSmall id={film.id} />
