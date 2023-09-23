@@ -27,6 +27,7 @@ export const SelectionCard = ({
 					className="selections_cards"
 					onClick={() => handleAllButtonClick(item)}
 				>
+					<div className='selections-card__background'>
 					<div className="selections_card">
 						{item.movies.slice(0, 3).map((film) => (
 							<img
@@ -36,6 +37,7 @@ export const SelectionCard = ({
 								alt={film.title}
 							/>
 						))}
+					</div>
 					</div>
 					<h2 className="selections_title">{item.title}</h2>
 					<p className="selections_description">{item.description}</p>
