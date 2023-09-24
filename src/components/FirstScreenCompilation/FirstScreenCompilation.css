@@ -13,7 +13,7 @@
 
 @media screen and (max-width: 1297px) {
 	.first-screen-compilation {
-		width: 1024px;
+		max-width: 1024px;
 		height: 576px;
 	}
 }

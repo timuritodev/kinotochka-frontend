@@ -20,9 +20,11 @@
 	position: relative;
 	justify-content: center;
 }
+
 .header__logo2 {
 	margin-left: 13px;
 }
+
 .header__container {
 	display: flex;
 	flex-direction: column;
@@ -108,14 +110,17 @@
 .header__content-link:hover {
 	opacity: 0.6;
 }
-@media screen and (max-width: 1260px) {
+
+@media screen and (max-width: 1279px) {
 	.header__logo {
 		margin: 0 40px 0 60px;
 	}
+
 	.header__content {
 		left: 44px;
 	}
 }
+
 @media screen and (max-width: 1130px) {
 	.header {
 		height: 10vw;
