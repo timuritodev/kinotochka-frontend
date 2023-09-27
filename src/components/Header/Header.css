@@ -13,6 +13,12 @@
 	z-index: 1;
 }
 
+@media screen and (max-width: 1279px) {
+	.header {
+		max-width: 1024px;
+	}
+}
+
 .header__logo {
 	display: flex;
 	margin: 0 77px 0 120px;
