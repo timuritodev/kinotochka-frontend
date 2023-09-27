@@ -27,7 +27,6 @@
 	bottom: 0;
 	background: rgba(43, 47, 51, 0.4);
 	opacity: 0;
-	transition: 0.2s opacity ease-in-out;
 }
 .search-img-background:hover:after {
 	opacity: 1;

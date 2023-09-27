@@ -10,11 +10,14 @@ import {
 	getMoviebyidTokenApi,
 } from 'src/services/redux/slices/moviebyid/moviebyid';
 import { BookmarkSmall } from '../Bookmark_small/Bookmark_small';
+import { useState } from 'react';
 
 export const SeachResult = ({ film }: { film: IMovieCard }) => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
+
+	const [imgHover, setImgHover] = useState(false);
 
 	const handleImgClick = () => {
 		if (user.token) {
@@ -25,11 +28,19 @@ export const SeachResult = ({ film }: { film: IMovieCard }) => {
 		navigate('/movie-page');
 		window.scrollTo(0, 0);
 	};
+	
+	function handleImgHover () {
+		setImgHover(true);
+	}
 
+	function handleImgLeave(){
+		setImgHover(false)
+	}
+	
 	return (
 		<section className="search">
 			<div className="search_img-container">
-				<div className="search-img-background" onClick={handleImgClick}>
+				<div className="search-img-background" onClick={handleImgClick} onMouseEnter={handleImgHover} onMouseLeave={handleImgLeave}>
 					<img className="search_img" src={film.v_picture} alt="" />
 				</div>
 				<div className="button__container">
@@ -37,7 +48,7 @@ export const SeachResult = ({ film }: { film: IMovieCard }) => {
 				</div>
 			</div>
 			<div className="search_profile">
-				<h1 className="search_title">{film.title}</h1>
+				<h1 className="search_title" style={{color: imgHover ? '#FC3' : 'white'}}>{film.title}</h1>
 				<h3 className="search_h3">{`${film.genres.join(', ')} • ${
 					film.year
 				}`}</h3>
