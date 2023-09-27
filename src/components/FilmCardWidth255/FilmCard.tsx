@@ -32,7 +32,7 @@ export const FilmCard = ({ film }: { film: IMovieCard }) => {
 			</div>
 			<div className="bookmark-small">{<BookmarkSmall id={film.id} />}</div>
 			<h4 className="flanks_card-title">{film.title}</h4>
-			<p className="flanks_card-subtitle">{`${film.genres.join(', ')} • ${
+			<p className="flanks_card-subtitle">{`${`${film.genres[0]}`}${film.genres[1] ? `, ${film.genres[1]}` : ''} • ${
 				film.year
 			}`}</p>
 			<RatedElement
