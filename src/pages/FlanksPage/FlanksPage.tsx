@@ -138,7 +138,10 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 						<p className="flank__text">
 							Вы еще не добавили фильмы в этот раздел.
 							<br />
-							Чтобы добавить фильм, {location.pathname==='/rated-films' ? 'поставьте оценку на странице фильма' : 'нажмите на кнопку'} {' '}
+							Чтобы добавить фильм,{' '}
+							{location.pathname === '/rated-films'
+								? 'поставьте оценку на странице фильма'
+								: 'нажмите на кнопку'}{' '}
 						</p>
 						{/* <img className='flank__image' src={button} alt='button' /> */}
 					</div>

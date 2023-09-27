@@ -101,7 +101,10 @@ const SignInPage = () => {
 				<Link to="/recover-password" className="auth__link auth__recover-link">
 					Забыли пароль?
 				</Link>
-				<Link to="/oauth/login/google-oauth2/" className="auth__link auth__recover-link">
+				<Link
+					to="/oauth/login/google-oauth2/"
+					className="auth__link auth__recover-link"
+				>
 					Google
 				</Link>
 			</div>
