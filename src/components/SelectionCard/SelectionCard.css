@@ -41,6 +41,7 @@
 	display: block;
 	position: relative;
 }
+
 .selections-card__background::after {
 	content: '';
 	position: absolute;
@@ -52,6 +53,7 @@
 	opacity: 0;
 	transition: 0.2s opacity ease-in-out;
 }
+
 .selections-card__background:hover:after {
 	opacity: 1;
 	cursor: pointer;
