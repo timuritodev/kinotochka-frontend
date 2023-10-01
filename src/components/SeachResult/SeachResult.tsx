@@ -16,7 +16,7 @@ export const SeachResult = ({ film }: { film: IMovieCard }) => {
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
 
-	const handleImgClick = () => {
+	const handleClick = () => {
 		if (user.token) {
 			dispatch(getMoviebyidTokenApi({ filmId: film.id, token: user.token }));
 		} else {
@@ -33,17 +33,16 @@ export const SeachResult = ({ film }: { film: IMovieCard }) => {
 					className="search_img"
 					src={film.v_picture}
 					alt=""
-					onClick={handleImgClick}
+					onClick={handleClick}
 				/>
 				<div className="button__container">
 					<BookmarkSmall id={film.id} />
 				</div>
 			</div>
 			<div className="search_profile">
-				<h1 className="search_title">{film.title}</h1>
-				<h3 className="search_h3">{`${film.genres.join(', ')} • ${
-					film.year
-				}`}</h3>
+				<h1 className="search_title" onClick={handleClick}>{film.title}</h1>
+				<h3 className="search_h3">{`${film.genres.join(', ')} • ${film.year
+					}`}</h3>
 				{/* <h3 className="search_h3">{film.country.join(', ')}</h3> */}
 				{/* <h3 className="search_h3">{`Режисер: ${film.director
 					.map((dir) => dir.first_name + ' ' + dir.last_name)
