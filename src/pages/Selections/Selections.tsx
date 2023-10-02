@@ -48,10 +48,10 @@ export const Selections = () => {
 	return (
 		<section className="flank">
 			<BackButton
-					type={'button'}
-					buttonText={'Назад'}
-					handleButtonClick={() => navigate(-1)}
-				/>
+				type={'button'}
+				buttonText={'Назад'}
+				handleButtonClick={() => navigate(-1)}
+			/>
 			<h1 className="flank_title">{films.title ? films.title : 'title'}</h1>
 			<p className="flank_description">{films.description}</p>
 			<section>
