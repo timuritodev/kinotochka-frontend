@@ -16,6 +16,15 @@
 	cursor: pointer;
 	transition: background-color 0.2s;
 	display: flex;
+	position: absolute;
+	left: -42px;
+	top: 130px;
+}
+
+@media screen and (max-width: 1297px) {
+	.backbutton {
+		margin: 50px 0px 0px 50px;
+	}
 }
 
 .arrow {

@@ -131,7 +131,6 @@
 .profile__user-first-letter {
 	margin: 0;
 	padding: 0;
-	font-family: 'Unbounded';
 	font-size: 60px;
 	font-weight: 700;
 	line-height: 74px;
@@ -227,6 +226,7 @@
 .profile__genres-link:hover {
 	color: #fff;
 }
+
 @media screen and (max-width: 1260px) {
 	.profile__genres {
 		column-gap: 20px;
@@ -235,18 +235,22 @@
 	.profile__container {
 		gap: 0;
 	}
+
 	.profile {
 		max-width: 924px;
 		gap: 90px;
 	}
+
 	.profile__delete-button {
 		margin-bottom: 4px;
 		align-self: flex-end;
 		margin-right: 67px;
 	}
+
 	.profile__radio-buttons {
 		gap: 60px;
 	}
+
 	.profile__genres-container {
 		padding-bottom: 90px;
 	}
