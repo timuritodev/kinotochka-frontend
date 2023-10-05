@@ -56,6 +56,14 @@
 	cursor: pointer;
 }
 
+.search_title:hover {
+	color: #ffcc33;
+}
+
+.search_title_type_hover {
+	color: #ffcc33;
+}
+
 .search_h3 {
 	max-height: 36px;
 	color: #9ca3af;
