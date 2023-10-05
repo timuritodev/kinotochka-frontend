@@ -39,13 +39,13 @@ export const SeachResult = ({ film }: { film: IMovieAdvancedCard }) => {
 	return (
 		<section className="search">
 			<div className="search_img-container">
-				<div className="search-img-background" 
+				<div
+					className="search-img-background"
 					onClick={handleClick}
 					onMouseEnter={handleImgHover}
-					onMouseLeave={handleImgLeave}>
-					<img className="search_img" 
-						src={film.v_picture} 
-						alt="" />
+					onMouseLeave={handleImgLeave}
+				>
+					<img className="search_img" src={film.v_picture} alt="" />
 				</div>
 				<div className="button__container">
 					<BookmarkSmall id={film.id} />
@@ -65,4 +65,4 @@ export const SeachResult = ({ film }: { film: IMovieAdvancedCard }) => {
 			</div>
 		</section>
 	);
-}
+};

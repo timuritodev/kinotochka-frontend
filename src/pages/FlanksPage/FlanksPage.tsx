@@ -44,10 +44,10 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 		formName === 'ratedFilms'
 			? 'Оцененное'
 			: formName === 'willSee'
-				? 'Буду смотреть'
-				: formName === 'favorites'
-					? 'Избранное'
-					: 'Все подборки';
+			? 'Буду смотреть'
+			: formName === 'favorites'
+			? 'Избранное'
+			: 'Все подборки';
 
 	// Отвечает за определение какой масив показывать
 	useEffect(() => {
@@ -149,7 +149,10 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 					<div className="main-page_slick-slider">
 						<div className="main-page_slick-slider_specialforyou">
 							<div className="main-page__relative">
-								<SlickSliderSpecial title={`Специально для вас`} movies={films} />
+								<SlickSliderSpecial
+									title={`Специально для вас`}
+									movies={films}
+								/>
 								<ButtonShowAll
 									onClick={() =>
 										handleAllButtonFilmsClick(

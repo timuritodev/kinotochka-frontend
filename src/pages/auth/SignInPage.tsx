@@ -84,7 +84,7 @@ const SignInPage = () => {
 							...register('email', EMAIL_VALIDATION_CONFIG),
 						}}
 						error={errors?.email?.message}
-					// maxLength={VALIDATION_SETTINGS.email.maxLength}
+						// maxLength={VALIDATION_SETTINGS.email.maxLength}
 					/>
 					<Input
 						inputType={InputTypes.password}
