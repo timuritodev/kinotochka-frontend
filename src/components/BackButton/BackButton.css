@@ -16,9 +16,12 @@
 	cursor: pointer;
 	transition: background-color 0.2s;
 	display: flex;
-	position: absolute;
 	left: -42px;
 	top: 130px;
+}
+
+.backbutton_type_signin {
+	position: absolute;
 }
 
 @media screen and (max-width: 1297px) {
