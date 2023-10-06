@@ -31,7 +31,8 @@ const Popup: FC<IPopup> = ({ children, isOpened, setIsOpened }) => {
 		<div
 			className={`popup ${isOpened ? 'popup_opened' : ''}`}
 			onClick={handleOverlayClick}
-		>{children}
+		>
+			{children}
 		</div>
 	);
 };

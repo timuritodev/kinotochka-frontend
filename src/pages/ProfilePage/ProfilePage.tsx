@@ -21,7 +21,7 @@ import DeleteProfilePopup from 'src/components/Popup/DeleteProfilePopup';
 import ChangesSavedPopup from 'src/components/Popup/ChangesSavedPopup';
 import ChangeAvatarPopup from 'src/components/Popup/ChangeAvatarPopup';
 import { Loader } from 'src/components/Loader/Loader';
-import comedy  from 'src/images/avatar/comedy.svg';
+import comedy from 'src/images/avatar/comedy.svg';
 
 const ProfilePage = () => {
 	const dispatch = useAppDispatch();
@@ -32,7 +32,8 @@ const ProfilePage = () => {
 	const [isDeletePopupOpened, setIsDeletePopupOpened] =
 		useState<boolean>(false);
 	const [isSavedPopupOpened, setIsSavedPopupOpened] = useState<boolean>(false);
-	const [isAvatarPopupOpened, setIsAvatarPopupOpened] = useState<boolean>(false)
+	const [isAvatarPopupOpened, setIsAvatarPopupOpened] =
+		useState<boolean>(false);
 
 	const {
 		handleSubmit,
@@ -241,8 +242,12 @@ const ProfilePage = () => {
 					</div>
 					<div className="profile__avatar-container">
 						<div className="profile__avatar">
-							<img className='profile__avatar-img' src={comedy}></img>
-							<button type='button' className='profile__avatar-btn' onClick={() => setIsAvatarPopupOpened(true)}></button>
+							<img className="profile__avatar-img" src={comedy}></img>
+							<button
+								type="button"
+								className="profile__avatar-btn"
+								onClick={() => setIsAvatarPopupOpened(true)}
+							></button>
 							{/* <p className="profile__user-first-letter">
 								{user.nickname ? user.nickname[0] : user.email[0]}
 							</p> */}

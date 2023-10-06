@@ -39,14 +39,17 @@ export const SeachResult = ({ film }: { film: IMovieAdvancedCard }) => {
 				</div>
 			</div>
 			<div className="search_profile">
-				<h1 className="search_title" onClick={handleClick}>{film.title}</h1>
-				<h3 className="search_h3">{`${film.genres.join(', ')} • ${film.year
-					}`}</h3>
-				<h3 className="search_h3">{film.countries.map((item) => item.title).join(', ')}</h3>
-				<h3 className="search_h3">{`Режисер: ${film.directors
-					.join(', ')}`}</h3>
-				<h3 className="search_h3">{`В ролях: ${film.actors
-					.join(', ')}`}</h3>
+				<h1 className="search_title" onClick={handleClick}>
+					{film.title}
+				</h1>
+				<h3 className="search_h3">{`${film.genres.join(', ')} • ${
+					film.year
+				}`}</h3>
+				<h3 className="search_h3">
+					{film.countries.map((item) => item.title).join(', ')}
+				</h3>
+				<h3 className="search_h3">{`Режисер: ${film.directors.join(', ')}`}</h3>
+				<h3 className="search_h3">{`В ролях: ${film.actors.join(', ')}`}</h3>
 				<RatedElement
 					imdb={film.rating.rate_imdb}
 					kinopoisk={film.rating.rate_kinopoisk}
