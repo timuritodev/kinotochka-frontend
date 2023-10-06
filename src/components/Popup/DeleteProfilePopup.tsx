@@ -31,6 +31,7 @@ const DeleteProfilePopup: FC<IDeleteProfilePopup> = ({
 
 	return (
 		<Popup isOpened={isOpened} setIsOpened={setIsOpened}>
+			<div className='popup__container'>
 			<h4 className="popup__title">Удалить профиль</h4>
 			{step === 0 ? (
 				<>
@@ -56,6 +57,7 @@ const DeleteProfilePopup: FC<IDeleteProfilePopup> = ({
 					/>
 				</>
 			)}
+			</div>
 		</Popup>
 	);
 };
