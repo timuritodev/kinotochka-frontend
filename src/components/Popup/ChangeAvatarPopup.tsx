@@ -1,16 +1,8 @@
 import { useNavigate } from 'react-router';
 import Button from '../Button/Button';
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import Popup from './Popup';
-import comedy from '../../images/avatar/comedy.svg';
-import cartoon from '../../images/avatar/cartoon.svg';
-import horror from '../../images/avatar/horror.svg';
-import fantastic from '../../images/avatar/fantastic.svg';
-import thrilleer from '../../images/avatar/thriller.svg';
-import anime from '../../images/avatar/anime.svg';
-import melodrama from '../../images/avatar/melodrama.svg';
-import drama from '../../images/avatar/drama.svg';
-import family from '../../images/avatar/family.svg';
+import { useAppSelector } from '../../services/typeHooks';
 
 interface IChangesAvatarPopup {
 	isOpened: boolean;
@@ -21,12 +13,15 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	isOpened,
 	setIsOpened,
 }) => {
+	const images = useAppSelector((state) => state.avatars.images);
+
 	const [value, setValue] = useState('');
 
 	const changeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
 	};
 
+	console.log(images);
 	return (
 		<Popup isOpened={isOpened} setIsOpened={setIsOpened}>
 			<div className="popup__avatar">
@@ -43,7 +38,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="comedy"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={comedy}></img>
+							<img className="popup__avatar-item" src={images[0].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -53,7 +48,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="cartoon"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={cartoon}></img>
+							<img className="popup__avatar-item" src={images[1].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -63,7 +58,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="horror"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={horror}></img>
+							<img className="popup__avatar-item" src={images[2].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -73,7 +68,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="fantastic"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={fantastic}></img>
+							<img className="popup__avatar-item" src={images[3].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -83,7 +78,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="thriller"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={thrilleer}></img>
+							<img className="popup__avatar-item" src={images[4].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -93,7 +88,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="anime"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={anime}></img>
+							<img className="popup__avatar-item" src={images[5].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -103,7 +98,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="melodrama"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={melodrama}></img>
+							<img className="popup__avatar-item" src={images[6].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -113,7 +108,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="drama"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={drama}></img>
+							<img className="popup__avatar-item" src={images[7].url}></img>
 						</label>
 						<label className="popup__label">
 							<input
@@ -123,7 +118,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								value="family"
 								onChange={changeValue}
 							></input>
-							<img className="popup__avatar-item" src={family}></img>
+							<img className="popup__avatar-item" src={images[8].url}></img>
 						</label>
 					</div>
 					<Button

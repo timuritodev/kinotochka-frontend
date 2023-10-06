@@ -22,6 +22,7 @@ import ChangesSavedPopup from 'src/components/Popup/ChangesSavedPopup';
 import ChangeAvatarPopup from 'src/components/Popup/ChangeAvatarPopup';
 import { Loader } from 'src/components/Loader/Loader';
 import comedy from 'src/images/avatar/comedy.svg';
+import { getAvatarsApi } from 'src/services/redux/slices/avatars/avatars';
 
 const ProfilePage = () => {
 	const dispatch = useAppDispatch();
@@ -99,6 +100,12 @@ const ProfilePage = () => {
 				.catch((err: unknown) => console.log('getUserInfo err', err));
 		}
 	}, [dispatch]);
+
+	useEffect(() => {
+		if (user.token) {
+			dispatch(getAvatarsApi(user.token));
+		}
+	},[])
 
 	return status === 'loading' ? (
 		<Loader />
