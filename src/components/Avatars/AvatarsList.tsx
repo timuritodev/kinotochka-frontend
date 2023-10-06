@@ -1,11 +1,12 @@
 import { FC } from 'react';
 import { Avatars } from './Avatars';
 import { IAvatars } from 'src/types/Avatars.types';
+import './Avatars.css';
 
 export interface IAvatarListProps {
 	avatars: IAvatars[];
 	value: number;
-	changeValue: any;
+	changeValue: (value: number) => void;
 }
 
 export const AvatarsList: FC<IAvatarListProps> = ({

@@ -2,8 +2,8 @@ import Button from '../Button/Button';
 import { FC, useState } from 'react';
 import Popup from './Popup';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { setSelectedAvatar } from 'src/services/redux/slices/avatars/avatars';
-import { AvatarsList } from './AvatarsList';
+import { clearSelectedAvatar, setSelectedAvatar } from 'src/services/redux/slices/avatars/avatars';
+import { AvatarsList } from '../Avatars/AvatarsList';
 
 interface IChangesAvatarPopup {
 	isOpened: boolean;
@@ -17,15 +17,20 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	const dispatch = useAppDispatch();
 
 	const images = useAppSelector((state) => state.avatars.images);
-	const [selectedValue, setSelectedValue] = useState(0);
 
+	const [selectedValue, setSelectedValue] = useState(0);
+	
+	const handleChangeValue = (value: number) => {
+		setSelectedValue(value); 
+	};
+	
 	const handleSaveAvatar = () => {
 		const selectedImage = images.find((image) => image.id === selectedValue);
 		dispatch(setSelectedAvatar(selectedImage));
 	};
 
-	const handleChangeValue = (value: number) => {
-		setSelectedValue(value); 
+	const handleDeleteAvatar = () => {
+		dispatch(clearSelectedAvatar());
 	};
 
 	return (
@@ -46,6 +51,12 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 						handleButtonClick={handleSaveAvatar}
 						disabled={selectedValue ? false : true}
 					/>
+					{/* <Button
+						buttonText={'Удалить'}
+						type="button"
+						handleButtonClick={handleDeleteAvatar}
+						// disabled={selectedValue ? true : false}
+					/> */}
 					{/* <button
 						type="button"
 						className="popup__close-avatar"

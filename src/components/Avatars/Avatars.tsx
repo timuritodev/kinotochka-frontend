@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { IAvatars } from 'src/types/Avatars.types';
+import './Avatars.css';
 
 export interface IAvatarProps {
 	data: IAvatars;
 	value: number;
-	changeValue: any;
+	changeValue: (value: number) => void;
 }
 
 export const Avatars: FC<IAvatarProps> = ({ data, value, changeValue }) => {

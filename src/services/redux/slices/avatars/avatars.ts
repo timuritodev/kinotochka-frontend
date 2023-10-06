@@ -34,13 +34,13 @@ export const avatarsSlice = createSlice({
 	initialState,
 	reducers: {
 		setSelectedAvatar: (state, action) => {
-			state.savedImage = action.payload; // Сохраняем выбранную картинку
+			state.savedImage = action.payload; 
 		},
 		clearSelectedAvatar: (state) => {
 			state.savedImage = {
 				id: 0,
 				url: '',
-			}; // Очищаем сохраненную картинку
+			};
 		},
 	},
 	extraReducers: (builder) => {
@@ -60,7 +60,4 @@ export const avatarsSlice = createSlice({
 
 export const avatarsReducer = avatarsSlice.reducer;
 
-export const { setSelectedAvatar } = avatarsSlice.actions;
-
-// export const selectActor = (state: { actors: IActorsState }) =>
-// 	state.actors.actors;
+export const { setSelectedAvatar, clearSelectedAvatar } = avatarsSlice.actions;

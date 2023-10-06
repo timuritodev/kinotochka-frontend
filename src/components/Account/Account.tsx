@@ -36,7 +36,7 @@ const Account: FC = () => {
 						{savedImage.id !== 0 ? (
 								<img className="profile__avatar-img" src={savedImage.url} />
 							) : (
-								<p className="profile__user-first-letter">
+								<p className="account__profile-word">
 									{user.nickname ? user.nickname[0] : user.email[0]}
 								</p>
 							)}
