@@ -23,12 +23,26 @@ const initialState: IAvatarsState = {
 			url: '',
 		},
 	],
+	savedImage: {
+		id: 0,
+		url: '',
+	},
 };
 
 export const avatarsSlice = createSlice({
 	name: '@@avatars',
 	initialState,
-	reducers: {},
+	reducers: {
+		setSelectedAvatar: (state, action) => {
+			state.savedImage = action.payload; // Сохраняем выбранную картинку
+		},
+		clearSelectedAvatar: (state) => {
+			state.savedImage = {
+				id: 0,
+				url: '',
+			}; // Очищаем сохраненную картинку
+		},
+	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(getAvatarsApi.fulfilled, (state, action) => {
@@ -45,6 +59,8 @@ export const avatarsSlice = createSlice({
 });
 
 export const avatarsReducer = avatarsSlice.reducer;
+
+export const { setSelectedAvatar } = avatarsSlice.actions;
 
 // export const selectActor = (state: { actors: IActorsState }) =>
 // 	state.actors.actors;

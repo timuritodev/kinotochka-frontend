@@ -249,15 +249,15 @@ const ProfilePage = () => {
 					</div>
 					<div className="profile__avatar-container">
 						<div className="profile__avatar">
-							<img className="profile__avatar-img" src={comedy}></img>
+							{/* <img className="profile__avatar-img" src={images}></img> */}
 							<button
 								type="button"
 								className="profile__avatar-btn"
 								onClick={() => setIsAvatarPopupOpened(true)}
 							></button>
-							{/* <p className="profile__user-first-letter">
+							<p className="profile__user-first-letter">
 								{user.nickname ? user.nickname[0] : user.email[0]}
-							</p> */}
+							</p>
 						</div>
 						<div className="profile__buttons">
 							<Button

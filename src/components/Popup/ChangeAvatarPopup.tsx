@@ -2,7 +2,8 @@ import { useNavigate } from 'react-router';
 import Button from '../Button/Button';
 import { FC, useState } from 'react';
 import Popup from './Popup';
-import { useAppSelector } from '../../services/typeHooks';
+import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
+import { setSelectedAvatar } from 'src/services/redux/slices/avatars/avatars';
 
 interface IChangesAvatarPopup {
 	isOpened: boolean;
@@ -13,15 +14,28 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	isOpened,
 	setIsOpened,
 }) => {
+	const dispatch = useAppDispatch();
+
 	const images = useAppSelector((state) => state.avatars.images);
+
+	const handleSaveAvatar = (selectedId: any) => {
+		// В этой функции добавьте логику для сохранения выбранной картинки
+		// selectedId - это id выбранной картинки
+		console.log(selectedId, 2222)
+		const selectedImage = images.find((image) => image.id.toString === selectedId);
+	  
+		if (selectedImage) {
+		  dispatch(setSelectedAvatar(selectedImage)); // Сохраняем выбранную картинку
+		}
+	  };
+	  
 
 	const [value, setValue] = useState('');
 
 	const changeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setValue(event.target.value);
 	};
-
-	console.log(images);
+	console.log(value, 1111)
 	return (
 		<Popup isOpened={isOpened} setIsOpened={setIsOpened}>
 			<div className="popup__avatar">
@@ -35,7 +49,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								type="radio"
 								className="popup__avatar-input"
 								name="avatar"
-								value="comedy"
+								value="1"
 								onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[0].url}></img>
@@ -45,7 +59,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								type="radio"
 								className="popup__avatar-input"
 								name="avatar"
-								value="cartoon"
+								value="2"
 								onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[1].url}></img>
@@ -56,7 +70,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								className="popup__avatar-input"
 								name="avatar"
 								value="horror"
-								onChange={changeValue}
+								// onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[2].url}></img>
 						</label>
@@ -66,7 +80,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								className="popup__avatar-input"
 								name="avatar"
 								value="fantastic"
-								onChange={changeValue}
+								// onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[3].url}></img>
 						</label>
@@ -76,7 +90,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								className="popup__avatar-input"
 								name="avatar"
 								value="thriller"
-								onChange={changeValue}
+								// onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[4].url}></img>
 						</label>
@@ -86,7 +100,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								className="popup__avatar-input"
 								name="avatar"
 								value="anime"
-								onChange={changeValue}
+								// onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[5].url}></img>
 						</label>
@@ -96,7 +110,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								className="popup__avatar-input"
 								name="avatar"
 								value="melodrama"
-								onChange={changeValue}
+								// onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[6].url}></img>
 						</label>
@@ -106,7 +120,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								className="popup__avatar-input"
 								name="avatar"
 								value="drama"
-								onChange={changeValue}
+								// onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[7].url}></img>
 						</label>
@@ -116,18 +130,25 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 								className="popup__avatar-input"
 								name="avatar"
 								value="family"
-								onChange={changeValue}
+								// onChange={changeValue}
 							></input>
 							<img className="popup__avatar-item" src={images[8].url}></img>
 						</label>
 					</div>
-					<Button
+					{/* <Button
 						buttonText={'Сохранить'}
 						// handleButtonClick={() => navigate('/')}
 						type="button"
-						disabled={value ? false : true}
+						onClick={() => handleSaveAvatar} 
+						// disabled={value ? false : true}
 						// handleButtonClick={handleChooseAvatar}
-					/>
+					/> */}
+					<button
+					className="popup__close-avatar"
+					onClick={() => handleSaveAvatar(value)} 
+				>
+					Сохранить
+				</button>
 				</form>
 				<button
 					className="popup__close-avatar"
