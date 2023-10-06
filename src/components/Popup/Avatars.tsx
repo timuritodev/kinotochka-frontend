@@ -1,21 +1,13 @@
-import { useNavigate } from 'react-router';
-import Button from '../Button/Button';
-import { useState } from 'react';
-import Popup from './Popup';
-import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
-import { setSelectedAvatar } from 'src/services/redux/slices/avatars/avatars';
+import { FC } from 'react';
 import { IAvatars } from 'src/types/Avatars.types';
 
-export const Avatars = ({
-	data,
-	value,
-	changeValue,
-}: {
+export interface IAvatarProps {
 	data: IAvatars;
 	value: number;
 	changeValue: any;
-}) => {
-	// export const Avatars = ({ data }: { data: IAvatars }) => {
+}
+
+export const Avatars: FC<IAvatarProps> = ({ data, value, changeValue }) => {
 	return (
 		<label className="popup__label">
 			<input
@@ -23,8 +15,8 @@ export const Avatars = ({
 				className="popup__avatar-input"
 				name="avatar"
 				value={data.id}
-				onChange={() => changeValue(data.id)} // Вызываем функцию changeValue при изменении выбора
-				checked={data.id === value} // Устанавливаем checked, если data.id соответствует текущему value
+				onChange={() => changeValue(data.id)}
+				checked={data.id === value}
 			></input>
 			<img className="popup__avatar-item" src={data.url}></img>
 		</label>

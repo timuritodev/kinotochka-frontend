@@ -29,6 +29,7 @@ const ProfilePage = () => {
 	const user = useAppSelector(selectUser);
 	const status = useAppSelector(selectUserStatus);
 	const genres = useAppSelector(selectGenres);
+	const savedImage = useAppSelector((state) => state.avatars.savedImage);
 
 	const [isDeletePopupOpened, setIsDeletePopupOpened] =
 		useState<boolean>(false);
@@ -105,7 +106,7 @@ const ProfilePage = () => {
 		if (user.token) {
 			dispatch(getAvatarsApi(user.token));
 		}
-	},[])
+	}, []);
 
 	return status === 'loading' ? (
 		<Loader />
@@ -249,15 +250,18 @@ const ProfilePage = () => {
 					</div>
 					<div className="profile__avatar-container">
 						<div className="profile__avatar">
-							{/* <img className="profile__avatar-img" src={images}></img> */}
 							<button
 								type="button"
 								className="profile__avatar-btn"
 								onClick={() => setIsAvatarPopupOpened(true)}
 							></button>
-							<p className="profile__user-first-letter">
-								{user.nickname ? user.nickname[0] : user.email[0]}
-							</p>
+							{savedImage.id !== 0 ? (
+								<img className="profile__avatar-img" src={savedImage.url} />
+							) : (
+								<p className="profile__user-first-letter">
+									{user.nickname ? user.nickname[0] : user.email[0]}
+								</p>
+							)}
 						</div>
 						<div className="profile__buttons">
 							<Button

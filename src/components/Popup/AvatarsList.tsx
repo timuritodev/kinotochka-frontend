@@ -1,14 +1,17 @@
+import { FC } from 'react';
 import { Avatars } from './Avatars';
 import { IAvatars } from 'src/types/Avatars.types';
 
-export const AvatarsList = ({
-	avatars,
-	value,
-	changeValue,
-}: {
+export interface IAvatarListProps {
 	avatars: IAvatars[];
 	value: number;
 	changeValue: any;
+}
+
+export const AvatarsList: FC<IAvatarListProps> = ({
+	avatars,
+	value,
+	changeValue,
 }) => {
 	return (
 		<div className="popup__avatar-list">
