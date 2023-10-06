@@ -14,7 +14,7 @@ export const Avatars = ({ data }: { data: IAvatars }) => {
 				type="radio"
 				className="popup__avatar-input"
 				name="avatar"
-				// value={value}
+				value={data.id}
 				// onChange={changeValue}
 			></input>
 			<img className="popup__avatar-item" src={data.url}></img>
