@@ -18,19 +18,23 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	const dispatch = useAppDispatch();
 
 	const images = useAppSelector((state) => state.avatars.images);
+	const savedImage = useAppSelector((state) => state.avatars.savedImage);
+	console.log(savedImage);
+	const [selectedValue, setSelectedValue] = useState(0);
 
-	const handleSaveAvatar = (selectedId: any) => {
-		// В этой функции добавьте логику для сохранения выбранной картинки
-		// selectedId - это id выбранной картинки
-		console.log(selectedId, 2222)
-		const selectedImage = images.find((image) => image.id === selectedId);
-	  
-		if (selectedImage) {
-		  dispatch(setSelectedAvatar(selectedImage)); // Сохраняем выбранную картинку
-		}
-	  };
-	  
+	const handleSaveAvatar = () => {
+		const selectedImage = images.find((image) => image.id === selectedValue);
+		console.log(selectedImage,2222)
+		console.log(2222)
 
+		dispatch(setSelectedAvatar(selectedImage)); // Сохраняем выбранную картинку
+	};
+
+	const handleChangeValue = (value: number) => {
+		setSelectedValue(value); // Обновляем выбранный value при изменении радиокнопки
+	};
+
+	console.log(selectedValue);
 	// const [value, setValue] = useState('');
 
 	// const changeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,7 +48,12 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 					Изменить аватарку
 				</h4>
 				<form>
-					<AvatarsList avatars={images}/>
+					{/* <AvatarsList avatars={images} /> */}
+					<AvatarsList
+						avatars={images}
+						value={selectedValue}
+						changeValue={handleChangeValue}
+					/>
 					{/* <Button
 						buttonText={'Сохранить'}
 						// handleButtonClick={() => navigate('/')}
@@ -54,11 +63,12 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 						// handleButtonClick={handleChooseAvatar}
 					/> */}
 					<button
-					className="popup__close-avatar"
-					onClick={() => handleSaveAvatar(1)} 
-				>
-					Сохранить
-				</button>
+						type="button"
+						className="popup__close-avatar"
+						onClick={ handleSaveAvatar}
+					>
+						Сохранить
+					</button>
 				</form>
 				<button
 					className="popup__close-avatar"

@@ -6,8 +6,16 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { setSelectedAvatar } from 'src/services/redux/slices/avatars/avatars';
 import { IAvatars } from 'src/types/Avatars.types';
 
-// export const Avatars = ({ data, value, changeValue }: {data: IAvatars, value: number, changeValue: any}) => {
-export const Avatars = ({ data }: { data: IAvatars }) => {
+export const Avatars = ({
+	data,
+	value,
+	changeValue,
+}: {
+	data: IAvatars;
+	value: number;
+	changeValue: any;
+}) => {
+	// export const Avatars = ({ data }: { data: IAvatars }) => {
 	return (
 		<label className="popup__label">
 			<input
@@ -15,7 +23,8 @@ export const Avatars = ({ data }: { data: IAvatars }) => {
 				className="popup__avatar-input"
 				name="avatar"
 				value={data.id}
-				// onChange={changeValue}
+				onChange={() => changeValue(data.id)} // Вызываем функцию changeValue при изменении выбора
+				checked={data.id === value} // Устанавливаем checked, если data.id соответствует текущему value
 			></input>
 			<img className="popup__avatar-item" src={data.url}></img>
 		</label>
