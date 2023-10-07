@@ -249,7 +249,13 @@ const ProfilePage = () => {
 						</form>
 					</div>
 					<div className="profile__avatar-container">
-						<div className="profile__avatar">
+						<div
+							className={
+								savedImage.id !== 0
+									? 'profile__avatar '
+									: 'profile__avatar  profile__avatar_type_letter'
+							}
+						>
 							<button
 								type="button"
 								className="profile__avatar-btn"

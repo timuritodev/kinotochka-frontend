@@ -34,7 +34,7 @@ export const avatarsSlice = createSlice({
 	initialState,
 	reducers: {
 		setSelectedAvatar: (state, action) => {
-			state.savedImage = action.payload; 
+			state.savedImage = action.payload;
 		},
 		clearSelectedAvatar: (state) => {
 			state.savedImage = {

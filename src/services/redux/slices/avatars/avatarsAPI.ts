@@ -68,6 +68,6 @@ export const fetchAvatars = (token: string): Array<IAvatars> => {
 			id: 9,
 			url: family,
 		},
-	]
+	];
 	return avatars;
 };
