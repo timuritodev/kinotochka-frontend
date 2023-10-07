@@ -27,6 +27,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	const handleSaveAvatar = () => {
 		const selectedImage = images.find((image) => image.id === selectedValue);
 		dispatch(setSelectedAvatar(selectedImage));
+		setIsOpened(false)
 	};
 
 	const handleDeleteAvatar = () => {
