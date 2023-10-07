@@ -249,7 +249,13 @@ const ProfilePage = () => {
 						</form>
 					</div>
 					<div className="profile__avatar-container">
-						<div className={savedImage.id !== 0 ? "profile__avatar " : "profile__avatar  profile__avatar_type_letter"}>
+						<div
+							className={
+								savedImage.id !== 0
+									? 'profile__avatar '
+									: 'profile__avatar  profile__avatar_type_letter'
+							}
+						>
 							<button
 								type="button"
 								className="profile__avatar-btn"
@@ -261,7 +267,7 @@ const ProfilePage = () => {
 								<p className="profile__user-first-letter">
 									{user.nickname ? user.nickname[0] : user.email[0]}
 								</p>
-						    )} 
+							)}
 						</div>
 						<div className="profile__buttons">
 							<Button

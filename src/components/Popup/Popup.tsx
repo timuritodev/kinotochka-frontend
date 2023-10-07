@@ -27,15 +27,13 @@ const Popup: FC<IPopup> = ({ children, isOpened, setIsOpened }) => {
 		return () => document.removeEventListener('keydown', handleEscClick);
 	}, []);
 
-	useEffect (()=>{
-		const body = document.querySelector('body')
-		if (isOpened){
-			body?.classList.add('body__scroll-lock')
-		}
-		else body?.classList.remove('body__scroll-lock')
+	useEffect(() => {
+		const body = document.querySelector('body');
+		if (isOpened) {
+			body?.classList.add('body__scroll-lock');
+		} else body?.classList.remove('body__scroll-lock');
+	}, [isOpened]);
 
-	}, [isOpened])
-	
 	return (
 		<div
 			className={`popup ${isOpened ? 'popup_opened' : ''}`}
