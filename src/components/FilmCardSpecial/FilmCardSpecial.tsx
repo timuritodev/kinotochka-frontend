@@ -36,9 +36,9 @@ export const FilmCardSpecial = ({ film }: { film: IMovieCard }) => {
 			</div>
 			<div className="bookmark_special">{<BookmarkSmall id={film.id} />}</div>
 			<h4 className="specialmovie_card-title">{film.title}</h4>
-			<p className="specialmovie_card-subtitle">{`${film.genres.join(', ')} • ${
-				film.year
-			}`}</p>
+			<p className="specialmovie_card-subtitle">{`${`${film.genres[0]}`}${
+				film.genres[1] ? `, ${film.genres[1]}` : ''
+			} • ${film.year}`}</p>
 			<RatedElement
 				imdb={film.rating.rate_imdb}
 				kinopoisk={film.rating.rate_kinopoisk}
