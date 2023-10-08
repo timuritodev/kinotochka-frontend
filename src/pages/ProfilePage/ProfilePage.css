@@ -92,13 +92,13 @@
 	background-image: none;
 }
 
-.profile__radio-button[type='radio']:checked+.profile__radio-pseudo-item {
+.profile__radio-button[type='radio']:checked + .profile__radio-pseudo-item {
 	background-image: radial-gradient(circle, #ffcc33 47%, #0c0c0c 47%);
 	transition: background-image 0.3s;
 	border: 2px solid #ffcc33;
 }
 
-.profile__radio-button[type='radio']:hover+.profile__radio-pseudo-item {
+.profile__radio-button[type='radio']:hover + .profile__radio-pseudo-item {
 	color: #d1d5db;
 	opacity: 0.6;
 	cursor: pointer;
