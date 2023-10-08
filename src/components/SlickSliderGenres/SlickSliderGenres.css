@@ -10,6 +10,13 @@
 	}
 }
 
+@media screen and (max-width: 360px) {
+	.slick-slider-genres_container {
+		max-width: 360px;
+		margin: 0 130px 45px;
+	}
+}
+
 .flank_container_genres {
 	max-width: 1110px;
 	display: flex;
@@ -22,6 +29,14 @@
 @media screen and (max-width: 1297px) {
 	.flank_container_genres {
 		max-width: 1024px;
+		margin: 50px 120px 0;
+		gap: 45px 10px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.flank_container_genres {
+		max-width: 360px;
 		margin: 50px 120px 0;
 		gap: 45px 10px;
 	}

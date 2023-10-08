@@ -181,6 +181,15 @@
 	cursor: pointer;
 }
 
+@media screen and (max-width: 360px) {
+	.movie__more-detailed {
+		font-weight: 700;
+		line-height: 17px;
+		max-width: 265px;
+		height: 45px;
+	}
+}
+
 .movie__bookmark {
 	width: 45px;
 	height: 45px;
