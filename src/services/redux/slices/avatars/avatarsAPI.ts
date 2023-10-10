@@ -28,46 +28,46 @@ export const fetchData = (url: string, method: string, token?: string) => {
 	}).then((res) => checkRes(res));
 };
 
-export const fetchAvatars = (token: string): Array<IAvatars> => {
-	// return fetchData(`${API_BASE_URL}/avatars/`, 'GET', token);
+export const fetchAvatars = (token: string): Promise<IAvatars[]> => {
+	return fetchData(`${API_BASE_URL}/avatars/`, 'GET', token);
 
-	const avatars = [
-		{
-			id: 1,
-			url: comedy,
-		},
-		{
-			id: 2,
-			url: cartoon,
-		},
-		{
-			id: 3,
-			url: horror,
-		},
-		{
-			id: 4,
-			url: fantastic,
-		},
-		{
-			id: 5,
-			url: thrilleer,
-		},
-		{
-			id: 6,
-			url: anime,
-		},
-		{
-			id: 7,
-			url: melodrama,
-		},
-		{
-			id: 8,
-			url: drama,
-		},
-		{
-			id: 9,
-			url: family,
-		},
-	];
-	return avatars;
+	// const avatars = [
+	// 	{
+	// 		id: 1,
+	// 		url: comedy,
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		url: cartoon,
+	// 	},
+	// 	{
+	// 		id: 3,
+	// 		url: horror,
+	// 	},
+	// 	{
+	// 		id: 4,
+	// 		url: fantastic,
+	// 	},
+	// 	{
+	// 		id: 5,
+	// 		url: thrilleer,
+	// 	},
+	// 	{
+	// 		id: 6,
+	// 		url: anime,
+	// 	},
+	// 	{
+	// 		id: 7,
+	// 		url: melodrama,
+	// 	},
+	// 	{
+	// 		id: 8,
+	// 		url: drama,
+	// 	},
+	// 	{
+	// 		id: 9,
+	// 		url: family,
+	// 	},
+	// ];
+	// return avatars;
 };
