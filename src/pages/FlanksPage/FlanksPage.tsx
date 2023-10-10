@@ -21,6 +21,7 @@ import { getRatedMoviesApi } from 'src/services/redux/slices/rating/rating';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 import { useNavigate } from 'react-router';
 import { ButtonShowAll } from 'src/components/ButtonShowAll/ButtonShowAll';
+import { useLocation } from 'react-router';
 
 const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const dispatch = useAppDispatch();
@@ -32,6 +33,7 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 	const films = useAppSelector((state) => state.movies.movies);
 	const recomendations = useAppSelector((state) => state.recomendations.movies);
 	const user = useAppSelector(selectUser);
+	const location = useLocation();
 
 	const [toggleFavorites, setToggleFavorites] = useState<IMovieCard[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -137,7 +139,10 @@ const FlanksPage: FC<IFlanks> = ({ formName }) => {
 						<p className="flank__text">
 							Вы еще не добавили фильмы в этот раздел.
 							<br />
-							Чтобы добавить фильм, нажмите на кнопку{' '}
+							Чтобы добавить фильм,{' '}
+							{location.pathname === '/rated-films'
+								? 'поставьте оценку на странице фильма'
+								: 'нажмите на кнопку'}{' '}
 						</p>
 						{/* <img className='flank__image' src={button} alt='button' /> */}
 					</div>

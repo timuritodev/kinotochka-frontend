@@ -142,7 +142,7 @@ const ProfilePage = () => {
 								rules={{
 									required: false,
 									pattern: {
-										value: /^[A-Za-zА-Яа-яЁё\s]{1,32}$/,
+										value: /^[A-Za-zА-Яа-яЁё]{1,32}$/,
 										message: 'Только кириллица или латинские буквы',
 									},
 									maxLength: {
