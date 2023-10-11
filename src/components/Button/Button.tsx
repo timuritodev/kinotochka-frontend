@@ -23,7 +23,11 @@ const Button: FC<IButton> = ({
 								: `${
 										location.pathname === '/preferences'
 											? 'button button_type_preferences'
-											: 'button'
+											: `${
+												location.pathname === '/profile'
+													? 'button button_type_profile'
+													: 'button'
+										  }`
 								  }`
 					  }`
 			}

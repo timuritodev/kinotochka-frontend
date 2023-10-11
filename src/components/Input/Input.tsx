@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 
 import { IInput } from '../../types/Input.types';
+import { useLocation } from 'react-router';
 
 import './Input.css';
 
@@ -26,7 +27,7 @@ const Input: FC<IInput> = ({
 	function togglePassword() {
 		setIsPasswordHidden(!isPasswordHidden);
 	}
-
+	const location = useLocation();
 	const inputTextType =
 		inputType === 'password' && isPasswordHidden === false
 			? 'text'
@@ -36,7 +37,7 @@ const Input: FC<IInput> = ({
 
 	return (
 		<div className="input__container">
-			<div className="input__hints">
+			<div className={location.pathname==='/profile' ? "input__hints input__hints_type_profile" : "input__hints"}>
 				{labelText ? (
 					<label
 						className={`input__label input__label_color_${

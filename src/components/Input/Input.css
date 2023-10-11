@@ -103,3 +103,11 @@
 		padding: 11px 12px;
 	}
 }
+@media screen and (max-width: 600px) {
+	.input__hints_type_profile {
+		padding-bottom: 7px;
+	}
+	.input__field {
+		padding: 9px 11px;
+	}
+}

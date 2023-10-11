@@ -15,7 +15,7 @@
 	/* transition: color 0.3s; */
 }
 
-@media screen and (max-width: 1297px) {
+@media screen and (max-width: 1300px) {
 	.genre-checkbox__input[type='checkbox'] {
 		width: 137px;
 		height: 137px;
@@ -44,7 +44,7 @@
 	transition: background-color 0.3s;
 }
 
-@media screen and (max-width: 1297px) {
+@media screen and (max-width: 1300px) {
 	.genre-checkbox__appearance {
 		width: 137px;
 		height: 137px;
@@ -78,7 +78,7 @@
 	cursor: default;
 }
 
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1300px) {
 	.genre-checkbox__input[type='checkbox'] {
 		width: 137px;
 		height: 137px;
@@ -90,7 +90,7 @@
 	}
 }
 
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1300px) {
 	.genre-checkbox__input[type='checkbox'] {
 		width: 137px;
 		height: 137px;

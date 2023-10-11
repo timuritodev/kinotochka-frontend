@@ -48,3 +48,16 @@
 .button_type_preferences {
 	margin-right: 50px;
 }
+@media screen and (max-width: 1000px) {
+	.button_type_profile {
+		align-self: center;
+		max-width: 280px;
+		margin-top: 50px;
+	}
+}
+@media screen and (max-width: 600px) {
+	.button_type_profile {
+		font-size: 16px;
+		padding: 7px 0;
+	}
+}
