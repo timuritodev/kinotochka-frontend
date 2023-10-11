@@ -19,7 +19,7 @@ export const Avatars: FC<IAvatarProps> = ({ data, value, changeValue }) => {
 				onChange={() => changeValue(data.id)}
 				checked={data.id === value}
 			></input>
-			<img className="popup__avatar-item" src={data.url}></img>
+			<img className="popup__avatar-item" src={data.avatar}></img>
 		</label>
 	);
 };

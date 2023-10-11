@@ -20,12 +20,12 @@ const initialState: IAvatarsState = {
 	images: [
 		{
 			id: 0,
-			url: '',
+			avatar: '',
 		},
 	],
 	savedImage: {
 		id: 0,
-		url: '',
+		avatar: '',
 	},
 };
 
@@ -39,7 +39,7 @@ export const avatarsSlice = createSlice({
 		clearSelectedAvatar: (state) => {
 			state.savedImage = {
 				id: 0,
-				url: '',
+				avatar: '',
 			};
 		},
 	},

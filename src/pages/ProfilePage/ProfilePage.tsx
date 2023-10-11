@@ -262,7 +262,7 @@ const ProfilePage = () => {
 								onClick={() => setIsAvatarPopupOpened(true)}
 							></button>
 							{savedImage.id !== 0 ? (
-								<img className="profile__avatar-img" src={savedImage.url} />
+								<img className="profile__avatar-img" src={savedImage.avatar} />
 							) : (
 								<p className="profile__user-first-letter">
 									{user.nickname ? user.nickname[0] : user.email[0]}

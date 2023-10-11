@@ -37,16 +37,24 @@ export const SlickSliderGenres = ({}) => {
 		setData(genresicons);
 	}, []);
 
-	const { width, isBreakpoint } = useResize();
-	const moviesQty = !isBreakpoint ? 5 : 6;
-
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: moviesQty,
+		slidesToShow: 6,
 		slidesToScroll: 4,
 		arrows: true,
+		responsive: [
+			{
+			  breakpoint: 1297,
+			  settings: {
+				slidesToShow: 5,
+				slidesToScroll: 4,
+				infinite: true,
+				dots: true
+			  }
+			},
+		]
 	};
 
 	const handleCheckboxChange = (text: string) => {

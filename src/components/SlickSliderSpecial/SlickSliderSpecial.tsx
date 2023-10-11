@@ -12,16 +12,27 @@ export const SlickSliderSpecial: FC<ICompilationsTwo> = ({
 	movies,
 	id,
 }) => {
-	const { width, isBreakpoint } = useResize();
-	const moviesQty = !isBreakpoint ? 3 : 5;
+	// const { width, isBreakpoint } = useResize();
+	// const moviesQty = !isBreakpoint ? 3 : 5;
 
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: moviesQty,
+		slidesToShow: 5,
 		slidesToScroll: 4,
 		arrows: true,
+		responsive: [
+			{
+			  breakpoint: 1297,
+			  settings: {
+				slidesToShow: 3,
+				slidesToScroll: 3,
+				infinite: true,
+				dots: true
+			  }
+			},
+		]
 	};
 
 	return (

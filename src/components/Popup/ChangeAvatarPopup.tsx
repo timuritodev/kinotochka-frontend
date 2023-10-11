@@ -20,7 +20,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	const dispatch = useAppDispatch();
 
 	const images = useAppSelector((state) => state.avatars.images);
-
+	console.log(images);
 	const [selectedValue, setSelectedValue] = useState(0);
 
 	const handleChangeValue = (value: number) => {

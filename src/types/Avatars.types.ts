@@ -1,6 +1,6 @@
 export interface IAvatars {
 	id: number;
-	url: string;
+	avatar: string;
 }
 
 export interface IAvatarsState {
