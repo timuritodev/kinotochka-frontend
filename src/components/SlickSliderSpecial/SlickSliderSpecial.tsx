@@ -11,26 +11,24 @@ export const SlickSliderSpecial: FC<ICompilationsTwo> = ({
 	movies,
 	id,
 }) => {
-	
-
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow:5,
+		slidesToShow: 5,
 		slidesToScroll: 4,
 		arrows: true,
 		responsive: [
 			{
-			  breakpoint: 1320,
-			  settings: {
-				slidesToShow: 3,
-				slidesToScroll: 3,
-				infinite: true,
-				dots: true
-			  }
-			}
-		]
+				breakpoint: 1320,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: true,
+					dots: true,
+				},
+			},
+		],
 	};
 
 	return (

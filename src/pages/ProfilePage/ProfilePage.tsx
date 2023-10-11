@@ -20,7 +20,7 @@ import { format } from 'date-fns';
 import DeleteProfilePopup from 'src/components/Popup/DeleteProfilePopup';
 import ChangesSavedPopup from 'src/components/Popup/ChangesSavedPopup';
 import { Loader } from 'src/components/Loader/Loader';
-import  arrow from '../../images/Chevron.svg';
+import arrow from '../../images/Chevron.svg';
 
 const ProfilePage = () => {
 	const dispatch = useAppDispatch();
@@ -398,9 +398,13 @@ const ProfilePage = () => {
 								</div>
 							</div>
 						</form>
-						<Link to='/preferences' className='profile__genres-btn'>
-							<h2 className='profile__genres-btn-text'>Избранные жанры</h2>
-							<img className='profile__genres-btn-img' alt='Стрелка' src={arrow}/>
+						<Link to="/preferences" className="profile__genres-btn">
+							<h2 className="profile__genres-btn-text">Избранные жанры</h2>
+							<img
+								className="profile__genres-btn-img"
+								alt="Стрелка"
+								src={arrow}
+							/>
 						</Link>
 					</div>
 					<div className="profile__avatar-container">

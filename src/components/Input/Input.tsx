@@ -37,7 +37,13 @@ const Input: FC<IInput> = ({
 
 	return (
 		<div className="input__container">
-			<div className={location.pathname==='/profile' ? "input__hints input__hints_type_profile" : "input__hints"}>
+			<div
+				className={
+					location.pathname === '/profile'
+						? 'input__hints input__hints_type_profile'
+						: 'input__hints'
+				}
+			>
 				{labelText ? (
 					<label
 						className={`input__label input__label_color_${

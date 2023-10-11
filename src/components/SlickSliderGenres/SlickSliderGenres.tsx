@@ -45,15 +45,15 @@ export const SlickSliderGenres = ({}) => {
 		arrows: true,
 		responsive: [
 			{
-			  breakpoint: 1320,
-			  settings: {
-				slidesToShow: 5,
-				slidesToScroll: 4,
-				infinite: true,
-				dots: true
-			  }
-			}
-		]
+				breakpoint: 1320,
+				settings: {
+					slidesToShow: 5,
+					slidesToScroll: 4,
+					infinite: true,
+					dots: true,
+				},
+			},
+		],
 	};
 
 	const handleCheckboxChange = (text: string) => {
