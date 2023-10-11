@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 import './GenreCheckbox.css';
 import { IGenreCheckbox } from 'src/types/GenreCheckbox.types';
+import { useLocation } from 'react-router';
 
 const GenreCheckbox: FC<IGenreCheckbox> = ({
 	id,
@@ -12,7 +13,7 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 	defaultChecked,
 }) => {
 	const [isChecked, setIsChecked] = useState(checked || false);
-
+	const location = useLocation();
 	const handleChange = () => {
 		if (onChange) {
 			const newChecked = !isChecked;
@@ -30,9 +31,7 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 			}`}
 		>
 			<input
-				className={`genre-checkbox__input genre-checkbox__input_color_${color} ${
-					readOnly ? 'genre-checkbox__input_disabled' : ''
-				}`}
+				className={location.pathname==='/preferences' ? `genre-checkbox__input genre-checkbox__input_type_preferences genre-checkbox__input_color_${color} ${readOnly ? 'genre-checkbox__input_disabled' : ''}`: `genre-checkbox__input genre-checkbox__input_color_${color} ${readOnly ? 'genre-checkbox__input_disabled' : ''}`}
 				type="checkbox"
 				checked={checked || isChecked}
 				onChange={handleChange}
@@ -41,7 +40,9 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 				// defaultChecked={defaultChecked}
 			/>
 			<span
-				className={`genre-checkbox__appearance genre-checkbox__appearance_color_${color} ${
+				className={location.pathname==='/preferences' ?`genre-checkbox__appearance genre-checkbox__appearance_type_preferences genre-checkbox__appearance_color_${color} ${
+					readOnly ? 'genre-checkbox__input_disabled' : ''
+				}` : `genre-checkbox__appearance genre-checkbox__appearance_color_${color} ${
 					readOnly ? 'genre-checkbox__input_disabled' : ''
 				}`}
 			>

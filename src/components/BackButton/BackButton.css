@@ -59,3 +59,13 @@
 		margin-left: 50px;
 	}
 }
+@media screen and (max-width: 650px) {
+	.backbutton_type_preferences {
+		align-self: flex-start;
+	}
+}
+@media screen and (max-width: 500px) {
+	.backbutton_type_preferences {
+		margin-left: 0;
+	}
+}

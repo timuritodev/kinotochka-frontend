@@ -127,11 +127,47 @@
 @media screen and (max-width: 1000px) {
 	.preferences-page__container {
 		grid-template-columns: repeat(4, 137px);
+		gap: 15px;
 	}
 	.preferences-page {
 		max-width: 710px;
 	}
 	.preferences-page__subtitle {
 		padding: 0;
+	}
+}
+@media screen and (max-width: 650px) {
+	.preferences-page {
+		align-items: center;
+	}
+	.preferences-page__title {
+		margin-left: 0;
+	}
+	.preferences-page__subtitle {
+		margin-left: 0;
+	}
+	.preferences-page__container {
+		display: flex;
+		flex-direction: column;
+	}
+	.preferences-page__list {
+		width: 320px;
+		height: 50px;
+		border-radius: 50px;
+	}
+}
+@media screen and (max-width: 500px) {
+	.preferences-page {
+		max-width: 320px;
+	}
+	.preferences-page__title {
+		font-size: 26px;
+		line-height: 28px;
+		align-self: flex-start;
+	}
+	.preferences-page__subtitle {
+		font-size: 16px;
+		margin: 10px 0 40px 0;
+		align-self: flex-start;
 	}
 }

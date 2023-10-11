@@ -101,3 +101,14 @@
 		height: 137px;
 	}
 }
+
+@media screen and (max-width: 650px) {
+	.genre-checkbox__input_type_preferences[type='checkbox'] {
+		width: 320px;
+		height: 50px;
+	}
+	.genre-checkbox__appearance_type_preferences {
+		width: 320px;
+		height: 50px;
+	}
+}
