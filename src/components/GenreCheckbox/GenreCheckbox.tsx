@@ -31,7 +31,15 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 			}`}
 		>
 			<input
-				className={location.pathname==='/preferences' ? `genre-checkbox__input genre-checkbox__input_type_preferences genre-checkbox__input_color_${color} ${readOnly ? 'genre-checkbox__input_disabled' : ''}`: `genre-checkbox__input genre-checkbox__input_color_${color} ${readOnly ? 'genre-checkbox__input_disabled' : ''}`}
+				className={
+					location.pathname === '/preferences'
+						? `genre-checkbox__input genre-checkbox__input_type_preferences genre-checkbox__input_color_${color} ${
+								readOnly ? 'genre-checkbox__input_disabled' : ''
+						  }`
+						: `genre-checkbox__input genre-checkbox__input_color_${color} ${
+								readOnly ? 'genre-checkbox__input_disabled' : ''
+						  }`
+				}
 				type="checkbox"
 				checked={checked || isChecked}
 				onChange={handleChange}
@@ -40,11 +48,15 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 				// defaultChecked={defaultChecked}
 			/>
 			<span
-				className={location.pathname==='/preferences' ?`genre-checkbox__appearance genre-checkbox__appearance_type_preferences genre-checkbox__appearance_color_${color} ${
-					readOnly ? 'genre-checkbox__input_disabled' : ''
-				}` : `genre-checkbox__appearance genre-checkbox__appearance_color_${color} ${
-					readOnly ? 'genre-checkbox__input_disabled' : ''
-				}`}
+				className={
+					location.pathname === '/preferences'
+						? `genre-checkbox__appearance genre-checkbox__appearance_type_preferences genre-checkbox__appearance_color_${color} ${
+								readOnly ? 'genre-checkbox__input_disabled' : ''
+						  }`
+						: `genre-checkbox__appearance genre-checkbox__appearance_color_${color} ${
+								readOnly ? 'genre-checkbox__input_disabled' : ''
+						  }`
+				}
 			>
 				{text}
 			</span>
