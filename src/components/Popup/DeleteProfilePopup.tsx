@@ -31,10 +31,10 @@ const DeleteProfilePopup: FC<IDeleteProfilePopup> = ({
 
 	return (
 		<Popup isOpened={isOpened} setIsOpened={setIsOpened}>
-			<h4 className="popup__title">Удалить профиль</h4>
 			{step === 0 ? (
 				<>
-					<p className="popup__text">
+					<h4 className="popup__title popup__title_type_delete-profile">Удалить профиль</h4>
+					<p className="popup__text popup__text_type_delete-profile">
 						Вы уверены, что хотите удалить профиль? Профиль нельзя восстановить.
 					</p>
 					<Button
@@ -48,7 +48,8 @@ const DeleteProfilePopup: FC<IDeleteProfilePopup> = ({
 				</>
 			) : (
 				<>
-					<p>Ваш профиль удален</p>
+					<h4 className="popup__title popup__title_type_profile-deleted">Удалить профиль</h4>
+					<p className='popup__subtitle_type_profile-deleted'>Ваш профиль удален</p>
 					<Button
 						buttonText={'На Главную'}
 						handleButtonClick={() => navigate('/')}
