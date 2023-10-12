@@ -313,6 +313,7 @@
 	}
 	.profile__form {
 		max-width: 100%;
+		gap: 8px;
 	}
 	.profile__avatar-container {
 		align-items: center;
