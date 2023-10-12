@@ -98,9 +98,20 @@
 	padding: 85px 0 50px;
 	text-align: start;
 }
+.preferences-page__btn-container {
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 @media screen and (max-width: 1300px) {
 	.preferences-page__container {
 		column-gap: 20px;
+	}
+	.preferences-page__btn-container {
+		justify-content: flex-end;
 	}
 	.preferences-page__title {
 		margin-left: 50px;
@@ -111,8 +122,6 @@
 		padding-top: 25px;
 		padding-bottom: 25px;
 	}
-}
-@media screen and (max-width: 1300px) {
 	.preferences-page__container {
 		grid-template-columns: repeat(6, 137px);
 		grid-template-rows: 137px;
@@ -149,11 +158,22 @@
 	.preferences-page__container {
 		display: flex;
 		flex-direction: column;
+		padding-bottom: 20px;
 	}
 	.preferences-page__list {
 		width: 320px;
 		height: 50px;
 		border-radius: 50px;
+	}
+	.preferences-page__btn-container {
+		position: fixed;
+		background-color: #0c0c0c;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		justify-content: center;
 	}
 }
 @media screen and (max-width: 500px) {

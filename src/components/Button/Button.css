@@ -29,7 +29,7 @@
 	opacity: 1;
 }
 
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1300px) {
 	.button {
 		width: 288px;
 		align-self: end;
@@ -63,5 +63,11 @@
 	.button_type_profile {
 		font-size: 16px;
 		padding: 7px 0;
+	}
+	.button_type_preferences {
+		max-width: 280px;
+		font-size: 16px;
+		line-height: 18px;
+		padding: 11px 0;
 	}
 }
