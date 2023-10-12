@@ -3,6 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import { IInput } from '../../types/Input.types';
 import { useLocation } from 'react-router';
 
+import { useResize } from 'src/hooks/useResize';
 import './Input.css';
 
 const Input: FC<IInput> = ({
@@ -19,7 +20,7 @@ const Input: FC<IInput> = ({
 	defaultValue,
 }) => {
 	const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-
+	const {width} = useResize();
 	useEffect(() => {
 		setIsPasswordHidden(true);
 	}, []);
@@ -36,8 +37,8 @@ const Input: FC<IInput> = ({
 			: inputType;
 
 	return (
-		<>
-			<div className="input__container  input__container_type_desktop">
+		<> {width >=1000 ? (
+			<div className="input__container input__container_type_desktop">
 				<div
 					className={
 						location.pathname === '/profile'
@@ -85,7 +86,7 @@ const Input: FC<IInput> = ({
 						onClick={togglePassword}
 					/>
 				) : null}
-			</div>
+			</div>) : (
 			<div className="input__container input__container_type_mobile">
 				<div
 					className={
@@ -137,7 +138,7 @@ const Input: FC<IInput> = ({
 						onClick={togglePassword}
 					/>
 				) : null}
-			</div>
+			</div> )}
 		</>
 	);
 };
