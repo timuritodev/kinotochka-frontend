@@ -59,6 +59,13 @@
 		margin-left: 50px;
 	}
 }
+@media screen and (max-width: 1000px) {
+	.backbutton_type_signin {
+		margin-top: 0;
+		left: 4%;
+		background-color: transparent;
+	}
+}
 @media screen and (max-width: 650px) {
 	.backbutton_type_preferences {
 		align-self: flex-start;

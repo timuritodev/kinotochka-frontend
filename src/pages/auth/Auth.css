@@ -126,3 +126,30 @@
 	margin: 0;
 	padding: 20px 0 30px;
 }
+@media screen and (max-width: 1000px) {
+	.auth__container {
+		margin-top: 127px;
+		max-width: 88.89%;
+		padding: 20px;
+		border-radius: 20px;
+	}
+	.auth__title {
+		font-size: 24px;
+		line-height: 27px;
+	}
+	.auth__link-text {
+		font-size: 16px;
+		line-height: 18px;
+		padding-top: 15px;
+	}
+	.auth__form_type_sign-in {
+		padding-top: 33px;
+		gap: 20px;
+	}
+	.auth__recover-link {
+		font-size: 16px;
+		text-decoration: none;
+		margin-top: 10px;
+		margin-bottom: 0;
+	}
+}
