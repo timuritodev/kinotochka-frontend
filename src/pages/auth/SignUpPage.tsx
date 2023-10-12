@@ -53,11 +53,17 @@ const SignUpPage = () => {
 		</div>
 	);
 
-	const formTitle = <h1 className="auth__title auth__title_type_sign-up">Создать учетную запись</h1>;
+	const formTitle = (
+		<h1 className="auth__title auth__title_type_sign-up">
+			Создать учетную запись
+		</h1>
+	);
 	const { width } = useResize();
 	const formLink = (
 		<p className="auth__link-text">
-			{`${width>1000 ? `У вас уже есть учетная запись?` : 'Есть учетная запись?'}`}
+			{`${
+				width > 1000 ? `У вас уже есть учетная запись?` : 'Есть учетная запись?'
+			}`}
 			<Link to="/sign-in" className="auth__link">
 				Войти
 			</Link>
@@ -122,7 +128,6 @@ const SignUpPage = () => {
 			: selectedGenres.filter((genreId) => genreId !== id);
 
 		setSelectedGenres(newSelectedGenres);
-
 	};
 	return (
 		<main className="auth" id="sign-up-page">
@@ -139,7 +144,7 @@ const SignUpPage = () => {
 						<p className="auth__hint">
 							Зарегистрируйтесь с помощью электронной почты
 						</p>
-						{width>1000 ? (formLink): null}
+						{width > 1000 ? formLink : null}
 						<form
 							className="auth__form auth__form_type_sign-up"
 							onSubmit={handleSubmit(onSubmitFirstStep)}
@@ -190,36 +195,39 @@ const SignUpPage = () => {
 								type="submit"
 								disabled={!isDirty || !isValid}
 							/>
-							
 						</form>
-						{width<=1000 ? (formLink): null}
+						{width <= 1000 ? formLink : null}
 					</>
 				) : step === 2 ? (
 					<>
 						{formSteps}
 						{formTitle}
-						{width>1000 ? (formLink): null}
+						{width > 1000 ? formLink : null}
 						<p className="auth__hint">Выберите любимые жанры</p>
 						<form
 							className="auth__form auth__form_type_sign-up"
 							onSubmit={handleSubmit(onSubmitSecondStep)}
-						> {width>1000 ?
-							(<Slider
-								contentType={SliderTypes.genresBlock}
-								content={genres}
-								onGenreSelection={handleGenreSelection}
-							/>) : (
-							<ul className="auth__form-list-preferences">
-							{genres.map((genre) => (
-								<li key={genre.id} className="auth__form-item-preferences">
-									<GenreCheckbox
-										text={genre.title}
-										id={genre.id}
-										onChange={handleCheckboxChange}
-									/>
-								</li>
-							))}
-						</ul>)}
+						>
+							{' '}
+							{width > 1000 ? (
+								<Slider
+									contentType={SliderTypes.genresBlock}
+									content={genres}
+									onGenreSelection={handleGenreSelection}
+								/>
+							) : (
+								<ul className="auth__form-list-preferences">
+									{genres.map((genre) => (
+										<li key={genre.id} className="auth__form-item-preferences">
+											<GenreCheckbox
+												text={genre.title}
+												id={genre.id}
+												onChange={handleCheckboxChange}
+											/>
+										</li>
+									))}
+								</ul>
+							)}
 							<Button buttonText={'Продолжить'} type="submit" />
 						</form>
 					</>

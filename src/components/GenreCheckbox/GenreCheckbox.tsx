@@ -36,11 +36,15 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 						? `genre-checkbox__input genre-checkbox__input_type_preferences genre-checkbox__input_color_${color} ${
 								readOnly ? 'genre-checkbox__input_disabled' : ''
 						  }`
-						: `${location.pathname==='/sign-up' ? `genre-checkbox__input genre-checkbox__input_type_sign-up genre-checkbox__input_color_${color} ${
-							readOnly ? 'genre-checkbox__input_disabled' : ''
-					  }` : `genre-checkbox__input genre-checkbox__input_color_${color} ${
-							readOnly ? 'genre-checkbox__input_disabled' : ''
-					  }`}`  
+						: `${
+								location.pathname === '/sign-up'
+									? `genre-checkbox__input genre-checkbox__input_type_sign-up genre-checkbox__input_color_${color} ${
+											readOnly ? 'genre-checkbox__input_disabled' : ''
+									  }`
+									: `genre-checkbox__input genre-checkbox__input_color_${color} ${
+											readOnly ? 'genre-checkbox__input_disabled' : ''
+									  }`
+						  }`
 				}
 				type="checkbox"
 				checked={checked || isChecked}
@@ -55,11 +59,15 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 						? `genre-checkbox__appearance genre-checkbox__appearance_type_preferences genre-checkbox__appearance_color_${color} ${
 								readOnly ? 'genre-checkbox__input_disabled' : ''
 						  }`
-						: `${location.pathname==='/sign-up' ? `genre-checkbox__appearance genre-checkbox__appearance_type_sign-up genre-checkbox__appearance_color_${color} ${
-							readOnly ? 'genre-checkbox__input_disabled' : ''
-					  }`: `genre-checkbox__appearance genre-checkbox__appearance_color_${color} ${
-							readOnly ? 'genre-checkbox__input_disabled' : ''
-					  }`}` 
+						: `${
+								location.pathname === '/sign-up'
+									? `genre-checkbox__appearance genre-checkbox__appearance_type_sign-up genre-checkbox__appearance_color_${color} ${
+											readOnly ? 'genre-checkbox__input_disabled' : ''
+									  }`
+									: `genre-checkbox__appearance genre-checkbox__appearance_color_${color} ${
+											readOnly ? 'genre-checkbox__input_disabled' : ''
+									  }`
+						  }`
 				}
 			>
 				{text}
