@@ -161,6 +161,10 @@ const initialState: IUserState = {
 		nickname: undefined,
 		dateOfBirth: undefined,
 		sex: undefined,
+		avatar: {
+			id: 0,
+			avatar: '',
+		},
 	},
 };
 
@@ -172,6 +176,15 @@ const userSlice = createSlice({
 			state.user = action.payload;
 		},
 		signOut: () => initialState,
+		setSelectedAvatar: (state, action) => {
+			state.user.avatar = action.payload;
+		},
+		// clearSelectedAvatar: (state) => {
+		// 	state.user.avatar  = {
+		// 		id: 0,
+		// 		avatar: '',
+		// 	};
+		// },
 	},
 	extraReducers: (builder) => {
 		builder
@@ -226,7 +239,7 @@ const userSlice = createSlice({
 	},
 });
 
-export const { setUser, signOut } = userSlice.actions;
+export const { setUser, signOut, setSelectedAvatar } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;
 

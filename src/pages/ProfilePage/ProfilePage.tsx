@@ -29,7 +29,7 @@ const ProfilePage = () => {
 	const user = useAppSelector(selectUser);
 	const status = useAppSelector(selectUserStatus);
 	const genres = useAppSelector(selectGenres);
-	const savedImage = useAppSelector((state) => state.avatars.savedImage);
+	// const savedImage = useAppSelector((state) => state.avatars.savedImage);
 
 	const [isDeletePopupOpened, setIsDeletePopupOpened] =
 		useState<boolean>(false);
@@ -251,7 +251,7 @@ const ProfilePage = () => {
 					<div className="profile__avatar-container">
 						<div
 							className={
-								savedImage.id !== 0
+								user.avatar && user.avatar.id !== 0
 									? 'profile__avatar '
 									: 'profile__avatar  profile__avatar_type_letter'
 							}
@@ -261,8 +261,8 @@ const ProfilePage = () => {
 								className="profile__avatar-btn"
 								onClick={() => setIsAvatarPopupOpened(true)}
 							></button>
-							{savedImage.id !== 0 ? (
-								<img className="profile__avatar-img" src={savedImage.avatar} />
+							{user.avatar && user.avatar.id !== 0 ? (
+								<img className="profile__avatar-img" src={user.avatar.avatar} />
 							) : (
 								<p className="profile__user-first-letter">
 									{user.nickname ? user.nickname[0] : user.email[0]}
