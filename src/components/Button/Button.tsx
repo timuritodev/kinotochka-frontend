@@ -19,7 +19,11 @@ const Button: FC<IButton> = ({
 					? className
 					: `${
 							buttonText !== 'Сохранить' && buttonText !== 'Войти'
-								? `${location.pathname==='/sign-in' ? 'button button_type_toMain-sign-in':'button button_type_toMain'}`
+								? `${
+										location.pathname === '/sign-in'
+											? 'button button_type_toMain-sign-in'
+											: 'button button_type_toMain'
+								  }`
 								: `${
 										location.pathname === '/preferences'
 											? 'button button_type_preferences'

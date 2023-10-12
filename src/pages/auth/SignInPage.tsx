@@ -57,12 +57,12 @@ const SignInPage = () => {
 		reset();
 		setAuthError(false);
 	}, []);
-	const {width} = useResize();
+	const { width } = useResize();
 	return (
 		<main className="auth" id="sign-in-page">
 			<BackButton
 				type={'button'}
-				buttonText={`${width<=1000 ? "" : 'Назад'}`}
+				buttonText={`${width <= 1000 ? '' : 'Назад'}`}
 				handleButtonClick={() => navigate(-1)}
 			/>
 			<div className="auth__container">
