@@ -152,6 +152,54 @@
 	}
 }
 
+@media screen and (max-width: 360px) {
+	.moviepage {
+		max-width: 360px;
+	}
+
+	.movie-block {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.background-image {
+		display: none;
+	}
+
+	.movie-block__img {
+		width: 180px;
+		height: 240px;
+		margin: 40px 90px 30px 90px;
+	}
+
+	.moviepage__container {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.description__container {
+		padding-right: 129px;
+		margin-bottom: 40px;
+		grid-template-columns: auto auto;
+		gap: 30px;
+		grid-template-areas:
+			'aboutlist description '
+			'trailer trailer';
+	}
+
+	.movie-block__text_title {
+		font-size: 36px;
+		font-weight: 600;
+		line-height: 40px;
+		margin: 0;
+	}
+
+	.movie-block__text {
+		max-width: 320px;
+		margin: 0 20px 20px 20px;
+	}
+}
+
 @media screen and (max-width: 1150px) {
 	.movie-block__text {
 		max-width: 367px;
