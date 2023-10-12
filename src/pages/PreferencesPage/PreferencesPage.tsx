@@ -81,7 +81,7 @@ const PreferencesPage: FC = () => {
 					type={'button'}
 					disabled={renderButton()}
 				/> */}
-				<div className='preferences-page__btn-container'>
+				<div className="preferences-page__btn-container">
 					<Button
 						buttonText="Сохранить"
 						handleButtonClick={handleSubmit}
