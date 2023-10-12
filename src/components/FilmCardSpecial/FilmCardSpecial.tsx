@@ -9,7 +9,6 @@ import {
 } from 'src/services/redux/slices/moviebyid/moviebyid';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { selectUser } from 'src/services/redux/slices/user/user';
-import { useResize } from '../../hooks/useResize';
 
 export const FilmCardSpecial = ({ film }: { film: IMovieCard }) => {
 	const navigate = useNavigate();
