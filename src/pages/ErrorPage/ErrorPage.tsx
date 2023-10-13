@@ -35,7 +35,7 @@ export default function ErrorPage() {
 					}}
 				/>
 			</div>
-			<h1 className="error-page__message">Страница не найдена</h1>
+			<h1 className="error-page__message">Страница не&nbsp;найдена</h1>
 			<span className="error-page__text">
 				К сожалению, мы не смогли найти запрашиваемую вами страницу.
 			</span>
