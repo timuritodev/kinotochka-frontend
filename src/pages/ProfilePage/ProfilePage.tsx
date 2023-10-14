@@ -50,6 +50,11 @@ const ProfilePage = () => {
 		mode: 'onChange',
 	});
 
+	const avatars = useAppSelector((state) => state.avatars.images);
+
+	const avatarObject = avatars.find((avatar) => avatar.id === user.avatar);
+	const avatarUrl = avatarObject ? avatarObject.avatar : '';
+
 	const onSubmit: SubmitHandler<IEditProfileFields> = (
 		values: IEditProfileFields
 	) => {
@@ -251,7 +256,7 @@ const ProfilePage = () => {
 					<div className="profile__avatar-container">
 						<div
 							className={
-								user.avatar && user.avatar.id !== 0
+								user.avatar && user.avatar !== 0
 									? 'profile__avatar '
 									: 'profile__avatar  profile__avatar_type_letter'
 							}
@@ -261,8 +266,8 @@ const ProfilePage = () => {
 								className="profile__avatar-btn"
 								onClick={() => setIsAvatarPopupOpened(true)}
 							></button>
-							{user.avatar && user.avatar.id !== 0 ? (
-								<img className="profile__avatar-img" src={user.avatar.avatar} />
+							{user.avatar && user.avatar !== 0 ? (
+								<img className="profile__avatar-img" src={avatarUrl} />
 							) : (
 								<p className="profile__user-first-letter">
 									{user.nickname ? user.nickname[0] : user.email[0]}
