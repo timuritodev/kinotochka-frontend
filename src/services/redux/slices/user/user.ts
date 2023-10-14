@@ -2,6 +2,7 @@ import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import {
 	fetchCheckEmail,
 	fetchDeleteUser,
+	fetchEditAvatar,
 	fetchEditFavGenres,
 	fetchEditUserInfo,
 	fetchGetUserInfo,
@@ -138,6 +139,23 @@ export const editFavGenres = createAsyncThunk(
 	}
 );
 
+export const editAvatars = createAsyncThunk(
+	'@@user/editAvatars',
+	async (
+		arg: { data: { avatar: number }; token: string },
+		{ fulfillWithValue, rejectWithValue }
+	) => {
+		const { data, token } = arg;
+		try {
+			const response = await fetchEditAvatar(data, token);
+			const json = await response.json();
+			return fulfillWithValue(json);
+		} catch (error: unknown) {
+			return rejectWithValue(error);
+		}
+	}
+);
+
 export const deleteUser = createAsyncThunk(
 	'@@user/deleteUser',
 	async (token: string, { fulfillWithValue, rejectWithValue }) => {
@@ -161,10 +179,11 @@ const initialState: IUserState = {
 		nickname: undefined,
 		dateOfBirth: undefined,
 		sex: undefined,
-		avatar: {
-			id: 0,
-			avatar: '',
-		},
+		// avatar: {
+		// 	id: 0,
+		// 	avatar: '',
+		// },
+		avatar: 0,
 	},
 };
 
@@ -220,6 +239,10 @@ const userSlice = createSlice({
 			.addCase(editFavGenres.fulfilled, (state, action) => {
 				state.status = 'success';
 				state.user.fav_genres = action.payload.fav_genres;
+			})
+			.addCase(editAvatars.fulfilled, (state, action) => {
+				state.status = 'success';
+				state.user.avatar = action.payload.avatar;
 			})
 			.addCase(deleteUser.fulfilled, () => initialState)
 			.addMatcher(

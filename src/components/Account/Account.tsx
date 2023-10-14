@@ -33,13 +33,13 @@ const Account: FC = () => {
 				<>
 					<div className="account__profile-icon" onMouseOver={setProfileOpen}>
 						<Link to="/profile" className="account__profile-link">
-							{user.avatar && user.avatar.id !== 0 ? (
+							{/* {user.avatar && user.avatar.id !== 0 ? (
 								<img className="account__avatar-img" src={user.avatar.avatar} />
-							) : (
+							) : ( */}
 								<p className="account__profile-word">
 									{user.nickname ? user.nickname[0] : user.email[0]}
 								</p>
-							)}
+							{/* )} */}
 						</Link>
 					</div>
 					<nav

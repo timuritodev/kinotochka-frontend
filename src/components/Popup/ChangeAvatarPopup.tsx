@@ -3,10 +3,12 @@ import { FC, useState } from 'react';
 import Popup from './Popup';
 import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import {
+	editAvatars,
 	// clearSelectedAvatar,
 	setSelectedAvatar,
 } from 'src/services/redux/slices/user/user';
 import { AvatarsList } from '../Avatars/AvatarsList';
+import { selectUser } from '../../services/redux/slices/user/user';
 
 interface IChangesAvatarPopup {
 	isOpened: boolean;
@@ -18,6 +20,7 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	setIsOpened,
 }) => {
 	const dispatch = useAppDispatch();
+	const user = useAppSelector(selectUser);
 
 	const images = useAppSelector((state) => state.avatars.images);
 	const [selectedValue, setSelectedValue] = useState(0);
@@ -27,9 +30,10 @@ const ChangeAvatarPopup: FC<IChangesAvatarPopup> = ({
 	};
 
 	const handleSaveAvatar = () => {
-		const selectedImage = images.find((image) => image.id === selectedValue);
-		dispatch(setSelectedAvatar(selectedImage));
-		setIsOpened(false);
+		// const selectedImage = images.find((image) => image.id === selectedValue);
+		// dispatch(setSelectedAvatar(selectedImage));
+		// setIsOpened(false);
+		dispatch(editAvatars({ data: { avatar: selectedValue }, token: user.token }));
 	};
 
 	// const handleDeleteAvatar = () => {

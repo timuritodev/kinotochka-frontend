@@ -251,9 +251,10 @@ const ProfilePage = () => {
 					<div className="profile__avatar-container">
 						<div
 							className={
-								user.avatar && user.avatar.id !== 0
-									? 'profile__avatar '
-									: 'profile__avatar  profile__avatar_type_letter'
+								// user.avatar && user.avatar.id !== 0
+								// 	? 'profile__avatar '
+								// 	: 
+									'profile__avatar  profile__avatar_type_letter'
 							}
 						>
 							<button
@@ -261,13 +262,13 @@ const ProfilePage = () => {
 								className="profile__avatar-btn"
 								onClick={() => setIsAvatarPopupOpened(true)}
 							></button>
-							{user.avatar && user.avatar.id !== 0 ? (
+							{/* {user.avatar && user.avatar.id !== 0 ? (
 								<img className="profile__avatar-img" src={user.avatar.avatar} />
-							) : (
+							) : ( */}
 								<p className="profile__user-first-letter">
 									{user.nickname ? user.nickname[0] : user.email[0]}
 								</p>
-							)}
+							{/* )} */}
 						</div>
 						<div className="profile__buttons">
 							<Button
