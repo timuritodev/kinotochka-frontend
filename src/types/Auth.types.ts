@@ -39,6 +39,10 @@ export interface IUser {
 	nickname?: string;
 	dateOfBirth?: string;
 	sex?: 0 | 1;
+	avatar: {
+		id: number;
+		avatar: string;
+	};
 }
 
 export interface IResetPasswordData {

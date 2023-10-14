@@ -19,17 +19,23 @@ import GenreCheckbox from 'src/components/GenreCheckbox/GenreCheckbox';
 import { format } from 'date-fns';
 import DeleteProfilePopup from 'src/components/Popup/DeleteProfilePopup';
 import ChangesSavedPopup from 'src/components/Popup/ChangesSavedPopup';
+import ChangeAvatarPopup from 'src/components/Popup/ChangeAvatarPopup';
 import { Loader } from 'src/components/Loader/Loader';
+import comedy from 'src/images/avatar/comedy.svg';
+import { getAvatarsApi } from 'src/services/redux/slices/avatars/avatars';
 
 const ProfilePage = () => {
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
 	const status = useAppSelector(selectUserStatus);
 	const genres = useAppSelector(selectGenres);
+	// const savedImage = useAppSelector((state) => state.avatars.savedImage);
 
 	const [isDeletePopupOpened, setIsDeletePopupOpened] =
 		useState<boolean>(false);
 	const [isSavedPopupOpened, setIsSavedPopupOpened] = useState<boolean>(false);
+	const [isAvatarPopupOpened, setIsAvatarPopupOpened] =
+		useState<boolean>(false);
 
 	const {
 		handleSubmit,
@@ -95,6 +101,12 @@ const ProfilePage = () => {
 				.catch((err: unknown) => console.log('getUserInfo err', err));
 		}
 	}, [dispatch]);
+
+	useEffect(() => {
+		if (user.token) {
+			dispatch(getAvatarsApi(user.token));
+		}
+	}, []);
 
 	return status === 'loading' ? (
 		<Loader />
@@ -237,10 +249,25 @@ const ProfilePage = () => {
 						</form>
 					</div>
 					<div className="profile__avatar-container">
-						<div className="profile__avatar">
-							<p className="profile__user-first-letter">
-								{user.nickname ? user.nickname[0] : user.email[0]}
-							</p>
+						<div
+							className={
+								user.avatar && user.avatar.id !== 0
+									? 'profile__avatar '
+									: 'profile__avatar  profile__avatar_type_letter'
+							}
+						>
+							<button
+								type="button"
+								className="profile__avatar-btn"
+								onClick={() => setIsAvatarPopupOpened(true)}
+							></button>
+							{user.avatar && user.avatar.id !== 0 ? (
+								<img className="profile__avatar-img" src={user.avatar.avatar} />
+							) : (
+								<p className="profile__user-first-letter">
+									{user.nickname ? user.nickname[0] : user.email[0]}
+								</p>
+							)}
 						</div>
 						<div className="profile__buttons">
 							<Button
@@ -292,6 +319,10 @@ const ProfilePage = () => {
 			<ChangesSavedPopup
 				isOpened={isSavedPopupOpened}
 				setIsOpened={setIsSavedPopupOpened}
+			/>
+			<ChangeAvatarPopup
+				isOpened={isAvatarPopupOpened}
+				setIsOpened={setIsAvatarPopupOpened}
 			/>
 		</>
 	);
