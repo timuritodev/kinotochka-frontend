@@ -179,10 +179,6 @@ const initialState: IUserState = {
 		nickname: undefined,
 		dateOfBirth: undefined,
 		sex: undefined,
-		// avatar: {
-		// 	id: 0,
-		// 	avatar: '',
-		// },
 		avatar: 0,
 	},
 };
@@ -195,15 +191,6 @@ const userSlice = createSlice({
 			state.user = action.payload;
 		},
 		signOut: () => initialState,
-		setSelectedAvatar: (state, action) => {
-			state.user.avatar = action.payload;
-		},
-		// clearSelectedAvatar: (state) => {
-		// 	state.user.avatar  = {
-		// 		id: 0,
-		// 		avatar: '',
-		// 	};
-		// },
 	},
 	extraReducers: (builder) => {
 		builder
@@ -229,6 +216,7 @@ const userSlice = createSlice({
 				state.user.dateOfBirth = action.payload.date_of_birth;
 				state.user.sex = action.payload.sex;
 				state.user.fav_genres = action.payload.fav_genres;
+				state.user.avatar = action.payload.avatar;
 			})
 			.addCase(editUserInfo.fulfilled, (state, action) => {
 				state.status = 'success';
@@ -262,7 +250,7 @@ const userSlice = createSlice({
 	},
 });
 
-export const { setUser, signOut, setSelectedAvatar } = userSlice.actions;
+export const { setUser, signOut } = userSlice.actions;
 
 export const userReducer = userSlice.reducer;
 
