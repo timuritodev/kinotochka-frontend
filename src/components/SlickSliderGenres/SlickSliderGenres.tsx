@@ -13,8 +13,7 @@ import { useAppDispatch, useAppSelector } from '../../services/typeHooks';
 import { MoreButton } from '../MoreBtn/MoreButton';
 import { IGenresIcons } from 'src/types/GenresIcons.types';
 import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genresIcons';
-import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
-import { useResize } from '../../hooks/useResize';
+import { FilmCardGenreMain } from '../FilmCardGenreMain/FilmCardGenreMain';
 
 export const SlickSliderGenres = ({}) => {
 	const films = useAppSelector((state) => state.movies.movies);
@@ -37,16 +36,31 @@ export const SlickSliderGenres = ({}) => {
 		setData(genresicons);
 	}, []);
 
-	const { width, isBreakpoint } = useResize();
-	const moviesQty = !isBreakpoint ? 5 : 6;
-
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: moviesQty,
+		slidesToShow: 6,
 		slidesToScroll: 4,
 		arrows: true,
+		responsive: [
+			{
+			  breakpoint: 1320,
+			  settings: {
+				slidesToShow: 5,
+				slidesToScroll: 4,
+				infinite: true,
+				dots: true
+			  }
+			},
+			{
+				breakpoint: 460,
+				settings: {
+				  slidesToShow: 3,
+				  slidesToScroll: 3,
+				}
+			  }
+		]
 	};
 
 	const handleCheckboxChange = (text: string) => {
@@ -123,7 +137,7 @@ export const SlickSliderGenres = ({}) => {
 			</div>
 			<div className="flank_container_genres">
 				{filteredFilms.slice(0, pageMore).map((film) => (
-					<FilmCardSmall key={film.id} film={film} />
+					<FilmCardGenreMain key={film.id} film={film} />
 				))}
 			</div>
 			<div className="flank_btn">

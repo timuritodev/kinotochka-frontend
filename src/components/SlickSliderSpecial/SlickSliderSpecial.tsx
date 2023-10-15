@@ -5,21 +5,19 @@ import 'slick-carousel/slick/slick-theme.css';
 import { FC } from 'react';
 import { ICompilationsTwo } from 'src/types/Compilations.types';
 import { FilmCardSpecial } from '../../components/FilmCardSpecial/FilmCardSpecial';
-import { useResize } from 'src/hooks/useResize';
 
 export const SlickSliderSpecial: FC<ICompilationsTwo> = ({
 	title,
 	movies,
 	id,
 }) => {
-	const { width, isBreakpoint } = useResize();
-	const moviesQty = !isBreakpoint ? 3 : 5;
+	
 
 	const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: moviesQty,
+		slidesToShow:5,
 		slidesToScroll: 4,
 		arrows: true,
 		responsive: [

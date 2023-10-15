@@ -54,4 +54,8 @@
 	.genre-checkbox__appearance {
 		flex-direction: none;
 	}
+
+	.genre-checkbox__appearance-title {
+		position: absolute;
+	}
 }

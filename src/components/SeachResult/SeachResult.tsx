@@ -9,11 +9,14 @@ import {
 } from 'src/services/redux/slices/moviebyid/moviebyid';
 import { BookmarkSmall } from '../Bookmark_small/Bookmark_small';
 import { IMovieAdvancedCard } from 'src/types/MovieByAdvancedSearch.types';
+import { useState } from 'react';
 
 export const SeachResult = ({ film }: { film: IMovieAdvancedCard }) => {
 	const navigate = useNavigate();
 	const dispatch = useAppDispatch();
 	const user = useAppSelector(selectUser);
+
+	const [imgHover, setImgHover] = useState(false);
 
 	const handleClick = () => {
 		if (user.token) {
@@ -25,15 +28,25 @@ export const SeachResult = ({ film }: { film: IMovieAdvancedCard }) => {
 		window.scrollTo(0, 0);
 	};
 
+	function handleImgHover() {
+		setImgHover(true);
+	}
+
+	function handleImgLeave() {
+		setImgHover(false);
+	}
+
 	return (
 		<section className="search">
 			<div className="search_img-container">
-				<img
-					className="search_img"
-					src={film.v_picture}
-					alt=""
+				<div
+					className="search-img-background"
 					onClick={handleClick}
-				/>
+					onMouseEnter={handleImgHover}
+					onMouseLeave={handleImgLeave}
+				>
+					<img className="search_img" src={film.v_picture} alt="" />
+				</div>
 				<div className="button__container">
 					<BookmarkSmall id={film.id} />
 				</div>
