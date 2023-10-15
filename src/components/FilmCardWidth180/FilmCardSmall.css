@@ -18,7 +18,7 @@
 		overflow: hidden;
 		max-width: 180px;
 		padding: 0;
-		margin: 0;
+		margin: 0 0 0 -40px;
 	}
 
 	.moviepage_card-img {

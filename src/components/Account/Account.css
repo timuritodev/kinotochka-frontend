@@ -134,6 +134,11 @@
 	opacity: 0.6;
 }
 
+.account__avatar-img {
+	width: 32px;
+	height: 32px;
+}
+
 @media screen and (max-width: 1330px) {
 	.account {
 		margin: 0 50px 0 auto;
@@ -172,6 +177,9 @@
 }
 
 @media screen and (max-width: 360px) {
+	.account {
+		margin: 0 10px 0 0;
+	}
 	.account__profile-word {
 		width: 30px;
 		height: 30px;
@@ -183,5 +191,13 @@
 		color: #0c0c0c;
 		margin: 0;
 		text-align: center;
+	}
+	.account__avatar-img {
+		width: 30px;
+		height: 30px;
+	}
+	.account__profile-icon {
+		width: 30px;
+		height: 30px;
 	}
 }

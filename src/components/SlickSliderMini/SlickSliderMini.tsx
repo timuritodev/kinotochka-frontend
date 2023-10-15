@@ -24,8 +24,10 @@ export const SlickSliderMini: FC<ICompilationsTwo> = ({
 			{
 				breakpoint: 460,
 				settings: {
-					slidesToShow: 2,
+					slidesToShow: 1,
 					slidesToScroll: 2,
+					centerPadding: '40px',
+					centerMode: true,
 				},
 			},
 		],
