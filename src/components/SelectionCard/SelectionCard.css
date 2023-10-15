@@ -3,7 +3,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: 50px 30px;
-	margin: 0;
+	margin: 0 auto;
 }
 
 .selections_cards {
@@ -15,6 +15,12 @@
 @media screen and (max-width: 1297px) {
 	.selections_cards {
 		max-width: 288px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.selections_cards {
+		max-width: 321px;
 	}
 }
 
@@ -32,6 +38,12 @@
 @media screen and (max-width: 1297px) {
 	.selections_card {
 		max-width: 288px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.selections_card {
+		max-width: 321px;
 	}
 }
 
@@ -68,6 +80,12 @@
 	z-index: 3;
 	border-radius: 10px;
 	border: 2px solid black;
+}
+
+@media screen and (max-width: 767px) {
+	.selections_img {
+		height: 207px;
+	}
 }
 
 .selections_img:nth-child(2) {
