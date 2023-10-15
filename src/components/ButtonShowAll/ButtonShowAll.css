@@ -13,7 +13,14 @@
 @media screen and (max-width: 1297px) {
 	.flexbutton {
 		top: 15px;
-		right: -80px;
+		right: 40px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.flexbutton {
+		top: 15px;
+		right: -180px;
 	}
 }
 

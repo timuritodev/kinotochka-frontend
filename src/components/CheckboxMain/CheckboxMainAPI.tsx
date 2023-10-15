@@ -26,7 +26,7 @@ export default function GenresIconsFunc({
 				onChange={handleChange}
 			/>
 			<div className="genre-checkbox__appearance">
-				<img src={genreapi.picture} alt={genreapi.title} />
+				<img className="genre-checkbox__img" src={genreapi.picture} alt={genreapi.title} />
 				{genreapi.title}
 			</div>
 		</label>

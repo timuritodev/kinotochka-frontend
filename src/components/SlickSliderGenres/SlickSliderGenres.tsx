@@ -16,7 +16,7 @@ import { getGenresIconsAPI } from 'src/services/redux/slices/genresIconsApi/genr
 import { FilmCardSmall } from '../FilmCardWidth180/FilmCardSmall';
 import { useResize } from '../../hooks/useResize';
 
-export const SlickSliderGenres = ({}) => {
+export const SlickSliderGenres = ({ }) => {
 	const films = useAppSelector((state) => state.movies.movies);
 	const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
 	const [isMoreButton, setIsMoreButton] = useState(false);
@@ -60,8 +60,8 @@ export const SlickSliderGenres = ({}) => {
 	const filteredFilms =
 		selectedGenres.length > 0
 			? films.filter((film) => {
-					return selectedGenres.some((genre) => film.genres.includes(genre));
-			  })
+				return selectedGenres.some((genre) => film.genres.includes(genre));
+			})
 			: films;
 
 	const handleResize = useCallback(() => {
@@ -81,11 +81,17 @@ export const SlickSliderGenres = ({}) => {
 		if (screenSize >= 1280) {
 			const page = 10;
 			setPageMore(page);
-		} else if (screenSize <= 1280 && screenSize > 800) {
+		}
+		else if (screenSize <= 1280 && screenSize > 800) {
 			const page = 10;
 			setPageMore(page);
-		} else if (screenSize < 800) {
+		}
+		else if (screenSize < 800) {
 			const page = 5;
+			setPageMore(page);
+		}
+		else if (screenSize <= 360) {
+			const page = 3;
 			setPageMore(page);
 		}
 	}, [screenSize]);

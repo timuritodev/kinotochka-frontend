@@ -90,14 +90,13 @@
 	}
 }
 
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 360px) {
 	.genre-checkbox__input[type='checkbox'] {
-		width: 137px;
-		height: 137px;
+		height: 40px;
 	}
 
 	.genre-checkbox__appearance {
-		width: 137px;
-		height: 137px;
+		height: 40px;
+		/*flex-direction: row;*/
 	}
 }
