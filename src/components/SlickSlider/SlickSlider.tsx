@@ -21,22 +21,22 @@ export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 		arrows: true,
 		responsive: [
 			{
-			  breakpoint: 1320,
-			  settings: {
-				slidesToShow: 3,
-				slidesToScroll: 3,
-				infinite: true,
-				dots: true
-			  }
+				breakpoint: 1320,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3,
+					infinite: true,
+					dots: true,
+				},
 			},
 			{
 				breakpoint: 460,
 				settings: {
-				  slidesToShow: 1,
-				  slidesToScroll: 1,
-				}
-			  }
-		]
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	};
 
 	return (

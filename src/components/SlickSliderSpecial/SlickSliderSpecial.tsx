@@ -24,13 +24,13 @@ export const SlickSliderSpecial: FC<ICompilationsTwo> = ({
 		arrows: true,
 		responsive: [
 			{
-			  breakpoint: 460,
-			  settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-			  }
-			}
-		]
+				breakpoint: 460,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	};
 
 	return (
