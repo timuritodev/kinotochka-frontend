@@ -26,6 +26,13 @@
 	}
 }
 
+@media screen and (max-width: 360px) {
+	.flanks_card-img {
+		width: 280px;
+		height: 158px;
+	}
+}
+
 .flanks-card__background {
 	display: block;
 	position: relative;
