@@ -6,6 +6,12 @@
 	margin: 0 auto;
 }
 
+@media screen and (max-width: 1297px) {
+	.selections {
+		gap: 40px;
+	}
+}
+
 .selections_cards {
 	display: flex;
 	flex-direction: column;
@@ -111,6 +117,12 @@
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 767px) {
+	.selections_title {
+		margin-top: 0px;
+	}
 }
 
 .selections_description {
