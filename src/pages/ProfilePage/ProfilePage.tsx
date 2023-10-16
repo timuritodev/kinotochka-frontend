@@ -294,11 +294,26 @@ const ProfilePage = () => {
 				<div className="profile__container profile__container_type_mobile">
 					<div className="profile__form-container">
 						<h1 className="profile__title">Профиль</h1>
-						<div className="profile__avatar">
-							<p className="profile__user-first-letter">
-								{user.nickname ? user.nickname[0] : user.email[0]}
-							</p>
-						</div>
+						<div
+							className={
+								user.avatar && user.avatar !== 0
+									? 'profile__avatar '
+									: 'profile__avatar  profile__avatar_type_letter'
+							}
+						>
+							<button
+								type="button"
+								className="profile__avatar-btn"
+								onClick={() => setIsAvatarPopupOpened(true)}
+							></button>
+							{user.avatar && user.avatar !== 0 ? (
+								<img className="profile__avatar-img" src={avatarUrl} />
+							) : (
+								<p className="profile__user-first-letter">
+									{user.nickname ? user.nickname[0] : user.email[0]}
+								</p>
+							)}
+							</div>
 						<form className="profile__form" onSubmit={handleSubmit(onSubmit)}>
 							<Input
 								inputType={InputTypes.email}
