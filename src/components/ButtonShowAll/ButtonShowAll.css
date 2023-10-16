@@ -12,8 +12,16 @@
 
 @media screen and (max-width: 1297px) {
 	.flexbutton {
-		top: 10px;
+		top: 15px;
 		right: 40px;
+		width: 30px;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.flexbutton {
+		top: 15px;
+		/* right: -155px; */
 	}
 }
 
@@ -28,6 +36,19 @@
 	font-weight: 300;
 	line-height: 30px;
 	align-self: center;
+}
+
+@media screen and (max-width: 360px) {
+	.button-showall {
+		display: none;
+	}
+
+	.arrowright {
+		margin-left: 10px;
+		width: 20px;
+		height: 20px;
+		align-self: center;
+	}
 }
 
 .arrowright {

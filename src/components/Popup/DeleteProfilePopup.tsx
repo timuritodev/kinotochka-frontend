@@ -31,6 +31,13 @@ const DeleteProfilePopup: FC<IDeleteProfilePopup> = ({
 
 	return (
 		<Popup isOpened={isOpened} setIsOpened={setIsOpened}>
+			<div className="popup__container">
+				<button
+					type="button"
+					className="popup__x-btn"
+					onClick={() => setIsOpened(false)}
+				></button>
+			
 			{step === 0 ? (
 				<>
 					<h4 className="popup__title popup__title_type_delete-profile">
@@ -63,6 +70,7 @@ const DeleteProfilePopup: FC<IDeleteProfilePopup> = ({
 					/>
 				</>
 			)}
+			</div>
 		</Popup>
 	);
 };

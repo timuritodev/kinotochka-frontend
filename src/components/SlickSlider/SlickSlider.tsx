@@ -28,6 +28,13 @@ export const SlickSlider: FC<ICompilationsTwo> = ({ title, movies }) => {
 					dots: true,
 				},
 			},
+			{
+				breakpoint: 460,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
 		],
 	};
 

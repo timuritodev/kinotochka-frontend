@@ -16,6 +16,12 @@ const ChangesSavedPopup: FC<IChangesSavedPopup> = ({
 
 	return (
 		<Popup isOpened={isOpened} setIsOpened={setIsOpened}>
+			<div className="popup__container">
+				<button
+					type="button"
+					className="popup__x-btn"
+					onClick={() => setIsOpened(false)}
+				></button>
 			<h4 className="popup__title profile__title_type_saved-changes">
 				Сохранить изменения
 			</h4>
@@ -33,6 +39,7 @@ const ChangesSavedPopup: FC<IChangesSavedPopup> = ({
 			>
 				Закрыть
 			</button>
+			</div>
 		</Popup>
 	);
 };
