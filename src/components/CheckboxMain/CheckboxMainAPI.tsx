@@ -31,7 +31,9 @@ export default function GenresIconsFunc({
 					src={genreapi.picture}
 					alt={genreapi.title}
 				/>
-				<p className="genre-checkbox__appearance-title genre-checkbox__appearance__title_type_main">{genreapi.title}</p>
+				<p className="genre-checkbox__appearance-title genre-checkbox__appearance__title_type_main">
+					{genreapi.title}
+				</p>
 			</div>
 		</label>
 	);

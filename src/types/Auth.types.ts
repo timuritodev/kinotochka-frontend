@@ -1,4 +1,4 @@
-import { IMovieCard } from "./MovieCard.types";
+import { IMovieCard } from './MovieCard.types';
 
 export interface IRecoverPasswordFields {
 	email: string;
@@ -46,7 +46,7 @@ export interface IUser {
 	dateOfBirth?: string;
 	sex?: 0 | 1;
 	avatar: number;
-	recomendations: Array<IMovieCard>
+	recomendations: Array<IMovieCard>;
 }
 
 export interface IResetPasswordData {
