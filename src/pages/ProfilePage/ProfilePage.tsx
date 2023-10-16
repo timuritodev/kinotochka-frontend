@@ -313,7 +313,7 @@ const ProfilePage = () => {
 									{user.nickname ? user.nickname[0] : user.email[0]}
 								</p>
 							)}
-							</div>
+						</div>
 						<form className="profile__form" onSubmit={handleSubmit(onSubmit)}>
 							<Input
 								inputType={InputTypes.email}
