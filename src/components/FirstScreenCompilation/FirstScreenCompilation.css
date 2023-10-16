@@ -87,7 +87,7 @@
 
 @media screen and (max-width: 360px) {
 	.movie {
-		gap: 10px
+		gap: 10px;
 	}
 	.movie__name {
 		font-family: Oswald;
