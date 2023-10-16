@@ -22,23 +22,23 @@ const ChangesSavedPopup: FC<IChangesSavedPopup> = ({
 					className="popup__x-btn"
 					onClick={() => setIsOpened(false)}
 				></button>
-			<h4 className="popup__title profile__title_type_saved-changes">
-				Сохранить изменения
-			</h4>
-			<p className="popup__text profile__text_type_saved-changes">
-				Изменения сохранены
-			</p>
-			<Button
-				buttonText={'На Главную'}
-				handleButtonClick={() => navigate('/')}
-				type="button"
-			/>
-			<button
-				className="popup__close popup__close_type_saved-changes"
-				onClick={() => setIsOpened(false)}
-			>
-				Закрыть
-			</button>
+				<h4 className="popup__title profile__title_type_saved-changes">
+					Сохранить изменения
+				</h4>
+				<p className="popup__text profile__text_type_saved-changes">
+					Изменения сохранены
+				</p>
+				<Button
+					buttonText={'На Главную'}
+					handleButtonClick={() => navigate('/')}
+					type="button"
+				/>
+				<button
+					className="popup__close popup__close_type_saved-changes"
+					onClick={() => setIsOpened(false)}
+				>
+					Закрыть
+				</button>
 			</div>
 		</Popup>
 	);
