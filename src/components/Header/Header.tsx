@@ -75,7 +75,7 @@ const Header: FC = () => {
 
 	return (
 		<header className="header" id="header">
-			<div className="header__logo">
+			{/* <div className="header__logo">
 				<img
 					className="header__logo1"
 					alt="лого"
@@ -90,8 +90,8 @@ const Header: FC = () => {
 						onMouseOver={setNavOpen}
 					/>
 				</Link>
-			</div>
-			<nav
+			</div> */}
+			{/* <nav
 				className={`header__content ${isOpen && 'header__content_open'}`}
 				onMouseOver={setNavOpen}
 				onMouseOut={setNavClose}
@@ -107,7 +107,7 @@ const Header: FC = () => {
 						Фильмы по жанрам
 					</Link>
 				</ul>
-			</nav>
+			</nav> */}
 			<div className="header__container">
 				<form className="header__search">
 					<input
@@ -150,9 +150,9 @@ const Header: FC = () => {
 					isClose={setSearchClose}
 				/>
 			</div>
-			<Account
+			{/* <Account
 			// isLoggedIn={true}
-			/>
+			/> */}
 		</header>
 	);
 };

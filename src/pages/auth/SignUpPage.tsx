@@ -223,6 +223,7 @@ const SignUpPage = () => {
 												text={genre.title}
 												id={genre.id}
 												onChange={handleCheckboxChange}
+												image={genre.picture}
 											/>
 										</li>
 									))}

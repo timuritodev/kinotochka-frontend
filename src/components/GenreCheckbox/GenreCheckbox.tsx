@@ -10,6 +10,7 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 	checked,
 	onChange,
 	readOnly = false,
+	image,
 	defaultChecked,
 }) => {
 	const [isChecked, setIsChecked] = useState(checked || false);
@@ -53,6 +54,7 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 				readOnly={readOnly}
 				// defaultChecked={defaultChecked}
 			/>
+			
 			<span
 				className={
 					location.pathname === '/preferences'
@@ -70,7 +72,8 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 						  }`
 				}
 			>
-				{text}
+				<img className='genre-checkbox__appearance-img' src={image} />
+				<p className='genre-checkbox__appearance-text'>{text}</p>
 			</span>
 		</label>
 	);

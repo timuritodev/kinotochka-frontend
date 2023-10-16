@@ -71,6 +71,7 @@ const PreferencesPage: FC = () => {
 								onChange={handleCheckboxChange}
 								id={genre.id}
 								checked={selectedGenres.includes(genre.id)}
+								image={genre.picture}
 							/>
 						</li>
 					))}

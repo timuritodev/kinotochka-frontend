@@ -9,7 +9,7 @@ import './Layout.css';
 export const Layout: FC = () => {
 	return (
 		<div className="layout">
-			{/* <Header /> */}
+			<Header />
 			<Outlet />
 			{/* <Footer /> */}
 		</div>
