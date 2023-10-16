@@ -82,7 +82,7 @@ const MovieButton: FC<IButton> = ({ buttonName, id }) => {
 							: () => handleClickWatch()
 					}
 				>
-					<div className={`moviepage-button ${typesCss}`} />
+					<div className={`moviepage-button ${typesCss}`}/>
 					<img className="moviepage-button__img" src={typesImg} alt="icon" />
 				</section>
 			) : null}

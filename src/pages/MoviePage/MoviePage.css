@@ -115,6 +115,7 @@
 		gap: 60px;
 		justify-content: flex-start;
 		margin: 0;
+		position: relative;
 	}
 
 	.movie-block__text {
@@ -157,6 +158,10 @@
 		max-width: 360px;
 	}
 
+	.moviepage-cards__container {
+		margin: 32px 20px 0 0;
+	}
+
 	.movie-block {
 		display: flex;
 		flex-direction: column;
@@ -177,6 +182,7 @@
 	.moviepage__container {
 		width: 100%;
 		margin: 0 auto;
+		padding-bottom: 85px;
 	}
 
 	.moviepage__button__container {
@@ -191,13 +197,11 @@
 	}
 
 	.description__container {
-		padding-right: 129px;
-		margin-bottom: 40px;
-		grid-template-columns: auto auto;
-		gap: 30px;
-		grid-template-areas:
-			'aboutlist description '
-			'trailer trailer';
+		display: flex;
+		flex-direction: column;
+		max-width: 320px;
+		padding: 0;
+		margin: 0 20px 0;
 	}
 
 	.movie-block__text_title {
