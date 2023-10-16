@@ -54,7 +54,7 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 				readOnly={readOnly}
 				// defaultChecked={defaultChecked}
 			/>
-			
+
 			<span
 				className={
 					location.pathname === '/preferences'
@@ -72,8 +72,8 @@ const GenreCheckbox: FC<IGenreCheckbox> = ({
 						  }`
 				}
 			>
-				<img className='genre-checkbox__appearance-img' src={image} />
-				<p className='genre-checkbox__appearance-text'>{text}</p>
+				<img className="genre-checkbox__appearance-img" src={image} />
+				<p className="genre-checkbox__appearance-text">{text}</p>
 			</span>
 		</label>
 	);
