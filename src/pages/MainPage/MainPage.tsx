@@ -12,7 +12,10 @@ import { getCompilationsApi } from 'src/services/redux/slices/compilations/compi
 import { Loader } from 'src/components/Loader/Loader';
 import { SlickSliderMini } from 'src/components/SlickSliderMini/SlickSliderMini';
 import { getGenres } from 'src/services/redux/slices/genres/genres';
-import { getRecomendations, selectUser } from 'src/services/redux/slices/user/user';
+import {
+	getRecomendations,
+	selectUser,
+} from 'src/services/redux/slices/user/user';
 import {
 	getFavoritesApi,
 	getWatchListApi,
@@ -70,8 +73,10 @@ export default function MainPage() {
 	const films = useAppSelector((state) => state.movies.movies);
 	const newmovies = useAppSelector((state) => state.newmoviecards.movies);
 	const recomendations = useAppSelector((state) => state.recomendations.movies);
-	const recomendations2 = useAppSelector((state) => state.user.user.recomendations);
-	console.log(recomendations2)
+	const recomendations2 = useAppSelector(
+		(state) => state.user.user.recomendations
+	);
+	console.log(recomendations2);
 	// const compilations = useAppSelector((state) => state.compilations.data);
 	const redactionOne = useAppSelector((state) => state.compilations.data[0]);
 	const redactionTwo = useAppSelector((state) => state.compilations.data[1]);

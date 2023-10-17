@@ -57,5 +57,6 @@
 
 	.genre-checkbox__appearance-title {
 		position: absolute;
+		font-size: 16px;
 	}
 }

@@ -139,3 +139,24 @@
 		display: block;
 	}
 }
+@media screen and (max-width: 360px) {
+	.genre-checkbox__input_type_main[type='checkbox'] {
+		width: auto;
+		height: 40px;
+	}
+	.genre-checkbox__appearance_type_main {
+		width: auto;
+		height: 40px;
+	}
+	.genre-checkbox__appearance__title_type_main {
+		display: inline-block;
+		padding: 0 20px;
+		position: relative;
+	}
+	.genre-checkbox__img_type_main {
+		width: 0;
+	}
+	.genre-checkbox_type_main {
+		margin-bottom: 20px;
+	}
+}
