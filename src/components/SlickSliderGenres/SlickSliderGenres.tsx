@@ -120,7 +120,7 @@ export const SlickSliderGenres = ({}) => {
 	};
 
 	return (
-		<div>
+		<div className='slick-slider-genres'>
 			<div className="slick-slider-genres_container">
 				<h1 className="slick-slider_title">Фильмы по жанрам</h1>
 				<Slider {...settings} className="slick-slider">

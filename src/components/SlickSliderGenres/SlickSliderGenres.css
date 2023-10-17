@@ -27,6 +27,9 @@
 }
 
 @media screen and (max-width: 1297px) {
+	.slick-slider-genres {
+		max-width: 1024px;
+	}
 	.flank_container_genres {
 		max-width: 1024px;
 		margin: 50px 120px 0;
