@@ -104,7 +104,6 @@ const Header: FC = () => {
 	// 	}
 	// }, [screenSize]);
 
-	console.log(screenSize);
 	return (
 		<header className="header" id="header">
 			<div className="header__logo">
