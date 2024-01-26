@@ -3,7 +3,7 @@
 Kinotochka - платформа рекомендаций фильмов 
 
 ### Ссылка на опубликованную версию
-kinotochka.site/
+http://kinotochka.site/
 
 ### Команда
 Над проектом работали Frontend, Backend, QA, UX/UI Designer, Data Science на протяжении 3 месяцев.
